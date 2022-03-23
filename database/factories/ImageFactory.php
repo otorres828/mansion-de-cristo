@@ -3,21 +3,27 @@
 namespace Database\Factories;
 
 use App\Models\Image;
+use App\Models\Announce;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ImageFactory extends Factory
 {
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
     protected $model = Image::class;
-    public $search="";
-    public function __construct($search)
-    {
-        $this->search=$search;
-    }
 
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
     public function definition()
     {
         return [
-            'url'=>$this->search.'/'. $this->faker->image('public/storage/'.$this->search,640,400,null,false)
+            'url'=>'announces/'. $this->faker->image('public/storage/announces',640,400,null,false)
         ];
     }
 }
