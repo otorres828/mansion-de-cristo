@@ -8,26 +8,17 @@
 @endsection
 
 @section('main')
-    <div
-        class="mr-3 ml-3
-            z-10
-            mb-10
-            -mt-64
-            xl:mx-32
-            relative
-            rounded-lg
-            
-            ">
+    <div class="mr-3 ml-3 mb-10  -mt-64 xl:mx-32 relative rounded-lg">
         <main>
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
-                <article class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-6 py-10">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
+                <article class="bg-gray-50 overflow-hidden shadow-xl sm:rounded-lg px-6 py-10">
 
 
                     <div class="px-6 py-4">
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                            <div class="col-span-1">
+                            <div class="col-span-1 mx-auto">
                                 <div class="mb-10">
                                     <h2 class="text-4xl font-bold leading-tight lg:text-5xl mb-2">¡Escríbenos!</h2>
                                     <div class="text-gray-600">Dejanos un mensaje y te responderemos a la brevedad</div>
