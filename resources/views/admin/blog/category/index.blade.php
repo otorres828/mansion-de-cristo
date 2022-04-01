@@ -33,8 +33,8 @@
                                 
                                 <div class="d-flex justify-content-end align-items-baseline">
                                     {!! Form::submit('Crear', ['class'=>'btn btn-success']) !!}
-                                <button type="button" class="ml-1 btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                            </div>                        
+                                    <button type="button" class="ml-1 btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                                </div>                        
                            {!! Form::close() !!}                       
                         </div>
                     </div>        
