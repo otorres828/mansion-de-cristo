@@ -19,27 +19,22 @@
 @stop
 
 @section('css')
-   <style>
-       .image-wraper{
-           position: relative;
-           padding-bottom: 70%;
-       }
-
-       .image-wraper img{
-           position: absolute;
-           object-fit: cover;
-           width: 100%;
-           height: 100%;
-       }
-   </style>
+    <style>
+        .image-wraper {
+            position: relative;
+            padding-bottom: 56.25%;
+        }
+        .image-wraper {
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 @stop
 
-
 @section('js')
-
-
     <script src="{{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}}"></script>
-
     <script>
         $(document).ready( function() {
             $("#name").stringToSlug({

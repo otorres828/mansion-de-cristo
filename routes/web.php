@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LanddingController::class,'index'])->name('landding.index');
 
-
-
 //CONTROLADORES DEL BLOG
 Route::get('acercade', [ContactController::class,'acercade'])->name('blog.acercade');
 
@@ -44,9 +42,7 @@ Route::get('terminos',  function(){
 Route::get('/secretaria', [SecretaryController::class,'index'])->name('secretary.index')->middleware('auth');
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
 
 //LIMPIAR CACHE
 Route::get('/clear', function () {

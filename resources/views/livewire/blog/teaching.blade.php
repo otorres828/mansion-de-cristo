@@ -61,8 +61,8 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- FILTRADO POR CATEGORIA BOTON VERDE --}}
                         <div class=" mt-0 px-6  flex flex-wrap items-baseline ">
-
                             <h4
                                 class="mt-2  flex w-full text-lg leading-tight text-gray-700  hover:text-blue-800  font-bold font-serif ">
                                 <a href="{{ route('blog.show_teaching', $teaching->slug) }}">{{ $teaching->name }}</a>
