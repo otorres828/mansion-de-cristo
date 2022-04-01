@@ -155,7 +155,7 @@
                     </a>
                     <div class=" pt-5">
                         <a href="{{route('blog.show_announces',$anuncio->slug)}}" class="mt-0  px-2  flex flex-wrap items-baseline hover:text-indigo-600 text-gray-800 lg:text-3xl md:text-2xl font-bold my-2">{{$anuncio->name}}</a>
-                        <p class="text-gray-700 m-3 text-justify">{{$anuncio->extract}}</p>
+                        <p class="text-gray-700 m-3 text-justify">{{Illuminate\Support\Str::limit($anuncio->extract,200,'...')}}</p>
                         <div class="flex justify-between  m-3">
                             <span class="font-bold text-sm text-gray-400">{{$anuncio->created_at->toFormattedDateString()}}</span>                             
                         </div>

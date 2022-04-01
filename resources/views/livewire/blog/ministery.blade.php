@@ -51,7 +51,7 @@
         
                                 <div class="py-2 px-6">
                                     <div class="flex-grow items-center  justify-between ">
-                                        <h1 class="mb-3 text-gray-600 ">{{$ministery->extract}}</h1>
+                                        <h1 class="mb-3 text-gray-600 ">{{Illuminate\Support\Str::limit($ministery->extract,200,'...')}}</h1>
                                     </div>
                                 </div>
                             </div>
