@@ -8,8 +8,8 @@
 @stop
 
 @section('content')
-    <x-alert/>
-    <div class="mb-3">
+<x-aminblog.alert/>
+<div class="mb-3">
         <a class="btn btn-primary " href="{{route('admin.blog.testimony.create')}}">Crear Testimonio</a>
     </div>
     <div class="card">

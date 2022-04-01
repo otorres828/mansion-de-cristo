@@ -7,11 +7,8 @@
 @stop
 
 @section('content')
-@if (session('info'))
-    <div class="alert alert-success">
-        <h4><strong>{{session('info')}}</strong></h4>
-    </div>
-@endif
+<x-aminblog.alert/>
+
 <div class="card">
     <div class="card-body">
         {!! Form::model($category,['route'=>['admin.blog.category.update',$category],'autocomplete'=>'off','method'=>'put']) !!}
