@@ -44,8 +44,8 @@ class AnnounceController extends Controller
 
     public function store(AnnounceRequest $request)
     {
-        $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
-        $ruta =storage_path() . '/app/public/announces/' . $nombre;
+         $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
+          $ruta =storage_path() . '/app/public/announces/' . $nombre;
         Image::make($request->file('file'))->resize(600,400)->save($ruta);
 
         $anuncio= Announce::create($request->all());
@@ -68,7 +68,6 @@ class AnnounceController extends Controller
   
     public function update(AnnounceRequest $request, Announce $anuncio)
     {
-
         $this->authorize('autor',$anuncio);
         $anuncio->update($request->all());
 
