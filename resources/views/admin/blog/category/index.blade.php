@@ -118,32 +118,31 @@
 @stop
 
 @section('js')
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    $('.destroy').submit(function(e){
-        e.preventDefault();
-        Swal.fire({
-        title: '¿Estas Seguro?',
-        text: "que quieres eliminar la categoria!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Confirmar',
-        cancelButtonText: 'Cancelar'
+    <script>
+        $('.destroy').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+            title: '¿Estas Seguro?',
+            text: "que quieres eliminar la categoria!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar'
 
-        }).then((result) => {
-        if (result.isConfirmed) {
-            // Swal.fire(
-            // 'Eliminado!',
-            // 'La red se ha eliminado con exito',
-            // 'success'
-            // )
-            this.submit();
-        }
-    })
-    });
-</script>
+            }).then((result) => {
+            if (result.isConfirmed) {
+                // Swal.fire(
+                // 'Eliminado!',
+                // 'La red se ha eliminado con exito',
+                // 'success'
+                // )
+                this.submit();
+            }
+        })
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <x-scrip-table-blog/>
 

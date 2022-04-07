@@ -12,7 +12,7 @@
     @yield('head')
     <title>@yield('title')</title>
 </head>
-<body style="background-color: rgb(255, 255, 255)">
+<body >
     <header>
         @livewire('blog.navigation')
     </header>
