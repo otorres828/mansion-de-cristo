@@ -5,7 +5,7 @@
 @section('main')
     <div>
         <div class="mx-auto container">
-            <div class="p-8">
+            <div class="sm:px-16 pt-8">
                 <div id="indicators-carousel" class="relative" data-carousel="static">
                     <!-- Carousel wrapper -->
                     <div class="overflow-hidden relative h-48 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
@@ -76,26 +76,32 @@
                         </span>
                     </button>
                 </div>
-                <div class="pt-8 grid grid-cols-4">
-                    @foreach ($announces as $anuncio)
-                        <div class="px-6 flex justify-center hover:bg-gray-200">
-                            <div class="min-w-full" class="rounded-lg shadow-lg bg-white ">
-                                <a href="{{ route('blog.show_announces', $anuncio) }}" data-mdb-ripple="true"
-                                    data-mdb-ripple-color="light">
-                                    <img width="263" height="600" src="{{ Storage::url($anuncio->image->url) }}" alt="" />
+            </div>
+            {{-- NOTICIAS --}}
+            <div class="max-w-3xl mx-auto text-center mt-8">
+                <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer las Noticias <a class="text-cyan-900 font-bold" href="{{route('blog.testimony')}}">Mas Recientes</a></h2>
+               
+            </div>
+            <div class="pt-8 sm:px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                
+                @foreach ($announces as $anuncio)
+                    <div class="px-6 flex justify-center hover:bg-gray-200">
+                        <div class="" class="rounded-lg shadow-lg bg-white ">
+                            <a href="{{ route('blog.show_announces', $anuncio) }}" data-mdb-ripple="true"
+                                data-mdb-ripple-color="light">
+                                <img src="{{ Storage::url($anuncio->image->url) }}" alt="" />
+                            </a>
+                            <div class="p-3">
+                                <a href="{{ route('blog.show_announces', $anuncio) }}"> 
+                                    <h5  class="text-gray-900 text-xl font-medium mb-2">{{ $anuncio->name }}</h5>
                                 </a>
-                                <div class="p-6">
-                                    <a href="{{ route('blog.show_announces', $anuncio) }}"> 
-                                        <h5  class="text-gray-900 text-xl font-medium mb-2">{{ $anuncio->name }}</h5>
-                                    </a>
-                                    <p class="text-gray-700 text-base mb-4">
-                                        {{ Illuminate\Support\Str::limit($anuncio->extract, 120, '...') }}
-                                    </p>
-                                </div>
+                                <p class="text-gray-700 text-base ">
+                                    {{ Illuminate\Support\Str::limit($anuncio->extract, 120, '...') }}
+                                </p>
                             </div>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
 
             {{-- TESTIMONIOS --}}
@@ -107,11 +113,12 @@
                 <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
                     <div class="py-12 md:py-20">
                         <div class="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-                            <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer los Testimonios Mas Recientes</h2>
+                            <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer los Testimonios <a class="text-cyan-900 font-bold" href="{{route('blog.testimony')}}">Mas Recientes</a></h2>
                             <p class="text-xl text-gray-600">
                                 Contemos las historias que inspiren a otras personas seguir creyendo por su milagro. Tu
                                 testimonio las puede llenar de fe a otro, <a class="text-cyan-900 font-bold"
                                     href="{{ route('blog.contact.index') }}">compártelo aqui</a>.
+                            </p>
                         </div>
                         <div
                             class="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none">
