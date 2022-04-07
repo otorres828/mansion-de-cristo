@@ -1377,6 +1377,14 @@ select {
 .min-w-0 {
   min-width: 0px;
 }
+.min-w-min {
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
+}
+.min-w-full {
+  min-width: 100%;
+}
 .max-w-screen-xl {
   max-width: 1280px;
 }
@@ -2467,11 +2475,22 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(187 247 208 / var(--tw-bg-opacity));
 }
+.hover\:bg-slate-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+}
+.hover\:bg-gray-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
 .hover\:to-blue-700:hover {
   --tw-gradient-to: #1d4ed8;
 }
 .hover\:to-red-700:hover {
   --tw-gradient-to: #b91c1c;
+}
+.hover\:to-slate-400:hover {
+  --tw-gradient-to: #94a3b8;
 }
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;

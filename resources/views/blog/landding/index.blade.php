@@ -76,79 +76,28 @@
                         </span>
                     </button>
                 </div>
+                <div class="pt-8 grid grid-cols-4">
+                    @foreach ($announces as $anuncio)
+                        <div class="px-6 flex justify-center hover:bg-gray-200">
+                            <div class="min-w-full" class="rounded-lg shadow-lg bg-white ">
+                                <a href="{{ route('blog.show_announces', $anuncio) }}" data-mdb-ripple="true"
+                                    data-mdb-ripple-color="light">
+                                    <img width="263" height="600" src="{{ Storage::url($anuncio->image->url) }}" alt="" />
+                                </a>
+                                <div class="p-6">
+                                    <a href="{{ route('blog.show_announces', $anuncio) }}"> 
+                                        <h5  class="text-gray-900 text-xl font-medium mb-2">{{ $anuncio->name }}</h5>
+                                    </a>
+                                    <p class="text-gray-700 text-base mb-4">
+                                        {{ Illuminate\Support\Str::limit($anuncio->extract, 120, '...') }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-            <div class=" grid grid-cols-4">
 
-                <div class="flex justify-center">
-                    <div class="rounded-lg shadow-lg bg-white ">
-                        <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                            <img width="263" height="600" src="https://mdbootstrap.com/img/new/standard/nature/182.jpg"
-                                alt="" />
-                        </a>
-                        <div class="p-6">
-                            <h5 class="text-gray-900 text-xl font-medium mb-2">Card title</h5>
-                            <p class="text-gray-700 text-base mb-4">
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                            <button type="button"
-                                class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Button</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="rounded-lg shadow-lg bg-white ">
-                        <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                            <img width="263" height="344" class="rounded-t-lg"
-                                src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" alt="" />
-                        </a>
-                        <div class="p-6">
-                            <h5 class="text-gray-900 text-xl font-medium mb-2">Card title</h5>
-                            <p class="text-gray-700 text-base mb-4">
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                            <button type="button"
-                                class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Button</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="rounded-lg shadow-lg bg-white">
-                        <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                            <img width="263" height="344" class="rounded-t-lg"
-                                src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" alt="" />
-                        </a>
-                        <div class="p-6">
-                            <h5 class="text-gray-900 text-xl font-medium mb-2">Card title</h5>
-                            <p class="text-gray-700 text-base mb-4">
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                            <button type="button"
-                                class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Button</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="rounded-lg shadow-lg bg-white ">
-                        <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                            <img width="263" height="344" class="rounded-t-lg"
-                                src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" alt="" />
-                        </a>
-                        <div class="p-6">
-                            <h5 class="text-gray-900 text-xl font-medium mb-2">Card title</h5>
-                            <p class="text-gray-700 text-base mb-4">
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                            <button type="button"
-                                class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Button</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
             {{-- TESTIMONIOS --}}
             <section class="relative">
                 <div class="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 bg-gray-800 pointer-events-none" aria-hidden="true">
@@ -160,18 +109,27 @@
                         <div class="max-w-3xl mx-auto text-center pb-12 md:pb-20">
                             <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer los Testimonios Mas Recientes</h2>
                             <p class="text-xl text-gray-600">
-                                Contemos las historias que inspiren a otras personas seguir creyendo por su milagro. Tu testimonio las puede llenar de fe a otro, <a class="text-cyan-900 font-bold"href="{{route('blog.contact.index')}}">compártelo aqui</a>.
+                                Contemos las historias que inspiren a otras personas seguir creyendo por su milagro. Tu
+                                testimonio las puede llenar de fe a otro, <a class="text-cyan-900 font-bold"
+                                    href="{{ route('blog.contact.index') }}">compártelo aqui</a>.
                         </div>
-                        <div class="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none">
+                        <div
+                            class="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none">
                             @foreach ($testimonies as $testimony)
                                 <div class="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
                                     <div class="flex justify-center">
-                                        <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src="@if($testimony->image){{asset('storage/'.$testimony->image->url)}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif">
-                                    </div>                                    <h4 class="text-xl font-bold leading-snug tracking-tight mb-1 text-center"><a class="hover:to-blue-700" href="{{route('blog.show_testimony',$testimony)}}">{{$testimony->name}}</a></h4>
-                                    <p class="text-gray-600 text-center"> {{Illuminate\Support\Str::limit($testimony->extract,100,'...')}}</p>
+                                        <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500"
+                                            src="@if ($testimony->image) {{ asset('storage/' . $testimony->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif">
+                                    </div>
+                                    <h4 class="text-xl font-bold leading-snug tracking-tight mb-1 text-center"><a
+                                            class="hover:to-blue-700"
+                                            href="{{ route('blog.show_testimony', $testimony) }}">{{ $testimony->name }}</a>
+                                    </h4>
+                                    <p class="text-gray-600 text-center">
+                                        {{ Illuminate\Support\Str::limit($testimony->extract, 100, '...') }}</p>
                                 </div>
                             @endforeach
-                            
+
                         </div>
                     </div>
                 </div>
@@ -205,7 +163,8 @@
                                         </g>
                                         <circle fill="url(#ni-a)" cx="276" cy="237" r="200"></circle>
                                     </g>
-                                </svg></div>
+                                </svg>
+                            </div>
                             <div class="relative flex flex-col lg:flex-row justify-between items-center">
                                 <div class="text-center lg:text-left lg:max-w-xl">
                                     <h3 class="h3 text-white mb-2">Powering your business</h3>
@@ -218,7 +177,8 @@
                                                 class="form-input w-full appearance-none bg-gray-800 border border-gray-700 focus:border-gray-600 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-gray-500"
                                                 placeholder="Your email…" aria-label="Your email…"><a
                                                 class="btn text-white bg-blue-600 hover:bg-blue-700 shadow"
-                                                href="#0">Subscribe</a></div>
+                                                href="#0">Subscribe</a>
+                                        </div>
                                         <p class="text-sm text-gray-400 mt-3">7 days free trial. No credit card required.
                                         </p>
                                     </form>
