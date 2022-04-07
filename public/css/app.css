@@ -1305,6 +1305,9 @@ select {
 .h-96 {
   height: 24rem;
 }
+.h-auto {
+  height: auto;
+}
 .max-h-screen {
   max-height: 100vh;
 }
