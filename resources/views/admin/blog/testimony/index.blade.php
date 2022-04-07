@@ -4,12 +4,11 @@
 
 @section('content_header')
     <h1>Lista de Testimonios</h1>
-    
 @stop
 
 @section('content')
-<x-aminblog.alert/>
-<div class="mb-3">
+    <x-aminblog.alert/>
+    <div class="mb-3">
         <a class="btn btn-primary " href="{{route('admin.blog.testimony.create')}}">Crear Testimonio</a>
     </div>
     <div class="card">
@@ -53,36 +52,35 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 @stop
 
 @section('js')
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    $('.destroy').submit(function(e){
-        e.preventDefault();
-        Swal.fire({
-        title: '¿Estas Seguro?',
-        text: "que quieres eliminar el testimonio!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Confirmar',
-        cancelButtonText: 'Cancelar'
+    <script>
+        $('.destroy').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+            title: '¿Estas Seguro?',
+            text: "que quieres eliminar el testimonio!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar'
 
-        }).then((result) => {
-        if (result.isConfirmed) {
-            // Swal.fire(
-            // 'Eliminado!',
-            // 'La red se ha eliminado con exito',
-            // 'success'
-            // )
-            this.submit();
-        }
-    })
-    });
-</script>
+            }).then((result) => {
+            if (result.isConfirmed) {
+                // Swal.fire(
+                // 'Eliminado!',
+                // 'La red se ha eliminado con exito',
+                // 'success'
+                // )
+                this.submit();
+            }
+        })
+        });
+    </script>
     <x-scrip-table-blog/>
+
 @stop

@@ -4,11 +4,10 @@
 
 @section('content_header')
     <h1>Lista de Mensajes</h1>
-    
 @stop
 
 @section('content')
-    <x-alert/>
+    <x-aminblog.alert/>
     <div class="card">
         <div class="card-body">
             <table class="table table-striped table-bordered" id="example">
@@ -46,12 +45,10 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 @stop
 
 @section('js')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $('.destroy').submit(function(e){
             e.preventDefault();
@@ -78,4 +75,5 @@
         });
     </script>
     <x-scrip-table-blog/>
+
 @stop
