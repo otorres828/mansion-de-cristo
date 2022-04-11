@@ -117,7 +117,7 @@
     
                             <div class="pt-2 px-6 ">
                                 <div class="flex-grow items-center  justify-between ">
-                                    <h1 class="mb-3 text-gray-600 ">{{$announce->extract}}</h1>
+                                    <h1 class="mb-3 text-gray-600 ">{{Illuminate\Support\Str::limit($announce->extract,120,'...')}}</h1>
                                 </div>
                             </div>
                             <div class="lg:hidden px-6 pb-2">

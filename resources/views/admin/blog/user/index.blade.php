@@ -43,4 +43,5 @@
 
 @section('js')
     <x-scrip-table-blog/>
+    
 @stop

@@ -115,7 +115,7 @@
 
                         <div class="py-2 px-6 ">
                             <div class="flex-grow items-center  justify-between ">
-                                <h1 class="mb-3 text-gray-600 ">{{$teaching->extract}}</h1>
+                                <h1 class="mb-3 text-gray-600 ">{{Illuminate\Support\Str::limit($teaching->extract,120,'...')}}</h1>
                             </div>
                         </div>
                         <div class="lg:hidden px-6 pb-2">
