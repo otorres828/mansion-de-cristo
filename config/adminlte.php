@@ -347,7 +347,7 @@ return [
                 ],
                 [
                     'text' => 'Estadisticas',
-                    'icon' => 'fab fa-fw fa-buffer',
+                    'icon' => 'fa fa-chart-area',
                     'route'  => 'admin.blog.estadisticas',
                     'can'=>'admin.blog.category.index',
                 ],

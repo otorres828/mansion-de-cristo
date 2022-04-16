@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 class EstadisticaController extends Controller
 {
     public function index(){
-        return view('admin.blog.estadisticas');
+        $hoy=date('Y-m-d');
+        return view('admin.blog.estadisticas',compact('hoy'));
     }
 
     public function registrar(Request $request){

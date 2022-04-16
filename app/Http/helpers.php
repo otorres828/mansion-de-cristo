@@ -19,12 +19,12 @@ Nota: está limitado a solo traer los 10 primeros registros, ordenados por las v
 */
 function obtenerPaginasVisitadasEnFecha($fecha)
 {
-    $visitas= DB::select("SELECT COUNT(*) AS conteo_visitas, 
-                count(distinct ip) as conteo_visitantes, url, pagina
-                FROM visitas where fecha ='$fecha'
-                group by url, pagina
-                ORDER BY conteo_visitas DESC
-                "); 
+    $visitas=   DB::select("SELECT COUNT(*) AS conteo_visitas, 
+                            COUNT(DISTINCT ip) AS conteo_visitantes, url, pagina
+                            FROM visitas where fecha ='$fecha'
+                            group by url, pagina
+                            ORDER BY conteo_visitas DESC
+                            "); 
     return $visitas;
 }
 

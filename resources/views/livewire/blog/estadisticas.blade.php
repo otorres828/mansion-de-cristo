@@ -11,7 +11,6 @@
         $hoy = $_GET['hoy'];
     }
     $visitasYVisitantes = obtenerConteoVisitasYVisitantesEnRango($hoy, $hoy);
-    $paginas = obtenerPaginasVisitadasEnFecha($hoy);
     $visitantes = obtenerVisitantesEnRango($inicio, $fin);
     $visitas = obtenerVisitasEnRango($inicio, $fin);
     ?>
@@ -25,15 +24,10 @@
         <div class="mb-2">
             <input type="hidden" name="inicio" value="{{ $inicio }}">
             <input type="hidden" name="fin" value="{{ $fin }}">
-            <div class="field is-grouped">
+            <div class="field is-grouped w-full">
                 <p class="control is-expanded">
                     <label>Fecha: </label>
                     <input class="input" wire:model="hoy" type="date" name="hoy" value="{{ $hoy }}">
-                </p>
-                <p class="control">
-                    <!--La etiqueta es invisible a propósito para que tome el espacio y alinee el botón-->
-                    <label style="color: white;">ª</label>
-                    <input type="submit" value="OK" class="button is-success input" wire:click="filtrar">
                 </p>
             </div>
         </div>

@@ -6,18 +6,19 @@ use Livewire\Component;
 
 class Estadisticas extends Component
 {
-    public $hoy=null;
-    
-    public function mount(){
-        $this->hoy=date('Y-m-d');
+    public $hoy;
+    public $paginas;
 
+    public function mount($hoy){
+        $this->hoy=$hoy;
+        $this->paginas=obtenerPaginasVisitadasEnFecha($hoy);
     }
     public function render()
     {
         return view('livewire.blog.estadisticas');
     }
 
-    public function filtrar(){
+    public function updatedHoy(){
         $this->paginas=obtenerPaginasVisitadasEnFecha($this->hoy);
     }
 }

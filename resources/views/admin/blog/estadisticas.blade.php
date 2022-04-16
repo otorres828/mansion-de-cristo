@@ -6,7 +6,7 @@
 @stop
 
 @section('content')
-    @livewire('blog.estadisticas')
+    @livewire('blog.estadisticas',['hoy'=>$hoy])
 @stop
 
 @section('css')
