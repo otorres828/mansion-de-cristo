@@ -22,7 +22,7 @@
                 Estadísticas de {{ $hoy }}
                 </p>
         </header>
-        <form action="{{ route('admin.blog.estadisticas') }}" class="mb-2">
+        <div class="mb-2">
             <input type="hidden" name="inicio" value="{{ $inicio }}">
             <input type="hidden" name="fin" value="{{ $fin }}">
             <div class="field is-grouped">
@@ -33,10 +33,10 @@
                 <p class="control">
                     <!--La etiqueta es invisible a propósito para que tome el espacio y alinee el botón-->
                     <label style="color: white;">ª</label>
-                    <input type="submit" value="OK" class="button is-success input">
+                    <input type="submit" value="OK" class="button is-success input" wire:click="filtrar">
                 </p>
             </div>
-        </form>
+        </div>
         <div class="field is-grouped is-grouped-multiline">
             <div class="control">
                 <div class="tags has-addons">
