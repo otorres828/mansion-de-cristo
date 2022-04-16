@@ -38,7 +38,6 @@ class Teaching extends Component
                                 GROUP BY (u.id,u.name)
                                 ORDER BY(u.name)");
                                      
-                 
        
         return view('livewire.blog.teaching',compact('teachings','categorias','autores'));
     }

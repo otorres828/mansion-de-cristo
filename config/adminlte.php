@@ -345,6 +345,12 @@ return [
                     'route'  => 'admin.blog.category.index',
                     'can'=>'admin.blog.category.index',
                 ],
+                [
+                    'text' => 'Estadisticas',
+                    'icon' => 'fab fa-fw fa-buffer',
+                    'route'  => 'admin.blog.estadisticas',
+                    'can'=>'admin.blog.category.index',
+                ],
            
                 ['header' => 'OPCIONES DE BLOG'],
                 [
