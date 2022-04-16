@@ -78,41 +78,5 @@
                 </tbody>
             </table>
         </div>
-
-        <div class="card">
-            <header class="card-header">
-                <p class="card-header-title">
-                    Estadísticas entre {{ $inicio }} y {{ $fin }}
-                </p>
-            </header>
-            <div class="card-content">
-                <div class="content">
-                    <form action="{{ route('admin.blog.estadisticas') }}">
-                        <input type="hidden" name="hoy" value="{{ $hoy }}">
-                        <div class="field is-grouped">
-                            <p class="control is-expanded">
-                                <label>Desde: </label>
-                                <input class="input" type="date" name="inicio" value="{{ $inicio }}">
-                            </p>
-                            <p class="control is-expanded">
-                                <label>Hasta: </label>
-                                <input class="input" type="date" name="fin" value="{{ $fin }}">
-                            </p>
-                            <p class="control">
-                                <!--La etiqueta es invisible a propósito para que tome el espacio y alinee el botón-->
-                                <label style="color: white;">ª</label>
-                                <input type="submit" value="OK" class="button is-success input">
-                            </p>
-                        </div>
-                    </form>
-                    <canvas id="grafica"></canvas>
-                </div>
-            </div>
-            <footer class="card-footer">
-                <small class="mx-2 my-2">Por Oliver Torres</small>
-            </footer>
-        </div>
-
     </section>
-
 </div>

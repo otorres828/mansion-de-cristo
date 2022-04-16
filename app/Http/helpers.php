@@ -24,7 +24,7 @@ function obtenerPaginasVisitadasEnFecha($fecha)
                 FROM visitas where fecha ='$fecha'
                 group by url, pagina
                 ORDER BY conteo_visitas DESC
-                LIMIT 10;"); 
+                "); 
     return $visitas;
 }
 
@@ -98,11 +98,6 @@ function  obtenerVisitasEnRango($fechaInicio, $fechaFin)
 {
     return $registrar=DB::select("SELECT fecha, COUNT(*) AS conteo FROM visitas WHERE fecha >='$fechaInicio' AND fecha <='$fechaFin' GROUP BY fecha");
 }
-function registrarVisita($pagina, $url)
-{
-    $fecha = date("Y-m-d");
-    $ip = $_SERVER["REMOTE_ADDR"] ?? "";
-    return $registrar=DB::select("INSERT INTO visitas(fecha, ip, pagina, url) VALUES('$fecha', '$ip', '$pagina', '$url')");
-}
+
 
 ?>

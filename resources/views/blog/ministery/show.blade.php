@@ -37,6 +37,8 @@
         <div class=" text-center pt-10 md:pt-20 container mx-auto">
             <p class=" md:text-2xl text-green-500 font-bold">{{$ministery->created_at->toFormattedDateString()}}</p>
             <h1 class="font-bold break-normal text-3xl md:text-5xl">{{$ministery->name}}</h1>
+            <input  value="{{ $ministery->name }}" id="titulo" hidden>
+
         </div>
         
         <div class="container  max-w-6xl mx-auto bg-white bg-cover mt-8 rounded" style="background-image:url('@if($ministery->image){{asset('storage/'.$ministery->image->url)}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif'); height: 75vh;"></div>
@@ -129,11 +131,26 @@
     </div>
 @endsection
 
-@section('footer')
-    @include('components.footerT')
+@section('js')
+    @include('components.aminblog.show')
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script type="text/javaScript">
+        $(document).ready(function() {
+            $.ajax({
+                url: "{{ route('admin.blog.estadisticas.registrar') }}",
+                dataType: "POST",
+                data: {
+                    pagina: document.getElementById("titulo").value,
+                    url:window.location.href,
+                },
+                sucess: function(resp) {
+                    datos = JSON.parse(resp);
+                }
+            })
+        })
+    </script>
 @endsection
 
-@section('js')
-@include('components.aminblog.show')
-
+@section('footer')
+    @include('components.footerT')
 @endsection
