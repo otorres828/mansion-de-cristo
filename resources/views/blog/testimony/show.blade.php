@@ -54,7 +54,7 @@
                     <p class="text-2xl md:text-3xl mb-5 text-justify">
                         👋 {{$testimony->extract}}
                     </p>
-                    <div class="prose md:prose-lg lg:prose-xl select-none">
+                    <div class="prose md:prose-lg lg:prose-xl select-none text-justify">
                         {!! $testimony->body !!}
                     </div>
                     <blockquote class="pt-4 border-l-4 border-green-500 italic my-8 pl-8 md:pl-12">{{$testimony->extract}}</blockquote>

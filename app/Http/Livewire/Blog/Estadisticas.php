@@ -3,22 +3,30 @@
 namespace App\Http\Livewire\Blog;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Estadisticas extends Component
 {
-    public $hoy;
-    public $paginas;
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+    public $inicio,$fin;
+    public $buscar;
+
+    private $paginas,$visitasYVisitantes;
 
     public function mount($hoy){
-        $this->hoy=$hoy;
-        $this->paginas=obtenerPaginasVisitadasEnFecha($hoy);
+        $this->inicio=$hoy;
+        $this->fin=$hoy;
     }
     public function render()
     {
-        return view('livewire.blog.estadisticas');
+        $this->paginas=obtenerPaginasVisitadasEnFecha($this->inicio,$this->fin);
+        $this->visitasYVisitantes= obtenerConteoVisitasYVisitantesEnRango($this->inicio,$this->fin);
+        return view('livewire.blog.estadisticas',[
+                                                'paginas'=>$this->paginas,
+                                                'visitasYVisitantes'=>$this->visitasYVisitantes
+                                                ]);
     }
 
-    public function updatedHoy(){
-        $this->paginas=obtenerPaginasVisitadasEnFecha($this->hoy);
-    }
+ 
 }

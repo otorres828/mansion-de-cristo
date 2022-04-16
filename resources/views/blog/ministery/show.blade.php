@@ -51,7 +51,7 @@
                     <p class="text-2xl md:text-3xl mb-5 text-justify">
                         👋 {{$ministery->extract}}
                     </p>
-                    <div class="prose md:prose-lg lg:prose-xl select-none">
+                    <div class="prose md:prose-lg lg:prose-xl select-none text-justify">
                         {!! $ministery->body !!}
                     </div>
                     <blockquote class="pt-4 border-l-4 border-green-500 italic my-8 pl-8 md:pl-12">{{$ministery->extract}}</blockquote>

@@ -10,21 +10,25 @@ function fechaInicioYFinDeMes()
     $fin = date("Y-m-t");
     return [$inicio, $fin];
 }
-function fechaHoy()
-{
-    return date("Y-m-d");
-}
+
 /*
 Nota: está limitado a solo traer los 10 primeros registros, ordenados por las veces que se visitaron
 */
-function obtenerPaginasVisitadasEnFecha($fecha)
+function obtenerPaginasVisitadasEnFecha($inicio,$fin)
 {
-    $visitas=   DB::select("SELECT COUNT(*) AS conteo_visitas, 
-                            COUNT(DISTINCT ip) AS conteo_visitantes, url, pagina
-                            FROM visitas where fecha ='$fecha'
-                            group by url, pagina
-                            ORDER BY conteo_visitas DESC
-                            "); 
+    $visitas = DB::table('visitas')
+    ->select(DB::raw('COUNT(*) AS conteo_visitas, url,pagina,  COUNT(DISTINCT ip) AS conteo_visitantes'))
+    ->where('fecha', '>=',$inicio)
+    ->where('fecha', '<=',$fin) 
+    ->groupBy('url','pagina')
+    ->orderBy('conteo_visitas')
+    ->paginate(10);
+    // $visitas=   DB::select("SELECT COUNT(*) AS conteo_visitas, 
+    //                         COUNT(DISTINCT ip) AS conteo_visitantes, url, pagina
+    //                         FROM visitas where fecha ='$fecha'
+    //                         group by url, pagina
+    //                         ORDER BY conteo_visitas DESC
+    //                         "); 
     return $visitas;
 }
 
@@ -79,13 +83,13 @@ function obtenerConteoVisitasYVisitantesEnRango($fechaInicio, $fechaFin)
 
 function obtenerConteoVisitantesEnRango($fechaInicio, $fechaFin)
 {
-    return $registrar=DB::select("SELECT COUNT(DISTINCT ip) AS conteo FROM visitas WHERE fecha >='$fechaInicio' AND fecha <='$fechaFin'");
+    return DB::select("SELECT COUNT(DISTINCT ip) AS conteo FROM visitas WHERE fecha >='$fechaInicio' AND fecha <='$fechaFin'");
 
 }
 
 function obtenerConteoVisitasEnRango($fechaInicio, $fechaFin)
 {
-    return $registrar=DB::select("SELECT COUNT(*) AS conteo FROM visitas WHERE fecha >='$fechaInicio' AND fecha <='$fechaFin'");
+    return DB::select("SELECT COUNT(*) AS conteo FROM visitas WHERE fecha >='$fechaInicio' AND fecha <='$fechaFin'");
 
 }
 

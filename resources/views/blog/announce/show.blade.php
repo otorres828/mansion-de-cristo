@@ -52,7 +52,7 @@
                     <p class="text-2xl md:text-3xl mb-5 text-justify ">
                         👋 {{$anuncio->extract}}
                     </p>
-                    <article  class="prose md:prose-lg lg:prose-xl select-none">
+                    <article  class="prose md:prose-lg lg:prose-xl select-none text-justify">
                         {!!$anuncio->body!!}
                     </article>
 
