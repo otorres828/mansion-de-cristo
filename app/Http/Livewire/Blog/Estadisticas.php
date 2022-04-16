@@ -20,7 +20,7 @@ class Estadisticas extends Component
     }
     public function render()
     {
-        $this->paginas=obtenerPaginasVisitadasEnFecha($this->inicio,$this->fin);
+        $this->paginas=obtenerPaginasVisitadasEnFecha($this->inicio,$this->fin,$this->buscar);
         $this->visitasYVisitantes= obtenerConteoVisitasYVisitantesEnRango($this->inicio,$this->fin);
         return view('livewire.blog.estadisticas',[
                                                 'paginas'=>$this->paginas,
@@ -29,4 +29,10 @@ class Estadisticas extends Component
     }
 
  
+    
+    public function updatingBuscar()
+    {
+        $this->resetPage();
+    }
+
 }

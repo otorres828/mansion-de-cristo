@@ -14,14 +14,16 @@ function fechaInicioYFinDeMes()
 /*
 Nota: está limitado a solo traer los 10 primeros registros, ordenados por las veces que se visitaron
 */
-function obtenerPaginasVisitadasEnFecha($inicio,$fin)
+function obtenerPaginasVisitadasEnFecha($inicio,$fin,$buscar)
 {
+    $inicio=$inicio?$inicio:date("Y-m-01");
     $visitas = DB::table('visitas')
     ->select(DB::raw('COUNT(*) AS conteo_visitas, url,pagina,  COUNT(DISTINCT ip) AS conteo_visitantes'))
     ->where('fecha', '>=',$inicio)
     ->where('fecha', '<=',$fin) 
+    ->where('pagina','LIKE','%'.$buscar.'%')
     ->groupBy('url','pagina')
-    ->orderBy('conteo_visitas')
+    ->orderBy('conteo_visitas','DESC')
     ->paginate(10);
     // $visitas=   DB::select("SELECT COUNT(*) AS conteo_visitas, 
     //                         COUNT(DISTINCT ip) AS conteo_visitantes, url, pagina
@@ -65,6 +67,8 @@ function obtenerVisitasDePaginaEnRango($fechaInicio, $fechaFin, $url)
 
 function obtenerConteoVisitasYVisitantesEnRango($fechaInicio, $fechaFin)
 {
+    $fechaInicio=$fechaInicio?$fechaInicio:date("Y-m-01");
+
     $visitantes=obtenerConteoVisitantesEnRango($fechaInicio, $fechaFin);
     $v=$vv=null;
     foreach($visitantes as $visita){
