@@ -27,8 +27,6 @@ class Estadisticas extends Component
                                                 'visitasYVisitantes'=>$this->visitasYVisitantes
                                                 ]);
     }
-
- 
     
     public function updatingBuscar()
     {

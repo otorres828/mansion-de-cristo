@@ -17,6 +17,8 @@ Nota: está limitado a solo traer los 10 primeros registros, ordenados por las v
 function obtenerPaginasVisitadasEnFecha($inicio,$fin,$buscar)
 {
     $inicio=$inicio?$inicio:date("Y-m-01");
+    $fin=$fin?$fin:date("Y-m-01");
+
     $visitas = DB::table('visitas')
     ->select(DB::raw('COUNT(*) AS conteo_visitas, url,pagina,  COUNT(DISTINCT ip) AS conteo_visitantes'))
     ->where('fecha', '>=',$inicio)
@@ -68,6 +70,7 @@ function obtenerVisitasDePaginaEnRango($fechaInicio, $fechaFin, $url)
 function obtenerConteoVisitasYVisitantesEnRango($fechaInicio, $fechaFin)
 {
     $fechaInicio=$fechaInicio?$fechaInicio:date("Y-m-01");
+    $fechaFin=$fechaFin?$fechaFin:date("Y-m-01");
 
     $visitantes=obtenerConteoVisitantesEnRango($fechaInicio, $fechaFin);
     $v=$vv=null;
