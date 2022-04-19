@@ -70,7 +70,6 @@
                                     class="btn btn-info">
                                     <i class="fa fa-chart-area"></i>
                                 </a>
-
                             </td>
                         </tr>
                     @endforeach

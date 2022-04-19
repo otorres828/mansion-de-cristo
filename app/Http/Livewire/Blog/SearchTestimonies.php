@@ -13,8 +13,7 @@ class SearchTestimonies extends Component
     public function render()
     {
         return view('livewire.blog.search-testimonies',[
-        'testimonies' => DB::table('testimonies')->where("name", "like",'%'.$this->search."%")
-                                ->where('status',2)->get()]);
+        'testimonies' => Testimony::search($this->search)->where('status',2)->get()]);
     }
 
 }
