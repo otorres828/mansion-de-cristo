@@ -23,7 +23,7 @@ class CategoryController extends Controller
         $category = Category::create([
             'name'=>$request['name'],
             'slug'=>Str::slug($request['name'])
-         ]);
+        ]);
         return redirect()->route('admin.blog.category.index')->with('info','La categoria '.$category->name.' se creo con exito');
     }
  
@@ -31,9 +31,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'slug' =>'required|unique:categories',
-
-         ]);
+        ]);
          $category->update([
                 'name'=>$request['name'],
                 'slug'=>Str::slug($request['name'])
