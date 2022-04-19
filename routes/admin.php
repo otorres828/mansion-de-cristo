@@ -18,7 +18,7 @@ Route::resource('ministry', MinistryController::class)->middleware('can:admin.bl
 Route::resource('testimony', TestimonyController::class)->middleware('can:admin.blog.testimony')->except('show')->names('admin.blog.testimony');
 Route::resource('contact', ContactController::class)->except('store')->middleware('can:admin.blog.contact')->names('admin.blog.contact');
 Route::get('estadisticas',[EstadisticaController::class,'index'])->name('admin.blog.estadisticas');
-Route::get('estadisticas/{pagina}',[EstadisticaController::class,'mostrar'])->name('admin.blog.estadisticas.mostrar');
+Route::get('estadisticas/{pagina}/mostrar',[EstadisticaController::class,'mostrar'])->name('admin.blog.estadisticas.mostrar');
 Route::any('estadisticas/registrar',[EstadisticaController::class,'registrar'])->name('admin.blog.estadisticas.registrar');
 
 // Route::domain('blog.mansiondecristo.com')->group(function () {

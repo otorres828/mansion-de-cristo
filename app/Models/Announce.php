@@ -22,6 +22,12 @@ class Announce extends Model
             'body'=>$this->body,
        ];
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     
     //relacion uno a muchos inversa
     public function user(){

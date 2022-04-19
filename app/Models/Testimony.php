@@ -21,7 +21,15 @@ class Testimony extends Model
             'name'=>$this->name,
             'body'=>$this->body,
        ];
+
+       
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
    //relacion uno a muchos inversa
     public function user(){
         return $this->belongsTo(User::class);
