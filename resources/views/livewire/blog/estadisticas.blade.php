@@ -1,5 +1,5 @@
 <div>
-    <div class="container p-2 md:p-3 lg:p-4">
+    <div class="container p-2 ">
         <div class="form-group mt-4">
             <header class="form-control">
                 <div class="text-bold">
@@ -13,7 +13,7 @@
         </div>
         {{-- RANGO DE FECHAS --}}
         <div class="form-group">
-            <div >
+            <div>
                 <div class="row align-items-start">
                     <div class="col">
                         <label>Desde: </label>
@@ -29,19 +29,24 @@
             </div>
         </div>
         {{-- tarjetas --}}
-        <div class="row  p-2">
-            <div class="border">
+        <div class="row p-3">
+            <div class="row mr-3 ">
                 <div>
-                    <span class="bg-primary p-2">Visitas</span>
-                    <span class="bg-warning p-2">{{ $visitasYVisitantes->visitas }} </span>
+                    <span class="bg-primary p-2 rounded-left">Visitas</span>
                 </div>
+                <div>
+                    <span class="bg-warning p-2 rounded-right">{{ $visitasYVisitantes->visitas }} </span>
+                </div>
+
             </div>
-            <div class="">
+            <div class="row rounded">
                 <div >
-                    <span class="bg-success p-2">Visitantes</span>
-                    <span class="bg-warning p-2">
-                        {{ $visitasYVisitantes->visitantes }}</span>
+                    <span class="bg-success p-2 rounded-left">Visitantes</span>
                 </div>
+                <div>
+                    <span class="bg-warning p-2 rounded-right"> {{ $visitasYVisitantes->visitantes }}</span>
+                </div>
+
             </div>
         </div>
 

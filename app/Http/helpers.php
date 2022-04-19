@@ -21,7 +21,7 @@ function obtenerPaginasVisitadasEnFecha($inicio,$fin,$buscar)
     ->select(DB::raw('COUNT(*) AS conteo_visitas, url,pagina,  COUNT(DISTINCT ip) AS conteo_visitantes'))
     ->where('fecha', '>=',$inicio)
     ->where('fecha', '<=',$fin) 
-    ->where('pagina','LIKE','%'.$buscar.'%')
+    ->where('pagina','like','%'.$buscar.'%')
     ->groupBy('url','pagina')
     ->orderBy('conteo_visitas','DESC')
     ->paginate(10);
