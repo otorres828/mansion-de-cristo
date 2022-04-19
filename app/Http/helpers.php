@@ -11,9 +11,7 @@ function fechaInicioYFinDeMes()
     return [$inicio, $fin];
 }
 
-/*
-Nota: está limitado a solo traer los 10 primeros registros, ordenados por las veces que se visitaron
-*/
+// usada
 function obtenerPaginasVisitadasEnFecha($inicio,$fin,$buscar)
 {
     $inicio=$inicio?$inicio:date("Y-m-01");
@@ -27,46 +25,9 @@ function obtenerPaginasVisitadasEnFecha($inicio,$fin,$buscar)
     ->groupBy('url','pagina')
     ->orderBy('conteo_visitas','DESC')
     ->paginate(10);
-    // $visitas=   DB::select("SELECT COUNT(*) AS conteo_visitas, 
-    //                         COUNT(DISTINCT ip) AS conteo_visitantes, url, pagina
-    //                         FROM visitas where fecha ='$fecha'
-    //                         group by url, pagina
-    //                         ORDER BY conteo_visitas DESC
-    //                         "); 
     return $visitas;
 }
-
-function obtenerConteoVisitasYVisitantesDePaginaEnRango($fechaInicio, $fechaFin, $url)
-{
-    return (object)[
-        "visitantes" => obtenerConteoVisitantesDePaginaEnRango($fechaInicio, $fechaFin, $url),
-        "visitas" => obtenerConteoVisitasDePaginaEnRango($fechaInicio, $fechaFin, $url),
-    ];
-   
-}
-function obtenerConteoVisitantesDePaginaEnRango($fechaInicio, $fechaFin, $url)
-{
-    $visitas= DB::select("SELECT COUNT(DISTINCT ip) AS conteo FROM visitas WHERE fecha >='$fechaInicio' AND fecha <='$fechaFin AND url ='$url");
-    return (object)$visitas['conteo'];
-}
-
-function obtenerConteoVisitasDePaginaEnRango($fechaInicio, $fechaFin, $url)
-{
-    return Visitas::where('fecha','>=',$fechaInicio)->where('fecha','<=',$fechaFin)->where('url','=',$url)->count();
-    $visitas=DB::select("SELECT COUNT(*) AS conteo FROM visitas WHERE fecha >='$fechaInicio' AND fecha <='$fechaFin' AND url ='$url'");
-    return (object)$visitas['conteo'];
-    }
-
-
-function obtenerVisitantesDePaginaEnRango($fechaInicio, $fechaFin, $url)
-{
-    return DB::select("SELECT fecha, COUNT(DISTINCT ip) AS conteo FROM visitas WHERE fecha >='$fechaInicio' AND fecha <='$fechaFin' AND url ='$url' GROUP BY fecha");
-}
-function obtenerVisitasDePaginaEnRango($fechaInicio, $fechaFin, $url)
-{
-    return DB::select("SELECT fecha, COUNT(*) AS conteo FROM visitas WHERE fecha >='$fechaInicio' AND fecha <='$fechaFin' AND url ='$url' GROUP BY fecha");
-}
-
+//usada
 function obtenerConteoVisitasYVisitantesEnRango($fechaInicio, $fechaFin)
 {
     $fechaInicio=$fechaInicio?$fechaInicio:date("Y-m-01");
@@ -88,12 +49,14 @@ function obtenerConteoVisitasYVisitantesEnRango($fechaInicio, $fechaFin)
     ];
 }
 
+//usada
 function obtenerConteoVisitantesEnRango($fechaInicio, $fechaFin)
 {
     return DB::select("SELECT COUNT(DISTINCT ip) AS conteo FROM visitas WHERE fecha >='$fechaInicio' AND fecha <='$fechaFin'");
 
 }
 
+//usada
 function obtenerConteoVisitasEnRango($fechaInicio, $fechaFin)
 {
     return DB::select("SELECT COUNT(*) AS conteo FROM visitas WHERE fecha >='$fechaInicio' AND fecha <='$fechaFin'");
@@ -105,10 +68,11 @@ function obtenerVisitantesEnRango($fechaInicio, $fechaFin)
     return $registrar=DB::select("SELECT fecha, COUNT(DISTINCT ip) AS conteo FROM visitas WHERE fecha >='$fechaInicio' AND fecha <='$fechaFin' GROUP BY fecha");
 
 }
-function  obtenerVisitasEnRango($fechaInicio, $fechaFin)
-{
-    return $registrar=DB::select("SELECT fecha, COUNT(*) AS conteo FROM visitas WHERE fecha >='$fechaInicio' AND fecha <='$fechaFin' GROUP BY fecha");
+
+function obtejerEstadisticas($pagina){
+    return DB::table('visitas')
+            ->select(DB::raw('COUNT(*) AS conteo_visitas,fecha'))
+            ->where('pagina','=',$pagina)
+            ->groupBy('fecha')->get();
 }
-
-
 ?>

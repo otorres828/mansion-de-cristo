@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Visitas extends Model
 {
     use HasFactory;
+    protected $guarded =['id','updated_at','created_at'];
 }

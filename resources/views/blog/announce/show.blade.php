@@ -1,7 +1,6 @@
 @extends('layouts.blog')
 @section('title','MDC-Anuncios')
 
-
 @section('head')
 	<style>
 	.smooth {transition: box-shadow 0.3s ease-in-out;}
@@ -147,9 +146,7 @@
                     pagina: document.getElementById("titulo").value,
                     url:window.location.href,
                 },
-                sucess: function(resp) {
-                    datos = JSON.parse(resp);
-                }
+        
             })
         })
     </script>

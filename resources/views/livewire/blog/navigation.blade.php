@@ -35,11 +35,11 @@
               <a href="{{route('blog.testimony')}}" class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm font-medium">Testimonios</a>
               <a href="{{route('blog.acercade')}}" class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm font-medium">Acerca de</a>
               <a href="{{route('blog.contact.index')}}" class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm font-medium">Contactanos</a>
-              @can('admin.blog.home')
+              @auth
                 <a class="text-blue-600 hover:bg-blue-600 hover:text-gray-50 px-3 py-2 rounded-md text-sm font-medium" href="{{route('secretary.index')}}" data-turbolinks="false">
                   Panel de Blog
                 </a>
-              @endcan
+              @endauth
                       
                
             </div>

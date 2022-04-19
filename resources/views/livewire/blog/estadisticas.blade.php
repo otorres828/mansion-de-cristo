@@ -2,8 +2,8 @@
     <section class="section">
         <header class="card text-center">
             <div class="card-header-title px-4 ">
-                @if ($inicio==$fin)
-                    Estadísticas de  {{ $inicio }}
+                @if ($inicio == $fin)
+                    Estadísticas de {{ $inicio }}
                 @else
                     Estadísticas de {{ $inicio }} hasta {{ $fin }}
                 @endif
@@ -23,9 +23,9 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="field is-grouped is-grouped-multiline">
-            
+
             <div class="control">
                 <div class="tags has-addons">
                     <span class="tag is-success is-large">Visitas</span>
@@ -44,13 +44,13 @@
         {{-- BUSCADOR --}}
         <div class="mx-auto sm:px-6 lg:px-8">
             <input wire:model="buscar"
-            class="mt-10 shadow appearance-none border rounded py-2 form-control text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text" placeholder="ESCRIBE EL NOMBRE DE LA PAGINA QUE BUSCAS">
+                class="mt-10 shadow appearance-none border rounded py-2 form-control text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text" placeholder="ESCRIBE EL NOMBRE DE LA PAGINA QUE BUSCAS">
         </div>
 
         {{-- TABLA --}}
         <div class="table-responsive py-4">
-            <table >
+            <table>
                 <thead>
                     <tr>
                         <th>Página</th>
@@ -66,9 +66,11 @@
                             <td>{{ $pagina->conteo_visitas }}</td>
                             <td>{{ $pagina->conteo_visitantes }}</td>
                             <td>
-                                <a class="btn btn-info " href="visitas_url.php?url={{ $pagina->url }}">
+                                <a href="{{ route('admin.blog.estadisticas.mostrar', $pagina->pagina) }}"
+                                    class="btn btn-info">
                                     <i class="fa fa-chart-area"></i>
                                 </a>
+
                             </td>
                         </tr>
                     @endforeach
