@@ -29,24 +29,14 @@
             </div>
         </div>
         {{-- tarjetas --}}
-        <div class="row p-3">
+        <div class="row pl-3 pb-2">
             <div class="row mr-3 ">
-                <div>
-                    <span class="bg-primary p-2 rounded-left">Visitas</span>
-                </div>
-                <div>
-                    <span class="bg-warning p-2 rounded-right">{{ $visitasYVisitantes->visitas }} </span>
-                </div>
-
+                <span class="bg-primary p-2 rounded-left">Visitas</span>
+                <span class="bg-warning p-2 rounded-right">{{ $visitasYVisitantes->visitas }} </span>
             </div>
-            <div class="row rounded">
-                <div >
-                    <span class="bg-success p-2 rounded-left">Visitantes</span>
-                </div>
-                <div>
-                    <span class="bg-warning p-2 rounded-right"> {{ $visitasYVisitantes->visitantes }}</span>
-                </div>
-
+            <div class="row ">
+                <span class="bg-success p-2 rounded-left">Visitantes</span>
+                <span class="bg-warning p-2 rounded-right"> {{ $visitasYVisitantes->visitantes }}</span>
             </div>
         </div>
 
