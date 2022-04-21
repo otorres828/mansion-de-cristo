@@ -41,7 +41,7 @@
 
         </div>
         
-        <div class="container w-full max-w-6xl mx-auto bg-white bg-cover mt-8 rounded sm:px-16 " style="background-image:url('@if($anuncio->image){{asset('storage/'.$anuncio->image->url)}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif'); height: 75vh;"></div>
+        <div class="container w-full max-w-6xl mx-auto bg-cover mt-8 rounded sm:px-16 " style="background-image:url('@if($anuncio->image){{asset('storage/'.$anuncio->image->url)}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif'); height: 75vh;"></div>
         
         {{-- CUERPO DE LA NOTICIA --}}
         <div class="container max-w-5xl mx-auto -mt-32">

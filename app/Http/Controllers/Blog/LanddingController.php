@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
 use App\Models\Announce;
+use App\Models\Teaching;
 use App\Models\Testimony;
 use Illuminate\Http\Request;
 
@@ -15,10 +16,14 @@ class LanddingController extends Controller
             ->orderBy('id', 'desc')
             ->take(4)
             ->get();
+        $teachings = Teaching::where('status', 2)
+            ->orderBy('id', 'desc')
+            ->take(4)
+            ->get();
         $testimonies = Testimony::where('status', 2)
             ->orderBy('id', 'desc')
             ->take(6)
             ->get();
-        return view('blog.landding.index', compact('announces','testimonies'));
+        return view('blog.landding.index', compact('announces','testimonies','teachings'));
     }
 }

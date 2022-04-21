@@ -44,8 +44,6 @@
                     </button>
                 </div>
     
-        
-    
                 <div class="flex items-center justify-between pt-2 px-2">
                     <div class="">
                         @if (Route::has('password.request'))

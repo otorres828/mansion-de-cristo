@@ -5,7 +5,8 @@
             relative
             rounded-lg
             bg-gray-100 ">
-
+            <div class="@if(count($teachings)==0)hidden @endif absolute inset-0 top-1/3 md:mt-24 lg:mt-0 bg-gray-800 pointer-events-none" aria-hidden="true"> 
+            </div>
     <div class="pt-5 mb-10 shadow-lg">
         <div class="max-w-6xl mx-auto px-6 sm:px-6 lg:px-6">
             <div class=" text-center pb-3 pt-3">
