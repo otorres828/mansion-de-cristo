@@ -57,22 +57,18 @@
             <input  value="{{ $ministery->name }}" id="titulo" hidden>
         </div>
         {{-- FOTO --}}
-        {{-- <div class="max-w-6xl mx-auto bg-cover bg-fixed mt-8 rounded h-96"
-            style="background-image:url('@if ($ministery->image) {{ asset('storage/' . $ministery->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif');">
-        </div> --}}
         <div class="mx-auto container pb-5 px-2 lg:px-8  mt-8 bg-cover bg-fixed">
             <img class="w-full h-96"src="@if ($ministery->image) {{ asset('storage/' . $ministery->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="">
         </div>
         {{-- CUERPO --}}
         <div class=" text-gray-700 font-sans quicksand pb-10">
-            <div class="container mx-auto  px-7 sm:px-16 md:px-28  flex flex-wrap">
+            <div class="container mx-auto  px-7 sm:px-16 md:px-10 lg:px-28 flex flex-wrap">
                 <div class="w-full md:w-1/4 md:pr-7 order-3 md:order-1">
                     <div class="max-w-md md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 ">
                         <p class="py-3  font-bold break-normal text-2xl md:text-4xl">Otros</p>
-
                         <ul class="flex flex-wrap justify-between flex-col">
                             @foreach ($similares as $ministerio)
-                            <li>
+                            <li >
                                 <a href="{{ route('blog.show_ministery',$ministerio) }}" >{{ $ministerio->name }}</a>
                             </li>
                             @endforeach

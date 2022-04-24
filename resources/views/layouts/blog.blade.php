@@ -15,7 +15,7 @@
 <body class="">
 
     <header>
-        @livewire('blog.navigation')
+        @include('components.aminblog.navigation')
     </header>
 
 

@@ -88,7 +88,7 @@
                 </p>
             </div>
 
-            <div class="pt-8 sm:px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class=" pt-8 sm:px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 ">
                 @foreach ($announces as $anuncio)
                     <div class="px-6 flex justify-center hover:bg-gray-200">
                         <div class="" class="rounded-lg shadow-lg bg-white ">
@@ -120,7 +120,7 @@
                 </p>
             </div>
 
-            <div class="pt-8 sm:px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="pt-8 sm:px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 @foreach ($announces as $anuncio)
                     <div class="px-6 flex justify-center hover:bg-gray-200">
                         <div class="" class="rounded-lg shadow-lg bg-white ">
