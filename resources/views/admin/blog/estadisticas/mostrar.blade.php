@@ -4,6 +4,8 @@
 
 @section('content_header')
     <h1>Estadistica de: <span class="text-bold font-extralight">{{ $pagina }}</span></h1>
+    <h4>Rango de fecha: <span class="text-bold font-extralight">{{ $inicio }}</span> hasta  <span class="text-bold font-extralight">{{ $fin }}</span></h1>
+
 @stop
 
 @section('content')

@@ -65,7 +65,7 @@
                             <td>{{ $pagina->conteo_visitas }}</td>
                             <td>{{ $pagina->conteo_visitantes }}</td>
                             <td>
-                                <a href="{{ route('admin.blog.estadisticas.mostrar', $pagina->pagina) }}"
+                                <a href="{{ route('admin.blog.estadisticas.mostrar', [$pagina->pagina,$inicio,$fin]) }}"
                                     class="btn btn-info">
                                     <i class="fa fa-chart-area"></i>
                                 </a>

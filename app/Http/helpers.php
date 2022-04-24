@@ -69,10 +69,12 @@ function obtenerVisitantesEnRango($fechaInicio, $fechaFin)
 
 }
 
-function obtejerEstadisticas($pagina){
+function obtejerEstadisticas($pagina,$inicio,$fin){
     return DB::table('visitas')
             ->select(DB::raw('COUNT(*) AS conteo_visitas,fecha'))
             ->where('pagina','=',$pagina)
+            ->where('fecha', '>=',$inicio)
+            ->where('fecha', '<=',$fin) 
             ->groupBy('fecha')->get();
 }
 ?>

@@ -22,8 +22,7 @@ class EstadisticaController extends Controller
 
     public function mostrar(Request $request){
         $pagina=$request->pagina;
-
-        $estadisticas=obtejerEstadisticas($request->pagina);
+        $estadisticas=obtejerEstadisticas($request->pagina,$request->inicio,$request->fin);
 
         $data=[];
         foreach($estadisticas as $estadistica){
@@ -31,6 +30,8 @@ class EstadisticaController extends Controller
             $data['data'][]=$estadistica->conteo_visitas;
         }
         $data['data']=json_encode($data);
-        return view('admin.blog.estadisticas.mostrar',$data,['pagina'=>$pagina]);
+        return view('admin.blog.estadisticas.mostrar',$data,['pagina'=>$pagina
+                                                            ,'inicio'=>$request->inicio,
+                                                             'fin'=>$request->fin]);
     }
 }

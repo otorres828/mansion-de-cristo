@@ -3080,6 +3080,14 @@ select {
     margin-bottom: 0px;
   }
 
+  .sm\:-mt-32 {
+    margin-top: -8rem;
+  }
+
+  .sm\:mt-5 {
+    margin-top: 1.25rem;
+  }
+
   .sm\:block {
     display: block;
   }
@@ -3590,6 +3598,10 @@ select {
     margin-bottom: 4rem;
   }
 
+  .md\:-mt-32 {
+    margin-top: -8rem;
+  }
+
   .md\:block {
     display: block;
   }
@@ -4085,6 +4097,10 @@ select {
 
   .lg\:mt-16 {
     margin-top: 4rem;
+  }
+
+  .lg\:-mt-32 {
+    margin-top: -8rem;
   }
 
   .lg\:block {
