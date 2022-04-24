@@ -10,7 +10,7 @@
                 <div class="swiper-wrapper">
                     {{-- PRIMERA IMAGEN --}}
                     <div class="swiper-slide ">
-                        <article class="w-full h-96   opacity-90"
+                        <article class="w-full h-96 opacity-90"
                             style="background-image: url(https://scontent-mia3-2.xx.fbcdn.net/v/t39.30808-6/260231640_6496052090466495_6741464830139251963_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=0debeb&_nc_ohc=9dFgc8Z7jaoAX9etlWG&_nc_ht=scontent-mia3-2.xx&oh=00_AT_ku29lRtTMsyXtHeXeVGXfGMMFcoemNuBHMyyEOQNBiQ&oe=62674F30)">
                             <div class="w-full h-full px-8 flex flex-col justify-center ">
                                 <h1 class="text-4xl text-white leading-8 font-bold text-left">

@@ -53,22 +53,22 @@
                 style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
         </div>
 
-        <div class=" text-center pt-10 md:pt-20 container mx-auto">
+        <div class=" text-center pt-10 md:pt-10 container mx-auto">
             <p class=" md:text-2xl text-green-500 font-bold">{{ $teaching->created_at->toFormattedDateString() }}</p>
             <h1 class="sm:m-5 font-bold break-normal text-3xl md:text-5xl">{{ $teaching->name }}</h1>
             <input  value="{{ $teaching->name }}" id="titulo" hidden>
 
         </div>
-
+        {{-- FOTO LG --}}
         <div class="hidden md:block max-w-6xl mx-auto bg-cover mt-8 rounded"
             style="background-image:url('@if ($teaching->image) {{ asset('storage/' . $teaching->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif');min-height: 75vh;">
         </div>
-        
+        {{-- FOTO SM/MD --}}
         <div class="md:hidden mx-auto container px-2 lg:px-8  mt-4 bg-cover ">
             <img class="w-full h-96"src="@if ($teaching->image) {{ asset('storage/' . $teaching->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="">
         </div>
         {{-- CUERPO DE LA NOTICIA --}}
-        <div class="container max-w-5xl mx-auto -mt-32 ">
+        <div class="container max-w-5xl mx-auto md:-mt-32 ">
             <div class="mx-0 sm:mx-6">
                 <div class="bg-white w-full p-8 md:p-24 text-xl md:text-2xl text-gray-800 leading-normal"
                     style="font-family:Georgia,serif;">

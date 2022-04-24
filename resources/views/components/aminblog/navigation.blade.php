@@ -3,7 +3,7 @@
         <div class="relative flex items-center justify-between h-16">
 
             <!-- BOTON MENU MOVIL-->
-            <div x-on:click="open=true" class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <div x-on:click="open=true" class="absolute inset-y-0 left-0 flex items-center md:hidden">
                 <button type="button"
                     class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                     aria-controls="mobile-menu" aria-expanded="false">
@@ -23,17 +23,17 @@
                 </button>
             </div>
 
-            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+            <div class="flex-1 flex items-center justify-center md:items-stretch sm:justify-start">
                 {{-- LOGOTIPO --}}
                 <div class="flex-shrink-0 flex items-center">
-                    <img class="block lg:hidden h-8 w-auto" src="{{ asset('images/icons/icon-96x96.png') }}"
+                    <img class="block sm:hidden h-8 w-auto" src="{{ asset('images/icons/icon-96x96.png') }}"
                         alt="MDC">
-                    <img class="hidden lg:block h-8 w-auto" src="{{ asset('images/icons/icon-96x96.png') }}"
+                    <img class="hidden md:block h-8 w-auto" src="{{ asset('images/icons/icon-96x96.png') }}"
                         alt="MDC">
                 </div>
 
                 {{-- MENU LG --}}
-                <div class="hidden sm:block sm:ml-6">
+                <div class="hidden md:block md:ml-6">
                     <div class="flex">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="{{ route('landding.index') }}"
@@ -66,7 +66,7 @@
     </div>
 
     <!-- MENU MOVIL-->
-    <div class="sm:hidden md:hidden" x-show="open" x-on:click.away="open=false">
+    <div class="md:hidden" x-show="open" x-on:click.away="open=false">
         <div class="px-2 pt-2 pb-3 space-y-1">
             <a href="{{ route('landding.index') }}"
                 class="text-gray-800 hover:bg-gray-200 block px-3 py-2 rounded-md text-base font-medium"

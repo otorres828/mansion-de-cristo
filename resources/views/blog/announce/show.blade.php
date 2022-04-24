@@ -34,24 +34,30 @@
             <div id="progress" class="h-1 bg-white shadow" style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
         </div>
         
-        <div class=" text-center pt-10 md:pt-20 container mx-auto">
+        <div class=" text-center pt-10 md:pt-10 container mx-auto">
             <p class=" md:text-2xl text-green-500 font-bold">{{$anuncio->created_at->toFormattedDateString()}}</p>
             <h1 class="font-bold break-normal text-3xl md:text-5xl">{{$anuncio->name}}</h1>
             <input  value="{{ $anuncio->name }}" id="titulo" hidden>
 
         </div>
         
-        <div class="container w-full max-w-6xl mx-auto bg-cover mt-8 rounded sm:px-16 " style="background-image:url('@if($anuncio->image){{asset('storage/'.$anuncio->image->url)}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif'); height: 75vh;"></div>
-        
+        {{-- FOTO LG --}}
+        <div class="hidden md:block max-w-6xl mx-auto bg-cover mt-8 rounded"
+            style="background-image:url('@if ($anuncio->image) {{ asset('storage/' . $anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif');min-height: 75vh;">
+        </div>
+        {{-- FOTO SM/MD --}}
+        <div class="md:hidden mx-auto container px-2 lg:px-8  mt-4 bg-cover ">
+            <img class="w-full h-96"src="@if ($anuncio->image) {{ asset('storage/' . $anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="">
+        </div>
         {{-- CUERPO DE LA NOTICIA --}}
-        <div class="container max-w-5xl mx-auto -mt-32">
+        <div class="container max-w-5xl mx-auto md:-mt-32">
             <div class="mx-0 sm:mx-6">
                 <div class="bg-white w-full p-8 md:p-24 text-xl md:text-2xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
                     <!--Lead Para-->
                     <p class="text-2xl md:text-3xl mb-5 text-justify ">
                         👋 {{$anuncio->extract}}
                     </p>
-                    <article  class="prose md:prose-lg lg:prose-xl select-none text-justify">
+                    <article  class="prose md:prose-lg lg:prose-xl text-justify">
                         {!!$anuncio->body!!}
                     </article>
 
