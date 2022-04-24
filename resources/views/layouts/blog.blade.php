@@ -12,12 +12,11 @@
     @yield('head')
     <title>@yield('title')</title>
 </head>
-<body class="">
+<body >
 
     <header>
         @include('components.aminblog.navigation')
     </header>
-
 
     @yield('header')
     @yield('main')
