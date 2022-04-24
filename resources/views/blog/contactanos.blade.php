@@ -2,8 +2,7 @@
 @section('title', 'MDC-Contactanos')
 
 @section('header')
-<div data-parallax="true" class=" bg-cover bg-center flex items-center relative h-64 py-48 dark-filter opacity-90" style="background-image: url(&quot;https://scontent-mia3-1.xx.fbcdn.net/v/t39.30808-6/260441721_6496051857133185_6705141970517452324_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=0debeb&_nc_ohc=Y7e0DsYnCLEAX9EObDd&_nc_ht=scontent-mia3-1.xx&oh=00_AT9Zghg5tjqPUh4hTej2JI8v6pJcOFEyZB3eInUm1rCyVw&oe=62650A90&quot;); transform: translate3d(0px, 0px, 0px);"></div>
-
+    @include('components.aminblog.header')
 @endsection
 
 @section('main')
@@ -13,17 +12,32 @@
                 <article class="bg-gray-50 overflow-hidden shadow-xl sm:rounded-lg px-6 py-10">
                     <div class="px-6 py-4">
                         {{-- ALERTA --}}
-                        <div  class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200" role="alert">
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                        @if (session('info'))
+                        <div class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200" role="alert">
+                            <svg class="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
                             <div class="ml-3 text-sm font-medium text-green-700 dark:text-green-800">
-                             En hora buena, Tu mensaje ha sido enviado, pronto nos comicaremos contigo!
+                                En hora buena, Tu mensaje ha sido enviado, pronto nos comicaremos contigo!
                             </div>
-                            <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-green-100 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8 dark:bg-green-200 dark:text-green-600 dark:hover:bg-green-300" data-dismiss-target="#alert-3" aria-label="Close">
-                              <span class="sr-only">Cerrar</span>
-                              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <button type="button"
+                                class="ml-auto -mx-1.5 -my-1.5 bg-green-100 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8 dark:bg-green-200 dark:text-green-600 dark:hover:bg-green-300"
+                                data-dismiss-target="#alert-3" aria-label="Close">
+                                <span class="sr-only">Cerrar</span>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
                             </button>
-                          </div>
+                        </div>
+                        @endif
                         {{-- FIN ALERTA --}}
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div class="col-span-1 mx-auto">
                                 <div class="mb-10">
@@ -58,32 +72,31 @@
                                         </div>
                                     </div>
                                 </div>
-                                {!! Form::open(['route'=>'blog.contact.store','class'=>'space-y-6 ng-untouched ng-pristine ng-valid','autocomplete'=>'off']) !!}
-            
-                                    <div>
-                                        <label for="name" class="text-sm">Nombre completo</label>
-                                        <input
-                                            class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
-                                            name="name" type="text" placeholder="Nombre completo">
-                                    </div>
-                                    <div>
-                                        <label for="email" class="text-sm">Email</label>
-                                        <input
-                                            class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
-                                            type="email" placeholder="Escriba aquí su correo electrónico" id="email"
-                                            name="email">
-                                    </div>
-                                    <div>
-                                        <label for="name" class="text-sm">Asunto</label>
-                                        <input
-                                            class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
-                                            name="title" type="text" placeholder="Asunto">
-                                    </div>
-                                    <div>
-                                        <label for="message" class="text-sm">Mensaje</label>
-                                        <div class="w-full">
-                                              <textarea name="description"
-                                                class="
+                                {!! Form::open(['route' => 'blog.contact.store', 'class' => 'space-y-6 ng-untouched ng-pristine ng-valid', 'autocomplete' => 'off']) !!}
+
+                                <div>
+                                    <label for="name" class="text-sm">Nombre completo</label>
+                                    <input
+                                        class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
+                                        name="name" type="text" placeholder="Nombre completo">
+                                </div>
+                                <div>
+                                    <label for="email" class="text-sm">Email</label>
+                                    <input
+                                        class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
+                                        type="email" placeholder="Escriba aquí su correo electrónico" id="email"
+                                        name="email">
+                                </div>
+                                <div>
+                                    <label for="name" class="text-sm">Asunto</label>
+                                    <input
+                                        class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
+                                        name="title" type="text" placeholder="Asunto">
+                                </div>
+                                <div>
+                                    <label for="message" class="text-sm">Mensaje</label>
+                                    <div class="w-full">
+                                        <textarea name="description" class="
                                                   form-control
                                                   block
                                                   w-full
@@ -100,24 +113,20 @@
                                                   m-0
                                                   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
                                                 "
-                                              
-                                                rows="3"
-                                                placeholder="Escribe tu mensaje"
-                                              ></textarea>
-                                          </div>
+                                            rows="3" placeholder="Escribe tu mensaje"></textarea>
                                     </div>
-                                    <div>
-                                        <button class="w-full p-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                            Enviar mensaje
-                                          </button>
-                                    </div>
+                                </div>
+                                <div>
+                                    <button
+                                        class="w-full p-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                        Enviar mensaje
+                                    </button>
+                                </div>
                                 {!! Form::close() !!}
 
                             </div>
                         </div>
-
                     </div>
-
                 </article>
             </div>
         </main>

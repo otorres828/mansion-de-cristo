@@ -11,7 +11,7 @@
                     {{-- PRIMERA IMAGEN --}}
                     <div class="swiper-slide ">
                         <article class="w-full h-96 opacity-90"
-                            style="background-image: url(https://scontent-mia3-2.xx.fbcdn.net/v/t39.30808-6/260231640_6496052090466495_6741464830139251963_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=0debeb&_nc_ohc=9dFgc8Z7jaoAX9etlWG&_nc_ht=scontent-mia3-2.xx&oh=00_AT_ku29lRtTMsyXtHeXeVGXfGMMFcoemNuBHMyyEOQNBiQ&oe=62674F30)">
+                            style="background-image: url({{ asset('images/primera.jpg') }})">
                             <div class="w-full h-full px-8 flex flex-col justify-center ">
                                 <h1 class="text-4xl text-white leading-8 font-bold text-left">
                                     <a href="{{ route('blog.contact.index') }}">
@@ -111,20 +111,20 @@
 
             {{-- NOTICIAS --}}
             <div class="max-w-3xl mx-auto text-center mt-8">
-                <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer las Noticias <a class="text-cyan-900 font-bold"
-                        href="{{ route('blog.testimony') }}">Mas Recientes</a>
+                <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer las Enseñanzas <a class="text-cyan-900 font-bold"
+                        href="{{ route('blog.teaching') }}">Mas Recientes</a>
                 </h2>
                 <p class="text-xl text-gray-600">
-                    Conoce las noticias de interes mas recientes acerca de nuestra congregacion, si quieres puedes ver <a
+                    Conoce las enseñanzas de interes mas recientes acerca de nuestra congregacion, si quieres puedes ver <a
                         class="text-cyan-900 font-bold" href="{{ route('blog.announces') }}">mas noticias aqui</a>.
                 </p>
             </div>
 
             <div class="pt-8 sm:px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                @foreach ($announces as $anuncio)
+                @foreach ($teachings as $anuncio)
                     <div class="px-6 flex justify-center hover:bg-gray-200">
                         <div class="" class="rounded-lg shadow-lg bg-white ">
-                            <a href="{{ route('blog.show_announces', $anuncio) }}" data-mdb-ripple="true"
+                            <a href="{{ route('blog.show_teaching', $anuncio) }}" data-mdb-ripple="true"
                                 data-mdb-ripple-color="light">
                                 <img src="{{ Storage::url($anuncio->image->url) }}" alt="" />
                             </a>
@@ -422,12 +422,11 @@
                 </div>
             </article>
         </div>
-
     </div>
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/carrusel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/carrusel.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 @endsection
 

@@ -162,8 +162,8 @@
                         datos = JSON.parse(resp);
                     }
                 })
-            })
-        </script>
+        })
+    </script>
 @endsection
 
 @section('footer')

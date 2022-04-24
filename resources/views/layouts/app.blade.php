@@ -23,7 +23,7 @@
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
-            @livewire('blog.navigation')
+            @include('components.aminblog.navigation')
 
             <!-- Page Heading -->
             @if (isset($header))
