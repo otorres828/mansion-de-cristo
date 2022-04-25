@@ -29,6 +29,6 @@ class LanddingController extends Controller
             ->orderBy('id', 'desc')
             ->take(6)
             ->get();
-        return view('blog.landding.index', compact('announces','testimonies','teachings'));
+        return view('welcome', compact('announces','testimonies','teachings'));
     }
 }
