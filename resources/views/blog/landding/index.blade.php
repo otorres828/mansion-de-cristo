@@ -130,8 +130,8 @@
                                 <div class="absolute inset-0  w-full h-full bg-gradient-to-br from-black/75"></div>
                                 <div class=" relative h-72 w-80 p-12 flex flex-col justify-between items-start">
                                     <div>
-                                        <p class"font-medium text-white">{{ $anuncio->name }}</p>
-                                        <h2 class "mt-3 w-2/3 text-3xl font-semibold tracking-tight text-white">
+                                        <p class="font-medium text-white">{{ $anuncio->name }}</p>
+                                        <h2 class="mt-3 w-2/3 text-3xl font-semibold tracking-tight text-white">
                                             {{$anuncio->name}}
                                         </h2>
                                     </div>

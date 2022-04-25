@@ -109,7 +109,7 @@
                 @endforeach
             </div>
 
-            {{-- NOTICIAS --}}
+            {{-- ENSEÑANZAS --}}
             <div class="max-w-3xl mx-auto text-center mt-8">
                 <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer las Enseñanzas <a class="text-cyan-900 font-bold"
                         href="{{ route('blog.teaching') }}">Mas Recientes</a>
@@ -120,25 +120,27 @@
                 </p>
             </div>
 
-            <div class="pt-8 sm:px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                @foreach ($teachings as $anuncio)
-                    <div class="px-6 flex justify-center hover:bg-gray-200">
-                        <div class="" class="rounded-lg shadow-lg bg-white ">
-                            <a href="{{ route('blog.show_teaching', $anuncio) }}" data-mdb-ripple="true"
-                                data-mdb-ripple-color="light">
-                                <img src="{{ Storage::url($anuncio->image->url) }}" alt="" />
-                            </a>
-                            <div class="p-3">
-                                <a href="{{ route('blog.show_announces', $anuncio) }}">
-                                    <h5 class="text-gray-900 text-xl font-medium mb-2">{{ $anuncio->name }}</h5>
-                                </a>
-                                <p class="text-gray-700 text-base ">
-                                    {{ Illuminate\Support\Str::limit($anuncio->extract, 120, '...') }}
-                                </p>
+            <div class="px-2 sm:px-13">
+                <ul class="mt-10 pb-5 w-full flex overflow-x-auto gap-8 snap-x">
+                    @foreach ($teachings as $enseñanza)
+                        <li class="snap-center">
+                            <div class="relative flex-shrink-0  overflow-hidden rounded-3xl">
+                                <img src="{{ Storage::url($enseñanza->image->url) }}" alt=""
+                                    class="absolute inset-0 w-full h-full object-fixed object-bottom" />
+                                <div class="absolute inset-0  w-full h-full bg-gradient-to-br from-black/75"></div>
+                                <div class=" relative h-72 w-80 p-12 flex flex-col justify-center items-start">
+                                    <div>
+                                        <a class="hover:text-sky-500" href="{{ route('blog.show_teaching',$enseñanza) }}">
+                                            <h2 class=" mt-3 w-2/3 text-2xl font-semibold tracking-tight text-white">
+                                                {{$enseñanza->name}}
+                                            </h2>
+                                    </a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                @endforeach
+                        </li>
+                    @endforeach
+                </ul>
             </div>
             {{-- PREGUNTAS FRECUENTES --}}
             <div class="container  mx-auto flex flex-wrap flex-col md:flex-row items-center">

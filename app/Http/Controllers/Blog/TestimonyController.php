@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Testimony;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 class TestimonyController extends Controller
 {
@@ -13,6 +14,7 @@ class TestimonyController extends Controller
     }
 
     public function show($slug){   
+        
         Artisan::call('cache:clear');
         Artisan::call('config:cache');
         Artisan::call('cache:clear');
@@ -25,6 +27,12 @@ class TestimonyController extends Controller
                             ->take(4)
                             ->latest('id')
                             ->get();
+                            
+        $fecha = date("Y-m-d");
+        $ip = $_SERVER["REMOTE_ADDR"] ?? "";
+        $url=route('blog.show_testimony',$testimony);
+        DB::select("INSERT INTO visitas(fecha, ip, pagina, url) 
+                   VALUES('$fecha', '$ip', '$testimony->name', '$url')");
 
         return view('blog.testimony.show',compact('testimony','similares'));
     }

@@ -148,7 +148,7 @@
 
 @section('js')
     @include('components.aminblog.show')
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    {{-- <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script type="text/javaScript">
         $(document).ready(function() {
                 $.ajax({
@@ -163,7 +163,7 @@
                     }
                 })
         })
-    </script>
+    </script> --}}
 @endsection
 
 @section('footer')
