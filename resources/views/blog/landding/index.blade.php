@@ -120,25 +120,26 @@
                 </p>
             </div>
 
-            <div class="pt-8 sm:px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                @foreach ($teachings as $anuncio)
-                    <div class="px-6 flex justify-center hover:bg-gray-200">
-                        <div class="" class="rounded-lg shadow-lg bg-white ">
-                            <a href="{{ route('blog.show_teaching', $anuncio) }}" data-mdb-ripple="true"
-                                data-mdb-ripple-color="light">
-                                <img src="{{ Storage::url($anuncio->image->url) }}" alt="" />
-                            </a>
-                            <div class="p-3">
-                                <a href="{{ route('blog.show_announces', $anuncio) }}">
-                                    <h5 class="text-gray-900 text-xl font-medium mb-2">{{ $anuncio->name }}</h5>
-                                </a>
-                                <p class="text-gray-700 text-base ">
-                                    {{ Illuminate\Support\Str::limit($anuncio->extract, 120, '...') }}
-                                </p>
+            <div class=" pt-8 sm:px-16">
+                <ul class="mt-10  w-full flex overflow-x-auto gap-8 snap-x">
+                    @foreach ($teachings as $anuncio)
+                        <li class="snap-center">
+                            <div class="relative flex-shrink-0  overflow-hidden rounded-3xl">
+                                <img src="{{ Storage::url($anuncio->image->url) }}" alt=""
+                                    class="absolute inset-0 w-full h-full object-fixed object-bottom" />
+                                <div class="absolute inset-0  w-full h-full bg-gradient-to-br from-black/75"></div>
+                                <div class=" relative h-72 w-80 p-12 flex flex-col justify-between items-start">
+                                    <div>
+                                        <p class"font-medium text-white">{{ $anuncio->name }}</p>
+                                        <h2 class "mt-3 w-2/3 text-3xl font-semibold tracking-tight text-white">
+                                            {{$anuncio->name}}
+                                        </h2>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                @endforeach
+                        </li>
+                    @endforeach
+                </ul>
             </div>
             {{-- PREGUNTAS FRECUENTES --}}
             <div class="container  mx-auto flex flex-wrap flex-col md:flex-row items-center">

@@ -23,7 +23,7 @@ class LanddingController extends Controller
             ->get();
         $teachings = Teaching::where('status', 2)
             ->orderBy('id', 'desc')
-            ->take(4)
+            ->take(8)
             ->get();
         $testimonies = Testimony::where('status', 2)
             ->orderBy('id', 'desc')
