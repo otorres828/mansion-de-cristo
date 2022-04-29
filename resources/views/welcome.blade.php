@@ -347,7 +347,19 @@
                 @livewire('blog.landding.testimony')
             </section>
             <br>
-
+                
+            <form action="#" class="pb-16">
+                <div class="container font-sans bg-green-100 rounded p-4 md:p-24 text-center mx-auto">
+                    <h2 class="font-bold break-normal text-2xl md:text-4xl">Subscribete</h2>
+                    <h3 class="font-bold break-normal  text-gray-600 text-base md:text-xl">Se el primero en obtener las ultimas noticias de MDC</h3>
+                    <div class="w-full text-center pt-4">
+                        <div class="max-w-sm mx-auto p-1 pr-0 flex flex-wrap items-center">
+                            <input type="email" placeholder="olivertorres@example.com" class="flex-1 appearance-none rounded shadow p-3 text-gray-600 mr-2 focus:outline-none">
+                            <button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">SUBSCRIBIRSE</button>
+                        </div>
+                    </div>
+                </div>
+            </form>  
             <article class="h-48 bg-cover bg-center  opacity-90 "
                 style="background-image: url(https://scontent-mia3-1.xx.fbcdn.net/v/t31.18172-8/19956778_1571614339535696_8406627501244755415_o.jpg?_nc_cat=106&ccb=1-5&_nc_sid=cdbe9c&_nc_ohc=xKeKBu8vXT0AX_3kgAd&_nc_ht=scontent-mia3-1.xx&oh=00_AT_xPYsyfhDT40tmzuXut1OjwA8izTF2iTqUAHjJh9znAQ&oe=6288EDAB)">
                 <div class="flex flex-col justify-center">
