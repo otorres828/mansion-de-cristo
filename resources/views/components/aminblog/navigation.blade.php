@@ -33,7 +33,7 @@
                 </div>
 
                 {{-- MENU LG --}}
-                <div class="hidden md:block md:ml-6">
+                <div class="hidden md:block md:ml-6 justify-end">
                     <div class="flex">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="{{ route('landding.index') }}"

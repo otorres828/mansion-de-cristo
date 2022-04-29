@@ -328,8 +328,8 @@
 
             {{-- TESTIMONIOS --}}
             <section class="relative pt-16">
-                <div class="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 bg-gray-800 pointer-events-none" aria-hidden="true">
-                </div>
+                {{-- <div class="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 bg-gray-800 pointer-events-none" aria-hidden="true">
+                </div> --}}
 
                 <div class="relative  mx-auto ">
                     <div class="max-w-3xl mx-auto text-center  md:pb-16  px-4 sm:px-6">
@@ -343,8 +343,8 @@
                                 href="{{ route('blog.contact.index') }}">compártelo aqui</a>.
                         </p>
                     </div>
+                    @livewire('blog.landding.testimony')
                 </div>
-                @livewire('blog.landding.testimony')
             </section>
             <br>
                 
@@ -360,6 +360,7 @@
                     </div>
                 </div>
             </form>  
+            
             <article class="h-48 bg-cover bg-center  opacity-90 "
                 style="background-image: url(https://scontent-mia3-1.xx.fbcdn.net/v/t31.18172-8/19956778_1571614339535696_8406627501244755415_o.jpg?_nc_cat=106&ccb=1-5&_nc_sid=cdbe9c&_nc_ohc=xKeKBu8vXT0AX_3kgAd&_nc_ht=scontent-mia3-1.xx&oh=00_AT_xPYsyfhDT40tmzuXut1OjwA8izTF2iTqUAHjJh9znAQ&oe=6288EDAB)">
                 <div class="flex flex-col justify-center">

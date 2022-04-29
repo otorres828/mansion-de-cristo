@@ -44,7 +44,7 @@
                                     <h2 class="text-4xl font-bold leading-tight lg:text-5xl mb-2">¡Escríbenos!</h2>
                                     <div class="text-gray-600">Dejanos un mensaje y te responderemos a la brevedad</div>
                                 </div>
-                                <img src="{{ asset('images/contactanos.svg') }}" alt="" class="p-6 w-50 h-50 skew-y-12">
+                                <img src="{{ asset('images/contact.svg') }}" alt="" class="p-6 w-50 h-50 skew-y-12">
                             </div>
 
                             <div class="col-span-1">
