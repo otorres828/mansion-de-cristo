@@ -1,5 +1,5 @@
 <div  wire:target="loadTeachings"> 
-    <div wire:loading.flex="" wire:target="loadTeachings" class="flex justify-center items-center mt-16">
+    <div wire:loading.flex="" wire:target="loadTeachings" class="flex justify-center items-center ">
         <div class="flex">
             <div class="w-4 h-4 rounded-full animate-pulse bg-blue-500"></div>
             <div class="w-4 h-4 rounded-full animate-pulse bg-blue-500 mx-2"></div>
@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="relative mx-auto">
-        <div class="swiper enseñanza " >
+        <div class="swiper general" >
             <div class="next-prev absolute inset-y-0 left-0 z-10 flex items-center">
                 <button  class="bg-white flex justify-center items-center w-10 h-10 rounded-full shadow focus:outline-none text-blue-400">
                     <svg viewBox="0 0 20 20" fill="currentColor" class="chevron-left w-6 h-6">
@@ -45,8 +45,6 @@
                     </svg>
                 </button>
             </div>
-            {{-- <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div> --}}
         </div>
 
  

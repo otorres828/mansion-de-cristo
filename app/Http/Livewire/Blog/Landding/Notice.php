@@ -9,7 +9,7 @@ class Notice extends Component
 {
     public $readyToLoad = false;
  
-    public function loadTeachings()
+    public function loadNotices()
     {
         $this->readyToLoad = true;
     }

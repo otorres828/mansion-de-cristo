@@ -103,33 +103,10 @@
                 </p>
             </div>
 
-            {{-- <div class="swiper enseñanza px-2 sm:px-13">
-                <ul class="mt-10 pb-5 w-full flex overflow-x-auto gap-8 snap-x">
-                    @foreach ($teachings as $enseñanza)
-                        <li class="snap-center">
-                            <div class="relative flex-shrink-0  overflow-auto rounded-3xl">
-                                <img src="{{ Storage::url($enseñanza->image->url) }}" alt=""
-                                    class="absolute inset-0 w-full h-full object-fixed object-bottom" />
-                                <div class="absolute inset-0  w-full h-full bg-gradient-to-br from-black/75"></div>
-                                <div class=" relative h-72 w-80 p-12 flex flex-col justify-center items-start">
-                                    <div>
-                                        <a class="hover:text-sky-500"
-                                            href="{{ route('blog.show_teaching', $enseñanza) }}">
-                                            <h2 class=" mt-3 w-2/3 text-2xl font-semibold tracking-tight text-white">
-                                                {{ $enseñanza->name }}
-                                            </h2>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    @endforeach
-                </ul>
-            </div> --}}
             <div class="pt-8">
                 @livewire('blog.landding.teaching')
             </div>
-            
+
             {{-- PREGUNTAS FRECUENTES --}}
             <div class="container  mx-auto flex flex-wrap flex-col md:flex-row items-center">
                 <!--Left Col-->
@@ -350,43 +327,24 @@
             </div>
 
             {{-- TESTIMONIOS --}}
-            <section class="relative p-9">
+            <section class="relative pt-16">
                 <div class="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 bg-gray-800 pointer-events-none" aria-hidden="true">
                 </div>
 
-                <div class="relative max-w-6xl mx-auto px-4 sm:px-6 ">
-                    <div class="py-12 md:py-20">
-                        <div class="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-                            <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer los Testimonios <a
-                                    class="text-cyan-900 font-bold" href="{{ route('blog.testimony') }}">Mas
-                                    Recientes</a>
-                            </h2>
-                            <p class="text-xl text-gray-600">
-                                Contemos las historias que inspiren a otras personas seguir creyendo por su milagro. Tu
-                                testimonio las puede llenar de fe a otro, <a class="text-cyan-900 font-bold"
-                                    href="{{ route('blog.contact.index') }}">compártelo aqui</a>.
-                            </p>
-                        </div>
-                        <div
-                            class="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none">
-                            @foreach ($testimonies as $testimony)
-                                <div class="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-                                    <div class="flex justify-center">
-                                        <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500"
-                                            src="@if ($testimony->image) {{ asset('storage/' . $testimony->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif">
-                                    </div>
-                                    <h4 class="text-xl font-bold leading-snug tracking-tight mb-1 text-center"><a
-                                            class="hover:to-blue-700"
-                                            href="{{ route('blog.show_testimony', $testimony) }}">{{ $testimony->name }}</a>
-                                    </h4>
-                                    <p class="text-gray-600 text-center">
-                                        {{ Illuminate\Support\Str::limit($testimony->extract, 100, '...') }}</p>
-                                </div>
-                            @endforeach
-
-                        </div>
+                <div class="relative  mx-auto ">
+                    <div class="max-w-3xl mx-auto text-center  md:pb-16  px-4 sm:px-6">
+                        <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer los Testimonios <a
+                                class="text-cyan-900 font-bold" href="{{ route('blog.testimony') }}">Mas
+                                Recientes</a>
+                        </h2>
+                        <p class="text-xl text-gray-600">
+                            Contemos las historias que inspiren a otras personas seguir creyendo por su milagro. Tu
+                            testimonio las puede llenar de fe a otro, <a class="text-cyan-900 font-bold"
+                                href="{{ route('blog.contact.index') }}">compártelo aqui</a>.
+                        </p>
                     </div>
                 </div>
+                @livewire('blog.landding.testimony')
             </section>
             <br>
 
@@ -416,16 +374,34 @@
 @endsection
 
 @section('css')
-
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 @endsection
 
 @section('js')
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        var swiper = new Swiper(".noticia", {
-            slidesPerView: 4,
-            spaceBetween: 5,
+        var swiper = new Swiper(".general", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 0,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 0,
+                },
+                1280: {
+                    slidesPerView: 4,
+                    spaceBetween: 0,
+                },
+            },
+
             loop: true,
             pagination: {
                 el: ".swiper-pagination",
@@ -436,9 +412,25 @@
                 prevEl: ".next-prev",
             },
         });
-        var swiper = new Swiper(".enseñanza", {
-            slidesPerView: 4,
-            spaceBetween: 5,
+        var swiper = new Swiper(".testimonio", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 0,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 0,
+                },
+
+            },
+
             loop: true,
             pagination: {
                 el: ".swiper-pagination",
@@ -449,6 +441,7 @@
                 prevEl: ".next-prev",
             },
         });
+
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 1,
             spaceBetween: 30,

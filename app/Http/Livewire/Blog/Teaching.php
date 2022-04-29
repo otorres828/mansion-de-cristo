@@ -2,9 +2,7 @@
 
 namespace App\Http\Livewire\Blog;
 
-use App\Models\Category;
 use App\Models\Teaching as ModelsTeaching;
-use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;

@@ -8,7 +8,6 @@ use Livewire\Component;
 class Teaching extends Component
 {
     public $readyToLoad = false;
- 
     public function loadTeachings()
     {
         $this->readyToLoad = true;
