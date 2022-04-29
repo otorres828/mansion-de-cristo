@@ -89,13 +89,13 @@
             </div>
 
             <div class="pt-8">
-                @livewire('blog.landding.teaching')
+                @livewire('blog.landding.notice')
             </div>
 
             {{-- ENSEÑANZAS --}}
             <div class="max-w-3xl mx-auto text-center mt-8">
                 <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer las Enseñanzas <a class="text-cyan-900 font-bold"
-                        href="{{ route('blog.teaching') }}">Mas Recientes</a>
+                        href="{{ route('blog.announces') }}">Mas Recientes</a>
                 </h2>
                 <p class="text-xl text-gray-600">
                     Conoce las enseñanzas de interes mas recientes acerca de nuestra congregacion, si quieres puedes ver <a
@@ -103,7 +103,7 @@
                 </p>
             </div>
 
-            <div class="px-2 sm:px-13">
+            {{-- <div class="swiper enseñanza px-2 sm:px-13">
                 <ul class="mt-10 pb-5 w-full flex overflow-x-auto gap-8 snap-x">
                     @foreach ($teachings as $enseñanza)
                         <li class="snap-center">
@@ -125,8 +125,11 @@
                         </li>
                     @endforeach
                 </ul>
+            </div> --}}
+            <div class="pt-8">
+                @livewire('blog.landding.teaching')
             </div>
-
+            
             {{-- PREGUNTAS FRECUENTES --}}
             <div class="container  mx-auto flex flex-wrap flex-col md:flex-row items-center">
                 <!--Left Col-->
@@ -413,15 +416,28 @@
 @endsection
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/carrusel.css') }}">
+
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 @endsection
 
 @section('js')
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        var swiper = new Swiper(".mw", {
-            slidesPerView: 3,
+        var swiper = new Swiper(".noticia", {
+            slidesPerView: 4,
+            spaceBetween: 5,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".next-next",
+                prevEl: ".next-prev",
+            },
+        });
+        var swiper = new Swiper(".enseñanza", {
+            slidesPerView: 4,
             spaceBetween: 5,
             loop: true,
             pagination: {

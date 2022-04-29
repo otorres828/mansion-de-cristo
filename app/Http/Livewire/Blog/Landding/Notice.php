@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Blog\Landding;
 
-use App\Models\Teaching as ModelsTeaching;
+use App\Models\Announce;
 use Livewire\Component;
 
-class Teaching extends Component
+class Notice extends Component
 {
     public $readyToLoad = false;
  
@@ -16,7 +16,7 @@ class Teaching extends Component
 
     public function render()
     {
-        $teachings=ModelsTeaching::where('status',2)->take(8)->get();
-        return view('livewire.blog.landding.teaching',compact('teachings'));
+        $notices=Announce::where('status',2)->take(8)->get();
+        return view('livewire.blog.landding.notice',compact('notices'));
     }
 }
