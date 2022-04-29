@@ -82,9 +82,11 @@
                     </div>
                 @endforeach
             </div>
-            <div class="pb-5">
-                {{ $teachings->links() }}
-            </div>
+            @if (count($teachings))      
+                <div class="pb-5">
+                    {{ $teachings->links() }}
+                </div>
+            @endif
         </div>
     </div>
 </div>

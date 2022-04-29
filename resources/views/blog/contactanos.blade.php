@@ -44,8 +44,7 @@
                                     <h2 class="text-4xl font-bold leading-tight lg:text-5xl mb-2">¡Escríbenos!</h2>
                                     <div class="text-gray-600">Dejanos un mensaje y te responderemos a la brevedad</div>
                                 </div>
-
-                                <img src="https://codersfree.com/img/contact/doodle.svg" alt="" class="p-6 h-52 md:h-64">
+                                <img src="{{ asset('images/contactanos.svg') }}" alt="" class="p-6 w-50 h-50 skew-y-12">
                             </div>
 
                             <div class="col-span-1">
@@ -65,9 +64,8 @@
                                                 ¡Gracias por escribirnos!
                                             </span>
                                             <div class="text-sm text-gray-600">
-                                                Este es un formulario de contácto, no de preguntas y respuestas. Cualquier
-                                                duda sobre mis cursos dejarlo en la sección de comentarios o en el grupo
-                                                Coders Free de facebook.
+                                                Este es un formulario de contácto, donde podremos aclarar dudas especificas y de gran relevancia. 
+                                                Tambien puedes visitarnos en nuestras redes sociales y conocer un poco mas de nuestra congregacion 
                                             </div>
                                         </div>
                                     </div>
@@ -78,20 +76,20 @@
                                     <label for="name" class="text-sm">Nombre completo</label>
                                     <input
                                         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
-                                        name="name" type="text" placeholder="Nombre completo">
+                                        name="name" type="text" placeholder="Nombre completo" required>
                                 </div>
                                 <div>
                                     <label for="email" class="text-sm">Email</label>
                                     <input
                                         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
                                         type="email" placeholder="Escriba aquí su correo electrónico" id="email"
-                                        name="email">
+                                        name="email" required>
                                 </div>
                                 <div>
                                     <label for="name" class="text-sm">Asunto</label>
                                     <input
                                         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
-                                        name="title" type="text" placeholder="Asunto">
+                                        name="title" type="text" placeholder="Asunto" required>
                                 </div>
                                 <div>
                                     <label for="message" class="text-sm">Mensaje</label>
@@ -113,7 +111,7 @@
                                                   m-0
                                                   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
                                                 "
-                                            rows="3" placeholder="Escribe tu mensaje"></textarea>
+                                            rows="3" placeholder="Escribe tu mensaje" required></textarea>
                                     </div>
                                 </div>
                                 <div>
