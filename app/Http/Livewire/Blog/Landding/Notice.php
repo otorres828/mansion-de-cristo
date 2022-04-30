@@ -16,7 +16,7 @@ class Notice extends Component
 
     public function render()
     {
-        $notices=Announce::where('status',2)->take(8)->get();
+        $notices=Announce::where('status',2)->take(8)->orderBy('id','desc')->get();
         return view('livewire.blog.landding.notice',compact('notices'));
     }
 }

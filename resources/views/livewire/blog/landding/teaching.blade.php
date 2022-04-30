@@ -1,5 +1,4 @@
 <div wire:target="loadTeachings">
-
     <x-aminblog.slide carga="loadTeachings">
         @foreach ($teachings as $enseñanza)
             <x-aminblog.card :item="$enseñanza" >
