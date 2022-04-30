@@ -18,6 +18,8 @@ class EstadisticaController extends Controller
         $fecha = date("Y-m-d");
         $ip = $_SERVER["REMOTE_ADDR"] ?? "";
         DB::select("INSERT INTO visitas(fecha, ip, pagina, url) VALUES('$fecha', '$ip', '$request->pagina', '$request->url')");
+       
+        echo "hola mundo";
     }
 
     public function mostrar(Request $request){
