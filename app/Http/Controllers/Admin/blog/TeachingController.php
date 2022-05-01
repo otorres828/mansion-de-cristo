@@ -57,9 +57,9 @@ class TeachingController extends Controller
                 'url' => 'teachings/' . $nombre
             ]);
         }
-        if($request->status==2){
-            Notification::route('mail',DB::table('users')->select('email')
-                                            ->whereNull('email_verified_at')
+        if($request->get('status')==2){
+            Notification::route('mail',DB::table('users')->select('email') 
+                                            ->whereNotNull('email_verified_at')     
                                             ->get()
                                 )->notify(new TeachingNotification($teaching));     
         }
@@ -77,6 +77,7 @@ class TeachingController extends Controller
 
     public function update(TeachingRequest $request, Teaching $teaching)
     {
+  
         $this->authorize('autor', $teaching);
         $teaching->update($request->all());
         if ($request->file('file')) {
@@ -98,10 +99,12 @@ class TeachingController extends Controller
                 ]);
             }
         }   
-        Notification::route('mail',DB::table('users')->select('email')
-                                        ->whereNull('email_verified_at')
-                                        ->get()
-                            )->notify(new TeachingNotification($teaching)); 
+        if($request->get('status')==2){
+            Notification::route('mail',DB::table('users')->select('email')   
+                                             ->whereNotNull('email_verified_at')    
+                                            ->get()
+                                )->notify(new TeachingNotification($teaching));     
+        }
                                     
         return redirect()->route('admin.blog.teaching.edit', $teaching)->with('info', 'Se actualizo la informacion de la Enseñanza');
     }
