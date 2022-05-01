@@ -2511,6 +2511,18 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
+.hover\:bg-violet-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(124 58 237 / var(--tw-bg-opacity));
+}
+.hover\:bg-sky-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(3 105 161 / var(--tw-bg-opacity));
+}
+.hover\:bg-sky-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(7 89 133 / var(--tw-bg-opacity));
+}
 .hover\:to-blue-700:hover {
   --tw-gradient-to: #1d4ed8;
 }
@@ -2580,6 +2592,12 @@ select {
 }
 .hover\:opacity-10:hover {
   opacity: 0.1;
+}
+.hover\:opacity-80:hover {
+  opacity: 0.8;
+}
+.hover\:opacity-75:hover {
+  opacity: 0.75;
 }
 .hover\:shadow:hover {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -2698,6 +2716,10 @@ select {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(74 222 128 / var(--tw-ring-opacity));
 }
+.focus\:ring-violet-300:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(196 181 253 / var(--tw-ring-opacity));
+}
 .focus\:ring-opacity-50:focus {
   --tw-ring-opacity: 0.5;
 }
@@ -2716,6 +2738,10 @@ select {
 .active\:bg-gray-50:active {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+.active\:bg-violet-700:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(109 40 217 / var(--tw-bg-opacity));
 }
 .active\:text-gray-700:active {
   --tw-text-opacity: 1;

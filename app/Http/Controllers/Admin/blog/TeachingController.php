@@ -59,8 +59,9 @@ class TeachingController extends Controller
                 'url' => 'teachings/' . $nombre
             ]);
         }
-        // Notification::route('mail',[DB::table('users')->select('email'))])
-        //                         ->notify(new TeachingNotification($teaching));
+        if($request->status==2){
+            Notification::route('mail',DB::table('users')->select('email')->get())->notify(new TeachingNotification($teaching));     
+        }
         return redirect()->route('admin.blog.teaching.index')->with('info', 'Se creo la enseñanza con exito');;
     }
 
@@ -95,7 +96,8 @@ class TeachingController extends Controller
                     'url' => 'teachings/' . $nombre
                 ]);
             }
-        }        
+        }   
+        Notification::route('mail',DB::table('users')->select('email')->get())->notify(new TeachingNotification($teaching));     
         return redirect()->route('admin.blog.teaching.edit', $teaching)->with('info', 'Se actualizo la informacion de la Enseñanza');
     }
 

@@ -7,7 +7,7 @@ Enterate de la nueva enseñanza publicada por:
 @endcomponent
 
 <h1 class="title">{{$teaching->name}}</h1> 
-<img style="margin-buton:2;" src="@if($teaching->image){{asset('storage/'.$teaching->image->url)}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="Avatar of Author">,<br>
+<img style="margin-buton:2;" src="@if($teaching->image){{asset('storage/'.$teaching->image->url)}}@else https://www.teknofilo.com/wp-content/uploads/2020/03/whatsapp-1280x720.jpg @endif" alt="Avatar of Author">,<br>
 
 <span class="extract">{{$teaching->extract}}</span>
 
