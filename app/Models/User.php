@@ -12,7 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use \Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     
     use HasRecursiveRelationships;

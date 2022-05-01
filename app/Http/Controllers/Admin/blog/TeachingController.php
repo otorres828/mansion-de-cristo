@@ -45,7 +45,6 @@ class TeachingController extends Controller
 
     public function store(TeachingRequest $request)
     {
-        
         $nombre = Str::random(20) . $request->file('file')->getClientOriginalName();
         $ruta = storage_path() . '/app/public/teachings/' . $nombre;
         Image::make($request->file('file'))->resize(600, 400)->save($ruta);
@@ -54,13 +53,15 @@ class TeachingController extends Controller
 
         if ($request->file('file')) {
             //$image_url=Storage::put('public/teachings', $request->file('file'));
-
             $teaching->image()->create([
                 'url' => 'teachings/' . $nombre
             ]);
         }
         if($request->status==2){
-            Notification::route('mail',DB::table('users')->select('email')->get())->notify(new TeachingNotification($teaching));     
+            Notification::route('mail',DB::table('users')->select('email')
+                                            ->whereNull('email_verified_at')
+                                            ->get()
+                                )->notify(new TeachingNotification($teaching));     
         }
         return redirect()->route('admin.blog.teaching.index')->with('info', 'Se creo la enseñanza con exito');;
     }
@@ -97,7 +98,11 @@ class TeachingController extends Controller
                 ]);
             }
         }   
-        Notification::route('mail',DB::table('users')->select('email')->get())->notify(new TeachingNotification($teaching));     
+        Notification::route('mail',DB::table('users')->select('email')
+                                        ->whereNull('email_verified_at')
+                                        ->get()
+                            )->notify(new TeachingNotification($teaching)); 
+                                    
         return redirect()->route('admin.blog.teaching.edit', $teaching)->with('info', 'Se actualizo la informacion de la Enseñanza');
     }
 

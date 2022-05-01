@@ -10,6 +10,7 @@ use App\Http\Controllers\Blog\SearchController;
 use App\Http\Controllers\Blog\TestimonyController;
 use App\Http\Controllers\Secretary\SecretaryController;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LanddingController::class,'index'])->name('landding.index');

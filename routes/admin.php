@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\blog\TestimonyController;
 use App\Http\Controllers\Admin\blog\UserController;
 use App\Http\Controllers\Blog\EstadisticaController;
 use App\Http\Livewire\Blog\Estadistidas;
+use Illuminate\Support\Facades\Auth;
 
 Route::resource('user', UserController::class)->middleware('can:admin.blog.user.index')->only('index','edit','update')->names('admin.blog.user');
 Route::resource('category', CategoryController::class)->except('show','create','edit')->middleware('can:admin.blog.category.index')->except('show')->names('admin.blog.category');
