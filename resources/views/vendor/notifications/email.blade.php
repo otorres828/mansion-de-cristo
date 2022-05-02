@@ -1,5 +1,4 @@
 @component('mail::message')
-
 {{-- Greeting --}}
 @if (! empty($greeting))
 # {{ $greeting }}
@@ -7,8 +6,7 @@
 @if ($level === 'error')
 # @lang('Whoops!')
 @else
-# @lang('En Buena Hora')
-
+# @lang('¡Hola! En Hora Buena.')
 @endif
 @endif
 
@@ -24,7 +22,7 @@
     switch ($level) {
         case 'success':
         case 'error':
-            $color = 'primary';
+            $color = $level;
             break;
         default:
             $color = 'primary';
@@ -45,22 +43,19 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-@lang('Gracias por leernos'),<br>
-{{ config('Mansion de Cristo') }}
+@lang('Gracias por leernos.')<br>
+Mansion de Cristo
 @endif
 
 {{-- Subcopy --}}
 @isset($actionText)
 @slot('subcopy')
 @lang(
-    "Si tienes problemas con el boton \":actionText\" button, copia y pega el URL\n".
-    'en el navegador:',
+    "Si tienes problemas con el boton \":actionText\" copia y pega el URL en el navegador:",
     [
         'actionText' => $actionText,
     ]
 ) <span class="break-all">[{{ $displayableActionUrl }}]({{ $actionUrl }})</span>
 @endslot
 @endisset
-
-
 @endcomponent
