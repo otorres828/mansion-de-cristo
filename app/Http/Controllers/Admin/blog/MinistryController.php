@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MinistryRequest;
 use App\Models\Ministry;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Notifications\EmailNotification;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
@@ -51,6 +53,12 @@ class MinistryController extends Controller
                 'url'=>'ministries/' .$nombre
             ]);            
         }
+        if($request->get('status')==2){
+            Notification::route('mail',DB::table('users')->select('email')   
+                                             ->whereNotNull('email_verified_at')    
+                                            ->get()
+                                )->notify(new EmailNotification($ministry));     
+        }
         return redirect()->route('admin.blog.ministry.index')->with('info','El anuncio se creo con exito');    
     }
 
@@ -86,6 +94,12 @@ class MinistryController extends Controller
                     'url'=>'ministries/' .$nombre
                 ]);  
             }
+        }
+        if($request->get('status')==2){
+            Notification::route('mail',DB::table('users')->select('email')   
+                                             ->whereNotNull('email_verified_at')    
+                                            ->get()
+                                )->notify(new EmailNotification($ministry));     
         }
         return redirect()->route('admin.blog.ministry.edit',$ministry)->with('info','Se actualizo la informacion del Ministerio o Departamento');
     }

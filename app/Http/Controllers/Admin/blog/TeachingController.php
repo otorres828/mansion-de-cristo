@@ -4,14 +4,11 @@ namespace App\Http\Controllers\Admin\blog;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeachingRequest;
-use App\Mail\TeachingMailable;
 use App\Models\Category;
 use App\Models\Teaching;
 use App\Models\User;
-use App\Notifications\TeachingNotification;
-use Illuminate\Http\Request;
+use App\Notifications\EmailNotification;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -61,7 +58,7 @@ class TeachingController extends Controller
             Notification::route('mail',DB::table('users')->select('email') 
                                             ->whereNotNull('email_verified_at')     
                                             ->get()
-                                )->notify(new TeachingNotification($teaching));     
+                                )->notify(new EmailNotification($teaching));     
         }
         return redirect()->route('admin.blog.teaching.index')->with('info', 'Se creo la enseñanza con exito');;
     }
@@ -103,7 +100,7 @@ class TeachingController extends Controller
             Notification::route('mail',DB::table('users')->select('email')   
                                              ->whereNotNull('email_verified_at')    
                                             ->get()
-                                )->notify(new TeachingNotification($teaching));     
+                                )->notify(new EmailNotification($teaching));     
         }
                                     
         return redirect()->route('admin.blog.teaching.edit', $teaching)->with('info', 'Se actualizo la informacion de la Enseñanza');

@@ -6,9 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TestimonyRequest;
 use App\Models\Testimony;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Notifications\EmailNotification;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use PHPUnit\Framework\Test;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
 class TestimonyController extends Controller
@@ -51,6 +52,12 @@ class TestimonyController extends Controller
                 'url'=>'testimonies/' .$nombre
             ]);            
         }
+        if($request->get('status')==2){
+            Notification::route('mail',DB::table('users')->select('email')   
+                                             ->whereNotNull('email_verified_at')    
+                                            ->get()
+                                )->notify(new EmailNotification($$testimony));     
+        }
         return redirect()->route('admin.blog.testimony.index')->with('info','El testimonio se creo con exito');    
     }
 
@@ -85,6 +92,12 @@ class TestimonyController extends Controller
                     'url'=>'testimonies/' .$nombre
                 ]);  
             }
+        }
+        if($request->get('status')==2){
+            Notification::route('mail',DB::table('users')->select('email')   
+                                             ->whereNotNull('email_verified_at')    
+                                            ->get()
+                                )->notify(new EmailNotification($testimony));     
         }
         return redirect()->route('admin.blog.testimony.edit',$testimony)->with('info','Se actualizo la informacion del Testimony');
     }
