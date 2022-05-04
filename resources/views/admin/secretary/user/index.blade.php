@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <x-alert/>
+    <x-aminblog.alert/>
 
     <div class="mb-3">
         <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#register" data-bs-whatever="@mdo">Registrar Usuario</a>

@@ -7,10 +7,7 @@
     <meta name="description" content="En Mansion de Cristo encontrarás noticias, enseñanzas y testimonios que te ayudarán en tu crecimiento espiritual">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">
-    @livewireStyles
-    
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">    
     @yield('css')
     @yield('head')
     <title>@yield('title')</title>

@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <x-alert/>
+    <x-aminblog.alert/>
    
     <div class="card">
         <div class="card-body">

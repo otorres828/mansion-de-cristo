@@ -1,11 +1,11 @@
 <div>
-    <div wire:loading.flex="" wire:target="{{ $carga }}" class="flex justify-center items-center ">
+    {{-- <div wire:loading.flex="" wire:target="{{ $carga }}" class="flex justify-center items-center ">
         <div class="flex">
             <div class="w-4 h-4 rounded-full animate-pulse bg-blue-500"></div>
             <div class="w-4 h-4 rounded-full animate-pulse bg-blue-500 mx-2"></div>
             <div class="w-4 h-4 rounded-full animate-pulse bg-blue-500"></div>
         </div>
-    </div>
+    </div> --}}
     <div class="relative mx-auto">
         <div class="swiper general">
             <div class="next-prev absolute inset-y-0 left-0 z-10 flex items-center">

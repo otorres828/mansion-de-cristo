@@ -7,6 +7,7 @@ use App\Http\Controllers\Blog\ContactController;
 use App\Http\Controllers\Blog\LanddingController;
 use App\Http\Controllers\Blog\MinisteryController;
 use App\Http\Controllers\Blog\SearchController;
+use App\Http\Controllers\Blog\SuscripcionController;
 use App\Http\Controllers\Blog\TestimonyController;
 use App\Http\Controllers\Secretary\SecretaryController;
 use Illuminate\Support\Facades\Artisan;
@@ -39,6 +40,9 @@ Route::get('privacidad',  function(){
 Route::get('terminos',  function(){
     return view('blog.legal.terminos');
 });
+
+Route::post('suscripcion',[SuscripcionController::class,'suscribirse'])->name('suscripcion');
+
 //CONTROLADORES SECRETARIA
 Route::get('/secretaria', [SecretaryController::class,'index'])->name('secretary.index')->middleware('auth');
 
@@ -61,6 +65,6 @@ Route::get('storage-link', function () {
 Route::get('/offline', function () {
     return view('laravelpwa::offline');
 });
-Route::get('buscar/enseñanzas',[SearchController::class,'teaching'])->name('search.teachings');
-Route::get('buscar/testimonios',[SearchController::class,'testimony'])->name('search.testimony');
+// Route::get('buscar/enseñanzas',[SearchController::class,'teaching'])->name('search.teachings');
+// Route::get('buscar/testimonios',[SearchController::class,'testimony'])->name('search.testimony');
 

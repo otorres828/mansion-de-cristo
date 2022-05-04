@@ -257,14 +257,14 @@ return [
 
                 ],
                 [
-                    'text' => 'Redes',
+                    'text' => 'Carreras',
                     'icon' => 'far fa-registered',
                     'route'  => 'admin.secretary.group.index',
                     'can'=>'admin.secretary.admin',
 
                 ],
                 [
-                    'text' => 'Otras Iglesias',
+                    'text' => 'Otras Universidades',
                     'icon' => 'fas fa-synagogue',
                     'route'  => 'admin.secretary.temple.index',
                     'can'=>'admin.secretary.temple',
@@ -277,7 +277,7 @@ return [
                     'icon' => 'fas fa-users fa-fw',
                 ],
                 [
-                    'text' => 'Celulas',
+                    'text' => 'Seccion de Clases',
                     'icon' => 'fas fa-users fa-fw',
                     'url'  => 'admin.blog.category.index',
                     'submenu' => [
