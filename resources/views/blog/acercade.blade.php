@@ -25,21 +25,21 @@
                     </h1>
                 </div>
                 @foreach ($acercade as $acerca)
-                    <div class="pb-3">
+                    <div class="py-6">
                         <h3 class="font-bold text-2xl md:text-4xl lg:text-3xl font-heading text-gray-700">
                             {{ $acerca->name }}
                         </h3>
 
                         @if (isset($acerca->image))
                             <div class="mx-auto container pb-5 px-2 lg:px-8  mt-8 bg-cover bg-fixed">
-                                <img class="w-full h-96" src="{{ asset('storage/' . $acerca->image->url) }}" alt="">
+                                <img class="mx-auto w-full h-96" src="{{ asset('storage/' . $acerca->image->url) }}" alt="">
                             </div>
                         @endif
-                        <div class="container  w-full max-w-5xl mx-auto ">
+                        <div class="pt-5 container  w-full  mx-auto ">
                             <div class="mx-0 sm:mx-6">
                                 <div class="  text-xl md:text-2xl text-gray-800 leading-normal"
                                     style="font-family:Georgia,serif;">
-                                    <article class="prose md:prose-lg lg:prose-xl text-justify">
+                                    <article class=" text-justify">
                                         {!! $acerca->body !!}
                                     </article>
                                 </div>
