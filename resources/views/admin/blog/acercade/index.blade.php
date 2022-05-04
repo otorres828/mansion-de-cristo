@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Lista de Noticias')
+@section('title', 'Lista de Acerca de')
 
 @section('content_header')
     <h1>
-        Lista de Noticias</h1>
+        Lista de Informacion</h1>
 @stop
 
 @section('content')
     <x-aminblog.alert />
     <div class="mb-3">
-        <a class="btn btn-primary " href="{{ route('admin.blog.announce.create') }}">Crear Noticias</a>
+        <a class="btn btn-primary " href="{{ route('admin.blog.acercade.create') }}">Crear Informacion</a>
     </div>
     <div class=" px-3">
         <div class="table-responsive">
@@ -18,37 +18,28 @@
                 <thead>
                     <tr>
                         <th scope="col" class="text-center">#id</th>
-                        <th scope="col" class="text-sm">Titulo del Anuncio</th>
-                        @can('topost')
-                            <th scope="col">Autor</th>
-                        @endcan
+                        <th scope="col" class="text-sm">Titulo de la Informacion</th>
                         <th scope="col" class="text-right">Estado</th>
                         <th scope="col" class="text-center">Acciones</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($anuncios as $anuncio)
+                    @foreach ($acercades as $acercade)
                         <tr>
-                            <td class="text-center">{{ $anuncio->id }}</td>
-                            <td>{{ $anuncio->name }}</td>
-                            @can('topost')
-                                <td>{{ $anuncio->user->name }}</td>
-                            @endcan
+                            <td class="text-center">{{ $acercade->id }}</td>
+                            <td>{{ $acercade->name }}</td>
                             <td class="text-center">
-                                @if ($anuncio->status == 1)
+                                @if ($acercade->status == 1)
                                     <button class="btn btn-danger">X</button>
                                 @else
                                     <button class="btn btn-success"><i class="far fa-check-circle"></i></button>
                                 @endif
                             </td>
                             <td class="d-flex">
-                                <a class=" btn btn-secondary text-center mr-1" data-turbolinks="false"
-                                    href="{{ route('blog.show_announces', $anuncio->slug) }}"><i
-                                        class="fas fa-eye"></i></a>
-                                <a class="btn btn-primary mr-1" href="{{ route('admin.blog.announce.edit', $anuncio) }}"><i
+                                <a class="btn btn-primary mr-1" href="{{ route('admin.blog.acercade.edit', $acercade) }}"><i
                                         class="far fa-edit"></i></a>
-                                <form class="destroy mr-1" action="{{ route('admin.blog.announce.destroy', $anuncio) }}"
+                                <form class="destroy mr-1" action="{{ route('admin.blog.acercade.destroy', $acercade) }}"
                                     method="POST">
                                     @csrf
                                     @method('DELETE')
@@ -74,7 +65,7 @@
             e.preventDefault();
             Swal.fire({
                 title: '¿Estas Seguro?',
-                text: "que quieres eliminar la Noticia!",
+                text: "que quieres eliminar la informacion!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

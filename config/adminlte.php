@@ -321,8 +321,12 @@ return [
                     'icon' => 'fab fa-fw fa-buffer',
                     'url'  => 'admin.blog.category.index',
                 ],                
+                [
+                    'text' => 'Crecimiento',
+                    'icon' => 'fab fa-fw fa-buffer',
+                    'url'  => 'admin.blog.category.index',
+                ], 
             ],
-
 
         ],
 
@@ -354,17 +358,17 @@ return [
            
                 ['header' => 'OPCIONES DE BLOG'],
                 [
-                    'text' => 'Anuncios',
+                    'text' => 'Noticias',
                     'url'  => '',
                     'icon' => 'fas fa-bullhorn fa-fw',
                     'submenu' =>[
                         [
-                            'text' => 'Publicar Anuncio',
+                            'text' => 'Publicar Noticia',
                             'route'  => 'admin.blog.announce.create',
                             'icon'=> 'fas fa-plus-circle fa-fw',
                         ],
                         [
-                            'text' => 'Lista de Anuncios',
+                            'text' => 'Lista de Noticias',
                             'icon' => 'fas fa-list fa-fw',
                             'route'  => 'admin.blog.announce.index',
                         ],
@@ -440,14 +444,15 @@ return [
                     'icon' => 'fas fa-envelope-square fa-fw',
                     'can'=>'admin.blog.contact'
                 ],
+                [
+                    'text' => 'Acerca de',
+                    'route'  => 'admin.blog.acercade.index',
+                    'icon' => 'fas fa-envelope-square fa-fw',
+                ],
             ],
             
+   
         ],
-        [
-            'text' => 'Crecimiento',
-            'icon' => 'fab fa-fw fa-buffer',
-            'url'  => 'admin.blog.category.index',
-        ],    
 
     ],
 

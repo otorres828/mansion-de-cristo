@@ -7,9 +7,9 @@ use App\Http\Controllers\Admin\blog\MinistryController;
 use App\Http\Controllers\Admin\blog\TeachingController;
 use App\Http\Controllers\Admin\blog\TestimonyController;
 use App\Http\Controllers\Admin\blog\UserController;
+use App\Http\Controllers\Admin\blog\AcercadeController;
 use App\Http\Controllers\Blog\EstadisticaController;
-use App\Http\Livewire\Blog\Estadistidas;
-use Illuminate\Support\Facades\Auth;
+
 
 Route::resource('user', UserController::class)->middleware('can:admin.blog.user.index')->only('index','edit','update')->names('admin.blog.user');
 Route::resource('category', CategoryController::class)->except('show','create','edit')->middleware('can:admin.blog.category.index')->except('show')->names('admin.blog.category');
@@ -21,6 +21,7 @@ Route::resource('contact', ContactController::class)->except('store')->middlewar
 Route::get('estadisticas',[EstadisticaController::class,'index'])->name('admin.blog.estadisticas');
 Route::get('estadisticas/{pagina}/{inicio}/{fin}/mostrar',[EstadisticaController::class,'mostrar'])->name('admin.blog.estadisticas.mostrar');
 Route::any('estadisticas/registrar',[EstadisticaController::class,'registrar'])->name('admin.blog.estadisticas.registrar');
+Route::resource('acercade',AcercadeController::class)->names('admin.blog.acercade');
 
 // Route::domain('blog.mansiondecristo.com')->group(function () {
 //     Route::resource('user', UserController::class)->middleware('can:admin.blog.user.index')->only('index','edit','update')->names('admin.blog.user');

@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Blog;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactRequest;
+use App\Models\Acercade;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
     public function acercade(){
-        return view('blog.acercade');
+        $acercade=Acercade::where('status',2)->get();
+        return view('blog.acercade',compact('acercade'));
     }
 
     public function index(){

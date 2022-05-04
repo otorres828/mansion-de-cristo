@@ -23,10 +23,12 @@ class DatabaseSeeder extends Seeder
         Storage::deleteDirectory('/public/teachings');
         Storage::deleteDirectory('/public/ministries');
         Storage::deleteDirectory('/public/testimonies');
+        Storage::deleteDirectory('/public/acercade');
         Storage::makeDirectory('/public/announces');
         Storage::makeDirectory('/public/teachings');
         Storage::makeDirectory('/public/ministries');
         Storage::makeDirectory('/public/testimonies');
+        Storage::makeDirectory('/public/acercade');
 
 
         $this->call(RoleSeeder::class);
