@@ -1,11 +1,5 @@
 <x-guest-layout>
-    <style>
-        .image {
-            background-image: url("{{ asset('images/icons/icon-512x512.png') }}");
-            height: 550px;
-        }
-
-    </style>
+ 
     @include('components.aminblog.navigation')
     <div class="image">
         <x-jet-authentication-card>
@@ -20,7 +14,11 @@
                     {{ session('status') }}
                 </div>
             @endif
-
+            @if (session('banned'))
+                <div class="mb-4 font-medium text-sm text-red-600 text-justify">
+                    {{ session('banned') }}
+                </div>
+            @endif
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
