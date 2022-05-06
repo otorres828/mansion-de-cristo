@@ -47,12 +47,12 @@ class AnnounceController extends Controller
 
     public function store(AnnounceRequest $request)
     {
+
         $anuncio= Announce::create($request->all());
-        
         if($request->file('file')){
             $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
             $ruta =storage_path() . '/app/public/announces/' . $nombre;
-          Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            Image::make($request->file('file'))->resize(600,400)->save($ruta);
             //$image_url=Storage::put('public/announces', $request->file('file'));
             $anuncio->image()->create([
                 'url'=>'announces/' . $nombre

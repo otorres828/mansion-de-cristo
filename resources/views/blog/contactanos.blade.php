@@ -78,20 +78,29 @@
                                     <label for="name" class="text-sm">Nombre completo</label>
                                     <input
                                         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
-                                        name="name" type="text" placeholder="Nombre completo" required>
+                                        name="name" type="text" placeholder="Nombre completo"  required>
+                                    @error('name')
+                                        <span class="text-red-600">{{$message}}</span>
+                                     @enderror
                                 </div>
                                 <div>
                                     <label for="email" class="text-sm">Email</label>
                                     <input
                                         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
                                         type="email" placeholder="Escriba aquí su correo electrónico" id="email"
-                                        name="email" required>
+                                        name="email"  required>
+                                        @error('email')
+                                            <span class="text-red-600">{{$message}}</span>
+                                        @enderror
                                 </div>
                                 <div>
                                     <label for="name" class="text-sm">Asunto</label>
                                     <input
                                         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
-                                        name="title" type="text" placeholder="Asunto" required>
+                                        name="title" type="text" placeholder="Asunto"  required>
+                                    @error('title')
+                                        <span class="text-red-600">{{$message}}</span>
+                                     @enderror
                                 </div>
                                 <div>
                                     <label for="message" class="text-sm">Mensaje</label>
@@ -114,6 +123,9 @@
                                                   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
                                                 "
                                             rows="3" placeholder="Escribe tu mensaje" required></textarea>
+                                        @error('description')
+                                            <span class="text-red-600">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div>

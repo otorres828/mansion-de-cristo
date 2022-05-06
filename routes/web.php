@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\blog\ImageController;
 use App\Http\Controllers\Admin\Secretary\IglesiaController;
 use App\Http\Controllers\Blog\AnnounceController;
 use App\Http\Controllers\Blog\TeachingController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Blog\SearchController;
 use App\Http\Controllers\Blog\SuscripcionController;
 use App\Http\Controllers\Blog\TestimonyController;
 use App\Http\Controllers\Secretary\SecretaryController;
+use Database\Factories\ImageFactory;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -46,7 +48,7 @@ Route::post('suscripcion',[SuscripcionController::class,'suscribirse'])->name('s
 //CONTROLADORES SECRETARIA
 Route::get('/secretaria', [SecretaryController::class,'index'])->name('secretary.index')->middleware('auth');
 
-
+Route::post('images/upload', [ImageController::class,'upload'])->name('images.upload');
 
 
 //LIMPIAR CACHE
