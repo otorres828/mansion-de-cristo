@@ -17,7 +17,7 @@ class Checkbanned
      */
     public function handle(Request $request, Closure $next)
     {
-        if((auth()->check() && auth()->user()->status==2)){
+        if((auth()->check() && auth()->user()->status==1)){
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();

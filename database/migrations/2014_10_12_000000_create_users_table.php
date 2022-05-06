@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedBigInteger('status')->default(2);
+            $table->unsignedBigInteger('status')->default(2); //1: baneado 2: puede loguearse
             $table->unsignedBigInteger('temple_id')->nullable();
             $table->unsignedBigInteger('group_id')->nullable();
             $table->unsignedBigInteger('hierarchy_id')->nullable();
