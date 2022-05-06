@@ -19,13 +19,13 @@
 
         <div class="pt-5 pb-5 shadow-lg">
             <div class="max-w-6xl mx-auto  ">
-                <div class="text-center pb-3 px-4 sm:px-6 lg:px-4">
+                <div class="text-center  px-4 sm:px-6 lg:px-4">
                     <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-700">
                         ACERCA DE NOSOTROS
                     </h1>
                 </div>
                 @foreach ($acercade as $acerca)
-                    <div class="py-6">
+                    <div class="pb-6">
                         
                         @if (isset($acerca->image))
                         <div class="mx-auto container pb-5 px-2 lg:px-8  mt-8 bg-cover bg-fixed">

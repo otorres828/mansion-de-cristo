@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
 
         Contact::factory(15)->create();
         Category::factory(8)->create();
+        $this->call(AcercadeSeeder::class);
         $this->call(AnnounceSeeder::class);
         $this->call(TeachingSeeder::class);
         $this->call(MinistrySeeder::class);

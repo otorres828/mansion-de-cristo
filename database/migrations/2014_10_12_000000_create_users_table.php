@@ -19,9 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedBigInteger('temple_id');
-            $table->unsignedBigInteger('group_id');
-            $table->unsignedBigInteger('hierarchy_id');
+            $table->unsignedBigInteger('temple_id')->nullable();
+            $table->unsignedBigInteger('group_id')->nullable();
+            $table->unsignedBigInteger('hierarchy_id')->nullable();
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->rememberToken();
 

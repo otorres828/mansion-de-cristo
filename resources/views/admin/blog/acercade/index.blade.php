@@ -20,7 +20,7 @@
                         <th scope="col" class="text-center">#id</th>
                         <th scope="col" class="text-sm">Titulo de la Informacion</th>
                         <th scope="col" class="text-right">Estado</th>
-                        <th scope="col" class="text-center">Acciones</th>
+                        <th scope="col" class="">Acciones</th>
 
                     </tr>
                 </thead>
@@ -29,7 +29,7 @@
                         <tr>
                             <td class="text-center">{{ $acercade->id }}</td>
                             <td>{{ $acercade->name }}</td>
-                            <td class="text-center">
+                            <td class="text-end">
                                 @if ($acercade->status == 1)
                                     <button class="btn btn-danger">X</button>
                                 @else
