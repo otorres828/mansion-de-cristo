@@ -21,7 +21,7 @@ class Checkbanned
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-            return redirect()->route('login')->with('banned','Su cuenta ha sido suspendida temporalmente, por favor contactese con olivertorres@gmail.com para solucionar este caso');
+            return redirect()->route('login')->with('banned','Su cuenta ha sido suspendida temporalmente, por favor contactese con olivertorres1997@gmail.com para solucionar este caso');
         }
         return $next($request);
     }

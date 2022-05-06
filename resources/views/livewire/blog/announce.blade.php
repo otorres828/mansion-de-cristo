@@ -116,7 +116,7 @@
             </div>      
         @endforeach
         <div class="container mx-auto md:gap-0  py-8 ">
-            {{$announces->links()}}
+            {{$announces->onEachSide(4)->links()}}
         </div>
     </div>
 

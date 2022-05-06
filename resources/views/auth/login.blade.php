@@ -17,6 +17,7 @@
             @if (session('banned'))
                 <div class="mb-4 font-medium text-sm text-red-600 text-justify">
                     {{ session('banned') }}
+                    . Tambien puede comunicarse <a class="hover:text-blue-900"href="{{ route('blog.contact.index') }}">aqui</a>.
                 </div>
             @endif
             <form method="POST" action="{{ route('login') }}">
