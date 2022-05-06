@@ -353,7 +353,7 @@ return [
                     'text' => 'Estadisticas',
                     'icon' => 'fa fa-chart-area',
                     'route'  => 'admin.blog.estadisticas',
-                    'can'=>'admin.blog.category.index',
+                    'can'=>'admin.blog.user.index',
                 ],
            
                 ['header' => 'OPCIONES DE BLOG'],

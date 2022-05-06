@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin\secretary;
+namespace App\Http\Controllers\Admin\Secretary;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\Hierarchy;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Request;
 
 class UserController extends Controller
 {
@@ -39,7 +39,6 @@ class UserController extends Controller
   
     public function update(UserRequest $request, User $usuario)
     {
-        return "hola";
         $usuario->update($request->all());
         return redirect()->route('admin.secretary.user.index')->with('info','Usuario actualizado con exito');
     }
@@ -49,4 +48,5 @@ class UserController extends Controller
     {
         //
     }
+
 }

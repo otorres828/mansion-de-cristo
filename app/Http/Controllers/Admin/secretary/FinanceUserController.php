@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\secretary;
+namespace App\Http\Controllers\Admin\Secretary;
 
 use App\Http\Controllers\Controller;
 use App\Models\Finance;
