@@ -20,6 +20,7 @@ class Ministry extends Model
        return[
             'name'=>$this->name,
             'body'=>$this->body,
+            'extract'=>$this->extract,
        ];
     }
     

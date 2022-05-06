@@ -20,6 +20,7 @@ class Teaching extends Model
        return[
             'name'=>$this->name,
             'body'=>$this->body,
+            'extract'=>$this->extract,
        ];
     }
 
