@@ -12,7 +12,7 @@
     <div class="mb-3">
         <a class="btn btn-primary " href="{{ route('admin.blog.announce.create') }}">Crear Noticias</a>
     </div>
-    <div class="mb-4 px-3">
+    <div class="pb-4 px-3">
         <div class="table-responsive">
             <table class="table table-flush" id="example">
                 <thead>
