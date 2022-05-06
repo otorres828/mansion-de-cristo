@@ -10,6 +10,7 @@
     <div class="image">
         <x-jet-authentication-card>
             <x-slot name="logo">
+                <img src="{{ asset('images/logo2.png') }}" alt="Mansion de Cristo">
             </x-slot>
 
             <x-jet-validation-errors class="mb-4" />

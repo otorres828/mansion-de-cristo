@@ -68,15 +68,15 @@
             <img class="w-full h-96"src="@if ($teaching->image) {{ asset('storage/' . $teaching->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="">
         </div>
         {{-- CUERPO DE LA NOTICIA --}}
-        <div class="container max-w-5xl mx-auto md:-mt-32 ">
+        <div class="container max-w-5xl mx-auto md:-mt-32 pb-8">
             <div class="mx-0 sm:mx-6">
-                <div class="bg-white w-full p-8 md:p-24 text-xl md:text-2xl text-gray-800 leading-normal"
+                <div class="bg-white w-full p-8 md:pt-24 md:px-24 text-xl md:text-2xl text-gray-800 leading-normal"
                     style="font-family:Georgia,serif;">
                     <!--Lead Para-->
                     <p class="text-2xl md:text-3xl mb-5 text-justify">
                         {{ $teaching->extract }}
                     </p>
-                    <div class="prose md:prose-lg lg:prose-xl select-text text-justify">
+                    <div class="prose md:prose-lg lg:prose-xl text-justify">
                         {!! $teaching->body !!}
                     </div>
                     <blockquote class="pt-4 border-l-4 border-green-500 italic my-8 pl-8 md:pl-12"><strong>Autor:
@@ -84,23 +84,10 @@
 
                 </div>
 
-                <form action="#">
-                    <div class="container font-sans bg-green-100 rounded p-4 md:p-24 text-center mx-auto">
-                        <h2 class="font-bold break-normal text-2xl md:text-4xl">Subscribete</h2>
-                        <h3 class="font-bold break-normal  text-gray-600 text-base md:text-xl">Se el primero en obtener las
-                            ultimas enseñanzas de MDC</h3>
-                        <div class="w-full text-center pt-4">
-                            <div class="max-w-sm mx-auto p-1 pr-0 flex flex-wrap items-center">
-                                <input type="email" placeholder="olivertorres@example.com"
-                                    class="flex-1 appearance-none rounded shadow p-3 text-gray-600 mr-2 focus:outline-none">
-                                <button type="submit"
-                                    class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">SUBSCRIBIRSE</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+               {{-- SUSCRIPCION --}}
+                {{-- @livewire('blog.suscripcion') --}}
 
-                <div class="flex w-full items-center font-sans p-8 md:p-24">
+                <div class="pb-8 flex w-full items-center font-sans px-8 md:px-24">
                     <img class="w-10 h-10 rounded-full mr-4"
                         src="@if ($teaching->image) {{ asset('storage/' . $teaching->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
                         alt="Avatar of Author">

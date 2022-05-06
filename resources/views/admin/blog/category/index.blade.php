@@ -43,11 +43,9 @@
         </div>
     </div>  
 
-    <div class="card">
-        <div class="card-body">
-
-            <table>
-                <table class="table table-striped table-bordered" id="example">
+    <div class="px-3">
+        <div class="table-responsive">
+            <table class="table table-flush" id="example">
                     <thead>
                         <th scope="col">#Id</th>
                         <th scope="col">Nombre</th>

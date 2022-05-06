@@ -1,11 +1,11 @@
 <x-app-layout>
-    <x-slot name="header">
+    {{-- <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <a href="{{ route('secretary.index') }}" data-turbolinks="false">
                 {{ __('Panel de Control') }}
             </a>
         </h2>
-    </x-slot>
+    </x-slot> --}}
 
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">

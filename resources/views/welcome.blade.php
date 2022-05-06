@@ -348,7 +348,7 @@
             </section>
             <br>
              
-            {{-- SUSCRIPCION --}}
+            {{-- SUSCRIPCION
             <form action="{{ route('suscripcion') }}" class="pb-16" method="POST">
                 @csrf
                 <div class="container font-sans bg-green-100 rounded p-4 md:p-24 text-center mx-auto">
@@ -361,7 +361,7 @@
                         </div>
                     </div>
                 </div>
-            </form>  
+            </form>   --}}
           
             <br>
             <article class="h-48 bg-cover bg-center  opacity-90 "

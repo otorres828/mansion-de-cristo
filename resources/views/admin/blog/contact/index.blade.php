@@ -8,17 +8,16 @@
 
 @section('content')
     <x-aminblog.alert/>
-    <div class="card">
-        <div class="card-body">
-            <table class="table table-striped table-bordered" id="example">
+    <div class="pb-4 px-3">
+        <div class="table-responsive">
+            <table class="table table-flush" id="example">
                 <thead>
                     <tr>
                         <th scope="col" class="text-center">#id</th>
                         <th scope="col">Autor</th>
                         <th scope="col">Titulo</th>
                         <th scope="col" class="text-center">Estado</th>
-                        <th scope="col" class="text-center">Ver Mensaje</th>
-                        <th colspan="col">Eliminar</th>
+                        <th scope="col" class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,10 +26,20 @@
                         <td class="text-center">{{$contact->id}}</td>
                         <td>{{$contact->name}}</td>
                         <td>{{$contact->title}}</td>
-                        <td class="text-center">@if ($contact->status==1) NO LEIDO @else <strong>LEIDO</strong> @endif</td>
-                        <td class="text-center"><a class=" btn btn-warning text-center"href="{{route('admin.blog.contact.show',$contact)}}">VER</a></td>
-                        <td width="10px" class="text-center">
-                            <form class="destroy"action="{{route('admin.blog.contact.destroy',$contact)}}" method="POST">
+                        <td class="text-center">
+                            @if ($contact->status == 1)
+                                <button class="btn btn-danger">X</button>
+                            @else
+                                <button class="btn btn-success"><i class="far fa-check-circle"></i></button>
+                            @endif
+                        </td>
+                        <td class="d-flex">
+                            <a class=" btn btn-secondary text-center mr-1" data-turbolinks="false"
+                                href="{{ route('admin.blog.contact.show', $contact) }}"><i
+                                    class="fas fa-eye"></i></a>
+                            
+                                    <form class="destroy"action="{{route('admin.blog.contact.destroy',$contact)}}" method="POST">
+
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>

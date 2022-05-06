@@ -90,7 +90,7 @@
             </div>
         </div>
         {{-- SIMILARES --}}
-        <div class="bg-gray-200">
+        <div class="bg-gray-200 mx-auto">
             <div class=" text-center pt-10 md:pt-10 container mx-auto">
                 <h1 class=" text-green-500 font-bold break-normal text-3xl md:text-5xl">Tal vez te pueda interesar</h1>
             </div>

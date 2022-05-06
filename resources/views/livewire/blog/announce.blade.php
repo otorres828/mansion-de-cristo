@@ -1,60 +1,3 @@
-{{-- <div class="container grid grid-cols-10 py-22 px-6 sm:px-6 lg:px-28 mx-auto z-10 relative"> 
-    
-    <div class="col-span-10 lg:hidden w-full mx-auto px-2 pt-8">
-        <div class="col-span-10 pb-3">
-            <h5 class=" text-gray-600 text-center text-2xl ">
-                <strong>Encuentra las noticias mas recientes</strong>
-            </h5>   
-        </div>
-        @livewire("blog.search-announces")
-    </div>
-    <div class="w-full col-span-10 lg:col-span-7 md:mx-auto ">
-       
-        @foreach ($announces as $anuncio)
-            <div class="">
-                <div class="mx-auto py-8 lg:py-12">
-                    <a href="{{route('blog.show_announces',$anuncio->slug)}}" class="block bg-transparent leading-none m-0 p-0 z-20 relative"><!----> 
-                        <img class="rounded-3xl shadow w-full h-96"  src="@if($anuncio->image){{asset('storage/'.$anuncio->image->url)}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="">
-                    </a>
-                    <div class=" pt-5">
-                        <a href="{{route('blog.show_announces',$anuncio->slug)}}" class="mt-0  px-2  flex flex-wrap items-baseline hover:text-indigo-600 text-gray-800 lg:text-3xl md:text-2xl font-bold my-2">{{$anuncio->name}}</a>
-                        <p class="text-gray-700 m-3">{{$anuncio->extract}}</p>
-                        <div class="flex justify-between  m-3">
-                            <span class="font-bold text-sm text-gray-400">{{$anuncio->created_at}}</span>                             
-                        </div>
-                        <div class="w-full text-center  ">
-                            <div class="bg-gray-300 rounded overflow-hidden ">
-                                <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="bg-green progress-bar h-1" style="width: 0%;">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="float-right  m-3">
-                            <a href="{{route('blog.show_announces',$anuncio->slug)}}" class="text-sm hover:text-indigo-600 text-gray-800 text-1xl font-bold my-2">Leer mas</a>
-                        </div>
-                    </div>
-                </div>
-            </div>      
-        @endforeach
-        <div class="container mx-auto md:gap-0  py-8 ">
-            {{$announces->links()}}
-        </div>
-    </div>
-    
-    <div class="w-full col-span-3 mx-auto ml-5 pt-12  hidden-sm hidden-md">
-        <div class="col-span-5 sm:col-span-5 md:col-span-2 lg:col-span-2">
-            <h5 class=" text-gray-600 text-center text-2xl ">
-                <strong>Encuentra una noticia</strong>
-            </h5>   
-        </div>
-        <div class="w-full text-center  py-3">
-            <div class="bg-gray-300 rounded overflow-hidden ">
-                <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="bg-green progress-bar h-1" style="width: 0%;">
-                </div>
-            </div>
-        </div>
-        @livewire("blog.search-announces")
-    </div>
-</div> --}}
 
 {{-- <div  class="mr-3 ml-3
             z-10
@@ -130,8 +73,8 @@
                 </div>
             </div>
         </div> 
-    {{-- BUSCADOR PANTALLA PEQUEÑA --}}
-    <div class="col-span-10 lg:hidden w-full mx-auto px-2 pt-0 z-20">
+
+        <div class="col-span-10 lg:hidden w-full mx-auto px-2 pt-0 z-20">
         <div class="col-span-10 pb-3">
             <h5 class=" text-gray-800 text-center text-4xl ">
                 <strong>Encuentra una noticia</strong>
@@ -145,7 +88,7 @@
         </div>
         @livewire("blog.search-announces")
     </div>
-    {{-- TARJETAS --}}
+
     <div class="w-full col-span-10 lg:col-span-7 md:mx-auto z-10">
         @foreach ($announces as $anuncio)
             <div class="">
@@ -176,7 +119,7 @@
             {{$announces->links()}}
         </div>
     </div>
-    {{-- LADO DERECHO --}}
+
     <div class="col-span-3 mx-auto ml-5 pt-12  hidden-sm hidden-md z-20 ">
         <div class="sticky top-10">
             <div class="col-span-5 sm:col-span-5 md:col-span-2 lg:col-span-2">
@@ -204,3 +147,4 @@
     </div>
     
 </div>
+

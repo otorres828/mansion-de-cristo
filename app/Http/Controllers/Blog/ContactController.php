@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {
     public function acercade(){
-        $acercade=Acercade::where('status',2)->get();
+        $acercade=Acercade::where('status',2)->orderBy('id', 'ASC')->get();
         return view('blog.acercade',compact('acercade'));
     }
 

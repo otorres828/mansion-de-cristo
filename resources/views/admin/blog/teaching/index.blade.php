@@ -12,7 +12,7 @@
     <div >
         <a class="btn btn-primary " href="{{ route('admin.blog.teaching.create') }}">Crear Enseñanza</a>
     </div>
-    <div class="p-3">
+    <div class="pb-4 px-3">
         <div class="table-responsive py-4">
             <table class="table table-flush" id="example">
                 <thead>

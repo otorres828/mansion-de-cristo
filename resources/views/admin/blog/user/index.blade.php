@@ -7,9 +7,9 @@
 @stop
 
 @section('content')
-    <div class="card">
-        <div class="card-body">
-            <table class="table table-striped table-bordered" id="example">
+    <div class="px-3">
+        <div class="table-responsive">
+            <table class="table table-flush" id="example">
                 <thead>
                     <tr>
                         <th scope="col" class="text-center">#id</th>
@@ -20,16 +20,17 @@
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
-                    <tr>
-                        <td class="text-center">{{$user->id}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</td>
-                        <td width="10px">
-                            <a class="btn btn-primary" href="{{route('admin.blog.user.edit',$user)}}"><i class="far fa-edit"></i></a>
-                        </td>
+                        <tr>
+                            <td class="text-center">{{ $user->id }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td width="10px">
+                                <a class="btn btn-primary" href="{{ route('admin.blog.user.edit', $user) }}"><i
+                                        class="far fa-edit"></i></a>
+                            </td>
 
-                    </tr>                           
-                     @endforeach
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -42,6 +43,6 @@
 @stop
 
 @section('js')
-    <x-scrip-table-blog/>
-    
+    <x-scrip-table-blog />
+
 @stop
