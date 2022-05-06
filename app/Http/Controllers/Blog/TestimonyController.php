@@ -24,7 +24,7 @@ class TestimonyController extends Controller
         $this->authorize('publicado',$testimony); 
         $similares = Testimony::where('status',2)
                             ->where('id','!=',$testimony->id)
-                            ->take(4)
+                            ->take(8)
                             ->latest('id')
                             ->get();
                             

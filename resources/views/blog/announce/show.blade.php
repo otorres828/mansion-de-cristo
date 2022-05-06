@@ -71,9 +71,9 @@
                 alt="">
         </div>
         {{-- CUERPO DE LA NOTICIA --}}
-        <div class="container max-w-5xl mx-auto md:-mt-32">
+        <div class="container max-w-5xl mx-auto md:-mt-32 pb-8">
             <div class="mx-0 sm:mx-6">
-                <div class="bg-white w-full p-8 md:p-24 text-xl md:text-2xl text-gray-800 leading-normal"
+                <div class="bg-white w-full p-8 md:pt-24 md:px-24 text-xl md:text-2xl text-gray-800 leading-normal"
                     style="font-family:Georgia,serif;">
                     <!--Lead Para-->
                     <p class="text-2xl md:text-3xl mb-5 text-justify ">
@@ -89,15 +89,15 @@
                 </div>
 
                 {{-- SUSCRIPCION --}}
-                @livewire('blog.suscripcion')
+                {{-- @livewire('blog.suscripcion') --}}
 
-                <div class="flex w-full items-center font-sans p-8 md:p-24">
+                <div class="pb-8 flex w-full items-center font-sans px-8 md:px-24">
                     <img class="w-10 h-10 rounded-full mr-4"
                         src="@if ($anuncio->image) {{ asset('storage/' . $anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
                         alt="Avatar of Author">
                     <div class="flex-1">
-                        <p class="text-base font-bold md:text-xl leading-none">VER MAS NOTICIAS</p>
-                        <p class="text-gray-600 text-xs md:text-base">Si necesitas, no dudes en contactarnos a <a
+                        <p class="text-base font-bold md:text-xl lg:text-3xl leading-none">VER MAS NOTICIAS</p>
+                        <p class="text-gray-600  md:text-base">Si necesitas, no dudes en contactarnos a <a
                                 class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500"
                                 href="{{ route('landding.index') }}">olivertorres1997@gmail.com.com</a></p>
                     </div>
@@ -111,64 +111,32 @@
         </div>
 
         {{-- SIMILARES --}}
-        <div class="bg-gray-200">
-            <div class=" text-center pt-10 md:pt-10 container mx-auto">
-                <h1 class=" text-green-500 font-bold break-normal text-3xl md:text-5xl">Tal vez te pueda interesar</h1>
-            </div>
-            <div class="grid grid-flow-row  container w-full max-w-6xl mx-auto px-2 py-8">
-                <div class="grid  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-6">
-                    @foreach ($similares as $announce)
-                        <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative max-w-64 border-0  rounded-lg break-words text-gray-800 flex flex-col"
-                            style="background-color:white;">
-                            <div class="py-0 z-10 mx-6 -mt-8 rounded-lg relative">
-                                <a href="{{ route('blog.show_announces', $announce->slug) }}"
-                                    class="block bg-transparent leading-none m-0 p-0 z-20 relative">
-                                    <!---->
-                                    <img class="rounded-lg shadow"
-                                        src="@if ($announce->image) {{ asset('storage/' . $announce->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
-                                        alt="Card image cap">
-                                </a>
-
-                            </div>
-                            <div class="w-full text-center relative mt-4 px-6">
-                                <div class="bg-gray-300 rounded overflow-hidden shadow h-1">
-                                    <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
-                                        class="bg-green progress-bar h-1" style="width: 0%;">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class=" mt-0  px-6  flex flex-wrap items-baseline ">
-
-                                <h4
-                                    class="mt-2  flex w-full text-lg leading-tight text-gray-700  hover:text-blue-800  font-bold font-serif ">
-                                    <a
-                                        href="{{ route('blog.show_announces', $announce->slug) }}">{{ $announce->name }}</a>
-                                </h4>
-
-                            </div>
-
-                            <div class="pt-2 px-6 ">
-                                <div class="flex-grow items-center  justify-between ">
-                                    <h1 class="mb-3 text-gray-600 ">
-                                        {{ Illuminate\Support\Str::limit($announce->extract, 120, '...') }}</h1>
-                                </div>
-                            </div>
-                            <div class="lg:hidden px-6 pb-2">
-                                <span
-                                    class=" float-right font-bold text-sm text-gray-400">{{ $announce->created_at->toFormattedDateString() }}</span>
-                            </div>
-                        </div>
-                    @endforeach
+        <div class=" bg-gray-200 pb-8">
+            <div class="container mx-auto">
+                <div class="p-5 text-center pt-10 md:pt-10 container mx-auto">
+                    <h1 class=" text-green-500 font-bold break-normal text-3xl md:text-5xl">Tal vez te pueda interesar</h1>
                 </div>
+                <x-aminblog.slide >
+                    @foreach ($similares as $similar)
+                        <x-aminblog.card :item="$similar" >
+                            {{ route('blog.show_announces', $similar) }}
+                        </x-aminblog.card>
+                    @endforeach
+                </x-aminblog.slide>
             </div>
-
         </div>
 
     </div>
+    <br><br>
+@endsection
+
+@section('css')
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 @endsection
 
 @section('js')
     @include('components.aminblog.show')
+    
     {{-- <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script type="text/javaScript">
         $(document).ready(function() {
@@ -184,7 +152,7 @@
         })
     </script> --}}
 
-    <script>
+    {{-- <script>
         var alert_del=document.querySelectorAll('.alert-del');
 
         alert_del.forEach((x)=>{
@@ -192,7 +160,7 @@
             x.parentElement.classList.add('hidden')
             );
         });
-    </script>
+    </script> --}}
 @endsection
 
 @section('footer')

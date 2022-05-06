@@ -142,7 +142,8 @@ return [
         'email' => 'correo electronico',
         'body' => 'cuerpo',
         'title' => 'titulo',
-        'description' => 'descripcion'
+        'description' => 'descripcion',
+        'file'=>'imagen'
     ],
 
 ];

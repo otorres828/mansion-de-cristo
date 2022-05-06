@@ -30,3 +30,38 @@
     });
 </script>
 
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".general", {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        breakpoints: {
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 0,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 0,
+            },
+            1280: {
+                slidesPerView: 4,
+                spaceBetween: 0,
+            },
+        },
+
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".next-next",
+            prevEl: ".next-prev",
+        },
+    });
+</script>

@@ -56,7 +56,7 @@ class TestimonyController extends Controller
             Notification::route('mail',DB::table('users')->select('email')   
                                              ->whereNotNull('email_verified_at')    
                                             ->get()
-                                )->notify(new EmailNotification($$testimony));     
+                                )->notify(new EmailNotification($testimony));     
         }
         return redirect()->route('admin.blog.testimony.index')->with('info','El testimonio se creo con exito');    
     }

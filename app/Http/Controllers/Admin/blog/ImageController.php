@@ -14,8 +14,9 @@ class ImageController extends Controller
         // $nombre = Str::random(20) .$request->file('upload')->getClientOriginalName();
         // $ruta =storage_path() . '/app/public/ckeditor/' . $nombre;
         // Image::make($request->file('upload'))->save($ruta);    
-        $nombre=Storage::put('public/ckeditor',$request->file('upload'));   
+        $nombre=Storage::put('ckeditor',$request->file('upload'));   
         return response()->json([
+            // 'fileName' => $nombre,'uploaded'=>1,'url'=>Storage::url($nombre)
             'url'=>Storage::url($nombre)
         ]);
     }
