@@ -10,10 +10,11 @@ class Banned extends Component
     public $user,$status;
     public function mount(User $user){
         $this->user = $user;
-        if($user->status ==1)
+        if($user->status ==1){
             $this->status='';
-        else
+        }else{
             $this->status=$user->status;
+        }
     }
 
     public function status(){
