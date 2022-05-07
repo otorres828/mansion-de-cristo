@@ -105,7 +105,6 @@ class AnnounceController extends Controller
     public function destroy(Announce $anuncio)
     {
         $this->authorize('autor',$anuncio);
-
         //ELIMINAR IMAGEN ASOCIADA AL ANUNCIO
         if($anuncio->image){
             Storage::delete($anuncio->image->url);

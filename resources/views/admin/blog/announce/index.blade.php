@@ -3,8 +3,7 @@
 @section('title', 'Lista de Noticias')
 
 @section('content_header')
-    <h1>
-        Lista de Noticias</h1>
+    <h1>Lista de Noticias</h1>
 @stop
 
 @section('content')
@@ -12,9 +11,9 @@
     <div class="mb-3">
         <a class="btn btn-primary " href="{{ route('admin.blog.announce.create') }}">Crear Noticias</a>
     </div>
-    <div class="pb-4 px-3">
-        <div class="table-responsive">
-            <table class="table table-flush" id="example">
+    <div class="pb-4">
+        <div class="table-responsive ">
+            <table class="table" id="example">
                 <thead>
                     <tr>
                         <th scope="col" class="text-center">#id</th>
@@ -42,11 +41,34 @@
                                     <button class="btn btn-success"><i class="far fa-check-circle"></i></button>
                                 @endif
                             </td>
-                            <td class="d-flex">
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Acciones
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item " data-turbolinks="false"
+                                        href="{{ route('blog.show_announces', $anuncio->slug) }}">Ver</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.blog.announce.edit', $anuncio) }}">Editar</a>
+
+                                        <form class="destroy"
+                                            action="{{ route('admin.blog.announce.destroy', $anuncio) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="dropdown-item">Eliminar</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </td>
+                            {{-- <td class="d-flex">
                                 <a class=" btn btn-secondary text-center mr-1" data-turbolinks="false"
                                     href="{{ route('blog.show_announces', $anuncio->slug) }}"><i
                                         class="fas fa-eye"></i></a>
-                                <a class="btn btn-primary mr-1" href="{{ route('admin.blog.announce.edit', $anuncio) }}"><i
+                                <a class="btn btn-primary mr-1"
+                                    href="{{ route('admin.blog.announce.edit', $anuncio) }}"><i
                                         class="far fa-edit"></i></a>
                                 <form class="destroy mr-1" action="{{ route('admin.blog.announce.destroy', $anuncio) }}"
                                     method="POST">
@@ -54,7 +76,7 @@
                                     @method('DELETE')
                                     <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                                 </form>
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
                 </tbody>
@@ -64,6 +86,7 @@
 @stop
 
 @section('css')
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css"> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 @stop

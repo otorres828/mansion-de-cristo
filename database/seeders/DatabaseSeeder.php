@@ -49,9 +49,5 @@ class DatabaseSeeder extends Seeder
         $this->call(MinistrySeeder::class);
         $this->call(TestimonySeeder::class);
         
-
-
-
-
     }
 }
