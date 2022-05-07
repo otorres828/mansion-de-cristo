@@ -46,7 +46,7 @@
             @endisset
         </div>
         @if (isset($anuncio->image))
-        @livewire('blog.eliminarimagen', ['item' => $anuncio])
+            @livewire('blog.eliminarimagen', ['item' => $anuncio])
         @endif
     </div>
     <div class="col-9">

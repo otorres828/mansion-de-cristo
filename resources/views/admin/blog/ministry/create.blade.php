@@ -12,7 +12,7 @@
         <div class="card-body">
             {!! Form::open(['route'=>'admin.blog.ministry.store','autocomplete'=>'off','files'=>true]) !!}
                 {!! Form::hidden('user_id', auth()->user()->id) !!}
-                @include('admin.partiels.form')
+                @include('admin.partiels.notice')
                 {!! Form::submit('Publicar Ministerio/Departamento', ['class'=>'btn btn-primary float-right']) !!}
             {!! Form::close() !!}
         </div>

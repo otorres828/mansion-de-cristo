@@ -12,7 +12,7 @@
             {!! Form::open(['route'=>'admin.blog.announce.store','autocomplete'=>'off','files'=>true]) !!}
                 {!! Form::hidden('user_id', auth()->user()->id) !!} 
                 @include('admin.partiels.notice')
-                {!! Form::submit('Crear Anuncio', ['class'=>'btn btn-primary float-right']) !!}
+                {!! Form::submit('Crear Noticia', ['class'=>'btn btn-primary float-right']) !!}
             {!! Form::close() !!}
         </div>
     </div>

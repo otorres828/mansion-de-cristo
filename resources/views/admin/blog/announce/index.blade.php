@@ -18,9 +18,6 @@
                     <tr>
                         <th scope="col" class="text-center">#id</th>
                         <th scope="col" class="text-sm">Titulo del Anuncio</th>
-                        @can('topost')
-                            <th scope="col">Autor</th>
-                        @endcan
                         <th scope="col" class="text-right">Estado</th>
                         <th scope="col" class="text-center">Acciones</th>
 
@@ -31,9 +28,6 @@
                         <tr>
                             <td class="text-center">{{ $anuncio->id }}</td>
                             <td>{{ $anuncio->name }}</td>
-                            @can('topost')
-                                <td>{{ $anuncio->user->name }}</td>
-                            @endcan
                             <td class="text-center">
                                 @if ($anuncio->status == 1)
                                     <button class="btn btn-danger">X</button>

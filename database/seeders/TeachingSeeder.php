@@ -15,7 +15,7 @@ class TeachingSeeder extends Seeder
      */
     public function run()
     {
-        $teachings=Teaching::factory(5)->create();
+        $teachings=Teaching::factory(20)->create();
         foreach($teachings as $teaching){
             Image::factory(1)->create([
                 'imageable_id'=> $teaching->id,

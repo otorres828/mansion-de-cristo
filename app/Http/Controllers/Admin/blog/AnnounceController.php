@@ -98,7 +98,7 @@ class AnnounceController extends Controller
                                             ->get()
                                 )->notify(new EmailNotification($anuncio));     
         }
-        return redirect()->route('admin.blog.announce.edit',$anuncio)->with('info','Se actualizo el Anuncio');
+        return redirect()->route('admin.blog.announce.edit',$anuncio)->with('info','Se actualizo la Noticia');
     }
 
 
@@ -111,6 +111,6 @@ class AnnounceController extends Controller
         }
 
         $anuncio->delete();
-        return redirect()->route('admin.blog.announce.index')->with('delete','El anuncio se elimino con exito');
+        return redirect()->route('admin.blog.announce.index')->with('delete','La noticia se elimino con exito');
     }
 }

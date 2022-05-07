@@ -15,7 +15,7 @@ class TestimonySeeder extends Seeder
      */
     public function run()
     {
-        $testimonies=Testimony::factory(8)->create();
+        $testimonies=Testimony::factory(18)->create();
         foreach($testimonies as $testimony){
             Image::factory(1)->create([
                 'imageable_id'=> $testimony->id,
