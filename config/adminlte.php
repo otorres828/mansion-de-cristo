@@ -448,6 +448,7 @@ return [
                     'text' => 'Acerca de',
                     'route'  => 'admin.blog.acercade.index',
                     'icon' => 'fas fa-envelope-square fa-fw',
+                    'can' =>'admin.blog.acercade'
                 ],
             ],
             
