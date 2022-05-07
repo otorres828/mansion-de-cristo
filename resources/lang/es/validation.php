@@ -140,10 +140,11 @@ return [
     'attributes' => [
         'name'    =>'nombre',
         'email' => 'correo electronico',
+        'password'=>'clave',
         'body' => 'cuerpo',
         'title' => 'titulo',
         'description' => 'descripcion',
-        'file'=>'imagen'
+        'file'=>'imagen',
     ],
 
 ];

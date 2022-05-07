@@ -24,11 +24,7 @@ class AnnounceController extends Controller
             $anuncios = Announce::select('id','name','slug','status','user_id')
             ->latest('id')
             ->get();  
-        }else{
-            // $anuncios = Announce::select('id','name','slug','status')
-            //                 ->where('user_id',auth()->user()->id)
-            //                 ->latest('id')
-            //                 ->get(); 
+        }else{ 
             $anuncios = User::find(auth()->user()->id)->announce()
                             ->select('id','name','slug','status')
                             ->latest('id')

@@ -1,19 +1,15 @@
 <?php
 
 use App\Http\Controllers\Admin\blog\ImageController;
-use App\Http\Controllers\Admin\Secretary\IglesiaController;
 use App\Http\Controllers\Blog\AnnounceController;
 use App\Http\Controllers\Blog\TeachingController;
 use App\Http\Controllers\Blog\ContactController;
 use App\Http\Controllers\Blog\LanddingController;
 use App\Http\Controllers\Blog\MinisteryController;
-use App\Http\Controllers\Blog\SearchController;
 use App\Http\Controllers\Blog\SuscripcionController;
 use App\Http\Controllers\Blog\TestimonyController;
 use App\Http\Controllers\Secretary\SecretaryController;
-use Database\Factories\ImageFactory;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LanddingController::class,'index'])->name('landding.index');
@@ -67,6 +63,4 @@ Route::get('storage-link', function () {
 Route::get('/offline', function () {
     return view('laravelpwa::offline');
 });
-// Route::get('buscar/enseñanzas',[SearchController::class,'teaching'])->name('search.teachings');
-// Route::get('buscar/testimonios',[SearchController::class,'testimony'])->name('search.testimony');
 

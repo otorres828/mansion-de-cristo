@@ -71,7 +71,6 @@ class TeachingController extends Controller
         return view('admin.blog.teaching.edit', compact('teaching', 'categorias'));
     }
 
-
     public function update(TeachingRequest $request, Teaching $teaching)
     {
   
@@ -105,7 +104,6 @@ class TeachingController extends Controller
                                     
         return redirect()->route('admin.blog.teaching.edit', $teaching)->with('info', 'Se actualizo la informacion de la Enseñanza');
     }
-
 
     public function destroy(Teaching $teaching)
     {

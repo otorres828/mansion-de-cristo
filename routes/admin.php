@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\blog\AcercadeController;
 use App\Http\Controllers\Blog\EstadisticaController;
 
 
-Route::resource('user', UserController::class)->middleware('can:admin.blog.user.index')->only('index','edit','update')->names('admin.blog.user');
+Route::resource('user', UserController::class)->middleware('can:admin.blog.user.index')->except('show')->names('admin.blog.user');
 Route::resource('category', CategoryController::class)->except('show','create','edit')->middleware('can:admin.blog.category.index')->except('show')->names('admin.blog.category');
 Route::resource('anuncios', AnnounceController::class)->middleware('can:admin.blog.announce.index')->except('show')->names('admin.blog.announce');
 Route::resource('teaching', TeachingController::class)->middleware('can:admin.blog.teaching')->except('show')->names('admin.blog.teaching');
