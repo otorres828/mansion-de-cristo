@@ -20,7 +20,7 @@ class RoleSeeder extends Seeder
         $submaster =  Role::create(['name' => 'Submaster']);
         $role1 = Role::create(['name' => 'Admin Blog']);
         $role2 = Role::create(['name' => 'Mensajes']);
-        $role3 = Role::create(['name' => 'Anuncios']);
+        $role3 = Role::create(['name' => 'Noticias']);
         $role4 = Role::create(['name' => 'Ministerios']);
         $role5 = Role::create(['name' => 'Enseñanzas']);
         $role6 = Role::create(['name' => 'Testimonios']);
