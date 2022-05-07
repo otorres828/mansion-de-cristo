@@ -69,10 +69,10 @@
                                         Acciones
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" data-bs-toggle="modal"
+                                        <a class="dropdown-item" data-bs-toggle="modal"href="#"
                                             data-bs-target="#edit{{ $user->id }}" data-bs-whatever="@mdo">Editar
                                             Registro</a>
-                                        <a class="dropdown-item" data-bs-toggle="modal"
+                                        <a class="dropdown-item" data-bs-toggle="modal" href="#"
                                             data-bs-target="#bloquear{{ $user->id }}" data-bs-whatever="@mdo">Editar
                                             Acceso</a>
                                         <a class="dropdown-item" href="#">Ver Crecimiento</a>
@@ -87,7 +87,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Editar usuario</h5>
+                                            <h5 class="modal-title" id="staticBackdropLabel">Editar Acceso</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -110,44 +110,12 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Editar usuario</h5>
+                                            <h5 class="modal-title" id="staticBackdropLabel">Editar Acceso de Usuario</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    {!! Form::model($user, ['route' => ['admin.secretary.bloquear.update', $user], 'autocomplete' => 'off', 'method' => 'put']) !!}
-                                                    <div class="form-group">
-                                                        {!! Form::label('name', 'Nombre Completo') !!}
-                                                        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre completo']) !!}
-                                                       
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        {!! Form::label('email', 'Correo Electronico') !!}
-                                                        {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el correo electronico']) !!}
-                                                        
-                                                    </div> 
-                                                    <div class="form-group">
-                                                        <div class="form-group">
-                                                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success" >
-                                                                <input type="checkbox" class="custom-control-input" id="bloquear" name="bloquear">
-                                                                <label class="custom-control-label" for="bloquear"name="bloquear">Bloquear Acceso de usuario a la plataforma</label>
-                                                            </div>
-                                                        </div>
-                                                    </div> 
-                                                    <div class="mb-0">
-                                                        <div class="d-flex justify-content-end align-items-baseline">
-                                                            <button type="submit" class=" ml-1 btn btn-secondary">Actualizar Acceso</button>
-                                                            <button type="button" class=" ml-1 btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    {!! Form::close() !!}
-                                                </div>
-
-                                            </div>
+                                            @livewire('admin.banned', ['user' => $user])
                                         </div>
                                     </div>
                                 </div>

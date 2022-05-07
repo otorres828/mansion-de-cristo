@@ -22,25 +22,3 @@
     @endif
 </div>
 
-{{-- 
-<div class="row ">
-    <div class="col-md-12 z-50">
-        <div class="flex-shrink-0 hidden" style="display: block;">
-            <input wire:model="search" type="text" class="form-control" autocomplete="off">
-            @if($search!=null && $search!=' ')
-                <div class="shadow rounded px-3 py-3 pb-0 absolute" style="background-color: white">
-                    @foreach($announces as $announce)
-                        <ul class=" max-h-screen  bottom-auto text-sm pb-2" >
-                            <li>
-                                <a href="{{route('blog.show_announces',$announce->slug)}}" 
-                                    class="block font-sans font-semibold px-2 py-1 text-gray-600 hover:bg-primary 
-                                        hover:text-purple-800 leading-5">
-                                    {{ $announce->name }}</a>
-                            </li>   
-                        </ul>
-                    @endforeach
-                </div>
-            @endif
-        </div>
-    </div>
-</div>     --}}
