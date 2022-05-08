@@ -15,7 +15,7 @@
             <ul class="swiper-wrapper">
                 @foreach ($testimonies as $testimony)
                     <li class="swiper-slide p-2 ">
-                        <div class="relative flex flex-col items-center p-6 bg-gray-200 rounded shadow-xl">
+                        <div class="items-center p-6 bg-gray-200 rounded shadow-xl">
                             <div class="flex justify-center">
                                 <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500"
                                     src="@if ($testimony->image) {{ asset('storage/' . $testimony->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif">
@@ -24,8 +24,7 @@
                                     class="hover:to-blue-700"
                                     href="{{ route('blog.show_testimony', $testimony) }}">{{ $testimony->name }}</a>
                             </h4>
-                            <p class="text-gray-600 text-center">
-                                {{ Illuminate\Support\Str::limit($testimony->extract, 100, '...') }}</p>
+                            <p class="text-gray-600 text-center">{{$testimony->autor}}</p>
                         </div>
                     </li>
                 @endforeach
