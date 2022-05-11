@@ -1,66 +1,67 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Mansion de cristo ✝️
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+_Sistema administrativo dedica a la inglesia Mansion de cristo, Venezuela,Bolivar, Ciudad Guayana, Proyecto Servicio comunitario_
 
-## Mansion de Cristo
+## Construido con 🛠️
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+ * [PHP 8.0](https://www.php.net/downloads.php) 
+ * [Laravel 9.5.1](https://laravel.com/docs/9.x)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Comenzando 🚀
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._  
 
-## Learning Laravel
+### Pre-requisitos 📋
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+_Que cosas necesitas para instalar el software y como instalarlas_
+  
+  * [PHP 8.x.x](https://www.php.net/downloads.php) - lenguaje de programacion 
+  * [Apache2](https://httpd.apache.org/download.cgi) -  HTTP servidor web 
+_Es posible/recomendado instalar un paquete como "[XAMPP](https://www.apachefriends.org/es/index.html)" que ya incluye ambos elementos, Necesario PHP 8.^ y Apache 2.^_
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* [Composer](https://getcomposer.org/) - Manejador de dependencias
+ * [Laravel 9.x](https://laravel.com/docs/9.x) - Framework web utilizado  
 
-## Laravel Sponsors
+* [Node.js](https://nodejs.org/es/) - Usado para generar algunas depencias con npm 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+* [Postgresql](https://www.postgresql.org/download/) - Manejador/ driver  de bases de datos
 
-### Premium Partners
+### Instalación 🔧
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutándose_
 
-## Contributing
+  Primeramente debemos asegurarnos de descomentar las extensiones de postgresql en nuestro php.ini (abrimos xampp, config apache> php.ini)
+```
+;extension=pdo_pgsql
+;extension=pgsql
+>>>
+extension=pdo_pgsql
+extension=pgsql
+```
+Se reinicia apache, y ya tenemos las herramientas preparadas para instalar 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Clonamos el repositorio en la carpeta "C:\xampp\htdocs"
+2. Preparamos el archivo .env con nuestras credenciales, codigos smtp, etc 
+3. Creamos la base de datos en nuestro gestor de BDD (Pgadmin4)
+4. Ejecutamos los siguientes comandos 
+	```bash
+	composer install
+	npm install
+	PHP artisan storage:link
+	php artisan migrate:fresh --seed
+	npm run dev 
+	```
+_Recomendamos crear un dominio local para el proyecto [Tutorial:Como crear un dominio local](https://www.youtube.com/watch?v=HzygRlPmYQc)_
 
-## Code of Conduct
+ ## Wiki 📖
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
 
-## Security Vulnerabilities
+## Autores ✒️
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* **Oliver English** - *Programador Fullstack - Modulo Blog - [otorres828](https://github.com/otorres828)*
 
-## License
+* **Jesus Alfonzo** - *Programador Fullstack - Modulo Secretaria - [Alfonzzoj](https://github.com/Alfonzzoj)*
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Objetivo del proyecto 📄
+Este es un proyecto realizado sin fines de lucro para la iglesia [Mansion de cristo](https://www.google.com/maps/place/Iglesia+Mansi%C3%B3n+De+Cristo/@8.3454583,-62.685719,15z/data=!4m5!3m4!1s0x0:0x951f32172a86a986!8m2!3d8.3455609!4d-62.6856768) ubicada en Venezuela,Bolivar, Ciudad Guayana por los alumnos Jesus Alfonzo y Oliver torres, Estudiantes de 7mo semestre de ingenieria informatica en la Universidad Catolica Andres Bello "Guayana", como parte de su servicio comunitario.    
