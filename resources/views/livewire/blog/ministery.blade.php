@@ -1,4 +1,7 @@
 <div class="mr-3 ml-3 z-10 mb-10 -mt-64 xl:mx-32 relative rounded-lg bg-gray-100 shadow">
+
+    <div class="@if(count($ministeries)==0)hidden @endif absolute inset-0 top-1/3 md:mt-24 lg:mt-0 bg-gray-800 pointer-events-none" aria-hidden="true"> 
+    </div>
     <div class="pt-5 pb-5 shadow-lg">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 ">
             <div class=" text-center pb-3 pt-3">
