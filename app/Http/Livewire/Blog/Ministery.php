@@ -10,7 +10,8 @@ class Ministery extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'tailwind';
-
+    public $abrir=false;
+    
     public function render()
     {
         $ministeries = Ministry::where('status',2)->orderBy('id','desc')->paginate(8);

@@ -11,6 +11,7 @@
     @yield('css')
     @yield('head')
     <title>@yield('title')</title>
+    @laravelPWA
 </head>
 <body >
 
