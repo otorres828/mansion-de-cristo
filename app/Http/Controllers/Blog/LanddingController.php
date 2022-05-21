@@ -13,10 +13,6 @@ class LanddingController extends Controller
 {
     public function index()
     {
-        Artisan::call('cache:clear');
-        Artisan::call('config:cache');
-        Artisan::call('cache:clear');
-        Artisan::call('route:clear');
         $announces = Announce::where('status', 2)
             ->orderBy('id', 'desc')
             ->take(4)

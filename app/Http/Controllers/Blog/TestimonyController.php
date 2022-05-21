@@ -13,13 +13,7 @@ class TestimonyController extends Controller
         return view('blog.testimony.index');
     }
 
-    public function show($slug){   
-        
-        Artisan::call('cache:clear');
-        Artisan::call('config:cache');
-        Artisan::call('cache:clear');
-        Artisan::call('route:clear');
-       
+    public function show($slug){        
         $testimony = Testimony::where('slug',$slug)->first();
         $this->authorize('publicado',$testimony); 
         $similares = Testimony::where('status',2)

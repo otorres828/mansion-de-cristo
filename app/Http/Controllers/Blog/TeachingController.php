@@ -15,9 +15,7 @@ class TeachingController extends Controller
     }
 
     public function show($slug){   
-        Artisan::call('cache:clear');
-        Artisan::call('config:cache');
-        Artisan::call('route:clear');
+
        
         $teaching = Teaching::where('slug',$slug)->first();
         $this->authorize('publicado',$teaching); 
