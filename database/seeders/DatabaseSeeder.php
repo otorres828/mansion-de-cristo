@@ -19,16 +19,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Storage::deleteDirectory('/public/announces');
-        Storage::deleteDirectory('/public/teachings');
-        Storage::deleteDirectory('/public/ministries');
-        Storage::deleteDirectory('/public/testimonies');
-        Storage::deleteDirectory('/public/acercade');
-        Storage::makeDirectory('/public/announces');
-        Storage::makeDirectory('/public/teachings');
-        Storage::makeDirectory('/public/ministries');
-        Storage::makeDirectory('/public/testimonies');
-        Storage::makeDirectory('/public/acercade');
+        Storage::deleteDirectory('/announces');
+        Storage::deleteDirectory('/teachings');
+        Storage::deleteDirectory('/ministries');
+        Storage::deleteDirectory('/testimonies');
+        Storage::deleteDirectory('/acercade');
+        Storage::makeDirectory('/announces');
+        Storage::makeDirectory('/teachings');
+        Storage::makeDirectory('/ministries');
+        Storage::makeDirectory('/testimonies');
+        Storage::makeDirectory('/acercade');
 
 
         $this->call(RoleSeeder::class);
