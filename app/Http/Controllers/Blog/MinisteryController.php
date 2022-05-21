@@ -14,11 +14,6 @@ class MinisteryController extends Controller
     }
 
     public function show($slug){
-        Artisan::call('cache:clear');
-        Artisan::call('config:cache');
-        Artisan::call('cache:clear');
-        Artisan::call('route:clear');
-          
         $ministery = Ministry::where('slug',$slug)->first();
         $this->authorize('publicado',$ministery); 
         $similares = Ministry::where('status',2)
