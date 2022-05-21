@@ -33,8 +33,8 @@ class Teaching extends Component
                                 FROM users AS u,teachings AS t
                                 WHERE u.id=t.user_id
                                 AND t.status='2'
-                                GROUP BY (u.id,u.name)
-                                ORDER BY(u.name)");
+                                GROUP BY u.id,u.name
+                                ORDER BY u.name");
                                      
        
         return view('livewire.blog.teaching',compact('teachings','categorias','autores'));
