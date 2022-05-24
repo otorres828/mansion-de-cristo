@@ -2989,6 +2989,16 @@ select {
     text-align: center;
   }
 
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .sm\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
   .sm\:text-gray-800 {
     --tw-text-opacity: 1;
     color: rgb(31 41 55 / var(--tw-text-opacity));
@@ -3753,6 +3763,10 @@ select {
 
   .xl\:w-3\/5 {
     width: 60%;
+  }
+
+  .xl\:w-96 {
+    width: 24rem;
   }
 }
 

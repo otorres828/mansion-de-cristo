@@ -1,12 +1,13 @@
-<div 
+<div
     class="mr-3 ml-3 
             -mt-64
             xl:mx-32
             relative
             rounded-lg
             bg-gray-100 ">
-            <div class="@if(count($teachings)==0)hidden @endif absolute inset-0 top-1/3 md:mt-24 lg:mt-0 bg-gray-800 pointer-events-none" aria-hidden="true"> 
-            </div>
+    <div class="@if (count($teachings) == 0) hidden @endif absolute inset-0 top-1/3 md:mt-24 lg:mt-0 bg-gray-800 pointer-events-none"
+        aria-hidden="true">
+    </div>
     <div class="pt-5 mb-10 shadow-lg">
         <div class="max-w-6xl mx-auto px-6 sm:px-6 lg:px-6">
             <div class=" text-center pb-3 pt-3">
@@ -22,24 +23,40 @@
                     </h5>
                 </div>
                 <div class="col-span-5 sm:col-span-5 md:col-span-3 lg:col-span-3">
-                    @livewire("blog.search-teachings")
+                    @livewire('blog.search-teachings')
                 </div>
             </div>
-            <div class=" grid-cols-5 pb-5 flex items-center justify-between">
+            <div class="grid-cols-5 pb-5 flex items-center justify-between">
                 {{-- TODAS LAS CATEGORIAS --}}
-                <select wire:model="search" class=" rounded-lg border-1  border-light-blue-500 flex-1">
-                    <option value="todaslascategorias">Todas las Categoria</option>
-                    @foreach ($categorias as $categoria)
-                        <option value="{{ $categoria->id }}" class="">{{ $categoria->name }}</option>
-                    @endforeach
-                </select>                                                 
+                <div class="xl:w-96 rounded-lg border-1  border-light-blue-500 ">
+                    <select wire:model="search"
+                        class=" block  w-full rounded  
+                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        aria-label="Default select example">
+                        ">
+                        <option class="text-base sm:text-xl" value="todaslascategorias">Todas las Categoria</option>
+                        @foreach ($categorias as $categoria)
+                            <option class="text-base sm:text-xl" value="{{ $categoria->id }}" class="">
+                                {{ $categoria->name }}</option>
+                        @endforeach
+                    </select>
+
+                </div>
                 {{-- TODOS LOS AUTORES --}}
-                <select wire:model="autors" class="rounded-lg border-1  border-light-blue-500 flex-1">
-                    <option value="todoslosautores">Todos los Autores</option>
-                    @foreach ($autores as $autor)
-                        <option value="{{ $autor->id }}" class="">{{ $autor->name }}</option>
-                    @endforeach
-                </select>
+                <div wire:model="autors" class="ml-2 xl:w-96 rounded-lg border-1  border-light-blue-500 ">
+                    <select
+                        class="
+                        block  w-full rounded  
+                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        aria-label="Default select example">
+                        <option value="todoslosautores" class="text-base sm:text-xl">Todos los Autores</option>
+                        @foreach ($autores as $autor)
+                            <option class="text-base sm:text-xl" value="{{ $autor->id }}" class="">
+                                {{ $autor->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
                 @foreach ($teachings as $teaching)
@@ -66,7 +83,8 @@
                         <div class=" mt-0 px-6  flex flex-wrap items-baseline ">
                             <h4
                                 class="mt-2  flex w-full text-lg leading-tight text-gray-700  hover:text-blue-800  font-bold font-serif ">
-                                <a href="{{ route('blog.show_teaching', $teaching->slug) }}">{{ $teaching->name }}</a>
+                                <a
+                                    href="{{ route('blog.show_teaching', $teaching->slug) }}">{{ $teaching->name }}</a>
                             </h4>
                             <div wire:click="filtro({{ $teaching->category_id }})"
                                 class="mt-2 p-1 w-auto rounded text-xs   shadow-lg  uppercase font-serif text-white bg-green-800">
@@ -76,13 +94,14 @@
 
                         <div class="py-2 px-6 ">
                             <div class="flex-grow items-center  justify-between ">
-                                <h1 class="mb-3 text-gray-600 ">{{Illuminate\Support\Str::limit($teaching->extract,200,'...')}}</h1>
+                                <h1 class="mb-3 text-gray-600 ">
+                                    {{ Illuminate\Support\Str::limit($teaching->extract, 200, '...') }}</h1>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-            @if (count($teachings))      
+            @if (count($teachings))
                 <div class="pb-5">
                     {{ $teachings->links() }}
                 </div>
