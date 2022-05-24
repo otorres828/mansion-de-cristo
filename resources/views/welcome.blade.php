@@ -321,7 +321,7 @@
                 <!--Right Col-->
                 <div class="w-full xl:w-3/5 p-12 overflow-hidden">
                     <img class="rounded-lg mx-auto w-full md:w-4/5 transform -rotate-6 transition hover:scale-105 duration-700 ease-in-out hover:rotate-6"
-                        src="{{ asset('images/safe.jpg') }}" />
+                        src="{{ asset('images/safe.jpg') }}" alt="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg"/>
                 </div>
 
             </div>
@@ -477,3 +477,4 @@
 @section('footer')
     @include('components.footerT')
 @endsection
+
