@@ -27,14 +27,14 @@
             </div>
             <div class=" grid-cols-5 pb-5 flex items-center justify-between">
                 {{-- TODAS LAS CATEGORIAS --}}
-                <select wire:model="search" class=" rounded-lg border-1  border-light-blue-500">
+                <select wire:model="search" class=" rounded-lg border-1  border-light-blue-500 flex-1">
                     <option value="todaslascategorias">Todas las Categoria</option>
                     @foreach ($categorias as $categoria)
                         <option value="{{ $categoria->id }}" class="">{{ $categoria->name }}</option>
                     @endforeach
                 </select>                                                 
                 {{-- TODOS LOS AUTORES --}}
-                <select wire:model="autors" class="rounded-lg">
+                <select wire:model="autors" class="rounded-lg border-1  border-light-blue-500 flex-1">
                     <option value="todoslosautores">Todos los Autores</option>
                     @foreach ($autores as $autor)
                         <option value="{{ $autor->id }}" class="">{{ $autor->name }}</option>
