@@ -53,7 +53,7 @@
                         <a href="{{ route('blog.contact.index') }}"
                             class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm font-medium">Contactanos</a>
                         @auth
-                            <a class="text-blue-600 hover:bg-blue-600 hover:text-gray-50 px-3 py-2 rounded-md text-sm font-medium"
+                            <a class="text-blue-600 hover:bg-blue-600 hover:text-gray-50 px-3 py-2  rounded-md text-sm font-medium"
                                 href="{{ route('secretary.index') }}" data-turbolinks="false">
                                 Panel de Blog
                             </a>
@@ -84,7 +84,7 @@
             <a href="{{ route('blog.contact.index') }}"
                 class="text-gray-800 hover:bg-gray-200  block px-3 py-2 rounded-md text-base font-medium">Contactanos</a>
             @auth
-                <a class="text-blue-600 hover:bg-blue-600 hover:text-gray-50 px-3 py-2 rounded-md text-sm font-medium"
+                <a class="text-blue-600 hover:bg-blue-600 hover:text-gray-50 px-3 block py-2 rounded-md text-base font-medium"
                     href="{{ route('secretary.index') }}" data-turbolinks="false">
                     <strong>Panel de Blog</strong>
                 </a>
