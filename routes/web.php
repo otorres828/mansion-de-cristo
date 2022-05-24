@@ -61,6 +61,6 @@ Route::get('storage-link', function () {
 });
 
 Route::get('/offline', function () {
-    return view('laravelpwa::offline');
+    return view('vendor.laravelpwa.offline');
 });
 
