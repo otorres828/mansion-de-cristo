@@ -365,7 +365,7 @@
           
             <br>
             <article class="h-48 bg-cover bg-center  opacity-90 "
-                style="background-image: url(https://scontent-mia3-1.xx.fbcdn.net/v/t31.18172-8/19956778_1571614339535696_8406627501244755415_o.jpg?_nc_cat=106&ccb=1-5&_nc_sid=cdbe9c&_nc_ohc=xKeKBu8vXT0AX_3kgAd&_nc_ht=scontent-mia3-1.xx&oh=00_AT_xPYsyfhDT40tmzuXut1OjwA8izTF2iTqUAHjJh9znAQ&oe=6288EDAB)">
+                style="background-image: url({{ asset('images/bajocielosabiertos.jpg') }})">
                 <div class="flex flex-col justify-center">
                     <div class="text-center">
 

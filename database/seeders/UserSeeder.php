@@ -35,5 +35,13 @@ class UserSeeder extends Seeder
             'hierarchy_id' => Hierarchy::first()->id,
             'password' => bcrypt('123456')
         ])->assignRole('Master', 'Admin Blog');
+        User::create([
+            'name' => 'Carmen Arenas',
+            'email' => 'arenasduque.ca@gmail.com',
+            'temple_id' => 1,
+            'group_id' => 1,
+            'hierarchy_id' => 3,
+            'password' => bcrypt('123456')
+        ])->assignRole('Admin Blog');
     }
 }
