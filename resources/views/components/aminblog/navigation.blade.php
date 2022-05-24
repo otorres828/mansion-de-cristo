@@ -88,6 +88,7 @@
                     href="{{ route('secretary.index') }}" data-turbolinks="false">
                     <strong>Panel de Blog</strong>
                 </a>
+                
             @endauth
         </div>
     </div>
