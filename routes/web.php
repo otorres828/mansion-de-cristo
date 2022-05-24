@@ -64,3 +64,4 @@ Route::get('/offline', function () {
     return view('vendor.laravelpwa.offline');
 });
 
+require_once __DIR__ . '/fortify.php';
