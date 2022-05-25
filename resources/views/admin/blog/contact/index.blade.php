@@ -33,17 +33,24 @@
                                 <button class="btn btn-success"><i class="far fa-check-circle"></i></button>
                             @endif
                         </td>
-                        <td class="d-flex">
-                            <a class=" btn btn-secondary text-center mr-1" data-turbolinks="false"
-                                href="{{ route('admin.blog.contact.show', $contact) }}"><i
-                                    class="fas fa-eye"></i></a>
-                            
-                                    <form class="destroy"action="{{route('admin.blog.contact.destroy',$contact)}}" method="POST">
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Acciones
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item " data-turbolinks="false"
+                                    href="{{ route('admin.blog.contact.show', $contact) }}">Ver</a>
+                                    <form class="destroy"
+                                        action="{{ route('admin.blog.contact.destroy', $contact) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="dropdown-item">Eliminar</button>
+                                    </form>
 
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                            </form>
+                                </div>
+                            </div>
                         </td>
                     </tr>                           
                      @endforeach

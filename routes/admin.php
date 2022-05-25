@@ -23,7 +23,7 @@ Route::get('estadisticas', [EstadisticaController::class, 'index'])->name('admin
 Route::get('estadisticas/{pagina}/{inicio}/{fin}/mostrar', [EstadisticaController::class, 'mostrar'])->name('admin.blog.estadisticas.mostrar');
 Route::any('estadisticas/mostrar', [EstadisticaController::class, 'mostrar'])->name('admin.blog.estadisticas.mostrar');
 Route::any('estadisticas/registrar', [EstadisticaController::class, 'registrar'])->name('admin.blog.estadisticas.registrar');
-Route::resource('acercade', AcercadeController::class)->middleware('can:admin.blog.acercade')->names('admin.blog.acercade');
+Route::resource('acercade', AcercadeController::class)->middleware('can:admin.blog.acercade')->except('show')->names('admin.blog.acercade');
 
 // Route::domain('blog.mansiondecristo.com')->group(function () {
 //     Route::resource('user', UserController::class)->middleware('can:admin.blog.user.index')->only('index','edit','update')->names('admin.blog.user');

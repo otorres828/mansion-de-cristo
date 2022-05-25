@@ -36,15 +36,24 @@
                                     <button class="btn btn-success"><i class="far fa-check-circle"></i></button>
                                 @endif
                             </td>
-                            <td class="d-flex">
-                                <a class="btn btn-primary mr-1" href="{{ route('admin.blog.acercade.edit', $acercade) }}"><i
-                                        class="far fa-edit"></i></a>
-                                <form class="destroy mr-1" action="{{ route('admin.blog.acercade.destroy', $acercade) }}"
-                                    method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                                </form>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Acciones
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.blog.acercade.edit', $acercade) }}">Editar</a>
+                                        <form class="destroy"
+                                            action="{{ route('admin.blog.acercade.destroy', $acercade) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="dropdown-item">Eliminar</button>
+                                        </form>
+
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
