@@ -64,17 +64,14 @@
                 <tbody>
                     @foreach ($paginas as $pagina)
                         <tr>
-                            <td><a href="{{ $pagina->url }}" class="text-dark" id="{{ $pagina->pagina }}}" value="{{ $pagina->pagina }}">{{ $pagina->pagina }}</a></td>
+                            <td><a href="{{ $pagina->url }}" class="text-dark">{{ $pagina->pagina }}</a></td>
                             <td>{{ $pagina->conteo_visitas }}</td>
                             <td>{{ $pagina->conteo_visitantes }}</td>
                             <td>
-                                <a href="{{ route('admin.blog.estadisticas.mostrar', [$pagina->pagina, $inicio, $fin]) }}"
+                                <a href="{{ route('admin.blog.estadisticas.mostrar', [$pagina->pagina,$inicio,$fin]) }}"
                                     class="btn btn-info">
                                     <i class="fa fa-chart-area"></i>
                                 </a>
-                                <button type="button" class="btn btn-warning">
-                                    <i class="fa fa-chart-area"></i>
-                                    </a>
                             </td>
                         </tr>
                     @endforeach
