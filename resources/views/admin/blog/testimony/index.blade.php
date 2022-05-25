@@ -38,19 +38,27 @@
                                     <button class="btn btn-success"><i class="far fa-check-circle"></i></button>
                                 @endif
                             </td>
-                            <td class="d-flex">
-                                <a class=" btn btn-secondary text-center mr-1" data-turbolinks="false"
-                                    href="{{ route('blog.show_testimony', $testimony->slug) }}"><i
-                                        class="fas fa-eye"></i></a>
-                                <a class="btn btn-primary mr-1"
-                                    href="{{ route('admin.blog.testimony.edit', $testimony) }}"><i
-                                        class="far fa-edit"></i></a>
-                                <form class="destroy mr-1"
-                                    action="{{ route('admin.blog.testimony.destroy', $testimony) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                                </form>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Acciones
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item " data-turbolinks="false"
+                                        href="{{ route('blog.show_testimony', $testimony->slug) }}">Ver</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.blog.testimony.edit', $testimony) }}">Editar</a>
+
+                                        <form class="destroy"
+                                            action="{{ route('admin.blog.testimony.destroy', $testimony) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="dropdown-item">Eliminar</button>
+                                        </form>
+
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
