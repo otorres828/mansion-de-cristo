@@ -73,22 +73,27 @@ class AnnounceController extends Controller
   
     public function update(AnnounceRequest $request, Announce $anuncio)
     {
+
         $this->authorize('autor',$anuncio);
         $anuncio->update($request->all());
 
         if($request->file('file')){ 
             //$url=Storage::put('public/announces', $request->file('file'));    
-            $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/announces/' . $nombre;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            $nombre = 'images/notices/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            // $ruta =storage_path() . '/app/public/announces/' . $nombre;
+            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            $store=Storage::disk('do_spaces')->put($nombre,file_get_contents($request->file('file'),'public'));
+
             if($anuncio->image){
                 Storage::delete($anuncio->image->url);
                 $anuncio->image->update([
-                    'url'=>'announces/' . $nombre
+                    // 'url'=>'announces/' . $nombre
+                    'url'=> 'https://nyc3.digitaloceanspaces.com/mansiondecristo/'.$nombre
+
                 ]);
             }else{
                 $anuncio->image()->create([
-                    'url'=>'announces/' . $nombre
+                    'url'=> 'https://nyc3.digitaloceanspaces.com/mansiondecristo/'.$nombre
                 ]);  
             }
         }
