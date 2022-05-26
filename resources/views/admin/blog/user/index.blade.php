@@ -87,6 +87,7 @@
                         <th scope="col" class="text-center">#id</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Correo</th>
+                        <th scope="col">Roles</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -96,6 +97,17 @@
                             <td class="text-center">{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>
+                                <select class="form-select ">
+                                    @if ($user->roles)
+                                        @foreach ($user->roles as $rol)
+                                            <option>{{ $rol->name }}</option>
+                                        @endforeach
+                                    @else
+                                        <option>SIN ROL</option>
+                                    @endif
+                                </select>
+                            </td>
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
