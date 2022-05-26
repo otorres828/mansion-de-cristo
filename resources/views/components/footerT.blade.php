@@ -1,8 +1,11 @@
 
 <footer class="p-4  rounded-lg shadow md:px-6 md:py-8 ">
     <div class="sm:flex sm:items-center sm:justify-between">
-        <a class="flex items-center mb-4 sm:mb-0">
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-gray-800">O.E.P. Mansion de Cristo</span>
+        <a class="hidden sm:block  items-right text-indigo-300 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+            href="/">
+            O.E.P<span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-300">
+            Mansion de Cristo</span>
         </a>
         <ul class="flex flex-wrap items-center mb-6 text-sm text-black sm:mb-0 dark:text-black">
             <li>
