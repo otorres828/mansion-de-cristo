@@ -46,8 +46,7 @@
                 <thead>
                     <th scope="col">#Id</th>
                     <th scope="col">Nombre</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
+                    <th>Acciones</th>
                 </thead>
 
                 <tbody>
@@ -55,11 +54,6 @@
                         <tr>
                             <td>{{ $category->id }}</td>
                             <td>{{ $category->name }}</td>
-                            <td width="10px">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#edit{{ $category->id }}" data-bs-whatever="@mdo"><i
-                                        class="far fa-edit"></i></button>
-                            </td>
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
