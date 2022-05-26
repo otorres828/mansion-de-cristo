@@ -1,26 +1,47 @@
-<div class="form-group">
-    {!! Form::label('name', 'Nombre de la Enseñanza') !!}
-    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del anuncio']) !!}
-    @error('name')
-        <span class="text-danger">{{ $message }}</span>
-    @enderror
-</div>
-<div class="form-group">
-    {!! Form::label('slug', 'Slug de la Enseñanza') !!}
-    {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'SLUG', 'readonly']) !!}
-    @error('slug')
-        <span class="text-danger">{{ $message }}</span>
-    @enderror
-</div>
-
-<div class="form-group">
-    {!! Form::label('category_id', 'Categoria') !!}
-    {!! Form::select('category_id', $categorias, null, ['class' => 'form-control']) !!}
-    @error('category_id')
-        <span class="text-danger">{{ $message }}</span>
-    @enderror
+<div class="row g-2">
+    <div class="col-md">
+        <div class="form-group">
+            {!! Form::label('name', 'Nombre de la Enseñanza') !!}
+            {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del anuncio']) !!}
+            @error('name')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="form-group">
+            {!! Form::label('slug', 'Slug de la Enseñanza') !!}
+            {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'SLUG', 'readonly']) !!}
+            @error('slug')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
 </div>
 
+<div class="row g-2">
+    <div class="col-md">
+        @if (isset($autores))
+            <div class="form-group">
+                {!! Form::label('user_id', 'Seleccione el Autor de Esta Enseñanza') !!}
+                {!! Form::select('user_id', $autores, null, ['class' => 'form-control', 'data-live-search' => 'true']) !!}
+                @error('user_id')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+        @endif
+    </div>
+    <div class="col-md">
+
+        <div class="form-group">
+            {!! Form::label('category_id', 'Seleccione la Categoria') !!}
+            {!! Form::select('category_id', $categorias, null, ['class' => 'form-control']) !!}
+            @error('category_id')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
+</div>
 
 <div class="form-group">
     <p class="font-weight-bold">Estado</p>

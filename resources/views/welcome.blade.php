@@ -61,9 +61,9 @@
                     <div class="swiper-slide ">
                         <article class="w-full h-96 bg-cover bg-center  opacity-90"
                             style="background-image: url({{ asset('images/oracion.jpg') }})">
-                            <div class="w-full h-full px-8 flex flex-col justify-center ">
+                            <div class=" w-full h-full px-8 flex flex-col justify-center  ">
                                 <h1 class="text-4xl text-white leading-8 font-bold text-left">
-                                    <a href="{{ route('blog.contact.index') }}">
+                                    <a href="{{ route('blog.contact.index') }}" >
                                         Envianos tu peticion <br> de oracion
                                     </a>
                                 </h1>

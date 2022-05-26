@@ -36,8 +36,22 @@ class TeachingController extends Controller
 
     public function create()
     {
+        $user = User::find(auth()->user()->id);
+        $roles = $user->getRoleNames();
+        $variable = 0;
+        foreach ($roles as $rol) {
+            if ($rol == 'Admin Blog') {
+                $variable++;
+                $autores=User::pluck('name', 'id');
+            }
+        }
+        
         $categorias = Category::pluck('name', 'id');
-        return view('admin.blog.teaching.create', compact('categorias'));
+        if ($variable == 0) {
+            return view('admin.blog.teaching.create', compact('categorias'));
+        }else{
+            return view('admin.blog.teaching.create', compact('categorias','autores'));
+        }
     }
 
     public function store(TeachingRequest $request)

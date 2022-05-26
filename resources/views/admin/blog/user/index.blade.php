@@ -100,9 +100,9 @@
                             <td class="w-full">
                                 <select class="form-select">
                                     @if ($user->roles)
-                                    @foreach ($user->roles as $rol)
-                                    <option>{{ $rol->name }}</option>
-                                    @endforeach
+                                        @foreach ($user->roles as $rol)
+                                            <option>{{ $rol->name }}</option>
+                                        @endforeach
                                     @else
                                         <option>SIN ROL</option>
                                     @endif
