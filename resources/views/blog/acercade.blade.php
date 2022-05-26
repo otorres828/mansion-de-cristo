@@ -36,10 +36,10 @@
                             {{ $acerca->name }}
                         </h3>
                         <div class="pt-5 container  w-full  mx-auto ">
-                            <div class="mx-0 sm:mx-6">
+                            <div class="">
                                 <div class="  text-xl md:text-2xl text-gray-800 leading-normal"
                                     style="font-family:Georgia,serif;">
-                                    <article class=" text-justify">
+                                    <article class="px-3 sm:px-8 text-justify">
                                         {!! $acerca->body !!}
                                     </article>
                                 </div>
