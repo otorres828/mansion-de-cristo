@@ -12,10 +12,19 @@
            height: 100%;
        }
    </style>
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
 @stop
 
 @section('js')
+    <script >
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+    </script>
+   <script>
+  
+   </script>
     <script src="{{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}}"></script>
     <script>
         $(document).ready( function() {

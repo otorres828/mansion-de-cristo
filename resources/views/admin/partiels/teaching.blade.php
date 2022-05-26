@@ -24,7 +24,7 @@
         <div class="col-md">
             <div class="form-group">
                 {!! Form::label('user_id', 'Seleccione el Autor de Esta Enseñanza') !!}
-                {!! Form::select('user_id', $autores, null, ['class' => 'form-control select2', 'data-live-search' => 'true']) !!}
+                {!! Form::select('user_id', $autores, null, ['class' => 'form-control select2']) !!}
             </div>
         </div>
     @else
@@ -34,7 +34,7 @@
     <div class="col-md">
         <div class="form-group">
             {!! Form::label('category_id', 'Seleccione la Categoria') !!}
-            {!! Form::select('category_id', $categorias, null, ['class' => 'form-control']) !!}
+            {!! Form::select('category_id', $categorias, null, ['class' => 'form-control select2']) !!}
             @error('category_id')
                 <span class="text-danger">{{ $message }}</span>
             @enderror

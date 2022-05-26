@@ -1231,6 +1231,9 @@ select {
 .mb-0 {
   margin-bottom: 0px;
 }
+.mt-52 {
+  margin-top: 13rem;
+}
 .block {
   display: block;
 }
@@ -2075,6 +2078,9 @@ select {
 }
 .pb-14 {
   padding-bottom: 3.5rem;
+}
+.pt-52 {
+  padding-top: 13rem;
 }
 .text-left {
   text-align: left;
