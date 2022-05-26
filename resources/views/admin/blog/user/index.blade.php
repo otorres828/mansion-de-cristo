@@ -99,13 +99,13 @@
                             <td>{{ $user->email }}</td>
                             <td class="w-full">
                                 <select class="form-select">
-                                    @if ($user->roles)
+                                    @isset ($user->roles) 
                                         @foreach ($user->roles as $rol)
                                             <option>{{ $rol->name }}</option>
                                         @endforeach
                                     @else
                                         <option>SIN ROL</option>
-                                    @endif
+                                    @endisset
                                 </select>
                             </td>
                             <td>
