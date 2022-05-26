@@ -42,11 +42,11 @@ class TeachingController extends Controller
         foreach ($roles as $rol) {
             if ($rol == 'Admin Blog') {
                 $variable++;
-                $autores=User::pluck('name', 'id');
+                $autores=User::orderBy('name','asc')->pluck('name', 'id');
             }
         }
         
-        $categorias = Category::pluck('name', 'id');
+        $categorias = Category::orderBy('name','asc')->pluck('name', 'id');
         if ($variable == 0) {
             return view('admin.blog.teaching.create', compact('categorias'));
         }else{
@@ -86,10 +86,10 @@ class TeachingController extends Controller
         foreach ($roles as $rol) {
             if ($rol == 'Admin Blog') {
                 $variable++;
-                $autores=User::pluck('name', 'id');
+                $autores=User::orderBy('name','asc')->pluck('name', 'id');
             }
         }
-        $categorias = Category::pluck('name', 'id');
+        $categorias = Category::orderBy('name','asc')->pluck('name', 'id');
         if ($variable == 0) {
             return view('admin.blog.teaching.edit', compact('teaching', 'categorias'));
         }else{
