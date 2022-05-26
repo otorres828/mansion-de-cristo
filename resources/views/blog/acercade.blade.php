@@ -32,7 +32,7 @@
                             <img class="mx-auto w-full h-96" src="{{ asset('storage/' . $acerca->image->url) }}" alt="">
                         </div>
                         @endif
-                        <h3 class="text-center font-bold text-2xl md:text-4xl lg:text-3xl font-heading text-gray-700">
+                        <h3 class="px-3 sm:px-8 text-center font-bold text-2xl md:text-4xl lg:text-3xl font-heading text-gray-700">
                             {{ $acerca->name }}
                         </h3>
                         <div class="pt-5 container  w-full  mx-auto ">
