@@ -4,18 +4,26 @@
 
 @section('content_header')
     <h1>Crear una Enseñanza</h1>
-    
 @stop
+
+@section('plugings.Select2', true)
 
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route'=>'admin.blog.teaching.store','autocomplete'=>'off','files'=>true]) !!}
-                @include('admin.partiels.teaching')
-                {!! Form::submit('Publicar Enseñanza', ['class'=>'btn btn-primary float-right']) !!}
+            {!! Form::open(['route' => 'admin.blog.teaching.store', 'autocomplete' => 'off', 'files' => true]) !!}
+            @include('admin.partiels.teaching')
+            {!! Form::submit('Publicar Enseñanza', ['class' => 'btn btn-primary float-right']) !!}
             {!! Form::close() !!}
         </div>
+
+        <script>
+            $(document).ready(function() {
+                $('.select2').select2();
+            });
+        </script>
     </div>
+
 @stop
 
-<x-aminblog.cssjs/>
+<x-aminblog.cssjs />
