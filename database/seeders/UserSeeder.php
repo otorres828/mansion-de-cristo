@@ -25,7 +25,8 @@ class UserSeeder extends Seeder
             'temple_id' => Temple::first()->id,
             'group_id' => Group::all()->random()->id,
             'hierarchy_id' => Hierarchy::first()->id,
-            'password' => bcrypt('26269828')
+            'password' => bcrypt('26269828'),
+            'email_verified_at' =>'2022-05-21 07:02:22'
         ])->assignRole('Master', 'Admin Blog');
         User::create([
             'name' => 'Jesus Alfonzo',

@@ -103,11 +103,12 @@
                                         Acciones
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="{{ route('admin.blog.user.edit', $user) }}">Editar
-                                            Roles</a>
+                                        <button class="dropdown-item cursor-pointer" data-bs-toggle="modal"
+                                            data-bs-target="#editar{{ $user->id }}" data-bs-whatever="@mdo">Editar
+                                            Roles</button>
 
                                         <form class="destroy mr-1"
-                                            action="{{ route('admin.secretary.user.destroy', $user) }}" method="POST">
+                                            action="{{ route('admin.blog.user.destroy', $user) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="dropdown-item" type="submit">
@@ -119,6 +120,40 @@
                                 </div>
                             </td>
                         </tr>
+
+                        {{-- EDITAR ROLES --}}
+                        <div class="modal fade" id="editar{{ $user->id }}" tabindex="-1"
+                            aria-labelledby="editar{{ $user->id }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Editar Rol de Usuario</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="h5">Nombre:</p>
+                                        <p class="form-control">{{ $user->name }}</p>
+                                        <p class="h5">Email:</p>
+                                        <p class="form-control">{{ $user->email }}</p>
+                                        <h2 class="h5">LISTADO DE ROLES</h2>
+                                        {!! Form::model($user, ['route' => ['admin.blog.user.update', $user], 'method' => 'put']) !!}
+                                        @foreach ($roles as $role)
+                                            <div>
+                                                <label>
+                                                    {!! Form::checkbox('roles[]', $role->id, null, ['class' => 'mr-1']) !!}
+                                                    {{ $role->name }}
+                                                </label>
+                                            </div>
+                                        @endforeach
+                                        <div class="justify-center">
+                                            {!! Form::submit('Asignar Roll', ['class' => 'btn btn-primary w-full text-center']) !!}
+                                        </div>
+                                        {!! Form::close() !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                 </tbody>
             </table>

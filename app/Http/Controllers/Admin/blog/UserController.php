@@ -23,14 +23,9 @@ class UserController extends Controller
         else
             $users = User::all();
 
-        return view('admin.blog.user.index',compact('users'));
-    }
-
-    public function edit(User $user)
-    {
         $roles=Role::where('name','!=','Submaster')
-                    ->where('name','!=','Master')->get();
-        return view('admin.blog.user.edit',compact('user','roles'));
+            ->where('name','!=','Master')->get();
+        return view('admin.blog.user.index',compact('users','roles'));
     }
 
     public function store(Request $request){
@@ -55,5 +50,15 @@ class UserController extends Controller
         return back()->with('info','Roles asignados con exito');
     }
 
- 
+    public function destroy($user)
+    {
+        $user=User::find($user);
+        if($user->email_verified_at==null){
+            session()->flash('info', 'Usuario eliminado con exito');
+            $user->delete();
+        }else{
+            session()->flash('delete', 'No se pudo eliminar el usuario porque ya verifico su correo, por favor contactese con soporte tecnico: OLIVERTORRES1997@GMAIL.COM');
+        }
+        return redirect()->route('admin.blog.user.index');   
+    }
 }
