@@ -11,7 +11,6 @@
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route'=>'admin.blog.teaching.store','autocomplete'=>'off','files'=>true]) !!}
-                {!! Form::hidden('user_id', auth()->user()->id) !!} 
                 @include('admin.partiels.teaching')
                 {!! Form::submit('Publicar Enseñanza', ['class'=>'btn btn-primary float-right']) !!}
             {!! Form::close() !!}

@@ -24,15 +24,12 @@
         @if (isset($autores))
             <div class="form-group">
                 {!! Form::label('user_id', 'Seleccione el Autor de Esta Enseñanza') !!}
-                {!! Form::select('user_id', $autores, null, ['class' => 'form-control', 'data-live-search' => 'true']) !!}
-                @error('user_id')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
+                {!! Form::select('user_id', $autores, null, ['class' => 'form-control selectpicker', 'data-live-search' => 'true']) !!}
+                
             </div>
         @endif
     </div>
     <div class="col-md">
-
         <div class="form-group">
             {!! Form::label('category_id', 'Seleccione la Categoria') !!}
             {!! Form::select('category_id', $categorias, null, ['class' => 'form-control']) !!}

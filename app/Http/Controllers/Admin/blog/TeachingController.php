@@ -80,9 +80,23 @@ class TeachingController extends Controller
     public function edit(Teaching $teaching)
     {
         $this->authorize('autor', $teaching);
+        $user = User::find(auth()->user()->id);
+        $roles = $user->getRoleNames();
+        $variable = 0;
+        foreach ($roles as $rol) {
+            if ($rol == 'Admin Blog') {
+                $variable++;
+                $autores=User::pluck('name', 'id');
+            }
+        }
+        
         $categorias = Category::pluck('name', 'id');
+        if ($variable == 0) {
 
         return view('admin.blog.teaching.edit', compact('teaching', 'categorias'));
+        }else{
+            return view('admin.blog.teaching.edit', compact('teaching', 'categorias','autores'));
+        }
     }
 
     public function update(TeachingRequest $request, Teaching $teaching)
