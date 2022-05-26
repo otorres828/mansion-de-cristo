@@ -1046,6 +1046,9 @@ select {
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
+.col-auto {
+  grid-column: auto;
+}
 .float-right {
   float: right;
 }

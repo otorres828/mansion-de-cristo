@@ -89,11 +89,9 @@ class TeachingController extends Controller
                 $autores=User::pluck('name', 'id');
             }
         }
-        
         $categorias = Category::pluck('name', 'id');
         if ($variable == 0) {
-
-        return view('admin.blog.teaching.edit', compact('teaching', 'categorias'));
+            return view('admin.blog.teaching.edit', compact('teaching', 'categorias'));
         }else{
             return view('admin.blog.teaching.edit', compact('teaching', 'categorias','autores'));
         }

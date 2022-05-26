@@ -1,17 +1,22 @@
-<div class="form-group">
-    {!! Form::label('autor', 'Autor del Testimonio') !!}
-    {!! Form::text('autor', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del Autor del Testimonio']) !!}
-    @error('autor')
-        <span class="text-danger">{{ $message }}</span>
-    @enderror
-</div>
-
-<div class="form-group">
-    {!! Form::label('name', 'Nombre del Testimonio') !!}
-    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del testimonio']) !!}
-    @error('name')
-        <span class="text-danger">{{ $message }}</span>
-    @enderror
+<div class="row g-2">
+    <div class="col-md">
+        <div class="form-group">
+            {!! Form::label('autor', 'Autor del Testimonio') !!}
+            {!! Form::text('autor', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del Autor del Testimonio']) !!}
+            @error('autor')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="form-group">
+            {!! Form::label('name', 'Nombre del Testimonio') !!}
+            {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del testimonio']) !!}
+            @error('name')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
 </div>
 
 <div class="form-group">

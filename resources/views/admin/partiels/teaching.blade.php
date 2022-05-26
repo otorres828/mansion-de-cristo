@@ -20,15 +20,16 @@
 </div>
 
 <div class="row g-2">
-    <div class="col-md">
-        @if (isset($autores))
+    @if (isset($autores))
+        <div class="col-md">
             <div class="form-group">
                 {!! Form::label('user_id', 'Seleccione el Autor de Esta Enseñanza') !!}
                 {!! Form::select('user_id', $autores, null, ['class' => 'form-control selectpicker', 'data-live-search' => 'true']) !!}
-                
             </div>
-        @endif
-    </div>
+        </div>
+    @else 
+        {!! Form::hidden('user_id', auth()->user()->id) !!} 
+    @endif
     <div class="col-md">
         <div class="form-group">
             {!! Form::label('category_id', 'Seleccione la Categoria') !!}
