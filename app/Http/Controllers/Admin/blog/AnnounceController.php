@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\blog;
 use App\Http\Controllers\Controller;
 use App\Models\Announce;
 use App\Http\Requests\AnnounceRequest;
+use App\Models\EmailSend;
 use App\Models\User;
 use App\Notifications\EmailNotification;
 use Illuminate\Support\Facades\DB;
@@ -43,7 +44,6 @@ class AnnounceController extends Controller
 
     public function store(AnnounceRequest $request)
     {
-
         $anuncio= Announce::create($request->all());
         if($request->file('file')){
             $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
@@ -55,10 +55,13 @@ class AnnounceController extends Controller
             ]);            
         }
         if($request->get('status')==2){
-            Notification::route('mail',DB::table('users')->select('email')   
-                                             ->whereNotNull('email_verified_at')    
-                                            ->get()
-                                )->notify(new EmailNotification($anuncio));     
+            $modulo1 = EmailSend::find(2);
+            if($modulo1->status==2){
+                Notification::route('mail',DB::table('users')->select('email')   
+                                                 ->whereNotNull('email_verified_at')    
+                                                ->get()
+                                    )->notify(new EmailNotification($anuncio));     
+            }
         }
         return redirect()->route('admin.blog.announce.index')->with('info','El anuncio se creo con exito');
     }
@@ -98,10 +101,13 @@ class AnnounceController extends Controller
             }
         }
         if($request->get('status')==2){
-            Notification::route('mail',DB::table('users')->select('email')   
-                                             ->whereNotNull('email_verified_at')    
-                                            ->get()
-                                )->notify(new EmailNotification($anuncio));     
+            $modulo1 = EmailSend::find(2);
+            if($modulo1->status==2){
+                Notification::route('mail',DB::table('users')->select('email')   
+                                                 ->whereNotNull('email_verified_at')    
+                                                ->get()
+                                    )->notify(new EmailNotification($anuncio));     
+            }
         }
         return redirect()->route('admin.blog.announce.edit',$anuncio)->with('info','Se actualizo la Noticia');
     }

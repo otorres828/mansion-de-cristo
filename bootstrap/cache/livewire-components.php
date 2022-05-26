@@ -1,5 +1,6 @@
 <?php return array (
   'admin.banned' => 'App\\Http\\Livewire\\Admin\\Banned',
+  'admin.emailsend' => 'App\\Http\\Livewire\\Admin\\Emailsend',
   'admin.manager' => 'App\\Http\\Livewire\\Admin\\Manager',
   'admin.temples-index' => 'App\\Http\\Livewire\\Admin\\TemplesIndex',
   'admin.temples-user' => 'App\\Http\\Livewire\\Admin\\TemplesUser',

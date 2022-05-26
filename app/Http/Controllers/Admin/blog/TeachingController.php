@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\blog;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeachingRequest;
 use App\Models\Category;
+use App\Models\EmailSend;
 use App\Models\Teaching;
 use App\Models\User;
 use App\Notifications\EmailNotification;
@@ -69,10 +70,13 @@ class TeachingController extends Controller
             ]);
         }
         if($request->get('status')==2){
-            Notification::route('mail',DB::table('users')->select('email') 
-                                            ->whereNotNull('email_verified_at')     
-                                            ->get()
-                                )->notify(new EmailNotification($teaching));     
+            $modulo1 = EmailSend::find(1);
+            if($modulo1->status==2){
+                Notification::route('mail',DB::table('users')->select('email') 
+                                                ->whereNotNull('email_verified_at')     
+                                                ->get()
+                                    )->notify(new EmailNotification($teaching));     
+            }
         }
         return redirect()->route('admin.blog.teaching.index')->with('info', 'Se creo la enseñanza con exito');;
     }
@@ -99,7 +103,6 @@ class TeachingController extends Controller
 
     public function update(TeachingRequest $request, Teaching $teaching)
     {
-  
         $this->authorize('autor', $teaching);
         $teaching->update($request->all());
         if ($request->file('file')) {
@@ -122,10 +125,13 @@ class TeachingController extends Controller
             }
         }   
         if($request->get('status')==2){
-            Notification::route('mail',DB::table('users')->select('email')   
-                                             ->whereNotNull('email_verified_at')    
-                                            ->get()
-                                )->notify(new EmailNotification($teaching));     
+            $modulo1 = EmailSend::find(1);
+            if($modulo1->status==2){
+                Notification::route('mail',DB::table('users')->select('email') 
+                                                ->whereNotNull('email_verified_at')     
+                                                ->get()
+                                    )->notify(new EmailNotification($teaching));     
+            }
         }
                                     
         return redirect()->route('admin.blog.teaching.edit', $teaching)->with('info', 'Se actualizo la informacion de la Enseñanza');

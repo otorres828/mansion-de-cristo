@@ -48,6 +48,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TeachingSeeder::class);
         $this->call(MinistrySeeder::class);
         $this->call(TestimonySeeder::class);
+        $this->call(EmailsendSeeder::class);
         
     }
 }

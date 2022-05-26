@@ -11,7 +11,7 @@ class AcercadeSeeder extends Seeder
 {
     public function run()
     {
-        $acercade=Acercade::factory(10)->create();
+        $acercade=Acercade::factory(5)->create();
         foreach($acercade as $acerca){
             Image::factory(1)->create([
                 'imageable_id'=> $acerca->id,
