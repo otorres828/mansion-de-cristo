@@ -57,13 +57,13 @@ class TeachingController extends Controller
 
     public function store(TeachingRequest $request)
     {
-        $nombre = Str::random(20) . $request->file('file')->getClientOriginalName();
-        $ruta = storage_path() . '/app/public/teachings/' . $nombre;
-        Image::make($request->file('file'))->resize(600, 400)->save($ruta);
-
+        
         $teaching = Teaching::create($request->all());
-
+        
         if ($request->file('file')) {
+            $nombre = Str::random(20) . $request->file('file')->getClientOriginalName();
+            $ruta = storage_path() . '/app/public/teachings/' . $nombre;
+            Image::make($request->file('file'))->resize(600, 400)->save($ruta);
             //$image_url=Storage::put('public/teachings', $request->file('file'));
             $teaching->image()->create([
                 'url' => 'teachings/' . $nombre
