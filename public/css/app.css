@@ -1004,6 +1004,9 @@ select {
 .top-10 {
   top: 2.5rem;
 }
+.top-1\/4 {
+  top: 25%;
+}
 .z-0 {
   z-index: 0;
 }
