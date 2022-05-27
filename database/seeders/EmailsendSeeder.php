@@ -17,5 +17,8 @@ class EmailsendSeeder extends Seeder
         EmailSend::create([
             'name'=>'Noticias',
         ]);
+        EmailSend::create([
+            'name'=>'Testimonios',
+        ]);
     }
 }

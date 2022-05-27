@@ -14,7 +14,7 @@
         </p>
     </div>
 
-    @livewire('admin.emailsend', ['modulo1'=>$modulo1, 'modulo2'=>$modulo2])
+    @livewire('admin.emailsend', ['modulo1'=>$modulo1, 'modulo2'=>$modulo2,'modulo3'=>$modulo3])
 @stop
 
 

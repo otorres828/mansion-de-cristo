@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\blog;
 
 use App\Http\Controllers\Controller;
+use App\Models\EmailSend;
 use App\Http\Requests\TestimonyRequest;
 use App\Models\Testimony;
 use App\Models\User;
@@ -53,11 +54,15 @@ class TestimonyController extends Controller
             ]);            
         }
         if($request->get('status')==2){
-            Notification::route('mail',DB::table('users')->select('email')   
-                                             ->whereNotNull('email_verified_at')    
-                                            ->get()
-                                )->notify(new EmailNotification($testimony));     
+            $modulo3 = EmailSend::find(2);
+            if($modulo3->status==2){
+                Notification::route('mail',DB::table('users')->select('email')   
+                                                ->whereNotNull('email_verified_at')    
+                                                ->get()
+                                    )->notify(new EmailNotification($testimony));   
+            }  
         }
+
         return redirect()->route('admin.blog.testimony.index')->with('info','El testimonio se creo con exito');    
     }
 
@@ -94,10 +99,13 @@ class TestimonyController extends Controller
             }
         }
         if($request->get('status')==2){
-            Notification::route('mail',DB::table('users')->select('email')   
-                                             ->whereNotNull('email_verified_at')    
-                                            ->get()
-                                )->notify(new EmailNotification($testimony));     
+            $modulo3 = EmailSend::find(2);
+            if($modulo3->status==2){
+                Notification::route('mail',DB::table('users')->select('email')   
+                                                ->whereNotNull('email_verified_at')    
+                                                ->get()
+                                    )->notify(new EmailNotification($testimony));   
+            }  
         }
         return redirect()->route('admin.blog.testimony.edit',$testimony)->with('info','Se actualizo la informacion del Testimony');
     }

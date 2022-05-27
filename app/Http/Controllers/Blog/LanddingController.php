@@ -22,7 +22,7 @@ class LanddingController extends Controller
             ->take(8)
             ->get();
         $testimonies = Testimony::where('status', 2)
-            ->orderBy('id', 'desc')
+            ->orderBy('id', 'asc')
             ->take(6)
             ->get();
         return view('welcome', compact('announces','testimonies','teachings'));

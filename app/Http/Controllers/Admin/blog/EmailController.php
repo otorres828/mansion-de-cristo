@@ -13,7 +13,8 @@ class EmailController extends Controller
     {
         $modulo1 = EmailSend::find(1);
         $modulo2 = EmailSend::find(2);
-        return view('admin.blog.email.index',compact('modulo1', 'modulo2'));
+        $modulo3 = EmailSend::find(3);
+        return view('admin.blog.email.index',compact('modulo1', 'modulo2','modulo3'));
     }
 
 }
