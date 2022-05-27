@@ -72,7 +72,7 @@ class Emailsend extends Component
             session()->flash('success', 'Se ha actualizado el envio de correo de '.$this->modulo3->name. ', ahora  al publicar se enviaran correos electronicos');
         }else{
             $this->modulo3->status='1';
-            $this->modulo2->save();
+            $this->modulo3->save();
             session()->flash('danger', 'Se ha actualizado el envio de correo de '.$this->modulo3->name. ', ahora  al publicar no se enviaran correos electronicos');
         
         }
