@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
         $this->call(HierarchySeeder::class);
 
         $this->call(UserSeeder::class);
-        User::factory(20)->create();
+        // User::factory(20)->create();
 
         Contact::factory(15)->create();
         Category::factory(8)->create();
