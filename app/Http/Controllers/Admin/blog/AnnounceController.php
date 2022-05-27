@@ -82,10 +82,11 @@ class AnnounceController extends Controller
 
         if($request->file('file')){ 
             //$url=Storage::put('public/announces', $request->file('file'));    
-            $nombre = 'images/notices/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            // $ruta =storage_path() . '/app/public/announces/' . $nombre;
-            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
-            $store=Storage::disk('do_spaces')->put($nombre,file_get_contents($request->file('file'),'public'));
+            // $nombre = 'images/notices/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
+            $ruta =storage_path() . '/app/public/announces/' . $nombre;
+            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            // $store=Storage::disk('do_spaces')->put($nombre,file_get_contents($request->file('file'),'public'));
 
             if($anuncio->image){
                 Storage::delete($anuncio->image->url);
