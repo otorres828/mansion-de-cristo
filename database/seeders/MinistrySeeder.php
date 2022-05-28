@@ -15,7 +15,7 @@ class MinistrySeeder extends Seeder
      */
     public function run()
     {
-        $ministries=Ministry::factory(32)->create();
+        $ministries=Ministry::factory(10)->create();
         foreach($ministries as $ministry){
             Image::factory(1)->create([
                 'imageable_id'=> $ministry->id,
