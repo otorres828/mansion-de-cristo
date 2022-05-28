@@ -16,15 +16,20 @@ class UserController extends Controller
     {
         $user = User:: find(auth()->user()->id);  
         $roles = $user->getRoleNames();   
-        if($roles[0]=='Admin Blog'||  $roles[0]=='Master')
+        if( $roles[0]=='Master'){//$roles[0]=='Admin Blog'|| 
             $users = User::where('id','!=',$user->id)
-                    ->where('id','!=',1)
+                    ->where('id','>',2)
                     ->get();
-        else
-            $users = User::all();
-
-        $roles=Role::where('name','!=','Submaster')
+            $roles=Role::where('name','!=','Submaster')
+                       ->where('name','!=','Master')->get();
+        }else{
+            $users = User::with('roles')->where('id','!=',$user->id)
+            ->where('id','>',2)
+            ->get();
+            $roles=Role::where('name','!=','Submaster')->where('name','!=','Admin Blog')
             ->where('name','!=','Master')->get();
+        }
+
         return view('admin.blog.user.index',compact('users','roles'));
     }
 
