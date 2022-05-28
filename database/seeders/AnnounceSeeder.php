@@ -15,7 +15,7 @@ class AnnounceSeeder extends Seeder
      */
     public function run()
     {
-        $announces=Announce::factory(20)->create();
+        $announces=Announce::factory(10)->create();
         foreach($announces as $announce){
             Image::factory(1)->create([
                 'imageable_id'=> $announce->id,

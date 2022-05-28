@@ -24,7 +24,7 @@
                     <form method="POST" action="{{ route('admin.blog.user.store') }}">
                         @csrf
                         <div class="input-group mb-3">
-                            <input type="text" name="name" class="form-control" placeholder="Nombre Completo">
+                            <input type="text" name="name" class="form-control" placeholder="Nombre Completo" required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -32,14 +32,14 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="email" name="email" class="form-control" placeholder="Correo Electronico">
+                            <input type="email" name="email" class="form-control" placeholder="Correo Electronico" required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="input-group mb-3">
+                        {{-- <div class="input-group mb-3">
                             <input type="password" name="password" class="form-control" placeholder="Clave">
                             <div class="input-group-append">
                                 <div class="input-group-text">
@@ -55,7 +55,10 @@
                                     <span class="fas fa-lock"></span>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
+                        <div class="alert alert-primary text-justify text-sm" role="alert">
+                            La clave por temporal del usuario sera "password", al loguearse debera confirmar su correo y posteriormente cambiarla.
+                          </div>
                         <div class="text-right">
                             <button type="submit" class="btn btn-primary btn-block">Register</button>
                         </div>
