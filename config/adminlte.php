@@ -238,97 +238,97 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'        => 'Panel Secretaria',
-            'icon'        => 'fas fa-tachometer-alt fa-fw',
-            'submenu' => [
-                [
-                    'text' => 'Panel Principal',
-                    'route'  => 'secretary.index',
-                    'icon' => 'fas fa-columns fa-fw',
-                ],
-                ['header' => 'ADMINISTRADOR',
-                'can'=>'admin.secretary.admin',],
-                [
-                    'text' => 'Jerarquia',
-                    'icon' => 'fas fa-sitemap',
-                    'route'  => 'admin.secretary.hierarchy.index',
-                    'can'=>'admin.secretary.admin',
+        // [
+        //     'text'        => 'Panel Secretaria',
+        //     'icon'        => 'fas fa-tachometer-alt fa-fw',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'Panel Principal',
+        //             'route'  => 'secretary.index',
+        //             'icon' => 'fas fa-columns fa-fw',
+        //         ],
+        //         ['header' => 'ADMINISTRADOR',
+        //         'can'=>'admin.secretary.admin',],
+        //         [
+        //             'text' => 'Jerarquia',
+        //             'icon' => 'fas fa-sitemap',
+        //             'route'  => 'admin.secretary.hierarchy.index',
+        //             'can'=>'admin.secretary.admin',
 
-                ],
-                [
-                    'text' => 'Carreras',
-                    'icon' => 'far fa-registered',
-                    'route'  => 'admin.secretary.group.index',
-                    'can'=>'admin.secretary.admin',
+        //         ],
+        //         [
+        //             'text' => 'Carreras',
+        //             'icon' => 'far fa-registered',
+        //             'route'  => 'admin.secretary.group.index',
+        //             'can'=>'admin.secretary.admin',
 
-                ],
-                [
-                    'text' => 'Otras Universidades',
-                    'icon' => 'fas fa-synagogue',
-                    'route'  => 'admin.secretary.temple.index',
-                    'can'=>'admin.secretary.temple',
+        //         ],
+        //         [
+        //             'text' => 'Otras Universidades',
+        //             'icon' => 'fas fa-synagogue',
+        //             'route'  => 'admin.secretary.temple.index',
+        //             'can'=>'admin.secretary.temple',
 
-                ],
-                ['header' => 'OPCIONES DE PANEL'],
-                [
-                    'text' => 'Equipo',
-                    'route'  => 'admin.secretary.user.index',
-                    'icon' => 'fas fa-users fa-fw',
-                ],
-                [
-                    'text' => 'Seccion de Clases',
-                    'icon' => 'fas fa-users fa-fw',
-                    'url'  => 'admin.blog.category.index',
-                    'submenu' => [
-                        [
-                            'text' => 'Crear Celula',
-                            'url'  => 'admin.secretary.user.index',
-                            'icon' => 'fas fa-users fa-fw',
-                        ],
-                        [
-                            'text' => 'Mis Celulas',
-                            'icon' => 'fab fa-fw fa-buffer',
-                            'url'  => 'admin.blog.category.index',
-                        ],  
-                        [
-                            'text' => 'Celulas de mi Equipo',
-                            'icon' => 'fab fa-fw fa-buffer',
-                            'url'  => 'admin.blog.category.index',
-                        ],                    
-                    ],
+        //         ],
+        //         ['header' => 'OPCIONES DE PANEL'],
+        //         [
+        //             'text' => 'Equipo',
+        //             'route'  => 'admin.secretary.user.index',
+        //             'icon' => 'fas fa-users fa-fw',
+        //         ],
+        //         [
+        //             'text' => 'Seccion de Clases',
+        //             'icon' => 'fas fa-users fa-fw',
+        //             'url'  => 'admin.blog.category.index',
+        //             'submenu' => [
+        //                 [
+        //                     'text' => 'Crear Celula',
+        //                     'url'  => 'admin.secretary.user.index',
+        //                     'icon' => 'fas fa-users fa-fw',
+        //                 ],
+        //                 [
+        //                     'text' => 'Mis Celulas',
+        //                     'icon' => 'fab fa-fw fa-buffer',
+        //                     'url'  => 'admin.blog.category.index',
+        //                 ],  
+        //                 [
+        //                     'text' => 'Celulas de mi Equipo',
+        //                     'icon' => 'fab fa-fw fa-buffer',
+        //                     'url'  => 'admin.blog.category.index',
+        //                 ],                    
+        //             ],
 
  
-                ],
-                [
-                    'text' => 'Finanzas',
-                    'icon' => 'fas fa-hand-holding-usd',
-                    'submenu' => [
-                        [
-                            'text' => 'Personales',
-                            'icon' => 'fab fa-fw fa-buffer',
-                            'route'=> 'admin.secretary.finance.user.index',
-                        ],
-                        [
-                            'text' => 'Por Celulas',
-                            'icon' => 'fab fa-fw fa-buffer',
-                            'url'  => 'admin.blog.category.index',
-                        ],  
-                    ],  
-                ],
-                [
-                    'text' => 'Repositorio',
-                    'icon' => 'fab fa-fw fa-buffer',
-                    'url'  => 'admin.blog.category.index',
-                ],                
-                [
-                    'text' => 'Crecimiento',
-                    'icon' => 'fab fa-fw fa-buffer',
-                    'url'  => 'admin.blog.category.index',
-                ], 
-            ],
+        //         ],
+        //         [
+        //             'text' => 'Finanzas',
+        //             'icon' => 'fas fa-hand-holding-usd',
+        //             'submenu' => [
+        //                 [
+        //                     'text' => 'Personales',
+        //                     'icon' => 'fab fa-fw fa-buffer',
+        //                     'route'=> 'admin.secretary.finance.user.index',
+        //                 ],
+        //                 [
+        //                     'text' => 'Por Celulas',
+        //                     'icon' => 'fab fa-fw fa-buffer',
+        //                     'url'  => 'admin.blog.category.index',
+        //                 ],  
+        //             ],  
+        //         ],
+        //         [
+        //             'text' => 'Repositorio',
+        //             'icon' => 'fab fa-fw fa-buffer',
+        //             'url'  => 'admin.blog.category.index',
+        //         ],                
+        //         [
+        //             'text' => 'Crecimiento',
+        //             'icon' => 'fab fa-fw fa-buffer',
+        //             'url'  => 'admin.blog.category.index',
+        //         ], 
+        //     ],
 
-        ],
+        // ],
 
         [
             'text'    => 'Panel Blog',
