@@ -15,7 +15,9 @@ class Testimony extends Component
 
     public function render()
     {
-        $testimonies=ModelsTestimony::where('status',2)->take(8)->get();
+        $testimonies=ModelsTestimony::where('status',2) ->orderBy('id', 'desc')
+        ->take(6)
+        ->get();
         return view('livewire.blog.landding.testimony',compact('testimonies'));
     }
 }

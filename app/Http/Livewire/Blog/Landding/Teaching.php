@@ -15,7 +15,9 @@ class Teaching extends Component
 
     public function render()
     {
-        $teachings=ModelsTeaching::where('status',2)->orderBy('id','desc')->take(8)->get();
+        $teachings=ModelsTeaching::where('status',2)->orderBy('id', 'desc')
+                                                    ->take(6)
+                                                    ->get();
         return view('livewire.blog.landding.teaching',compact('teachings'));
     }
 }
