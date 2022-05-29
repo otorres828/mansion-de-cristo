@@ -19,7 +19,7 @@ class EmailNotification extends Notification implements ShouldQueue
     public $enterate="";
     public $show="";
     public $noticia=true;
-    
+
     public function __construct(Object $objeto)
     {
         if($objeto instanceof Teaching){
@@ -59,7 +59,10 @@ class EmailNotification extends Notification implements ShouldQueue
                                                 'noticia'=>$this->noticia]);
     }
 
-
+    public function shouldSend($notifiable, $channel)
+    {
+        return $this->invoice->isPaid();
+    }
     public function toArray($notifiable)
     {
         return [
