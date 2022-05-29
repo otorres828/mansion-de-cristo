@@ -11,7 +11,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class EmailNotification extends Notification
+class EmailNotification extends Notification implements ShouldQueue
 {
     use Queueable;
     public $objeto;
@@ -19,6 +19,7 @@ class EmailNotification extends Notification
     public $enterate="";
     public $show="";
     public $noticia=true;
+    
     public function __construct(Object $objeto)
     {
         if($objeto instanceof Teaching){
