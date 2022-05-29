@@ -41,7 +41,6 @@ class MinistryController extends Controller
    
     public function store(MinistryRequest $request)
     {
-
         $ministry= Ministry::create($request->all());
         if($request->file('file')){
             //$image_url=Storage::put('public/ministries', $request->file('file'));
@@ -50,12 +49,6 @@ class MinistryController extends Controller
                 // 'url'=>'ministries/' .$nombre
                 'url'=> $image_url
             ]);            
-        }
-        if($request->get('status')==2){
-            Notification::route('mail',DB::table('users')->select('email')   
-                                             ->whereNotNull('email_verified_at')    
-                                            ->get()
-                                )->notify(new EmailNotification($ministry));     
         }
         return redirect()->route('admin.blog.ministry.index')->with('info','El anuncio se creo con exito');    
     }
@@ -91,12 +84,6 @@ class MinistryController extends Controller
                     'url'=> $image_url
                 ]);  
             }
-        }
-        if($request->get('status')==2){
-            Notification::route('mail',DB::table('users')->select('email')   
-                                             ->whereNotNull('email_verified_at')    
-                                            ->get()
-                                )->notify(new EmailNotification($ministry));     
         }
         return redirect()->route('admin.blog.ministry.edit',$ministry)->with('info','Se actualizo la informacion del Ministerio o Departamento');
     }
