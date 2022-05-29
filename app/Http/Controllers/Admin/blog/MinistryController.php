@@ -104,7 +104,7 @@ class MinistryController extends Controller
     
     public function destroy(Ministry $ministry)
     {
-        $this->$ministry('autor',$ministry);
+        $this->authorize('autor',$ministry);
         if($ministry->image){
             Storage::disk('do_spaces')->delete($ministry->image->url);        
         }

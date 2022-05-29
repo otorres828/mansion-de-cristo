@@ -39,8 +39,6 @@ class TestimonyController extends Controller
         return view('admin.blog.testimony.create');
     }
 
-
- 
     public function store(TestimonyRequest $request)
     {
         $testimony= Testimony::create($request->all());
@@ -110,7 +108,9 @@ class TestimonyController extends Controller
     public function destroy(Testimony $testimony)
     {
         $this->authorize('autor',$testimony);
-
+        if($testimony->image){
+            Storage::disk('do_spaces')->delete($testimony->image->url);        
+        }
         $testimony->delete();
         return redirect()->route('admin.blog.testimony.index')->with('delete','El testimonio se elimino con exito');;
     }
