@@ -46,12 +46,13 @@ class AnnounceController extends Controller
     {
         $anuncio= Announce::create($request->all());
         if($request->file('file')){
-            $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/announces/' . $nombre;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
-            //$image_url=Storage::put('public/announces', $request->file('file'));
+            // $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
+            // $ruta =storage_path() . '/app/public/announces/' . $nombre;
+            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            $image_url=Storage::disk('do_spaces',)->put('imagenes/noticias', $request->file('file'),'public'); 
             $anuncio->image()->create([
-                'url'=>'announces/' . $nombre
+                // 'url'=>'announces/' . $nombre
+                'url'=> $image_url
             ]);            
         }
         if($request->get('status')==2){
@@ -75,29 +76,21 @@ class AnnounceController extends Controller
 
   
     public function update(AnnounceRequest $request, Announce $anuncio)
-    {
-
+    {   
         $this->authorize('autor',$anuncio);
         $anuncio->update($request->all());
-
-        if($request->file('file')){ 
-            //$url=Storage::put('public/announces', $request->file('file'));    
-            // $nombre = 'images/notices/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/announces/' . $nombre;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
-            // $store=Storage::disk('do_spaces')->put($nombre,file_get_contents($request->file('file'),'public'));
+        
+        if($request->file('file')){  
+            $image_url=Storage::disk('do_spaces',)->put('imagenes/noticias', $request->file('file'),'public'); 
 
             if($anuncio->image){
-                Storage::delete($anuncio->image->url);
+                Storage::disk('do_spaces')->delete($anuncio->image->url);
                 $anuncio->image->update([
-                    // 'url'=>'announces/' . $nombre
-                    'url'=> 'https://nyc3.digitaloceanspaces.com/mansiondecristo/'.$nombre
-
+                    'url'=> $image_url
                 ]);
             }else{
                 $anuncio->image()->create([
-                    'url'=> 'https://nyc3.digitaloceanspaces.com/mansiondecristo/'.$nombre
+                    'url'=> $image_url
                 ]);  
             }
         }
@@ -119,7 +112,8 @@ class AnnounceController extends Controller
         $this->authorize('autor',$anuncio);
         //ELIMINAR IMAGEN ASOCIADA AL ANUNCIO
         if($anuncio->image){
-            Storage::delete($anuncio->image->url);
+            // Storage::delete($anuncio->image->url);
+            Storage::disk('do_spaces')->delete($anuncio->image->url);
         }
 
         $anuncio->delete();

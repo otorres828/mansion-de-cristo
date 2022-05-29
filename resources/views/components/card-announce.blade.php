@@ -2,7 +2,7 @@
 <div class="col-12 col-md-6 mb-4" >     
     <div class="card shadow h-100">
         <div class="card-img" >
-            <img class="img-fluid" width="100%" height="70%" src="{{Storage::url($anuncio->image->url)}}"  alt="Card image cap">
+            <img class="img-fluid" width="100%" height="70%" src="https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$anuncio->image->url}}"  alt="Card image cap">
             <div class="text-black d-flex justify-content-between px-3 py-1 bg-vistas">
             <p class="mb-0">hola como estas</p>
         </div>

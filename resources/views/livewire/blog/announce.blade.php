@@ -94,7 +94,7 @@
             <div class="">
                 <div class="mx-auto py-8 lg:py-12">
                     <a href="{{route('blog.show_announces',$anuncio->slug)}}" class="block bg-transparent leading-none m-0 p-0 z-20 relative"><!----> 
-                        <img class="rounded-3xl shadow w-full h-96"  src="@if($anuncio->image){{ Storage::url($anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="">
+                        <img class="rounded-3xl shadow w-full h-96"  src="@if($anuncio->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$anuncio->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="">
                     </a>
                     <div class=" pt-5">
                         <a href="{{route('blog.show_announces',$anuncio->slug)}}" class="mt-0  px-2  flex flex-wrap items-baseline hover:text-indigo-600 text-gray-800 lg:text-3xl md:text-2xl font-bold my-2">{{$anuncio->name}}</a>

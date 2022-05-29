@@ -41,16 +41,14 @@ class MinistryController extends Controller
    
     public function store(MinistryRequest $request)
     {
-        $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
-        $ruta =storage_path() . '/app/public/ministries/' . $nombre;
-        Image::make($request->file('file'))->resize(600,400)->save($ruta);
 
         $ministry= Ministry::create($request->all());
         if($request->file('file')){
             //$image_url=Storage::put('public/ministries', $request->file('file'));
-
+            $image_url=Storage::disk('do_spaces',)->put('imagenes/ministerios', $request->file('file'),'public'); 
             $ministry->image()->create([
-                'url'=>'ministries/' .$nombre
+                // 'url'=>'ministries/' .$nombre
+                'url'=> $image_url
             ]);            
         }
         if($request->get('status')==2){
@@ -74,24 +72,23 @@ class MinistryController extends Controller
     public function update(MinistryRequest $request, Ministry $ministry)
     {
         $this->authorize('autor',$ministry);
-        
-
-
         $ministry->update($request->all());
         if($request->file('file')){
             //$url=Storage::put('public/ministries', $request->file('file'));
-            $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/ministries/' . $nombre;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            // $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
+            // $ruta =storage_path() . '/app/public/ministries/' . $nombre;
+            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            $image_url=Storage::disk('do_spaces',)->put('imagenes/ministerios', $request->file('file'),'public'); 
             if($ministry->image){
-                Storage::delete($ministry->image->url);
+                // Storage::delete($ministry->image->url);
+                Storage::disk('do_spaces')->delete($ministry->image->url);
     
                 $ministry->image->update([
-                    'url'=>'ministries/' .$nombre
+                    'url'=> $image_url
                 ]);
             }else{
                 $ministry->image()->create([
-                    'url'=>'ministries/' .$nombre
+                    'url'=> $image_url
                 ]);  
             }
         }
@@ -107,8 +104,10 @@ class MinistryController extends Controller
     
     public function destroy(Ministry $ministry)
     {
-        $this->authorize('autor',$ministry);
-
+        $this->$ministry('autor',$ministry);
+        if($ministry->image){
+            Storage::disk('do_spaces')->delete($ministry->image->url);        
+        }
         $ministry->delete();
         return redirect()->route('admin.blog.ministry.index')->with('delete','El ministerio o departamento se elimino con exito');;
     }

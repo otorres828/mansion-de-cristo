@@ -43,14 +43,12 @@ class TestimonyController extends Controller
  
     public function store(TestimonyRequest $request)
     {
-        $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
-        $ruta =storage_path() . '/app/public/testimonies/' . $nombre;
-        Image::make($request->file('file'))->resize(600,400)->save($ruta);
         $testimony= Testimony::create($request->all());
         if($request->file('file')){
+            $image_url=Storage::disk('do_spaces',)->put('imagenes/testimonios', $request->file('file'),'public'); 
             //$image_url=Storage::put('public/testimonies', $request->file('file'));
             $testimony->image()->create([
-                'url'=>'testimonies/' .$nombre
+                'url'=>$image_url
             ]);            
         }
         if($request->get('status')==2){
@@ -81,20 +79,17 @@ class TestimonyController extends Controller
         $testimony->update($request->all());
 
         if($request->file('file')){
-            //$url=Storage::put('public/testimonies', $request->file('file'));
-            $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/testimonies/' . $nombre;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
-            
+            $image_url=Storage::disk('do_spaces',)->put('imagenes/testimonios', $request->file('file'),'public'); 
+
             if($testimony->image){
-                Storage::delete($testimony->image->url);
+                Storage::disk('do_spaces')->delete($testimony->image->url);
     
                 $testimony->image->update([
-                    'url'=>'testimonies/' .$nombre
+                    'url'=>$image_url
                 ]);
             }else{
                 $testimony->image()->create([
-                    'url'=>'testimonies/' .$nombre
+                    'url'=>$image_url
                 ]);  
             }
         }
