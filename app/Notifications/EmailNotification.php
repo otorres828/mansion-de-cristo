@@ -59,10 +59,7 @@ class EmailNotification extends Notification implements ShouldQueue
                                                 'noticia'=>$this->noticia]);
     }
 
-    public function shouldSend($notifiable, $channel)
-    {
-        return $this->invoice->isPaid();
-    }
+
     public function toArray($notifiable)
     {
         return [
