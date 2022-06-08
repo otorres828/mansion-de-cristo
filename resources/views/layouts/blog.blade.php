@@ -15,7 +15,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="▷ Iglesia Mansion de Cristo" />
     <meta property="og:description" content="En nuestra pagina web podras encontrar enseñanzas y noticias relacionadas a nuestra congregacion" />
-    <meta property="og:url" content="https://mansiondecristo.ml" />
+    <meta property="og:url" content="https://mansiondecristo.com" />
     <meta property="og:image" content="{{ asset('favicon.ico') }}" />
     <meta property="og:image:width" content="828" />
     <meta property="og:image:height" content="450" />

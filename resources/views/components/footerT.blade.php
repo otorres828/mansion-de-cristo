@@ -21,7 +21,7 @@
                 <a href="{{ route('blog.contact.index') }}" class="mr-4 hover:underline md:mr-6">Contactanos</a>
             </li>
             <li>
-                <a href="{{ route('login') }}" class="hover:underline">Iniciar Sesion</a>
+                <a href="{{ route('login') }}" class="hover:underline" data-turbolinks="false">Iniciar Sesion</a>
             </li>
         </ul>
     </div>
