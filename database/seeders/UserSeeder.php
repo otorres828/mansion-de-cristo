@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             'hierarchy_id' => Hierarchy::first()->id,
             'password' => bcrypt('26269828'),
             'email_verified_at' =>'2022-05-21 07:02:22'
-        ])->assignRole('Master', 'Admin Blog');
+        ])->assignRole('Master');
         User::create([
             'name' => 'Jesus Alfonzo',
             'email' => 'jesusalfonzo97@gmail.com',
@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
             'group_id' => Group::all()->random()->id,
             'hierarchy_id' => Hierarchy::first()->id,
             'password' => bcrypt('123456')
-        ])->assignRole('Master', 'Admin Blog');
+        ])->assignRole('Master');
         User::create([
             'name' => 'Carmen Arenas',
             'email' => 'arenasduque.ca@gmail.com',

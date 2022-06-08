@@ -48,16 +48,16 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.blog.contact'])->syncRoles([$role1,$role2,$master]);
 
         //ACCESO ANUNCIOS
-        Permission::create(['name' => 'admin.blog.announce.index'])->syncRoles([$role1, $role3]);
+        Permission::create(['name' => 'admin.blog.announce.index'])->syncRoles([$role1, $role3,$master]);
 
         //ACCESO MINISTERIOS
-        Permission::create(['name' => 'admin.blog.ministry'])->syncRoles([$role1, $role4]);
+        Permission::create(['name' => 'admin.blog.ministry'])->syncRoles([$role1, $role4,$master]);
 
         //ACCESO ENSEÑANZAS
-        Permission::create(['name' => 'admin.blog.teaching'])->syncRoles([$role1, $role5]);
+        Permission::create(['name' => 'admin.blog.teaching'])->syncRoles([$role1, $role5,$master]);
 
         //ACCESO TESTIMONIOS
-        Permission::create(['name' => 'admin.blog.testimony'])->syncRoles([$role1, $role6]);
+        Permission::create(['name' => 'admin.blog.testimony'])->syncRoles([$role1, $role6,$master]);
 
         //ACCESO ADMINISTRADOR SECRETARIA
         Permission::create(['name' => 'admin.secretary.admin'])->syncRoles([$master,$submaster]);
