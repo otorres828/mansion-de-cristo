@@ -22,12 +22,15 @@
                     Hola!
                     <span
                         class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
-                       Estamos cargando todos los datos pertinentes a nuestra iglesia antes de que puedas disfrutar de nuestra pagina.
+                      Los departamentos de Comunicacion y Tecnologia e Innovacion estan cargando todos los datos pertinentes de nuestra iglesia antes de que puedas disfrutar de esta pagina web.
                     </span>
                    Pronto terminaremos y podras acceder a todo el contenido que tenemos preparado para ti!
                 </h1>
                 <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left text-indigo-200">
-                    Te invito a mantenerte en contacto para conocer cuando estara listo todo
+                    Te invitamos a mantenerte en contacto para conocer cuando este listo todo
+                </p>
+                <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left text-indigo-200">
+                    #SomosMansionDeCristo
                 </p>
             </div>
         </main>
