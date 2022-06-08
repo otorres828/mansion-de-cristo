@@ -58,7 +58,7 @@
                         <th>Página</th>
                         <th>Visitas</th>
                         <th>Visitantes</th>
-                        <th>Estadísticas</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,15 +72,9 @@
                                     class="btn btn-info">
                                     <i class="fa fa-chart-area"></i>
                                 </a>
-                                <button wire:click="eliminar({{$pagina->pagina}})"
-                                    class="btn btn-warning">
-                                    <i class="fa fa-chart-area"></i>
-                                </button>
-                               
-                                    {{$cosa  }}
-                               
-                            </td>
-                        </tr>
+                                <button wire:click="eliminar('{{ $pagina->pagina }}')"
+                                    class="btn btn-danger">
+                                    <i class="far fa-trash-alt"></i>                        </tr>
                     @endforeach
                 </tbody>
             </table>
