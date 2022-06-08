@@ -75,7 +75,7 @@
                         alt="Avatar of Author">
                     <div class="flex-1">
                         <p class="text-base font-bold md:text-xl lg:text-3xl leading-none">VER MAS TESTIMONIOS</p>
-                        <p class="text-gray-600  md:text-base">Si necesitas, no dudes en contactarnos a <a
+                        <p class="text-gray-600 text-xs md:text-base">Si necesitas, no dudes en contactarnos a <a
                                 class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500"
                                 href="{{ route('landding.index') }}">olivertorres1997@gmail.com.com</a></p>
                     </div>

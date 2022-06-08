@@ -36,7 +36,7 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+            'host' => env('MAIL_HOST', 'smtp.mail.yahoo.com'),
             'port' => env('MAIL_PORT', 465),
             'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
             'username' => env('MAIL_USERNAME'),
@@ -95,7 +95,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'mansionmdc@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'mansionmdc@yahoo.com'),
         'name' => env('MAIL_FROM_NAME', 'Mansion de Cristo'),
     ],
 
