@@ -20,6 +20,9 @@
             <li>
                 <a href="{{ route('blog.contact.index') }}" class="hover:underline">Contactanos</a>
             </li>
+            <li>
+                <a href="{{ route('login') }}" class="hover:underline">Iniciar Sesion</a>
+            </li>
         </ul>
     </div>
     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />

@@ -3,6 +3,7 @@
 @section('title', 'Mansion de Cristo')
 
 @section('main')
+
     <div>
         <div class="mx-auto container pb-5">
             {{-- CARRUSEL PRINCIPAL --}}
@@ -76,6 +77,8 @@
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-pagination"></div>
             </div>
+        
+            <video src="https://www.youtube.com/watch?v=P7IjX1DDVfI" width="640" height="480"></video>
 
             {{-- NOTICIAS --}}
             <div class="max-w-3xl mx-auto text-center mt-8">

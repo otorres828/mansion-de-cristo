@@ -5,7 +5,7 @@ return [
     'manifest' => [
         'name' => env('Mansion de Cristo', 'Mansion de Cristo'),
         'short_name' => 'Mansion de Cristo',
-        'start_url' => 'login',
+        'start_url' => '/',
         'background_color' => '#ffffff',
         'theme_color' => '#2271b3',
         'display' => 'standalone',
