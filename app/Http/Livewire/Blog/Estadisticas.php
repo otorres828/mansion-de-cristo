@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Blog;
 
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -11,7 +12,7 @@ class Estadisticas extends Component
     protected $paginationTheme = 'bootstrap';
     public $inicio,$fin;
     public $buscar;
-
+    public $cosa=1;
     private $paginas,$visitasYVisitantes;
 
     public function mount($hoy){
@@ -28,6 +29,11 @@ class Estadisticas extends Component
                                                 ]);
     }
     
+    public function eliminar($pagina){
+        $this->cosa++;
+        DB::select("DELETE FROM visitas WHERE pagina='$pagina'");
+    }
+
     public function updatingBuscar()
     {
         $this->resetPage();

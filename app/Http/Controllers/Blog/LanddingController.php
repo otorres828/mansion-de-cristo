@@ -8,6 +8,7 @@ use App\Models\Teaching;
 use App\Models\Testimony;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 class LanddingController extends Controller
 {
@@ -25,6 +26,12 @@ class LanddingController extends Controller
             ->orderBy('id', 'asc')
             ->take(6)
             ->get();
+        
+        $fecha = date("Y-m-d");
+        $ip = $_SERVER["REMOTE_ADDR"] ?? "";
+        $url=route('landding.index');
+            DB::select("INSERT INTO visitas(fecha, ip, pagina, url) 
+                        VALUES('$fecha', '$ip', 'CASA', '$url')");
         return view('welcome', compact('announces','testimonies','teachings'));
     }
 }

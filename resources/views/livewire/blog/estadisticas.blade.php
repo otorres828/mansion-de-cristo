@@ -72,6 +72,13 @@
                                     class="btn btn-info">
                                     <i class="fa fa-chart-area"></i>
                                 </a>
+                                <button wire:click="eliminar({{$pagina->pagina}})"
+                                    class="btn btn-warning">
+                                    <i class="fa fa-chart-area"></i>
+                                </button>
+                               
+                                    {{$cosa  }}
+                               
                             </td>
                         </tr>
                     @endforeach

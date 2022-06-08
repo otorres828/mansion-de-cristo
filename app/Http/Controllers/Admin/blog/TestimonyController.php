@@ -64,16 +64,18 @@ class TestimonyController extends Controller
 
     public function edit(Testimony $testimony)
     {
-
         $this->authorize('autor',$testimony);
         return view('admin.blog.testimony.edit',compact('testimony'));
     }
 
-
     public function update(TestimonyRequest $request, Testimony $testimony)
     {
         $this->authorize('autor',$testimony);
+
+        $urlvieja=route('blog.show_testimony',$testimony);
         $testimony->update($request->all());
+        $urlnueva=route('blog.show_testimony',$testimony);
+        $paginanueva=$testimony->name;
 
         if($request->file('file')){
             $image_url=Storage::disk('do_spaces',)->put('imagenes/testimonios', $request->file('file'),'public'); 
@@ -99,11 +101,10 @@ class TestimonyController extends Controller
                                     )->notify(new EmailNotification($testimony));   
             }  
         }
+        DB::update("UPDATE visitas set url='$urlnueva',pagina='$paginanueva' WHERE url='$urlvieja'");                           
         return redirect()->route('admin.blog.testimony.edit',$testimony)->with('info','Se actualizo la informacion del Testimony');
     }
 
-
-   
     public function destroy(Testimony $testimony)
     {
         $this->authorize('autor',$testimony);

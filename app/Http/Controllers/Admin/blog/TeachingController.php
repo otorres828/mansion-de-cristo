@@ -98,7 +98,12 @@ class TeachingController extends Controller
     public function update(TeachingRequest $request, Teaching $teaching)
     {
         $this->authorize('autor', $teaching);
+
+        $urlvieja=route('blog.show_teaching',$teaching);
         $teaching->update($request->all());
+        $urlnueva=route('blog.show_teaching',$teaching);
+        $paginanueva=$teaching->name;
+        
         if ($request->file('file')) {
             $image_url=Storage::disk('do_spaces',)->put('imagenes/enseñanzas', $request->file('file'),'public'); 
 
@@ -123,7 +128,7 @@ class TeachingController extends Controller
                                     )->notify(new EmailNotification($teaching));     
             }
         }
-                                    
+        DB::update("UPDATE visitas set url='$urlnueva',pagina='$paginanueva' WHERE url='$urlvieja'");                           
         return redirect()->route('admin.blog.teaching.edit', $teaching)->with('info', 'Se actualizo la informacion de la Enseñanza');
     }
 

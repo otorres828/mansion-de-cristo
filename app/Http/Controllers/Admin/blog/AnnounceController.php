@@ -73,7 +73,11 @@ class AnnounceController extends Controller
     public function update(AnnounceRequest $request, Announce $anuncio)
     {   
         $this->authorize('autor',$anuncio);
+
+        $urlvieja=route('blog.show_announces',$anuncio);
         $anuncio->update($request->all());
+        $urlnueva=route('blog.show_announces',$anuncio);
+        $paginanueva=$anuncio->name; 
         
         if($request->file('file')){  
             $image_url=Storage::disk('do_spaces',)->put('imagenes/noticias', $request->file('file'),'public'); 
@@ -98,6 +102,7 @@ class AnnounceController extends Controller
                                     )->notify(new EmailNotification($anuncio));     
             }
         }
+        DB::update("UPDATE visitas set url='$urlnueva',pagina='$paginanueva' WHERE url='$urlvieja'");                           
         return redirect()->route('admin.blog.announce.edit',$anuncio)->with('info','Se actualizo la Noticia');
     }
 
