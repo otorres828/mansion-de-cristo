@@ -14,6 +14,7 @@ class LanddingController extends Controller
 {
     public function index()
     {
+        return view('trabajando');
         $announces = Announce::where('status', 2)
             ->orderBy('id', 'desc')
             ->take(4)
