@@ -54,8 +54,8 @@
         </div>
 
         <div class=" text-center pt-10 md:pt-10 container mx-auto">
-            <p class=" md:text-2xl text-green-500 font-bold">{{ $teaching->created_at->toFormattedDateString() }}</p>
-            <h1 class="sm:m-5 font-bold break-normal text-3xl md:text-5xl">{{ $teaching->name }}</h1>
+            <p class="md:text-2xl text-green-500 font-bold">{{ $teaching->created_at->toFormattedDateString() }}</p>
+            <h1 class="px-2 sm:m-5 font-bold break-normal text-3xl md:text-5xl">{{ $teaching->name }}</h1>
             <input  value="{{ $teaching->name }}" id="titulo" hidden>
 
         </div>
