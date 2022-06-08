@@ -78,8 +78,6 @@
                 <div class="swiper-pagination"></div>
             </div>
         
-            <video src="https://www.youtube.com/watch?v=P7IjX1DDVfI" width="640" height="480"></video>
-
             {{-- NOTICIAS --}}
             <div class="max-w-3xl mx-auto text-center mt-8">
                 <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer las Noticias <a class="text-cyan-900 font-bold"
