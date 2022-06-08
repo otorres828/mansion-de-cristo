@@ -18,7 +18,7 @@
                 <a href="/terminos" class="mr-4 hover:underline md:mr-6">Terminos y Condiciones</a>
             </li>
             <li>
-                <a href="{{ route('blog.contact.index') }}" class="hover:underline">Contactanos</a>
+                <a href="{{ route('blog.contact.index') }}" class="mr-4 hover:underline md:mr-6">Contactanos</a>
             </li>
             <li>
                 <a href="{{ route('login') }}" class="hover:underline">Iniciar Sesion</a>
