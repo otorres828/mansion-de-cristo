@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\blog\TestimonyController;
 use App\Http\Controllers\Admin\blog\UserController;
 use App\Http\Controllers\Admin\blog\AcercadeController;
 use App\Http\Controllers\Admin\blog\EmailController;
+use App\Http\Controllers\Admin\blog\PanelController;
 use App\Http\Controllers\Blog\EstadisticaController;
 
 
@@ -26,5 +27,6 @@ Route::get('estadisticas/{pagina}/{inicio}/{fin}/mostrar', [EstadisticaControlle
 //Route::any('estadisticas/mostrar', [EstadisticaController::class, 'mostrar'])->name('admin.blog.estadisticas.mostrar');
 Route::any('estadisticas/registrar', [EstadisticaController::class, 'registrar'])->name('admin.blog.estadisticas.registrar');
 Route::resource('acercade', AcercadeController::class)->middleware('can:admin.blog.acercade')->except('show')->names('admin.blog.acercade');
+Route::get('panel-de-control', [PanelController::class,'index'])->middleware('auth','verified')->name('admin.blog.panel');
 
 

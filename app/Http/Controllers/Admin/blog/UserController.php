@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
-use Laravel\Fortify\Rules\Password;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -16,18 +15,20 @@ class UserController extends Controller
     {
         $user = User:: find(auth()->user()->id);  
         $roles = $user->getRoleNames();   
-        if( $roles[0]=='Master'){//$roles[0]=='Admin Blog'|| 
-            $users = User::where('id','!=',$user->id)
-                    ->where('id','>',2)
-                    ->get();
-            $roles=Role::where('name','!=','Submaster')
-                       ->where('name','!=','Master')->get();
-        }else{
-            $users = User::with('roles')->where('id','!=',$user->id)
-            ->where('id','>',2)
-            ->get();
-            $roles=Role::where('name','!=','Submaster')->where('name','!=','Admin Blog')
-            ->where('name','!=','Master')->get();
+        foreach($roles as $rol){
+            if($rol=='Master'){
+                $users = User::where('id','!=',$user->id)
+                        ->where('id','>',2)
+                        ->get();
+                $roles=Role::where('name','!=','Submaster')
+                        ->where('name','!=','Master')->get();
+            }else{
+                $users = User::with('roles')->where('id','!=',$user->id)
+                ->where('id','>',2)
+                ->get();
+                $roles=Role::where('name','!=','Submaster')->where('name','!=','Admin Blog')
+                ->where('name','!=','Master')->get();
+            }
         }
 
         return view('admin.blog.user.index',compact('users','roles'));
