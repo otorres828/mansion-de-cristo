@@ -56,7 +56,7 @@
                             </a>
                         @endif
                     </div>
-                    <div class="">
+                    <div class="hidden">
                         <a class="text-slate-500" href="{{ route('register') }}">
                             {{ __('Registrarse') }}
                         </a>
