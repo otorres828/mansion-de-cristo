@@ -20,17 +20,16 @@ class AnnounceController extends Controller
     {
         $user = User:: find(auth()->user()->id);  
         $roles = $user->getRoleNames();
-        if($roles[0]=='Admin Blog' || $roles[0]=='Master'|| $roles[0]=='Aprobar Publicaciones'){
-            $anuncios = Announce::select('id','name','slug','status','user_id')
-            ->latest('id')
-            ->get();  
-        }else{ 
-            $anuncios = User::find(auth()->user()->id)->announce()
-                            ->select('id','name','slug','status')
-                            ->latest('id')
-                            ->get();  
-         
-        
+        $variable = 0;
+        foreach ($roles as $rol) {
+            if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Aprobar Publicaciones') {
+                $variable++;
+                $anuncios = Announce::all();
+            }
+        }
+        if ($variable == 0) {
+            $anuncios = Announce::where('user_id', auth()->user()->id)
+                ->get();
         }
         return view('admin.blog.announce.index',compact('anuncios'));
     }

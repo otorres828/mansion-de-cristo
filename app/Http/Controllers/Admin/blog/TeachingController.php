@@ -23,7 +23,7 @@ class TeachingController extends Controller
         $roles = $user->getRoleNames();
         $variable = 0;
         foreach ($roles as $rol) {
-            if ($rol == 'Admin Blog' || $rol == 'Aprobar Publicaciones'|| $rol == 'Aprobar Publicaciones') {
+            if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Aprobar Publicaciones') {
                 $variable++;
                 $teachings = Teaching::all();
             }
@@ -41,12 +41,11 @@ class TeachingController extends Controller
         $roles = $user->getRoleNames();
         $variable = 0;
         foreach ($roles as $rol) {
-            if ($rol == 'Admin Blog') {
+            if ($rol == 'Admin Blog' ||  $rol=='Master' || $rol=='Aprobar Publicaciones') {
                 $variable++;
                 $autores=User::orderBy('name','asc')->pluck('name', 'id');
             }
         }
-        
         $categorias = Category::orderBy('name','asc')->pluck('name', 'id');
         if ($variable == 0) {
             return view('admin.blog.teaching.create', compact('categorias'));
@@ -83,7 +82,7 @@ class TeachingController extends Controller
         $roles = $user->getRoleNames();
         $variable = 0;
         foreach ($roles as $rol) {
-            if ($rol == 'Admin Blog') {
+            if ($rol == 'Admin Blog' ||  $rol=='Master' || $rol=='Aprobar Publicaciones') {
                 $variable++;
                 $autores=User::orderBy('name','asc')->pluck('name', 'id');
             }

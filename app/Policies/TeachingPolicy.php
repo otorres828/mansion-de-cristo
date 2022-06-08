@@ -12,12 +12,14 @@ class TeachingPolicy
 
 
     public function autor(User $user, Teaching $teaching){
-        $roles = $user->getRoleNames();   
-        if($user->id == $teaching->user_id || $roles[0]=='Admin Blog'||  $roles[0]=='Master' || $roles[0]=='Aprobar Publicaciones'){
-            return true;
-        }else{
-            return false;
-        }
+        $roles = $user->getRoleNames();
+        foreach($roles as $rol){
+            if($user->id == $teaching->user_id || $rol=='Admin Blog'||  $rol=='Master' || $rol=='Aprobar Publicaciones'){
+                return true;
+            }else{
+                return false;
+            }
+        }   
     }
 
     public function publicado(?User $user, Teaching $teaching){

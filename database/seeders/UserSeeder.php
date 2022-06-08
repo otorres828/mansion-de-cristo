@@ -42,7 +42,8 @@ class UserSeeder extends Seeder
             'temple_id' => 1,
             'group_id' => 1,
             'hierarchy_id' => 3,
-            'password' => bcrypt('123456')
+            'password' => bcrypt('123456'),
+            'email_verified_at' =>'2022-05-21 07:02:22'
         ])->assignRole('Admin Blog');
     }
 }

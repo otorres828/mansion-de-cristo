@@ -19,16 +19,17 @@ class MinistryController extends Controller
     {
         $user = User:: find(auth()->user()->id);  
         $roles = $user->getRoleNames();
-        if($roles[0]=='Admin Blog' ||  $roles[0]=='Master'|| $roles[0]=='Aprobar Publicaciones'){
-            $ministries = Ministry::select('id','name','slug','status')
-                            ->latest('id')
-                            ->get();
-        }else{
-            $ministries = Ministry::select('id','name','slug','status')
-                            ->where('user_id',auth()->user()->id)
-                            ->latest('id')
-                            ->get();            
-        }                       
+        $variable = 0;
+        foreach ($roles as $rol) {
+            if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Aprobar Publicaciones') {
+                $variable++;
+                $ministries = Ministry::all();
+            }
+        }
+        if ($variable == 0) {
+            $ministries = Ministry::where('user_id', auth()->user()->id)
+                ->get();
+        }                     
         return view('admin.blog.ministry.index',compact('ministries'));    
     }
 

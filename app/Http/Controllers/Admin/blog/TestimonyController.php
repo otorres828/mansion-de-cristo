@@ -20,19 +20,19 @@ class TestimonyController extends Controller
     {
         $user = User:: find(auth()->user()->id);  
         $roles = $user->getRoleNames();
-        if($roles[0]=='Admin Blog' ||  $roles[0]=='Master'|| $roles[0]=='Aprobar Publicaciones'){
-            $testimonies = Testimony::select('id','autor','name','slug','status')
-                            ->latest('id')
-                            ->get();
-        }else{
-            $testimonies = Testimony::select('id','autor','name','slug','status')
-                            ->where('user_id',auth()->user()->id)
-                            ->latest('id')
-                            ->get();            
-        }                       
+        $variable = 0;
+        foreach ($roles as $rol) {
+            if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Aprobar Publicaciones') {
+                $variable++;
+                $testimonies = Testimony::all();
+            }
+        }
+        if ($variable == 0) {
+            $testimonies = Testimony::where('user_id', auth()->user()->id)
+                ->get();
+        }                         
         return view('admin.blog.testimony.index',compact('testimonies'));    
     }
-
 
     public function create()
     {
@@ -61,7 +61,6 @@ class TestimonyController extends Controller
 
         return redirect()->route('admin.blog.testimony.index')->with('info','El testimonio se creo con exito');    
     }
-
 
     public function edit(Testimony $testimony)
     {
