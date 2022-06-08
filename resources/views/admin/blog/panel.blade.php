@@ -12,13 +12,13 @@
 @section('content')
    
     <div class="pb-4 px-3">
-        <p>A continuacion te dire cuales son los roles que desempeñas por los momentos en esta plataforma</p>
+        <p>A continuacion te dire cuales son los Roles y Modulos a los cuales por los momentos puedes acceder</p>
         <div class="card">
             <div class="table-responsive">
                 <table class="table table-flush" >
                     <thead>
                         <tr>
-                            <th scope="col" class="text-center">#Rol</th>
+                            <th scope="col" class="text-center">#Rol / Modulo</th>
                         </tr>
                     </thead>
                     <tbody>
