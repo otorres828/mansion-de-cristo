@@ -15,8 +15,7 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
 
 class AnnounceController extends Controller
-{
-    
+{    
     public function index()
     {
         $user = User:: find(auth()->user()->id);  
@@ -35,8 +34,7 @@ class AnnounceController extends Controller
         }
         return view('admin.blog.announce.index',compact('anuncios'));
     }
-
-   
+  
     public function create()
     {
         return view('admin.blog.announce.create');
@@ -66,15 +64,13 @@ class AnnounceController extends Controller
         }
         return redirect()->route('admin.blog.announce.index')->with('info','El anuncio se creo con exito');
     }
-
-    
+  
     public function edit(Announce $anuncio)
     {
         $this->authorize('autor',$anuncio);
         return view('admin.blog.announce.edit',compact('anuncio'));
     }
 
-  
     public function update(AnnounceRequest $request, Announce $anuncio)
     {   
         $this->authorize('autor',$anuncio);
@@ -105,7 +101,6 @@ class AnnounceController extends Controller
         }
         return redirect()->route('admin.blog.announce.edit',$anuncio)->with('info','Se actualizo la Noticia');
     }
-
 
     public function destroy(Announce $anuncio)
     {

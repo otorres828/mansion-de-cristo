@@ -1,7 +1,7 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Plataforma de registro celular y blog de MAnsion de Cristo",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
