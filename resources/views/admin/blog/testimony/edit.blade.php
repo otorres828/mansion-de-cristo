@@ -13,7 +13,7 @@
         <div class="card-body">
             {!! Form::model($testimony,['route'=>['admin.blog.testimony.update',$testimony],'autocomplete'=>'off','files'=>true,'method'=>'put']) !!}
                 @include('admin.partiels.testimony')
-                {!! Form::submit('Actualizar Ministerio/Departamento', ['class'=>'btn btn-primary float-right']) !!}
+                {!! Form::submit('Actualizar Testimonio', ['class'=>'btn btn-primary float-right']) !!}
             {!! Form::close() !!}
         </div>
     </div>
