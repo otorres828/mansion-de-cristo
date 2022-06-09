@@ -42,9 +42,13 @@
                             @foreach ($testimonies as $testimony)
                                 <div class="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
                                     <div class="flex justify-center">
-                                        <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500"
-                                            src="@if ($testimony->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$testimony->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif">
-                                    </div>
+                                        {{-- <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500"
+                                            src="@if ($testimony->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$testimony->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"> --}}
+                                            <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500"
+                                            src="@if ($testimony->image) {{ asset('storage/' . $testimony->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif">
+                                           
+                                           
+                                        </div>
                                     <h4 class="text-xl font-bold leading-snug tracking-tight mb-1 text-center"><a
                                             class="hover:to-blue-700"
                                             href="{{ route('blog.show_testimony', $testimony) }}">{{ $testimony->name }}</a>

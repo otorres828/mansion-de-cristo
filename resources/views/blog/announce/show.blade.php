@@ -10,7 +10,6 @@
         ::selection {
             background-color: aliceblue
         }
-
     </style>
 @endsection
 
@@ -61,13 +60,19 @@
         </div>
 
         {{-- FOTO LG --}}
-        <div class="hidden md:block max-w-6xl mx-auto bg-cover mt-8 rounded"
+        {{-- <div class="hidden md:block max-w-6xl mx-auto bg-cover mt-8 rounded"
             style="background-image:url('@if ($anuncio->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$anuncio->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif');min-height: 75vh;">
+        </div> --}}
+        <div class="hidden md:block max-w-6xl mx-auto bg-cover mt-8 rounded"
+            style="background-image:url('@if ($anuncio->image) {{ asset('storage/' . $anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif');min-height: 75vh;">
         </div>
         {{-- FOTO SM/MD --}}
         <div class="md:hidden mx-auto container px-2 lg:px-8  mt-4 bg-cover ">
-            <img class="w-full h-96"
+            {{-- <img class="w-full h-96"
                 src="@if ($anuncio->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$anuncio->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
+                alt=""> --}}
+            <img class="w-full h-96"
+                src="@if ($anuncio->image) {{ asset('storage/' . $anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
                 alt="">
         </div>
         {{-- CUERPO DE LA NOTICIA --}}
@@ -116,9 +121,9 @@
                 <div class="p-5 text-center pt-10 md:pt-10 container mx-auto">
                     <h1 class=" text-green-500 font-bold break-normal text-3xl md:text-5xl">Tal vez te pueda interesar</h1>
                 </div>
-                <x-aminblog.slide >
+                <x-aminblog.slide>
                     @foreach ($similares as $similar)
-                        <x-aminblog.card :item="$similar" >
+                        <x-aminblog.card :item="$similar">
                             {{ route('blog.show_announces', $similar) }}
                         </x-aminblog.card>
                     @endforeach
@@ -136,7 +141,7 @@
 
 @section('js')
     @include('components.aminblog.show')
-    
+
     {{-- <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script type="text/javaScript">
         $(document).ready(function() {

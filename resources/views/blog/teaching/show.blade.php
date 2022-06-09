@@ -60,12 +60,15 @@
 
         </div>
         {{-- FOTO LG --}}
-        <div class="hidden md:block max-w-6xl mx-auto bg-cover mt-8 rounded"
+        {{-- <div class="hidden md:block max-w-6xl mx-auto bg-cover mt-8 rounded"
             style="background-image:url('@if ($teaching->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$teaching->image->url }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif');min-height: 75vh;">
+        </div> --}}
+        <div class="hidden md:block max-w-6xl mx-auto bg-cover mt-8 rounded"
+            style="background-image:url('@if ($teaching->image){{ asset('storage/' . $teaching->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif');min-height: 75vh;">
         </div>
         {{-- FOTO SM/MD --}}
         <div class="md:hidden mx-auto container px-2 lg:px-8  mt-4 bg-cover ">
-            <img class="w-full h-96"src="@if ($teaching->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$teaching->image->url }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="">
+            <img class="w-full h-96"src="@if ($teaching->image){{ asset('storage/' . $teaching->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="">
         </div>
         {{-- CUERPO DE LA NOTICIA --}}
         <div class="container max-w-5xl mx-auto md:-mt-32 pb-8">
@@ -89,7 +92,7 @@
 
                 <div class="pb-8 flex w-full items-center font-sans px-8 md:px-24">
                     <img class="w-10 h-10 rounded-full mr-4"
-                        src="@if ($teaching->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$teaching->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
+                        src="@if ($teaching->image){{ asset('storage/' . $teaching->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
                         alt="Avatar of Author">
                     <div class="flex-1">
                         <p class="text-base font-bold md:text-xl lg:text-3xl leading-none">VER MAS ENSEÑANZAS</p>
@@ -121,7 +124,7 @@
                                     class="block bg-transparent leading-none m-0 p-0 z-20 relative">
                                     <!---->
                                     <img class="rounded-lg shadow"
-                                        src="@if ($teaching->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$teaching->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
+                                        src="@if ($teaching->image){{ asset('storage/' . $teaching->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
                                         alt="Card image cap">
                                 </a>
 

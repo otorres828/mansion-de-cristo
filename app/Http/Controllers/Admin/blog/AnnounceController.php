@@ -43,13 +43,12 @@ class AnnounceController extends Controller
     {
         $anuncio= Announce::create($request->all());
         if($request->file('file')){
-            // $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
-            // $ruta =storage_path() . '/app/public/announces/' . $nombre;
-            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
-            $image_url=Storage::disk('do_spaces',)->put('imagenes/noticias', $request->file('file'),'public'); 
+            // $nombre=Storage::disk('do_spaces',)->put('imagenes/noticias', $request->file('file'),'public'); 
+            $nombre = 'announces/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $ruta =storage_path() . '/app/public/' . $nombre;
+            Image::make($request->file('file'))->resize(600,400)->save($ruta);
             $anuncio->image()->create([
-                // 'url'=>'announces/' . $nombre
-                'url'=> $image_url
+                'url'=> $nombre
             ]);            
         }
         if($request->get('status')==2){
@@ -79,20 +78,24 @@ class AnnounceController extends Controller
         $urlnueva=route('blog.show_announces',$anuncio);
         $paginanueva=$anuncio->name; 
         
-        if($request->file('file')){  
-            $image_url=Storage::disk('do_spaces',)->put('imagenes/noticias', $request->file('file'),'public'); 
-
+        if($request->file('file')){ 
+            // $nombre=Storage::disk('do_spaces',)->put('imagenes/noticias', $request->file('file'),'public'); 
+            $nombre = 'announces/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $ruta =storage_path() . '/app/public/' . $nombre;
+            Image::make($request->file('file'))->resize(600,400)->save($ruta);
             if($anuncio->image){
-                Storage::disk('do_spaces')->delete($anuncio->image->url);
+                // Storage::disk('do_spaces')->delete($acercade->image->url);
+                Storage::delete($anuncio->image->url);
                 $anuncio->image->update([
-                    'url'=> $image_url
+                    'url'=> $nombre
                 ]);
             }else{
                 $anuncio->image()->create([
-                    'url'=> $image_url
+                    'url'=> $nombre
                 ]);  
             }
         }
+      
         if($request->get('status')==2){
             $modulo1 = EmailSend::find(2);
             if($modulo1->status==2){
@@ -112,8 +115,8 @@ class AnnounceController extends Controller
         DB::delete("DELETE FROM visitas where pagina='$anuncio->name'");
         //ELIMINAR IMAGEN ASOCIADA AL ANUNCIO
         if($anuncio->image){
-            // Storage::delete($anuncio->image->url);
-            Storage::disk('do_spaces')->delete($anuncio->image->url);
+            Storage::delete($anuncio->image->url);
+            // Storage::disk('do_spaces')->delete($anuncio->image->url);
         }
 
         $anuncio->delete();

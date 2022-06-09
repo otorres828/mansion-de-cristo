@@ -43,11 +43,13 @@ class MinistryController extends Controller
     {
         $ministry= Ministry::create($request->all());
         if($request->file('file')){
-            //$image_url=Storage::put('public/ministries', $request->file('file'));
-            $image_url=Storage::disk('do_spaces',)->put('imagenes/ministerios', $request->file('file'),'public'); 
+            $nombre = 'ministries/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $ruta =storage_path() . '/app/public/' . $nombre;
+            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            // $nombre=Storage::disk('do_spaces',)->put('imagenes/ministerios', $request->file('file'),'public'); 
             $ministry->image()->create([
                 // 'url'=>'ministries/' .$nombre
-                'url'=> $image_url
+                'url'=> $nombre
             ]);            
         }
         return redirect()->route('admin.blog.ministry.index')->with('info','El anuncio se creo con exito');    
@@ -71,20 +73,19 @@ class MinistryController extends Controller
 
         if($request->file('file')){
             //$url=Storage::put('public/ministries', $request->file('file'));
-            // $nombre = Str::random(20) .$request->file('file')->getClientOriginalName();
-            // $ruta =storage_path() . '/app/public/ministries/' . $nombre;
-            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
-            $image_url=Storage::disk('do_spaces',)->put('imagenes/ministerios', $request->file('file'),'public'); 
+            // $nombre=Storage::disk('do_spaces',)->put('imagenes/ministerios', $request->file('file'),'public'); 
+            $nombre = 'ministries/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $ruta =storage_path() . '/app/public/' . $nombre;
+            Image::make($request->file('file'))->resize(600,400)->save($ruta);
             if($ministry->image){
-                // Storage::delete($ministry->image->url);
-                Storage::disk('do_spaces')->delete($ministry->image->url);
-    
+                Storage::delete($ministry->image->url);
+                // Storage::disk('do_spaces')->delete($ministry->image->url);
                 $ministry->image->update([
-                    'url'=> $image_url
+                    'url'=> $nombre
                 ]);
             }else{
                 $ministry->image()->create([
-                    'url'=> $image_url
+                    'url'=> $nombre
                 ]);  
             }
         }
@@ -99,7 +100,8 @@ class MinistryController extends Controller
         DB::delete("DELETE FROM visitas where pagina='$ministry->name'");
 
         if($ministry->image){
-            Storage::disk('do_spaces')->delete($ministry->image->url);        
+            // Storage::disk('do_spaces')->delete($ministry->image->url); 
+            Storage::delete($ministry->image->url);
         }
         $ministry->delete();
         return redirect()->route('admin.blog.ministry.index')->with('delete','El ministerio o departamento se elimino con exito');;

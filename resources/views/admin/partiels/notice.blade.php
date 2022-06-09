@@ -37,16 +37,14 @@
     <div class="col-3">
         <div class="image-wraper">
             @isset($anuncio->image)
-                <img id="picture " src="https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{ $anuncio->image->url }}" alt="">
+                <img id="picture " src="{{ asset('storage/' . $anuncio->image->url) }}" alt="">
+                {{-- <img id="picture " src="https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{ $anuncio->image->url }}" alt=""> --}}
             @else
                 @isset($ministry->image)
-                    <img id="picture " src="https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$ministry->image->url}}" alt="">
+                    {{-- <img id="picture " src="https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$ministry->image->url}}" alt=""> --}}
+                    <img id="picture " src="{{ asset('storage/' . $ministry->image->url) }}" alt="">
                 @else
-                    @isset($teaching->image)
-                        <img id="picture " src="{{ Storage::url($teaching->image->url) }}" alt="">
-                    @else
-                        <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg" alt="">
-                    @endisset
+                    <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg" alt="">
                 @endisset
             @endisset
         </div>
