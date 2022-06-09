@@ -141,31 +141,6 @@
 
 @section('js')
     @include('components.aminblog.show')
-
-    {{-- <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script type="text/javaScript">
-        $(document).ready(function() {
-            $.ajax({
-                url: "{{ route('admin.blog.estadisticas.registrar') }}",
-                dataType: "POST",
-                data: {
-                    pagina: document.getElementById("titulo").value,
-                    url:window.location.href,
-                },
-        
-            })
-        })
-    </script> --}}
-
-    {{-- <script>
-        var alert_del=document.querySelectorAll('.alert-del');
-
-        alert_del.forEach((x)=>{
-            x.addEventListener('click',()=> 
-            x.parentElement.classList.add('hidden')
-            );
-        });
-    </script> --}}
 @endsection
 
 @section('footer')
