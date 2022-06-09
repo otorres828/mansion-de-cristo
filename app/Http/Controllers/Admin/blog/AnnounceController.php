@@ -109,6 +109,7 @@ class AnnounceController extends Controller
     public function destroy(Announce $anuncio)
     {
         $this->authorize('autor',$anuncio);
+        DB::delete("DELETE FROM visitas where pagina='$anuncio->name'");
         //ELIMINAR IMAGEN ASOCIADA AL ANUNCIO
         if($anuncio->image){
             // Storage::delete($anuncio->image->url);

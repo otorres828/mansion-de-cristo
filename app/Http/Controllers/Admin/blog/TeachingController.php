@@ -135,6 +135,7 @@ class TeachingController extends Controller
     public function destroy(Teaching $teaching)
     {
         $this->authorize('autor', $teaching);
+        DB::delete("DELETE FROM visitas where pagina='$teaching->name'");
         if($teaching->image){
             Storage::disk('do_spaces')->delete($teaching->image->url);        
         }

@@ -108,6 +108,7 @@ class TestimonyController extends Controller
     public function destroy(Testimony $testimony)
     {
         $this->authorize('autor',$testimony);
+        DB::delete("DELETE FROM visitas where pagina='$testimony->name'");
         if($testimony->image){
             Storage::disk('do_spaces')->delete($testimony->image->url);        
         }
