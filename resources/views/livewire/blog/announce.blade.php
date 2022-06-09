@@ -130,7 +130,7 @@
         </div>
     </div>
 
-    <div class="hidden md:block col-span-3 mx-auto ml-5 pt-12  hidden-sm hidden-md z-20 " wire:ignore>
+    <div class="hidden md:block col-span-3 mx-auto ml-5 pt-12 z-20 " wire:ignore>
         <div class="sticky top-10">
             <div class="col-span-5 sm:col-span-5 md:col-span-2 lg:col-span-2 text-center">
                 <h5
