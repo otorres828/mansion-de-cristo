@@ -103,14 +103,37 @@
             };
         }
 
-        ClassicEditor
-            .create( document.querySelector( '#body' ),{
-                extraPlugins: [ MyCustomUploadAdapterPlugin ],
-            })
-            .catch( error => {
-                console.error( error );
-            } 
-        );
+        var KTCkeditorDocument = function () {
+            // Private functions
+            var demo = function () {
+                ClassicEditor
+                    .create( document.querySelector( '#body' ),{
+                            mediaEmbed: {
+                                previewsInData:true
+                            },
+                        }
+                    )
+                    .then( editor => {
+                        // console.log( editor );
+                    } )
+                    .catch( error => {
+                        // console.error( error );
+                        Swal.fire("Info !", error, "error");
+                    } );
+            }
+
+            return {
+                // public functions
+                init: function() {
+                    demo();
+                }
+            };
+        }();
+
+        jQuery(document).ready(function() {
+            KTCkeditorDocument.init();
+        });
+
     </script>
     
     <script>

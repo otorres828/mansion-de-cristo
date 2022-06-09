@@ -32,7 +32,7 @@ class LanddingController extends Controller
             $url=route('landding.index');
             DB::select("INSERT INTO visitas(fecha, ip, pagina, url) 
                         VALUES('$fecha', '$ip', 'CASA', '$url')");
-        return view('trabajando');
+        return view('blog/trabajando');
         return view('welcome', compact('announces','testimonies','teachings'));
     }
 }
