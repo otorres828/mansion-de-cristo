@@ -1843,6 +1843,10 @@ select {
   --tw-gradient-from: #0891b2;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(8 145 178 / 0));
 }
+.from-green-600 {
+  --tw-gradient-from: #16a34a;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(22 163 74 / 0));
+}
 .via-pink-500 {
   --tw-gradient-stops: var(--tw-gradient-from), #ec4899, var(--tw-gradient-to, rgb(236 72 153 / 0));
 }
@@ -1855,6 +1859,9 @@ select {
 .via-cyan-400 {
   --tw-gradient-stops: var(--tw-gradient-from), #22d3ee, var(--tw-gradient-to, rgb(34 211 238 / 0));
 }
+.via-green-400 {
+  --tw-gradient-stops: var(--tw-gradient-from), #4ade80, var(--tw-gradient-to, rgb(74 222 128 / 0));
+}
 .to-purple-500 {
   --tw-gradient-to: #a855f7;
 }
@@ -1866,6 +1873,9 @@ select {
 }
 .to-cyan-300 {
   --tw-gradient-to: #67e8f9;
+}
+.to-green-300 {
+  --tw-gradient-to: #86efac;
 }
 .bg-cover {
   background-size: cover;

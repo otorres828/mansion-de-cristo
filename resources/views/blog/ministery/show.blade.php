@@ -94,9 +94,10 @@
             <div class="container mx-auto">
                 <div class="p-5 text-center pt-10 md:pt-10 container mx-auto">
                     <h1 class=" text-green-500 font-bold break-normal text-3xl md:text-5xl">Tal vez te pueda interesar</h1>
+                    <h1 class=" pt-3 text-green-400 font-bold break-normal text-2xl md:text-3xl">Leer los Testimonios Mas Recientes</h1>
                 </div>
                 <x-aminblog.slide>
-                    @foreach ($similares as $similar)
+                    @foreach ($testimonios as $similar)
                         <x-aminblog.card :item="$similar">
                             {{ route('blog.show_announces', $similar) }}
                         </x-aminblog.card>
