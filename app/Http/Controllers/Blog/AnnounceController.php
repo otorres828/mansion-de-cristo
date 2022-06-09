@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Models\Announce;
+use App\Models\Testimony;
 use App\Models\Visitas;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
