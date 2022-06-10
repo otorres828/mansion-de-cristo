@@ -58,10 +58,10 @@ class TeachingController extends Controller
     {      
         $teaching = Teaching::create($request->all());      
         if ($request->file('file')) {
-            // $image_url=Storage::disk('do_spaces',)->put('imagenes/enseñanzas', $request->file('file'),'public'); 
-            $nombre = 'teachings/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/' . $nombre;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            $nombre=Storage::disk('do_spaces')->put('imagenes/enseñanzas', $request->file('file'),'public'); 
+            // $nombre = 'teachings/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            // $ruta =storage_path() . '/app/public/' . $nombre;
+            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
             $teaching->image()->create([
                 'url' =>$nombre
             ]);
@@ -108,13 +108,13 @@ class TeachingController extends Controller
         $paginanueva=$teaching->name;
         
         if ($request->file('file')) {
-            // $image_url=Storage::disk('do_spaces',)->put('imagenes/enseñanzas', $request->file('file'),'public'); 
-            $nombre = 'teachings/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/' . $nombre;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            $nombre=Storage::disk('do_spaces')->put('imagenes/enseñanzas', $request->file('file'),'public'); 
+            // $nombre = 'teachings/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            // $ruta =storage_path() . '/app/public/' . $nombre;
+            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
             if ($teaching->image) {
-                // Storage::disk('do_spaces')->delete($teaching->image->url);
-                Storage::delete($teaching->image->url);
+                Storage::disk('do_spaces')->delete($teaching->image->url);
+                // Storage::delete($teaching->image->url);
 
                 $teaching->image->update([
                     'url' =>$nombre
@@ -143,8 +143,8 @@ class TeachingController extends Controller
         $this->authorize('autor', $teaching);
         DB::delete("DELETE FROM visitas where pagina='$teaching->name'");
         if($teaching->image){
-            Storage::delete($teaching->image->url);
-            // Storage::disk('do_spaces')->delete($teaching->image->url);        
+            // Storage::delete($teaching->image->url);
+            Storage::disk('do_spaces')->delete($teaching->image->url);        
         }
         $teaching->delete();
         return redirect()->route('admin.blog.teaching.index')->with('delete', 'La enseñanza se elimino con exito');;

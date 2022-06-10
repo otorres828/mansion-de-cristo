@@ -43,10 +43,10 @@ class AnnounceController extends Controller
     {
         $anuncio= Announce::create($request->all());
         if($request->file('file')){
-            // $nombre=Storage::disk('do_spaces',)->put('imagenes/noticias', $request->file('file'),'public'); 
-            $nombre = 'announces/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/' . $nombre;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            $nombre=Storage::disk('do_spaces')->put('imagenes/noticias', $request->file('file'),'public'); 
+            // $nombre = 'announces/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            // $ruta =storage_path() . '/app/public/' . $nombre;
+            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
             $anuncio->image()->create([
                 'url'=> $nombre
             ]);            
@@ -79,13 +79,13 @@ class AnnounceController extends Controller
         $paginanueva=$anuncio->name; 
         
         if($request->file('file')){ 
-            // $nombre=Storage::disk('do_spaces',)->put('imagenes/noticias', $request->file('file'),'public'); 
-            $nombre = 'announces/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/' . $nombre;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            $nombre=Storage::disk('do_spaces')->put('imagenes/noticias', $request->file('file'),'public'); 
+            // $nombre = 'announces/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            // $ruta =storage_path() . '/app/public/' . $nombre;
+            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
             if($anuncio->image){
-                // Storage::disk('do_spaces')->delete($acercade->image->url);
-                Storage::delete($anuncio->image->url);
+                Storage::disk('do_spaces')->delete($anuncio->image->url);
+                // Storage::delete($anuncio->image->url);
                 $anuncio->image->update([
                     'url'=> $nombre
                 ]);
@@ -115,8 +115,8 @@ class AnnounceController extends Controller
         DB::delete("DELETE FROM visitas where pagina='$anuncio->name'");
         //ELIMINAR IMAGEN ASOCIADA AL ANUNCIO
         if($anuncio->image){
-            Storage::delete($anuncio->image->url);
-            // Storage::disk('do_spaces')->delete($anuncio->image->url);
+            // Storage::delete($anuncio->image->url);
+            Storage::disk('do_spaces')->delete($anuncio->image->url);
         }
 
         $anuncio->delete();

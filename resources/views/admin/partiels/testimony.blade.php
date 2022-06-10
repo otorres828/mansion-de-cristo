@@ -47,8 +47,8 @@
     <div class="col-3">
         <div class="image-wraper">
             @isset($testimony->image)
-                <img id="picture " src="{{ asset('storage/' . $testimony->image->url) }}" alt="">
-                {{-- <img id="picture " src="https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$testimony->image->url}}" alt=""> --}}
+                {{-- <img id="picture " src="{{ asset('storage/' . $testimony->image->url) }}" alt=""> --}}
+                <img id="picture " src="https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$testimony->image->url}}" alt="">
             @else
                 <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg" alt="">
             @endisset

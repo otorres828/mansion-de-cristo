@@ -67,7 +67,7 @@
                                 class="block bg-transparent leading-none m-0 p-0 z-20 relative">
                                 <!---->
                                 <img class="rounded-lg shadow"
-                                    src="@if ($teaching->image) {{ asset('storage/' . $teaching->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
+                                    src="@if ($teaching->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$teaching->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
                                     alt="Card image cap">
                             </a>
 

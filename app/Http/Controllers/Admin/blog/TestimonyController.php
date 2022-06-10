@@ -43,10 +43,10 @@ class TestimonyController extends Controller
     {
         $testimony= Testimony::create($request->all());
         if($request->file('file')){
-            // $nombre=Storage::disk('do_spaces',)->put('imagenes/testimonios', $request->file('file'),'public'); 
-            $nombre = 'testimonies/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/' . $nombre;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            $nombre=Storage::disk('do_spaces',)->put('imagenes/testimonios', $request->file('file'),'public'); 
+            // $nombre = 'testimonies/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            // $ruta =storage_path() . '/app/public/' . $nombre;
+            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
             $testimony->image()->create([
                 'url'=>$nombre
             ]);            
@@ -80,13 +80,13 @@ class TestimonyController extends Controller
         $paginanueva=$testimony->name;
 
         if($request->file('file')){
-            // $nombre=Storage::disk('do_spaces',)->put('imagenes/testimonios', $request->file('file'),'public'); 
-            $nombre = 'testimonies/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/' . $nombre;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            $nombre=Storage::disk('do_spaces')->put('imagenes/testimonios', $request->file('file'),'public'); 
+            // $nombre = 'testimonies/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            // $ruta =storage_path() . '/app/public/' . $nombre;
+            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
             if($testimony->image){
-                // Storage::disk('do_spaces')->delete($testimony->image->url);
-                Storage::delete($testimony->image->url);
+                Storage::disk('do_spaces')->delete($testimony->image->url);
+                // Storage::delete($testimony->image->url);
     
                 $testimony->image->update([
                     'url'=>$nombre
@@ -115,8 +115,8 @@ class TestimonyController extends Controller
         $this->authorize('autor',$testimony);
         DB::delete("DELETE FROM visitas where pagina='$testimony->name'");
         if($testimony->image){
-            // Storage::disk('do_spaces')->delete($testimony->image->url);        
-            Storage::delete($testimony->image->url);
+            Storage::disk('do_spaces')->delete($testimony->image->url);        
+            // Storage::delete($testimony->image->url);
         }
         $testimony->delete();
         return redirect()->route('admin.blog.testimony.index')->with('delete','El testimonio se elimino con exito');;

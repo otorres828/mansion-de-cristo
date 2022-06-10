@@ -30,7 +30,7 @@
                                 class="block bg-transparent leading-none m-0 p-0 z-20 relative">
                                 <!---->
                                 <img class="rounded-lg shadow"
-                                    src="@if ($ministery->image){{ asset('storage/' . $ministery->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
+                                    src="@if ($ministery->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$ministery->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
                                     alt="Card image cap">
                             </a>
 

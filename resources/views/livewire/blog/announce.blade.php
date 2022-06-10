@@ -98,7 +98,7 @@
                         class="block bg-transparent leading-none m-0 p-0 z-20 relative">
                         <!---->
                         <img class="rounded-3xl shadow w-full h-96"
-                            src="@if ($anuncio->image) {{ asset('storage/' . $anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
+                            src="@if ($anuncio->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$anuncio->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
                             alt="">
                     </a>
                     <div class=" pt-5">
@@ -167,7 +167,7 @@
             @foreach ($similares as $similar)
                 <article
                     class="mb-3 transition duration-300 hover:opacity-80 rounded-lg shadow w-full h-30 bg-cover bg-center "
-                    style="background-image: url(@if ($similar->image) {{ asset('storage/' . $similar->image->url) }}@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
+                    style="background-image: url(@if ($similar->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{ $similar->image->url }}@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
                     <div class="w-full h-full px-8 flex flex-col justify-center text-center">
                         <h1
                             class="transition duration-300 rounded-lg text-2xl text-white leading-8 font-bold p-3 hover:bg-sky-800">

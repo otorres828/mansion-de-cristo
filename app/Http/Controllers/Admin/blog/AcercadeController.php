@@ -36,10 +36,10 @@ class AcercadeController extends Controller
         
         $acercade= Acercade::create($request->all());
         if($request->file('file')){
-            // $nombre=Storage::disk('do_spaces',)->put('imagenes/acercade', $request->file('file'),'public'); 
-            $nombre = 'acercade/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/' . $nombre;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            $nombre=Storage::disk('do_spaces',)->put('imagenes/acercade', $request->file('file'),'public'); 
+            // $nombre = 'acercade/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            // $ruta =storage_path() . '/app/public/' . $nombre;
+            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
             $acercade->image()->create([
                 'url'=> $nombre
 
@@ -64,12 +64,12 @@ class AcercadeController extends Controller
         ]);
         $acercade->update($request->all());
         if($request->file('file')){ 
-            // $nombre=Storage::disk('do_spaces',)->put('imagenes/acercade', $request->file('file'),'public'); 
-            $nombre = 'acercade/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/' . $nombre;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            $nombre=Storage::disk('do_spaces',)->put('imagenes/acercade', $request->file('file'),'public'); 
+            // $nombre = 'acercade/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            // $ruta =storage_path() . '/app/public/' . $nombre;
+            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
             if($acercade->image){
-                // Storage::disk('do_spaces')->delete($acercade->image->url);
+                Storage::disk('do_spaces')->delete($acercade->image->url);
                 Storage::delete($acercade->image->url);
                 $acercade->image->update([
                     'url'=> $nombre
@@ -88,8 +88,8 @@ class AcercadeController extends Controller
     {
         //ELIMINAR IMAGEN ASOCIADA A LA INFORMACION
         if($acercade->image){
-            Storage::delete($acercade->image->url);
-            // Storage::disk('do_spaces')->delete($acercade->image->url);        
+            // Storage::delete($acercade->image->url);
+            Storage::disk('do_spaces')->delete($acercade->image->url);        
         }
         $acercade->delete();
         return redirect()->route('admin.blog.acercade.index')->with('delete','La informacion se elimino con exito');
