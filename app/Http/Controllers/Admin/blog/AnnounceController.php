@@ -47,7 +47,7 @@ class AnnounceController extends Controller
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(600,400)->save($ruta);
          
-            $nombre=Storage::disk('do_spaces')->putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
+            $nombre=Storage::putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
             Storage::delete($name);
             $anuncio->image()->create([
                 'url'=> $nombre
@@ -85,10 +85,10 @@ class AnnounceController extends Controller
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(600,400)->save($ruta);
          
-            $nombre=Storage::disk('do_spaces')->putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
+            $nombre=Storage::putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
             Storage::delete($name);
             if($anuncio->image){
-                Storage::disk('do_spaces')->delete($anuncio->image->url);
+                Storage::delete($anuncio->image->url);
                 // Storage::delete($anuncio->image->url);
                 $anuncio->image->update([
                     'url'=> $nombre
