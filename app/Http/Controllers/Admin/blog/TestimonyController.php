@@ -43,11 +43,12 @@ class TestimonyController extends Controller
     {
         $testimony= Testimony::create($request->all());
         if($request->file('file')){
-            $nombre=Storage::disk('do_spaces',)->put('imagenes/testimonios', $request->file('file'),'public'); 
-            // $nombre = 'testimonies/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            // $ruta =storage_path() . '/app/public/' . $nombre;
-            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
-            $testimony->image()->create([
+            $name = 'testimonios/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $ruta =storage_path() . '/app/public/' . $name;
+            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+         
+            $nombre=Storage::disk('do_spaces')->putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
+            Storage::delete($name);$testimony->image()->create([
                 'url'=>$nombre
             ]);            
         }
@@ -80,11 +81,12 @@ class TestimonyController extends Controller
         $paginanueva=$testimony->name;
 
         if($request->file('file')){
-            $nombre=Storage::disk('do_spaces')->put('imagenes/testimonios', $request->file('file'),'public'); 
-            // $nombre = 'testimonies/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            // $ruta =storage_path() . '/app/public/' . $nombre;
-            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
-            if($testimony->image){
+            $name = 'testimonios/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $ruta =storage_path() . '/app/public/' . $name;
+            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+         
+            $nombre=Storage::disk('do_spaces')->putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
+            Storage::delete($name);  if($testimony->image){
                 Storage::disk('do_spaces')->delete($testimony->image->url);
                 // Storage::delete($testimony->image->url);
     

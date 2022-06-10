@@ -58,11 +58,12 @@ class TeachingController extends Controller
     {      
         $teaching = Teaching::create($request->all());      
         if ($request->file('file')) {
-            $nombre=Storage::disk('do_spaces')->put('imagenes/enseñanzas', $request->file('file'),'public'); 
-            // $nombre = 'teachings/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            // $ruta =storage_path() . '/app/public/' . $nombre;
-            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
-            $teaching->image()->create([
+            $name = 'enseñanzas/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $ruta =storage_path() . '/app/public/' . $name;
+            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+         
+            $nombre=Storage::disk('do_spaces')->putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
+            Storage::delete($name); $teaching->image()->create([
                 'url' =>$nombre
             ]);
         }
@@ -108,11 +109,12 @@ class TeachingController extends Controller
         $paginanueva=$teaching->name;
         
         if ($request->file('file')) {
-            $nombre=Storage::disk('do_spaces')->put('imagenes/enseñanzas', $request->file('file'),'public'); 
-            // $nombre = 'teachings/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            // $ruta =storage_path() . '/app/public/' . $nombre;
-            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
-            if ($teaching->image) {
+            $name = 'enseñanzas/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $ruta =storage_path() . '/app/public/' . $name;
+            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+         
+            $nombre=Storage::disk('do_spaces')->putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
+            Storage::delete($name);if ($teaching->image) {
                 Storage::disk('do_spaces')->delete($teaching->image->url);
                 // Storage::delete($teaching->image->url);
 

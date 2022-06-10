@@ -43,11 +43,12 @@ class MinistryController extends Controller
     {
         $ministry= Ministry::create($request->all());
         if($request->file('file')){
-            // $nombre = 'ministries/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            // $ruta =storage_path() . '/app/public/' . $nombre;
-            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
-            $nombre=Storage::disk('do_spaces')->put('imagenes/ministerios', $request->file('file'),'public'); 
-            $ministry->image()->create([
+            $name = 'ministerios/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $ruta =storage_path() . '/app/public/' . $name;
+            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+         
+            $nombre=Storage::disk('do_spaces')->putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
+            Storage::delete($name);$ministry->image()->create([
                 'url'=> $nombre
             ]);            
         }
@@ -71,11 +72,12 @@ class MinistryController extends Controller
         $paginanueva=$ministry->name;
 
         if($request->file('file')){
-            //$url=Storage::put('public/ministries', $request->file('file'));
-            $nombre=Storage::disk('do_spaces')->put('imagenes/ministerios', $request->file('file'),'public'); 
-            // $nombre = 'ministries/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            // $ruta =storage_path() . '/app/public/' . $nombre;
-            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            $name = 'ministerios/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $ruta =storage_path() . '/app/public/' . $name;
+            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+         
+            $nombre=Storage::disk('do_spaces')->putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
+            Storage::delete($name);
             if($ministry->image){
                 // Storage::delete($ministry->image->url);
                 Storage::disk('do_spaces')->delete($ministry->image->url);

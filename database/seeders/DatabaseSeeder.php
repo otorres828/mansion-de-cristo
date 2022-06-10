@@ -19,15 +19,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Storage::deleteDirectory('/announces');
-        Storage::deleteDirectory('/teachings');
-        Storage::deleteDirectory('/ministries');
-        Storage::deleteDirectory('/testimonies');
+        Storage::deleteDirectory('/noticias');
+        Storage::deleteDirectory('/enseñanzas');
+        Storage::deleteDirectory('/ministerios');
+        Storage::deleteDirectory('/testimonios');
         Storage::deleteDirectory('/acercade');
-        Storage::makeDirectory('/announces');
-        Storage::makeDirectory('/teachings');
-        Storage::makeDirectory('/ministries');
-        Storage::makeDirectory('/testimonies');
+        Storage::makeDirectory('/noticias');
+        Storage::makeDirectory('/enseñanzas');
+        Storage::makeDirectory('/ministerios');
+        Storage::makeDirectory('/testimonios');
         Storage::makeDirectory('/acercade');
 
 
