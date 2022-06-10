@@ -94,7 +94,7 @@
         @foreach ($announces as $anuncio)
             <div class="">
                 <div class="mx-auto py-8 lg:py-12">
-                    <a href="{{ route('blog.show_announces', $anuncio->slug) }}"
+                    <a href="{{ route('blog.show_announces', $anuncio->slug) }}" data-turbolinks="false"
                         class="block bg-transparent leading-none m-0 p-0 z-20 relative">
                         <!---->
                         <img class="rounded-3xl shadow w-full h-96"
@@ -102,7 +102,7 @@
                             alt="">
                     </a>
                     <div class=" pt-5">
-                        <a href="{{ route('blog.show_announces', $anuncio->slug) }}"
+                        <a href="{{ route('blog.show_announces', $anuncio->slug) }}" data-turbolinks="false"
                             class="mt-0  px-2  flex flex-wrap items-baseline hover:text-indigo-600 text-gray-800 lg:text-3xl md:text-2xl font-bold my-2">{{ $anuncio->name }}</a>
                         <p class="text-gray-700 m-3 text-justify">
                             {{ Illuminate\Support\Str::limit($anuncio->extract, 200, '...') }}</p>
@@ -171,7 +171,7 @@
                     <div class="w-full h-full px-8 flex flex-col justify-center text-center">
                         <h1
                             class="transition duration-300 rounded-lg text-2xl text-white leading-8 font-bold p-3 hover:bg-sky-800">
-                            <a href=" {{ route('blog.show_testimony', $similar) }}">
+                            <a href=" {{ route('blog.show_testimony', $similar) }}" >
                                 {{ $similar->name }}
                             </a>
                         </h1>
