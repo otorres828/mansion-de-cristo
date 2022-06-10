@@ -96,7 +96,7 @@
 
                 <div class="pb-8 flex w-full items-center font-sans px-8 md:px-24">
                     <img class="w-10 h-10 rounded-full mr-4"
-                        src="@if ($anuncio->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{ $anuncio->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
+                        src="@if ($anuncio->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{  }}$anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
                         alt="Avatar of Author">
                     <div class="flex-1">
                         <p class="text-base font-bold md:text-xl lg:text-3xl leading-none">VER MAS NOTICIAS</p>

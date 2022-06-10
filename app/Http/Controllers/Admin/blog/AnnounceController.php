@@ -71,6 +71,7 @@ class AnnounceController extends Controller
 
     public function update(AnnounceRequest $request, Announce $anuncio)
     {   
+        
         $this->authorize('autor',$anuncio);
 
         $urlvieja=route('blog.show_announces',$anuncio);
@@ -79,10 +80,12 @@ class AnnounceController extends Controller
         $paginanueva=$anuncio->name; 
         
         if($request->file('file')){ 
-            $nombre=Storage::disk('do_spaces')->put('imagenes/noticias', $request->file('file'),'public'); 
-            // $nombre = 'announces/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            // $ruta =storage_path() . '/app/public/' . $nombre;
-            // Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            $name = 'announces/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $ruta =storage_path() . '/app/public/' . $name;
+            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            
+            $nombre=Storage::disk('do_spaces')->put('imagenes/noticias', asset('storage/'.$name),'public'); 
+            Storage::delete($name);
             if($anuncio->image){
                 Storage::disk('do_spaces')->delete($anuncio->image->url);
                 // Storage::delete($anuncio->image->url);
