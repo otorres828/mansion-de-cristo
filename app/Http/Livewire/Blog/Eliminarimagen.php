@@ -16,7 +16,7 @@ class Eliminarimagen extends Component
 
     public function eliminar(){
         if($this->item->image){
-            Storage::delete($this->item->image->url);
+            Storage::disk('do_spaces')->delete($this->item->image->url);        
             $this->item->image()->delete();
         }  
     }
