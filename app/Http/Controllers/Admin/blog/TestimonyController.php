@@ -47,8 +47,9 @@ class TestimonyController extends Controller
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(600,400)->save($ruta);
          
-            $nombre=Storage::disk('do_spaces')->putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
-            Storage::delete($name);$testimony->image()->create([
+            $nombre=Storage::putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
+            Storage::disk('public')->delete($name);
+            $testimony->image()->create([
                 'url'=>$nombre
             ]);            
         }
@@ -85,8 +86,9 @@ class TestimonyController extends Controller
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(600,400)->save($ruta);
          
-            $nombre=Storage::disk('do_spaces')->putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
-            Storage::delete($name);  if($testimony->image){
+            $nombre=Storage::putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
+            Storage::disk('public')->delete($name);
+            if($testimony->image){
                 Storage::disk('do_spaces')->delete($testimony->image->url);
                 // Storage::delete($testimony->image->url);
     

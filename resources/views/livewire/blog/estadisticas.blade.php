@@ -67,14 +67,15 @@
                             <td><a href="{{ $pagina->url }}" class="text-dark">{{ $pagina->pagina }}</a></td>
                             <td>{{ $pagina->conteo_visitas }}</td>
                             <td>{{ $pagina->conteo_visitantes }}</td>
-                            <td>
-                                <a href="{{ route('admin.blog.estadisticas.mostrar', [$pagina->pagina,$inicio,$fin]) }}"
+                            <td width="d-flex">
+                                <a href="{{ route('admin.blog.estadisticas.mostrar', [$pagina->pagina, $inicio, $fin]) }}"
                                     class="btn btn-info">
                                     <i class="fa fa-chart-area"></i>
                                 </a>
-                                <button wire:click="eliminar('{{ $pagina->pagina }}')"
-                                    class="btn btn-danger">
-                                    <i class="far fa-trash-alt"></i>                        </tr>
+                                <button wire:click="eliminar('{{ $pagina->pagina }}')" class="btn btn-danger">
+                                    <i class="far fa-trash-alt"></i>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
