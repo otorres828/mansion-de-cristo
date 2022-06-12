@@ -58,7 +58,6 @@
                 </div>
 
             </div>
-            {{-- TODAS LAS TARJETAS --}}
             <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
                 @foreach ($teachings as $teaching)
                     <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative max-w-64 border-0  rounded-lg break-words text-gray-800 flex flex-col"
@@ -68,7 +67,7 @@
                                 class="block bg-transparent leading-none m-0 p-0 z-20 relative">
                                 <!---->
                                 <img class="rounded-lg shadow"
-                                    src="@if ($teaching->image) https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{ $teaching->image->url }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
+                                    src="@if ($teaching->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$teaching->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
                                     alt="Card image cap">
                             </a>
 
