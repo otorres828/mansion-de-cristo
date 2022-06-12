@@ -111,7 +111,7 @@ class TestimonyController extends Controller
             }  
         }
         DB::update("UPDATE visitas set url='$urlnueva',pagina='$paginanueva' WHERE url='$urlvieja'");                           
-        return redirect()->route('admin.blog.testimony.edit',$testimony)->with('info','Se actualizo la informacion del Testimony');
+        return redirect()->route('admin.blog.testimony.index')->with('info','Se actualizo la informacion del Testimony');
     }
 
     public function destroy(Testimony $testimony)
