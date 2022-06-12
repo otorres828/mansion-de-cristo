@@ -10,7 +10,6 @@
         ::selection {
             background-color: aliceblue
         }
-
     </style>
 @endsection
 
@@ -54,11 +53,13 @@
         </div>
         {{-- NOMBRE --}}
         <div class=" text-center  container mx-auto">
-            <input  value="{{ $ministery->name }}" id="titulo" hidden>
+            <input value="{{ $ministery->name }}" id="titulo" hidden>
         </div>
         {{-- FOTO --}}
         <div class="mx-auto container pb-5 px-2 lg:px-8  mt-8 bg-cover bg-fixed">
-            <img class="w-full h-96"src="@if ($ministery->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{ $ministery->image->url }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="">
+            <img class="w-full h-96"
+                src="@if ($ministery->image) https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{ $ministery->image->url }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
+                alt="">
         </div>
         {{-- CUERPO --}}
         <div class=" text-gray-700 font-sans quicksand pb-10">
@@ -68,17 +69,29 @@
                         <p class="py-3  font-bold break-normal text-2xl md:text-4xl">Otros</p>
                         <ul class="flex flex-wrap justify-between flex-col">
                             @foreach ($similares as $ministerio)
-                            <li >
-                                <a href="{{ route('blog.show_ministery',$ministerio) }}" >{{ $ministerio->name }}</a>
-                            </li>
+                                <li>
+                                    <a href="{{ route('blog.show_ministery', $ministerio) }}">{{ $ministerio->name }}</a>
+                                </li>
                             @endforeach
                         </ul>
-                        <a href="{{ route('blog.ministery') }}" class="normal font-bold hover:font-bold"data-turbolinks="false">Mira todos los ministerios...</a>
+                        <a href="{{ route('blog.ministery') }}" class="normal font-bold hover:font-bold"
+                            data-turbolinks="false">Mira todos los ministerios...</a>
                     </div>
                 </div>
                 <div class="w-full md:w-3/4 order-1 md:order-2">
                     <div class=" leading-loose tracking-tight">
                         <h1 class="py-3 font-bold break-normal text-3xl md:text-5xl">{{ $ministery->name }}</h1>
+                        @if ($ministery->type == 1)
+                            <div
+                                class="mb-1 mt-2  w-auto rounded text-center  shadow-lg  uppercase font-serif text-white bg-cyan-500">
+                                <div class="text-center text-1xl">Ministerio</div>
+                            </div>
+                        @else
+                            <div
+                                class="mb-1 mt-2  w-auto rounded text-center  shadow-lg  uppercase font-serif text-white bg-amber-700">
+                                <div  class=" text-1xl  p-1">Departamento</div>
+                            </div>
+                        @endif
                         <p class="mb-5 text-justify">
                             {!! $ministery->extract !!}
                         </p>
@@ -94,12 +107,13 @@
             <div class="container mx-auto">
                 <div class="p-5 text-center pt-10 md:pt-10 container mx-auto">
                     <h1 class=" text-green-500 font-bold break-normal text-3xl md:text-5xl">Tal vez te pueda interesar</h1>
-                    <h1 class=" pt-3 text-green-400 font-bold break-normal text-2xl md:text-3xl">Leer los Testimonios Mas Recientes</h1>
+                    <h1 class=" pt-3 text-green-400 font-bold break-normal text-2xl md:text-3xl">Leer los Testimonios Mas
+                        Recientes</h1>
                 </div>
                 <x-aminblog.slide>
                     @foreach ($testimonios as $similar)
                         <x-aminblog.card :item="$similar">
-                            {{ route('blog.show_announces', $similar) }}
+                            {{ route('blog.show_testimony', $similar) }}
                         </x-aminblog.card>
                     @endforeach
                 </x-aminblog.slide>

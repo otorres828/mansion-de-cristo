@@ -71,7 +71,7 @@
                             <h4
                                 class="mt-2  flex w-full text-lg leading-tight text-gray-700  hover:text-blue-800  font-bold font-serif ">
                                 <a
-                                    href="{{ route('blog.show_teaching', $ministery->slug) }}">{{ $ministery->name }}</a>
+                                    href="{{ route('blog.show_ministery', $ministery->slug) }}">{{ $ministery->name }}</a>
                             </h4>
                             @if ($ministery->type == 1)
                                 <div wire:click="filtro({{ $ministery->type }})"
