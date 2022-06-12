@@ -92,7 +92,7 @@ class MinistryController extends Controller
             }
         }
         DB::update("UPDATE visitas set url='$urlnueva',pagina='$paginanueva' WHERE url='$urlvieja'");                           
-
+        return redirect()->route('admin.blog.ministry.index')->with('info','Se actualizo la informacion del Ministerio o Departamento');
         return redirect()->route('admin.blog.ministry.edit',$ministry)->with('info','Se actualizo la informacion del Ministerio o Departamento');
     }
   

@@ -18,7 +18,8 @@
                 <thead>
                     <tr>
                         <th scope="col" class="text-center">#id</th>
-                        <th scope="col">Nombre del Ministerio o Departamento</th>
+                        <th scope="col">Nombre </th>
+                        <th scope="col">Tipo </th>
                         <th scope="col" class="text-center">Estado</th>
                         <th colspan="col">Acciones</th>
                     </tr>
@@ -28,7 +29,13 @@
                         <tr>
                             <td class="text-center">{{ $ministery->id }}</td>
                             <td>{{ $ministery->name }}</td>
-
+                            <td class="text-center">
+                                @if($ministery->type==1)
+                                     <h2 class="badge bg-primary">Ministerio</h2>
+                                 @else
+                                     <h2 class="badge bg-success">Departamento</h2>
+                                 @endif
+                             </td>
                             <td class="text-center">
                                 @if ($ministery->status == 1)
                                     <button class="btn btn-danger">X</button>
@@ -36,6 +43,7 @@
                                     <button class="btn btn-success"><i class="far fa-check-circle"></i></button>
                                 @endif
                             </td>
+                           
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"

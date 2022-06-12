@@ -19,6 +19,24 @@
     </div>
 </div>
 
+<div class="row ">
+    <div class="col-md">
+        <div class="form-group">
+            {!! Form::label('type', 'Seleccione si es Ministerio o Departamento') !!}
+            {!! Form::select('type', ['1'=>'Ministerio','2'=>'Departamento'], null, ['class' => 'form-control']) !!}
+
+            {{-- <select name="type" class="form-control">
+                <option value="1">Ministerio</option>
+                <option value="2">Departametno</option>
+            </select> --}}
+            @error('type')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
+</div>
+
+{{-- ESTADO --}}
 <div class="form-group">
     <p class="font-weight-bold">Estado</p>
     <label>

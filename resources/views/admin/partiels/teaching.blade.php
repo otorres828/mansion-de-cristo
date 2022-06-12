@@ -18,8 +18,9 @@
         </div>
     </div>
 </div>
-
-<div class="row g-2">
+{{-- SELECT --}}
+<div class="row ">
+    {{-- AUTOR DE LA ENSEÑANZA --}}
     @if (isset($autores))
         <div class="col-md">
             <div class="form-group">
@@ -30,7 +31,7 @@
     @else
         {!! Form::hidden('user_id', auth()->user()->id) !!}
     @endif
-
+    {{-- categoria --}}
     <div class="col-md">
         <div class="form-group">
             {!! Form::label('category_id', 'Seleccione la Categoria') !!}
