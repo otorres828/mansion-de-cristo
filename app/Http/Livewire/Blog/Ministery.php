@@ -30,4 +30,8 @@ class Ministery extends Component
         $this->resetPage();
     }
 
+    public function filtro($tipo){
+        $this->tipo=$tipo;
+        $this->resetPage();
+    }
 }
