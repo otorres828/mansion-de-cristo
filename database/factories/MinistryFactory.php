@@ -29,6 +29,7 @@ class MinistryFactory extends Factory
             'slug'=>Str::slug($name),
             'extract'=>$this->faker->text(250),
             'body'=>$this->faker->text(2000),
+            'type'=>$this->faker->randomElement([1,2]),
             'status'=>$this->faker->randomElement([1,2]),
             'user_id'=>User::all()->random()->id,
 

@@ -19,6 +19,7 @@ class CreateMinistriesTable extends Migration
             $table->string('slug');
             $table->text('extract')->nullable();
             $table->longText('body')->nullable();
+            $table->enum('type',[1,2])->default(1);  //1: MINISTERIO 2:DEPARTAMENTO
             $table->enum('status',[1,2])->default(1);  //1: borrador 2:publicado
             $table->unsignedBigInteger('user_id')->nullable();
 
