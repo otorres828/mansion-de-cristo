@@ -110,7 +110,7 @@ class AnnounceController extends Controller
             }
         }
         DB::update("UPDATE visitas set url='$urlnueva',pagina='$paginanueva' WHERE url='$urlvieja'");                           
-        return redirect()->route('admin.blog.announce.edit',$anuncio)->with('info','Se actualizo la Noticia');
+        return redirect()->route('admin.blog.announce.index')->with('info','Se actualizo la Noticia');
     }
 
     public function destroy(Announce $anuncio)

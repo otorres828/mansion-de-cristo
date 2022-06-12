@@ -137,8 +137,10 @@ class TeachingController extends Controller
                                     )->notify(new EmailNotification($teaching));     
             }
         }
-        DB::update("UPDATE visitas set url='$urlnueva',pagina='$paginanueva' WHERE url='$urlvieja'");                           
-        return redirect()->route('admin.blog.teaching.edit', $teaching)->with('info', 'Se actualizo la informacion de la Enseñanza');
+        DB::update("UPDATE visitas set url='$urlnueva',pagina='$paginanueva' WHERE url='$urlvieja'");    
+        
+        return redirect()->route('admin.blog.teaching.index')->with('info', 'Se actualizo la informacion de la Enseñanza');
+        // return redirect()->route('admin.blog.teaching.edit', $teaching)->with('info', 'Se actualizo la informacion de la Enseñanza');
     }
 
     public function destroy(Teaching $teaching)
