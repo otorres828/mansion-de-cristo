@@ -58,6 +58,7 @@
                 </div>
 
             </div>
+            {{-- TODAS LAS TARJETAS --}}
             <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
                 @foreach ($teachings as $teaching)
                     <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative max-w-64 border-0  rounded-lg break-words text-gray-800 flex flex-col"

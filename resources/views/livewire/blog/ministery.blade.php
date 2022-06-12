@@ -25,9 +25,12 @@
                     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             aria-label="Default select example">
                             ">
-                            <option class="text-base sm:text-xl" value="todos">Todos los Ministerios y Departamentos</option>
-                            <option class="text-base sm:text-xl" value="1" class="">Solo Ministerios</option>
-                            <option class="text-base sm:text-xl" value="2" class="">Solo Departamentos</option>
+                            <option class="text-base sm:text-xl" value="todos">Todos los Ministerios y Departamentos
+                            </option>
+                            <option class="text-base sm:text-xl" value="1" class="">Solo Ministerios
+                            </option>
+                            <option class="text-base sm:text-xl" value="2" class="">Solo Departamentos
+                            </option>
                         </select>
 
                     </div>
@@ -40,8 +43,7 @@
                 </div>
             </div>
 
-
-
+            {{-- TODAS LAS TARJETAS --}}
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pb-6">
                 @foreach ($ministeries as $ministery)
                     <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative max-w-64 border-0  rounded-lg break-words text-gray-800 flex flex-col"
@@ -63,14 +65,26 @@
                                 </div>
                             </div>
                         </div>
-                        <div class=" mt-0 px-6 flex flex-wrap items-baseline ">
+
+                        {{-- FILTRADO POR CATEGORIA BOTON VERDE --}}
+                        <div class=" mt-0 px-6  flex flex-wrap items-baseline ">
                             <h4
                                 class="mt-2  flex w-full text-lg leading-tight text-gray-700  hover:text-blue-800  font-bold font-serif ">
                                 <a
-                                    href="{{ route('blog.show_ministery', $ministery->slug) }}">{{ $ministery->name }}</a>
+                                    href="{{ route('blog.show_teaching', $ministery->slug) }}">{{ $ministery->name }}</a>
                             </h4>
+                            @if ($ministery->type == 1)
+                                <div wire:click="filtro({{ $ministery->type }})"
+                                    class="mt-2 p-1 w-auto rounded text-xs   shadow-lg  uppercase font-serif text-white bg-cyan-500">
+                                    <button type="button" class="text-1xl p-1 ">Ministerio</button>
+                                </div>
+                            @else
+                                <div wire:click="filtro({{ $ministery->type }})"
+                                    class="mt-2 p-1 w-auto rounded text-xs   shadow-lg  uppercase font-serif text-white bg-amber-700">
+                                    <button type="button" class="text-1xl p-1">Departamento</button>
+                                </div>
+                            @endif
                         </div>
-
                         <div class="py-2 px-6">
                             <div class="flex-grow items-center  justify-between ">
                                 <h1 class="mb-3 text-gray-600 ">
@@ -79,7 +93,6 @@
                         </div>
                     </div>
                 @endforeach
-
             </div>
             {{ $ministeries->links() }}
         </div>
