@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Mansion de Cristo</title>
-    <!-- Fonts -->
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        @livewireStyles
+        <!-- Scripts -->
+        <script src="{{ mix('js/app.js') }}" defer></script>
 
 </head>
 
@@ -37,8 +39,7 @@
     </div>
     @include('components.footerT')
 
-    <script src="/js/app.js" defer></script>
-
+        @livewireScripts
 </body>
 
 </html>
