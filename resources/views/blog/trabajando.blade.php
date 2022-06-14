@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 
+
 </head>
 
 <body class="leading-normal tracking-normal  m-6 bg-cover bg-fixed"
@@ -40,7 +41,11 @@
     @include('components.footerT')
     @livewireScripts
 
+<<<<<<< HEAD
 
+=======
+        @livewireScripts
+>>>>>>> 549509bf3230bf11ec95cf2586147d865b79d818
 </body>
 
 </html>
