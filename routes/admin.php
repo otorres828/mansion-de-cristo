@@ -16,7 +16,7 @@ use App\Http\Controllers\Blog\EstadisticaController;
 
 Route::resource('user', UserController::class)->middleware('can:admin.blog.user.index')->except('create','show','edit')->names('admin.blog.user');
 Route::get('email', [EmailController::class,'index'])->middleware('can:admin.blog.user.index')->name('admin.blog.email.index');
-Route::resource('category', CategoryController::class)->except('show', 'create', 'edit')->middleware('can:admin.blog.category.index')->except('show')->names('admin.blog.category');
+Route::resource('category', CategoryController::class)->except('show', 'create', 'edit')->middleware('can:admin.blog.category.index')->names('admin.blog.category');
 Route::resource('anuncios', AnnounceController::class)->middleware('can:admin.blog.announce.index')->except('show')->names('admin.blog.announce');
 Route::resource('teaching', TeachingController::class)->middleware('can:admin.blog.teaching')->except('show')->names('admin.blog.teaching');
 Route::resource('ministry', MinistryController::class)->middleware('can:admin.blog.ministry')->except('show')->names('admin.blog.ministry');

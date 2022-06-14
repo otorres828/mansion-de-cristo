@@ -9,8 +9,11 @@ use App\Http\Controllers\Blog\MinisteryController;
 use App\Http\Controllers\Blog\SuscripcionController;
 use App\Http\Controllers\Blog\TestimonyController;
 use App\Http\Controllers\Secretary\SecretaryController;
+use App\Http\Controllers\ZipController;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 Route::get('/', [LanddingController::class,'index'])->name('landding.index');
 
@@ -63,5 +66,7 @@ Route::get('storage-link', function () {
 Route::get('/offline', function () {
     return view('vendor.laravelpwa.offline');
 });
+
+Route::get('/zip',[ZipController::class,'index']);
 
 require_once __DIR__ . '/fortify.php';
