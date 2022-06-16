@@ -118,7 +118,7 @@
             <div class="container mx-auto">
                 <div class="p-5 text-center pt-10 md:pt-10 container mx-auto">
                     <h1 class=" text-green-500 font-bold break-normal text-3xl md:text-5xl">Tal vez te pueda interesar</h1>
-                    <h1 class=" text-green-300 font-bold break-normal text-2xl md:text-3xl">Otras noticias</h1>
+                    <h1 class=" text-green-500 font-bold break-normal text-2xl md:text-3xl">Otras noticias</h1>
 
                 </div>
                 <x-aminblog.slide>
