@@ -6,11 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class AnnounceRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
+
     public function authorize()
     {
         
@@ -25,7 +21,6 @@ class AnnounceRequest extends FormRequest
                 'name' =>'required',
                 'slug' =>'required|unique:announces',
                 'status'=>'required|in:1,2',
-                'file'=>'image|max:2048'
         ];
         if($anuncio){
             $rules['slug']='required|unique:announces,slug,'.$anuncio->id;
