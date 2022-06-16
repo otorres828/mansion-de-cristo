@@ -10,10 +10,10 @@ class EmailController extends Controller
 {
 
     public function index()
-    {
-        $modulo1 = EmailSend::find(1); //ENSEÑANZAS
-        $modulo2 = EmailSend::find(2); //NOTICIAS
-        $modulo3 = EmailSend::find(3); //TESTIMONIOS
+    {   
+        $modulo1 = EmailSend::where('name','Enseñanzas')->first(); //ENSEÑANZAS
+        $modulo2 = EmailSend::where('name','Noticias')->first(); //NOTICIAS
+        $modulo3 = EmailSend::where('name','Testimonios')->first(); //TESTIMONIOS
         return view('admin.blog.email.index',compact('modulo1', 'modulo2','modulo3'));
     }
 

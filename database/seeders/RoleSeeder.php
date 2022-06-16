@@ -65,6 +65,8 @@ class RoleSeeder extends Seeder
         //ACCESO OTRAS IGLESIAS
         Permission::create(['name' => 'admin.secretary.temple'])->syncRoles([$master]);
 
+        //MANTENIMIENTO
+        Permission::create(['name' => 'mantenimiento'])->syncRoles([$master]);
     
     }
 }

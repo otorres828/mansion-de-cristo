@@ -92,35 +92,33 @@
 
     <div class="w-full col-span-10 lg:col-span-7 md:mx-auto z-10">
         @foreach ($announces as $anuncio)
-            <div class="">
-                <div class="mx-auto py-8 lg:py-12">
+            <div class="mx-auto py-8 lg:py-12">
+                <a href="{{ route('blog.show_announces', $anuncio->slug) }}" data-turbolinks="false"
+                    class="block bg-transparent leading-none m-0 p-0 z-20 relative">
+                    <!---->
+                    <img class="rounded-3xl shadow w-full h-96"
+                        src="@if ($anuncio->image) https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{ $anuncio->image->url }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
+                        alt="">
+                </a>
+                <div class=" pt-5">
                     <a href="{{ route('blog.show_announces', $anuncio->slug) }}" data-turbolinks="false"
-                        class="block bg-transparent leading-none m-0 p-0 z-20 relative">
-                        <!---->
-                        <img class="rounded-3xl shadow w-full h-96"
-                            src="@if ($anuncio->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$anuncio->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
-                            alt="">
-                    </a>
-                    <div class=" pt-5">
-                        <a href="{{ route('blog.show_announces', $anuncio->slug) }}" data-turbolinks="false"
-                            class="mt-0  px-2  flex flex-wrap items-baseline hover:text-indigo-600 text-gray-800 lg:text-3xl md:text-2xl font-bold my-2">{{ $anuncio->name }}</a>
-                        <p class="text-gray-700 m-3 text-justify">
-                            {{ Illuminate\Support\Str::limit($anuncio->extract, 200, '...') }}</p>
-                        <div class="flex justify-between  m-3">
-                            <span
-                                class="font-bold text-sm text-gray-400">{{ $anuncio->created_at->toFormattedDateString() }}</span>
-                        </div>
-                        <div class="w-full text-center  ">
-                            <div class="bg-gray-300 rounded overflow-hidden ">
-                                <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
-                                    class="bg-green progress-bar h-1" style="width: 0%;">
-                                </div>
+                        class="mt-0  px-2  flex flex-wrap items-baseline hover:text-indigo-600 text-gray-800 lg:text-3xl md:text-2xl font-bold my-2">{{ $anuncio->name }}</a>
+                    <p class="text-gray-700 m-3 text-justify">
+                        {{ Illuminate\Support\Str::limit($anuncio->extract, 200, '...') }}</p>
+                    <div class="flex justify-between  m-3">
+                        <span
+                            class="font-bold text-sm text-gray-400">{{ $anuncio->created_at->toFormattedDateString() }}</span>
+                    </div>
+                    <div class="w-full text-center  ">
+                        <div class="bg-gray-300 rounded overflow-hidden ">
+                            <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                                class="bg-green progress-bar h-1" style="width: 0%;">
                             </div>
                         </div>
-                        <div class="float-right  m-3">
-                            <a href="{{ route('blog.show_announces', $anuncio->slug) }}"
-                                class="text-sm hover:text-indigo-600 text-gray-800 text-1xl font-bold my-2">Leer mas</a>
-                        </div>
+                    </div>
+                    <div class="float-right  m-3">
+                        <a href="{{ route('blog.show_announces', $anuncio->slug) }}" data-turbolinks="false"
+                            class="text-sm hover:text-indigo-600 text-gray-800 text-1xl font-bold my-2">Leer mas</a>
                     </div>
                 </div>
             </div>
@@ -162,16 +160,16 @@
                     class="mt-3 text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-cyan-400 to-cyan-300">
                     Tal vez te pueda interesar
                 </h5>
-               
+
             </div>
             @foreach ($similares as $similar)
                 <article
                     class="mb-3 transition duration-300 hover:opacity-80 rounded-lg shadow w-full h-30 bg-cover bg-center "
-                    style="background-image: url(@if ($similar->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{ $similar->image->url }}@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
+                    style="background-image: url(@if ($similar->image) https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{ $similar->image->url }}@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
                     <div class="w-full h-full px-8 flex flex-col justify-center text-center">
                         <h1
                             class="transition duration-300 rounded-lg text-2xl text-white leading-8 font-bold p-3 hover:bg-sky-800">
-                            <a href=" {{ route('blog.show_testimony', $similar) }}" >
+                            <a href=" {{ route('blog.show_testimony', $similar) }}">
                                 {{ $similar->name }}
                             </a>
                         </h1>

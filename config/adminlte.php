@@ -335,7 +335,7 @@ return [
             'icon'    => 'fas fa-tachometer-alt fa-fw',
             'can'=>'admin.blog.home',
             'submenu' => [
-                ['header' => 'ADMINISTRADOR',
+                ['header' => 'ADMINISTRADaOR',
                 'can'=>'admin.blog.user.index'],
                 [
                     'text' => 'Usuarios',
@@ -455,6 +455,15 @@ return [
                     'route'  => 'admin.blog.acercade.index',
                     'icon' => 'fas fa-envelope-square fa-fw',
                     'can' =>'admin.blog.acercade'
+                ],
+
+                ['header' => 'Mantenimiento ',
+                'can'=>'mantenimiento'],
+                [
+                    'text' => 'Configuracion',
+                    'route'  => 'programador.mantenimiento',
+                    'icon' => 'fas fa-users fa-fw',
+                    'can'=>'mantenimiento',
                 ],
             ],
             

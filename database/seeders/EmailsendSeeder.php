@@ -11,6 +11,7 @@ class EmailsendSeeder extends Seeder
   
     public function run()
     {
+
         EmailSend::create([
             'name'=>'Enseñanzas',
         ]);
@@ -19,6 +20,9 @@ class EmailsendSeeder extends Seeder
         ]);
         EmailSend::create([
             'name'=>'Testimonios',
+        ]);
+        EmailSend::create([
+            'name'=>'Mantenimiento',
         ]);
     }
 }

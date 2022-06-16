@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\blog\AcercadeController;
 use App\Http\Controllers\Admin\blog\EmailController;
 use App\Http\Controllers\Admin\blog\PanelController;
 use App\Http\Controllers\Blog\EstadisticaController;
-
+use App\Http\Controllers\MantenimientoController;
 
 Route::resource('user', UserController::class)->middleware('can:admin.blog.user.index')->except('create','show','edit')->names('admin.blog.user');
 Route::get('email', [EmailController::class,'index'])->middleware('can:admin.blog.user.index')->name('admin.blog.email.index');
@@ -24,9 +24,9 @@ Route::resource('testimony', TestimonyController::class)->middleware('can:admin.
 Route::resource('contact', ContactController::class)->except('store')->middleware('can:admin.blog.contact')->names('admin.blog.contact');
 Route::get('estadisticas', [EstadisticaController::class, 'index'])->name('admin.blog.estadisticas');
 Route::get('estadisticas/{pagina}/{inicio}/{fin}/mostrar', [EstadisticaController::class, 'mostrar'])->name('admin.blog.estadisticas.mostrar');
-//Route::any('estadisticas/mostrar', [EstadisticaController::class, 'mostrar'])->name('admin.blog.estadisticas.mostrar');
 Route::any('estadisticas/registrar', [EstadisticaController::class, 'registrar'])->name('admin.blog.estadisticas.registrar');
 Route::resource('acercade', AcercadeController::class)->middleware('can:admin.blog.acercade')->except('show')->names('admin.blog.acercade');
 Route::get('panel-de-control', [PanelController::class,'index'])->middleware('auth','verified')->name('admin.blog.panel');
+Route::get('mantenimiento', [MantenimientoController::class,'mantenimiento'])->middleware('auth','verified')->name('programador.mantenimiento');
 
 

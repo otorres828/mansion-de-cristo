@@ -15,25 +15,24 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
-Route::get('/', [LanddingController::class,'index'])->name('landding.index');
+Route::get('/', [LanddingController::class,'index'])->middleware('mantenimiento')->name('landding.index');
 
 //CONTROLADORES DEL BLOG
-Route::get('acercade', [ContactController::class,'acercade'])->name('blog.acercade');
+Route::get('acercade', [ContactController::class,'acercade'])->middleware('mantenimiento')->name('blog.acercade');
 
-Route::resource('contactanos', ContactController::class)->only('index','store')->names('blog.contact');
+Route::resource('contactanos', ContactController::class)->only('index','store')->middleware('mantenimiento')->names('blog.contact');
 
-Route::get('noticias', [AnnounceController::class,'index'])->name('blog.announces');
-Route::get('noticias/{slug}',[AnnounceController::class,'show'])->name('blog.show_announces');
+Route::get('noticias', [AnnounceController::class,'index'])->middleware('mantenimiento')->name('blog.announces');
+Route::get('noticias/{slug}',[AnnounceController::class,'show'])->middleware('mantenimiento')->name('blog.show_announces');
 
-Route::get('enseñanzas',[TeachingController::class,'index'])->name('blog.teaching');
-Route::get('enseñanzas/{slug}',  [TeachingController::class,'show'])->name('blog.show_teaching');
-Route::get('enseñanzas/autor/{email}', [TeachingController::class,'user'])->name('blog.user_teaching');
+Route::get('enseñanzas',[TeachingController::class,'index'])->middleware('mantenimiento')->name('blog.teaching');
+Route::get('enseñanzas/{slug}',  [TeachingController::class,'show'])->middleware('mantenimiento')->name('blog.show_teaching');
 
-Route::get('ministerios',[MinisteryController::class,'index'])->name('blog.ministery');
-Route::get('ministerios/{slug}',[MinisteryController::class,'show'])->name('blog.show_ministery');
+Route::get('ministerios',[MinisteryController::class,'index'])->middleware('mantenimiento')->name('blog.ministery');
+Route::get('ministerios/{slug}',[MinisteryController::class,'show'])->middleware('mantenimiento')->name('blog.show_ministery');
 
-Route::get('testimonios', [TestimonyController::class,'index'])->name('blog.testimony');
-Route::get('testimonios/{slug}',  [TestimonyController::class,'show'])->name('blog.show_testimony');
+Route::get('testimonios', [TestimonyController::class,'index'])->middleware('mantenimiento')->name('blog.testimony');
+Route::get('testimonios/{slug}',  [TestimonyController::class,'show'])->middleware('mantenimiento')->name('blog.show_testimony');
 
 Route::get('privacidad',  function(){
     return view('blog.legal.privacidad');
@@ -42,7 +41,7 @@ Route::get('terminos',  function(){
     return view('blog.legal.terminos');
 });
 
-Route::post('suscripcion',[SuscripcionController::class,'suscribirse'])->name('suscripcion');
+// Route::post('suscripcion',[SuscripcionController::class,'suscribirse'])->name('suscripcion');
 
 //CONTROLADORES SECRETARIA
 Route::get('/secretaria', [SecretaryController::class,'index'])->name('secretary.index')->middleware('auth');
@@ -58,6 +57,9 @@ Route::get('/clear', function () {
     echo Artisan::call('route:clear');
 });
 
+Route::get('mantenimiento', function () {
+    return view('blog/trabajando');    
+})->name('mantenimiento');
 
 Route::get('storage-link', function () {
     Artisan::call('storage:link');

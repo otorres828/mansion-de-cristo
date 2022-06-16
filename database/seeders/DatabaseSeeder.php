@@ -44,11 +44,11 @@ class DatabaseSeeder extends Seeder
         Contact::factory(15)->create();
         Category::factory(8)->create();
         $this->call(EmailsendSeeder::class);
-        $this->call(AcercadeSeeder::class);
-        $this->call(AnnounceSeeder::class);
-        $this->call(TeachingSeeder::class);
-        $this->call(MinistrySeeder::class);
-        $this->call(TestimonySeeder::class);
+        // $this->call(AcercadeSeeder::class);
+        // $this->call(AnnounceSeeder::class);
+        // $this->call(TeachingSeeder::class);
+        // $this->call(MinistrySeeder::class);
+        // $this->call(TestimonySeeder::class);
         
     }
 }

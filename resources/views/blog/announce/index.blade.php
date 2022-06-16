@@ -1,5 +1,5 @@
 @extends('layouts.blog')
-@section('title','MDC-Anuncios')
+@section('title','MDC-Noticias')
 
 @section('header')
     @include('components.aminblog.header')
