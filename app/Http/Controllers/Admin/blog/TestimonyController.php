@@ -45,7 +45,7 @@ class TestimonyController extends Controller
         if($request->file('file')){
             $name = 'testimonios/'.Str::random(20) .$request->file('file')->getClientOriginalName();
             $ruta =storage_path() . '/app/public/' . $name;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            Image::make($request->file('file'))->resize(1200,800)->save($ruta);
          
             $nombre=Storage::putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
             Storage::disk('public')->delete($name);
@@ -84,7 +84,7 @@ class TestimonyController extends Controller
         if($request->file('file')){
             $name = 'testimonios/'.Str::random(20) .$request->file('file')->getClientOriginalName();
             $ruta =storage_path() . '/app/public/' . $name;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
+            Image::make($request->file('file'))->resize(1200,800)->save($ruta);
          
             $nombre=Storage::putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
             Storage::disk('public')->delete($name);
