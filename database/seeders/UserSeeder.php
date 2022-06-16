@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             'hierarchy_id' => Hierarchy::first()->id,
             'password' => bcrypt('26269828'),
             'email_verified_at' =>'2022-05-21 07:02:22'
-        ])->assignRole('Master');
+        ])->assignRole('Master','Programador');
         User::create([
             'name' => 'Jesus Alfonzo',
             'email' => 'jesusalfonzo97@gmail.com',

@@ -20,14 +20,18 @@ class UserController extends Controller
                 $users = User::where('id','!=',$user->id)
                         ->where('id','>',2)
                         ->get();
-                $roles=Role::where('name','!=','Submaster')
-                        ->where('name','!=','Master')->get();
+                $roles=Role::where('name','!=','Master')
+                        ->where('name','!=','Submaster')
+                        ->where('name','!=','Programador')->get();
             }else{
-                $users = User::with('roles')->where('id','!=',$user->id)
-                ->where('id','>',2)
-                ->get();
-                $roles=Role::where('name','!=','Submaster')->where('name','!=','Admin Blog')
-                ->where('name','!=','Master')->get();
+                $users = User::with('roles')
+                            ->where('id','!=',$user->id)
+                            ->where('id','>',2)
+                            ->get();
+                $roles=Role::where('name','!=','Master')
+                        ->where('name','!=','Submaster')
+                        ->where('name','!=','Admin Blog')
+                        ->where('name','!=','Programador')->get();
             }
         }
 

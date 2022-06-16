@@ -25,7 +25,7 @@ class RoleSeeder extends Seeder
         $role5 = Role::create(['name' => 'Enseñanzas']);
         $role6 = Role::create(['name' => 'Testimonios']);
         $topost = Role::create(['name' => 'Aprobar Publicaciones']);
-
+        $programador =Role::create(['name' => 'Programador']);
         //APROBAR TODAS LAS PUBLICACIONES 
         Permission::create(['name' => 'topost'])->syncRoles([$role1,$topost,$master]);
 
@@ -66,7 +66,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.secretary.temple'])->syncRoles([$master]);
 
         //MANTENIMIENTO
-        Permission::create(['name' => 'mantenimiento'])->syncRoles([$master]);
+        Permission::create(['name' => 'mantenimiento'])->syncRoles([$programador]);
     
     }
 }
