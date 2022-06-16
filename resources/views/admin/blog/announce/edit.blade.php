@@ -11,7 +11,7 @@
     <div class="card">
         <div class="card-body">
             {!! Form::model($anuncio,['route'=>['admin.blog.announce.update',$anuncio],'autocomplete'=>'off','files'=>true,'method'=>'put']) !!}
-                @include('admin.partiels.ministery')
+                @include('admin.partiels.notice')
                 {!! Form::submit('Actualizar Noticia', ['class'=>'btn btn-primary float-right']) !!}
             {!! Form::close() !!}
         </div>
