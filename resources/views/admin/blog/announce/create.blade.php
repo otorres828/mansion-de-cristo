@@ -11,7 +11,7 @@
         <div class="card-body">
             {!! Form::open(['route'=>'admin.blog.announce.store','autocomplete'=>'off','files'=>true]) !!}
                 {!! Form::hidden('user_id', auth()->user()->id) !!} 
-                @include('admin.partiels.notice')
+                @include('admin.partiels.ministery')
                 {!! Form::submit('Crear Noticia', ['class'=>'btn btn-primary float-right']) !!}
             {!! Form::close() !!}
         </div>

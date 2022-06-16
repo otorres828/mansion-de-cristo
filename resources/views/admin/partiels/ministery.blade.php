@@ -19,6 +19,23 @@
     </div>
 </div>
 
+<div class="row ">
+    <div class="col-md">
+        <div class="form-group">
+            {!! Form::label('type', 'Seleccione si es Ministerio o Departamento') !!}
+            {!! Form::select('type', ['1'=>'Ministerio','2'=>'Departamento'], null, ['class' => 'form-control']) !!}
+
+            {{-- <select name="type" class="form-control">
+                <option value="1">Ministerio</option>
+                <option value="2">Departametno</option>
+            </select> --}}
+            @error('type')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
+</div>
+
 {{-- ESTADO --}}
 <div class="form-group">
     <p class="font-weight-bold">Estado</p>
@@ -41,7 +58,12 @@
                 {{-- <img id="picture " src="{{ asset('storage/' . $anuncio->image->url) }}" alt=""> --}}
                 <img id="picture " src="https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{ $anuncio->image->url }}" alt="">
             @else
-                <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg" alt="">
+                @isset($ministry->image)
+                    <img id="picture " src="https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$ministry->image->url}}" alt="">
+                    {{-- <img id="picture " src="{{ asset('storage/' . $ministry->image->url) }}" alt=""> --}}
+                @else
+                    <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg" alt="">
+                @endisset
             @endisset
         </div>
         @if (isset($anuncio->image))
