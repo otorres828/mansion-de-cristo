@@ -43,7 +43,7 @@ class MinistryController extends Controller
     {
         $ministry= Ministry::create($request->all());
         if($request->file('file')){
-            $name = 'ministerios/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $name = 'ministerios/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(1200,800)->save($ruta);
          
@@ -73,7 +73,7 @@ class MinistryController extends Controller
         $paginanueva=$ministry->name;
 
         if($request->file('file')){
-            $name = 'ministerios/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $name = 'ministerios/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(1200,800)->save($ruta);
          

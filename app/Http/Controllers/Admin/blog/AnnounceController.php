@@ -43,11 +43,11 @@ class AnnounceController extends Controller
     {
         $anuncio= Announce::create($request->all());
         if($request->file('file')){
-            $name = 'noticias/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $name = 'noticias/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(1200,800)->save($ruta);
          
-            $nombre=Storage::putFileAs('imagenes', asset('storage/'.$name),$name,'public'); 
+            $nombre=Storage::putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
             Storage::disk('public')->delete($name);
             $anuncio->image()->create([
                 'url'=> $nombre
@@ -81,7 +81,7 @@ class AnnounceController extends Controller
         $paginanueva=$anuncio->name; 
         
         if($request->file('file')){ 
-            $name = 'noticias/'.Str::random(20);
+            $name = 'noticias/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(1200,800)->save($ruta);
          

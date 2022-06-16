@@ -58,7 +58,7 @@ class TeachingController extends Controller
     {      
         $teaching = Teaching::create($request->all());      
         if ($request->file('file')) {
-            $name = 'enseñanzas/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $name = 'enseñanzas/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(1200,800)->save($ruta);
          
@@ -110,7 +110,7 @@ class TeachingController extends Controller
         $paginanueva=$teaching->name;
         
         if ($request->file('file')) {
-            $name = 'enseñanzas/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $name = 'enseñanzas/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(1200,800)->save($ruta);
          

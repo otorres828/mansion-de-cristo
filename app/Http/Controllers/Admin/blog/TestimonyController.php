@@ -43,7 +43,7 @@ class TestimonyController extends Controller
     {
         $testimony= Testimony::create($request->all());
         if($request->file('file')){
-            $name = 'testimonios/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $name = 'testimonios/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(1200,800)->save($ruta);
          
@@ -82,7 +82,7 @@ class TestimonyController extends Controller
         $paginanueva=$testimony->name;
 
         if($request->file('file')){
-            $name = 'testimonios/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $name = 'testimonios/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(1200,800)->save($ruta);
          
