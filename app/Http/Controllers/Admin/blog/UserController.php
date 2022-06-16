@@ -16,7 +16,7 @@ class UserController extends Controller
         $user = User:: find(auth()->user()->id);  
         $roles = $user->getRoleNames();   
         foreach($roles as $rol){
-            if($rol=='Master'){
+            if($rol=='Master' || $rol=='Programador'){
                 $users = User::where('id','!=',$user->id)
                         ->where('id','>',2)
                         ->get();
