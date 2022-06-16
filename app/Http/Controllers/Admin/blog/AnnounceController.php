@@ -85,7 +85,7 @@ class AnnounceController extends Controller
             $ruta =storage_path() . '/app/public/' . $name;
             // Image::make($request->file('file'))->resize(1200,800)->save($ruta);
          
-            $nombre=Storage::putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
+            $nombre=Storage::putFileAs('imagenes', asset('storage/'.$name),$name,'public'); 
             // Storage::disk('public')->delete($name);
             if($anuncio->image){
                 Storage::delete($anuncio->image->url);
