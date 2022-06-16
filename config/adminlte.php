@@ -457,17 +457,15 @@ return [
                     'can' =>'admin.blog.acercade'
                 ],
 
-                ['header' => 'Mantenimiento ',
-                'can'=>'mantenimiento'],
-                [
-                    'text' => 'Configuracion',
-                    'route'  => 'programador.mantenimiento',
-                    'icon' => 'fas fa-users fa-fw',
-                    'can'=>'mantenimiento',
-                ],
-            ],
-            
-   
+            ],      
+        ],
+        ['header' => 'Mantenimiento ',
+        'can'=>'mantenimiento'],
+        [
+            'text' => 'Configuracion',
+            'route'  => 'programador.mantenimiento',
+            'icon' => 'fas fa-users fa-fw',
+            'can'=>'mantenimiento',
         ],
 
     ],
