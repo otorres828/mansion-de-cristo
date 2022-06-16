@@ -21,8 +21,8 @@ class AnnounceRequest extends FormRequest
                 'name' =>'required',
                 'slug' =>'required|unique:announces',
                 'status'=>'required|in:1,2',
-                'file'=>'image|max:3072'
-        ];
+                'image' => 'image|max:15360|dimensions:max_width=4000,max_height=3000'
+            ];
         if($anuncio){
             $rules['slug']='required|unique:announces,slug,'.$anuncio->id;
         }
