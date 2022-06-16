@@ -6,11 +6,12 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class MinistryRequest extends FormRequest
 {
-
+  
     public function authorize()
     {
         return true;
     }
+
 
     public function rules()
     {
@@ -19,6 +20,7 @@ class MinistryRequest extends FormRequest
                 'name' =>'required',
                 'slug' =>'required|unique:ministries',
                 'status'=>'required|in:1,2',
+                // 'file'=>'image|max:2048'
         ];
         if($ministry){
             $rules['slug']='required|unique:ministries,slug,'.$ministry->id;
