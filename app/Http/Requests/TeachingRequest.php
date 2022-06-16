@@ -19,7 +19,7 @@ class TeachingRequest extends FormRequest
                 'name' =>'required',
                 'slug' =>'required|unique:teachings',
                 'status'=>'required|in:1,2',
-                'image' => 'image|max:2400|dimensions:max_width=4000,max_height=3000'
+                'file' => 'image|max:15000|dimensions:max_width=4000,max_height=3000'
         ];
         if($teaching){
             $rules['slug']='required|unique:teachings,slug,'.$teaching->id;

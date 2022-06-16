@@ -20,7 +20,7 @@ class MinistryRequest extends FormRequest
                 'name' =>'required',
                 'slug' =>'required|unique:ministries',
                 'status'=>'required|in:1,2',
-                'image' => 'image|max:2400|dimensions:max_width=4000,max_height=3000'
+                'file' => 'image|max:15000|dimensions:max_width=4000,max_height=3000'
         ];
         if($ministry){
             $rules['slug']='required|unique:ministries,slug,'.$ministry->id;

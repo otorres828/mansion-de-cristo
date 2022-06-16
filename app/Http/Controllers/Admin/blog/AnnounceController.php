@@ -81,7 +81,7 @@ class AnnounceController extends Controller
         $paginanueva=$anuncio->name; 
         
         if($request->file('file')){ 
-            $name = 'noticias/'.Str::random(20) .$request->file('file')->getClientOriginalName();
+            $name = 'noticias/'.Str::random(20);
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(1200,800)->save($ruta);
          
