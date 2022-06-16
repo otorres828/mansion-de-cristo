@@ -62,7 +62,7 @@ class TeachingController extends Controller
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(1200,800)->save($ruta);
          
-            $nombre=Storage::putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
+            $nombre=Storage::putFileAs('imagenes', asset('storage/'.$name),$name,'public'); 
             Storage::disk('public')->delete($name);
             $teaching->image()->create([
                 'url' =>$nombre
@@ -114,7 +114,7 @@ class TeachingController extends Controller
             $ruta =storage_path() . '/app/public/' . $name;
             Image::make($request->file('file'))->resize(1200,800)->save($ruta);
          
-            $nombre=Storage::putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
+            $nombre=Storage::putFileAs('imagenes', asset('storage/'.$name),$name,'public'); 
             Storage::disk('public')->delete($name);
             if ($teaching->image) {
                 Storage::disk('do_spaces')->delete($teaching->image->url);
