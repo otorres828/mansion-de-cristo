@@ -55,14 +55,14 @@
                                         href="{{ route('blog.show_ministery', $ministery->slug) }}">Ver</a>
                                         <a class="dropdown-item"
                                             href="{{ route('admin.blog.ministry.edit', $ministery) }}">Editar</a>
-
+                                    @can('eliminarpublicaciones')
                                         <form class="destroy"
                                             action="{{ route('admin.blog.ministry.destroy', $ministery) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="dropdown-item">Eliminar</button>
                                         </form>
-
+                                    @endcan
                                     </div>
                                 </div>
                             </td>

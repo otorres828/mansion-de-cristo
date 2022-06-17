@@ -9,7 +9,7 @@
 
 @section('content')
     <x-aminblog.alert />
-    <div >
+    <div>
         <a class="btn btn-primary " href="{{ route('admin.blog.teaching.create') }}">Crear Enseñanza</a>
     </div>
     <div class="pb-4 px-3">
@@ -46,16 +46,17 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item " data-turbolinks="false"
-                                        href="{{ route('blog.show_teaching', $teaching->slug) }}">Ver</a>
+                                            href="{{ route('blog.show_teaching', $teaching->slug) }}">Ver</a>
                                         <a class="dropdown-item"
                                             href="{{ route('admin.blog.teaching.edit', $teaching) }}">Editar</a>
-
-                                        <form class="destroy"
-                                            action="{{ route('admin.blog.teaching.destroy', $teaching) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="dropdown-item">Eliminar</button>
-                                        </form>
+                                        @can('eliminarpublicaciones')
+                                            <form class="destroy"
+                                                action="{{ route('admin.blog.teaching.destroy', $teaching) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="dropdown-item">Eliminar</button>
+                                            </form>
+                                        @endcan
 
                                     </div>
                                 </div>

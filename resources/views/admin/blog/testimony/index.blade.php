@@ -49,14 +49,14 @@
                                         href="{{ route('blog.show_testimony', $testimony->slug) }}">Ver</a>
                                         <a class="dropdown-item"
                                             href="{{ route('admin.blog.testimony.edit', $testimony) }}">Editar</a>
-
+                                    @can('eliminarpublicaciones')
                                         <form class="destroy"
                                             action="{{ route('admin.blog.testimony.destroy', $testimony) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="dropdown-item">Eliminar</button>
                                         </form>
-
+                                    @endcan
                                     </div>
                                 </div>
                             </td>

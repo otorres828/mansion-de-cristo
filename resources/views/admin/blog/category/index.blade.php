@@ -64,13 +64,14 @@
                                         <button class="dropdown-item" data-bs-toggle="modal"
                                             data-bs-target="#edit{{ $category->id }}"
                                             data-bs-whatever="@mdo">Editar</button>
+                                    @can('eliminarpublicaciones')
                                         <form class="destroy"
                                             action="{{ route('admin.blog.category.destroy', $category) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="dropdown-item">Eliminar</button>
                                         </form>
-
+                                    @endcan
                                     </div>
                                 </div>
                             </td>

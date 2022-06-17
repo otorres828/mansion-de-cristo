@@ -25,10 +25,14 @@ class RoleSeeder extends Seeder
         $role5 = Role::create(['name' => 'Enseñanzas']);
         $role6 = Role::create(['name' => 'Testimonios']);
         $topost = Role::create(['name' => 'Aprobar Publicaciones']);
+        $eliminarpublicaciones = Role::create(['name' => 'Eliminar Publicaciones']);
         $programador =Role::create(['name' => 'Programador']);
+
         //APROBAR TODAS LAS PUBLICACIONES 
         Permission::create(['name' => 'topost'])->syncRoles([$role1,$topost,$master]);
 
+        //ELIMINAR TODAS LAS PUBLICACIONES 
+        Permission::create(['name' => 'eliminarpublicaciones'])->syncRoles([$role1,$master,$programador]);
         //MOSTRAR PANEL BLOG
         Permission::create(['name' => 'admin.blog.home'])->syncRoles([$role1,$topost,$role2, $role3, $role4, $role5, $role6,$master]);
         

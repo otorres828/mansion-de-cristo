@@ -43,16 +43,17 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item " data-turbolinks="false"
-                                        href="{{ route('blog.show_announces', $anuncio->slug) }}">Ver</a>
+                                            href="{{ route('blog.show_announces', $anuncio->slug) }}">Ver</a>
                                         <a class="dropdown-item"
                                             href="{{ route('admin.blog.announce.edit', $anuncio) }}">Editar</a>
-
-                                        <form class="destroy"
-                                            action="{{ route('admin.blog.announce.destroy', $anuncio) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="dropdown-item">Eliminar</button>
-                                        </form>
+                                        @can('eliminarpublicaciones')
+                                            <form class="destroy"
+                                                action="{{ route('admin.blog.announce.destroy', $anuncio) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="dropdown-item">Eliminar</button>
+                                            </form>
+                                        @endcan
 
                                     </div>
                                 </div>
@@ -80,7 +81,7 @@
 @stop
 
 @section('css')
-{{-- <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css"> --}}
+    {{-- <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css"> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 @stop

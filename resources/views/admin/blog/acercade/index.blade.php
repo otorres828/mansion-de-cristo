@@ -45,12 +45,14 @@
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item"
                                             href="{{ route('admin.blog.acercade.edit', $acercade) }}">Editar</a>
-                                        <form class="destroy"
-                                            action="{{ route('admin.blog.acercade.destroy', $acercade) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="dropdown-item">Eliminar</button>
-                                        </form>
+                                        @can('eliminarpublicaciones')
+                                            <form class="destroy"
+                                                action="{{ route('admin.blog.acercade.destroy', $acercade) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="dropdown-item">Eliminar</button>
+                                            </form>
+                                        @endcan
 
                                     </div>
                                 </div>
