@@ -39,28 +39,11 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="input-group mb-3">
-                            <input type="password" name="password" class="form-control" placeholder="Clave">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-lock"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="password" name="password_confirmation" class="form-control"
-                                placeholder="Confirmar Clave">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-lock"></span>
-                                </div>
-                            </div>
-                        </div> --}}
                         <div class="alert alert-primary text-justify text-sm" role="alert">
                             La clave por temporal del usuario sera "password", al loguearse debera confirmar su correo y posteriormente cambiarla.
                           </div>
                         <div class="text-right">
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            <button type="submit" class="btn btn-primary btn-block">Registrar Usuario</button>
                         </div>
                     </form>
                 </div>
