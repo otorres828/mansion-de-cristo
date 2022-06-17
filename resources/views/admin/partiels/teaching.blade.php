@@ -67,9 +67,9 @@
                 <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg" alt="">
             @endisset
         </div>
-        @if (isset($teaching->image))
+        {{-- @if (isset($teaching->image))
             @livewire('blog.eliminarimagen', ['item' => $teaching])
-        @endif
+        @endif --}}
     </div>
     <div class="col-9">
         <div class="form-group">

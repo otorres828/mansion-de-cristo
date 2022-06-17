@@ -1,3 +1,3 @@
-<div>
-    <button wire:click="eliminar"class="form-control" type="submit">Eliminar</button>
+<div wire:ignore>
+    <button wire:click="eliminar"class="form-control">Eliminar</button>
 </div>
