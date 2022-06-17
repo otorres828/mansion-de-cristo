@@ -27,7 +27,12 @@ class Teaching extends Component
             $teachings = ModelsTeaching::where('status',2)->where('user_id',$this->autors)->where('category_id',$this->search)->orderBy('id','desc')->paginate(6);
         else
             $teachings = ModelsTeaching::where('category_id',$this->search)->where('status',2)->orderBy('id','desc')->paginate(6);
-        $categorias = DB::table('categories')->select('id','name')->get();
+        $categorias = DB::select("SELECT c.id,c.name
+                                  FROM categories AS c, teachings AS t
+                                  WHERE c.id=t.category_id
+                                  GROUP BY c.id,c.name
+                                  ORDER BY c.name");
+       
         // $autores = User::role('Enseñanzas')->get(); 
         $autores = DB::select("SELECT u.id,u.name
                                 FROM users AS u,teachings AS t
