@@ -14,7 +14,7 @@ class ZipController extends Controller
             $filename = "respaldo.zip";
             if($zip->open(public_path($filename),ZipArchive::CREATE) === TRUE)
             {
-                $files = File::files('https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/');
+                $files = File::files('https://mdc.nyc3.cdn.digitaloceanspaces.com/');
                 foreach($files as $key=> $value){
                     $relative=basename($value);
                     $zip->addFile($value,$relative);

@@ -35,7 +35,7 @@
     <div class="col-3">
         <div class="image-wraper">
             @isset($acercade->image)
-                <img id="picture " src="https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{ $acercade->image->url}}" alt="">
+                <img id="picture " src="https://mdc.nyc3.cdn.digitaloceanspaces.com/{{ $acercade->image->url}}" alt="">
                 {{-- <img id="picture " src="{{ asset('storage/' . $acercade->image->url) }}" alt=""> --}}
             @else
                 <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg" alt="">

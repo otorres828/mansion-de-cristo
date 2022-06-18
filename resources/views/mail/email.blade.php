@@ -9,7 +9,7 @@
 @endif
 
 <h1 class="title">{{$objeto->name}}</h1> 
-<img style="margin-buton:2;" src="@if($objeto->image)https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{$objeto->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="Avatar of Author">,<br>
+<img style="margin-buton:2;" src="@if($objeto->image)https://mdc.nyc3.cdn.digitaloceanspaces.com/{{$objeto->image->url}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="Avatar of Author">,<br>
 
 <span class="extract">{{$objeto->extract}}</span>
 

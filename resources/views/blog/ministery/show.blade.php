@@ -58,7 +58,7 @@
         {{-- FOTO --}}
         <div class="mx-auto container pb-5 px-2 lg:px-8  mt-8 bg-cover bg-fixed">
             <img class="w-full h-96"
-                src="@if ($ministery->image) https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/{{ $ministery->image->url }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
+                src="@if ($ministery->image) https://mdc.nyc3.cdn.digitaloceanspaces.com/{{ $ministery->image->url }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
                 alt="">
         </div>
         {{-- CUERPO --}}
