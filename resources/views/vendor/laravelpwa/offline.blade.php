@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Safe Money Venezuela</title>
+    <title>Mansion de Cristo</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="/css/app.css">
 

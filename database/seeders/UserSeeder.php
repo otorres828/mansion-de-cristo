@@ -29,6 +29,15 @@ class UserSeeder extends Seeder
             'email_verified_at' =>'2022-05-21 07:02:22'
         ])->assignRole('Master','Programador');
         User::create([
+            'name' => 'Luis M. Figueroa',
+            'email' => 'lfuneg@yahoo.com',
+            'temple_id' => Temple::first()->id,
+            'group_id' => Group::all()->random()->id,
+            'hierarchy_id' => Hierarchy::first()->id,
+            'password' => bcrypt('26269828'),
+            'email_verified_at' =>'2022-05-21 07:02:22'
+        ])->assignRole('Master');
+        User::create([
             'name' => 'Jesus Alfonzo',
             'email' => 'jesusalfonzo97@gmail.com',
             'temple_id' => Temple::first()->id,
