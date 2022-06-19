@@ -12,7 +12,7 @@
     <div class="card">
         <div class="card-body">
             {!! Form::model($ministry,['route'=>['admin.blog.ministry.update',$ministry],'autocomplete'=>'off','files'=>true,'method'=>'put']) !!}
-                @include('admin.partiels.notice')
+                @include('admin.partiels.ministery')
                 {!! Form::submit('Actualizar Ministerio/Departamento', ['class'=>'btn btn-primary float-right']) !!}
             {!! Form::close() !!}
         </div>
