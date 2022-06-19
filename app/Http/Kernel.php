@@ -65,6 +65,13 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'mantenimiento'=> \App\Http\Middleware\Mantenimiento::class,
+        'mantenimientoCasa'=> \App\Http\Middleware\Mantenimiento\MantenimientoCasa::class,
+        'mantenimientoNoticias'=> \App\Http\Middleware\Mantenimiento\MantenimientoNoticias::class,
+        'mantenimientoEnseñanzas'=> \App\Http\Middleware\Mantenimiento\MantenimientoEnseñanzas::class,
+        'mantenimientoMinisterios'=> \App\Http\Middleware\Mantenimiento\MantenimientoMinisterios::class,
+        'mantenimientoTestimonios'=> \App\Http\Middleware\Mantenimiento\MantenimientoTestimonios::class,
+        'mantenimientoAcercade'=> \App\Http\Middleware\Mantenimiento\MantenimientoAcercade::class,
+        'mantenimientoContactanos'=> \App\Http\Middleware\Mantenimiento\MantenimientoContactanos::class,
+        'mantenimientoGeneral'=> \App\Http\Middleware\Mantenimiento\MantenimientoGeneral::class,
     ];
 }

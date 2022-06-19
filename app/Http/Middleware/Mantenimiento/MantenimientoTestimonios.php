@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middleware\Mantenimiento;
 
 use App\Models\EmailSend;
 use App\Models\User;
@@ -8,7 +8,7 @@ use Closure;
 use Illuminate\Http\Request;
 
 
-class Mantenimiento
+class MantenimientoTestimonios
 {
   
     public function handle(Request $request, Closure $next)
@@ -23,10 +23,10 @@ class Mantenimiento
                 }
             }
             if($variable==0)
-                if(EmailSend::where('name','Mantenimiento')->first()->status==1)
+                if(EmailSend::where('name','MantenimientoTestimonios')->first()->status==1)
                     return redirect()->route('mantenimiento');
         }else
-            if(EmailSend::where('name','Mantenimiento')->first()->status==1)
+            if(EmailSend::where('name','MantenimientoTestimonios')->first()->status==1)
                 return redirect()->route('mantenimiento');
         return $next($request);
     }

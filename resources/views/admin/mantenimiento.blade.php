@@ -13,7 +13,7 @@
         </p>
     </div>
     {{-- LLAMADA A LA REACTIVIDAD MANTENIMIENTO --}}
-    @livewire('admin.mantenimiento', ['modulo1'=>$modulo1])
+    @livewire('admin.mantenimiento', ['modulo1'=>$modulo1,'modulo2'=>$modulo2,'modulo3'=>$modulo3,'modulo4'=>$modulo4,'modulo5'=>$modulo5,'modulo6'=>$modulo6,'modulo7'=>$modulo7,'modulo8'=>$modulo8,'modulo9'=>$modulo8])
 
 @stop
 

@@ -13,7 +13,7 @@
                         style="background-image: url({{ asset('images/primera.jpg') }})">
                         <div class="w-full h-full px-8 flex flex-col justify-center ">
                             <h1 class="text-4xl text-white leading-8 font-bold text-left">
-                                <a href="{{ route('blog.contact.index') }}">
+                                <a href="{{ route('blog.contact') }}">
                                     Envianos tu peticion <br> de oracion
                                 </a>
                             </h1>
@@ -62,7 +62,7 @@
                         style="background-image: url({{ asset('images/oracion.jpg') }})">
                         <div class=" w-full h-full px-8 flex flex-col justify-center  ">
                             <h1 class="text-4xl text-white leading-8 font-bold text-left">
-                                <a href="{{ route('blog.contact.index') }}">
+                                <a href="{{ route('blog.contact') }}">
                                     Envianos tu peticion <br> de oracion
                                 </a>
                             </h1>
@@ -338,7 +338,7 @@
                     <p class="text-xl text-gray-600">
                         Contemos las historias que inspiren a otras personas seguir creyendo por su milagro. Tu
                         testimonio las puede llenar de fe a otro, <a class="text-cyan-900 font-bold"
-                            href="{{ route('blog.contact.index') }}">compártelo aqui</a>.
+                            href="{{ route('blog.contact') }}">compártelo aqui</a>.
                     </p>
                 </div>
                 @livewire('blog.landding.testimony')

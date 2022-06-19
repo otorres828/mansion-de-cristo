@@ -21,8 +21,30 @@ class EmailsendSeeder extends Seeder
         EmailSend::create([
             'name'=>'Testimonios',
         ]);
+        //mantenimientos
         EmailSend::create([
-            'name'=>'Mantenimiento',
+            'name'=>'MantenimientoCasa',
+        ]);
+        EmailSend::create([
+            'name'=>'MantenimientoNoticias',
+        ]);
+        EmailSend::create([
+            'name'=>'MantenimientoEnseñanzas',
+        ]);
+        EmailSend::create([
+            'name'=>'MantenimientoMinisterios',
+        ]);
+        EmailSend::create([
+            'name'=>'MantenimientoTestimonios',
+        ]);
+        EmailSend::create([
+            'name'=>'MantenimientoAcercade',
+        ]);
+        EmailSend::create([
+            'name'=>'MantenimientoContactanos',
+        ]);
+        EmailSend::create([
+            'name'=>'MantenimientoGeneral',
         ]);
     }
 }

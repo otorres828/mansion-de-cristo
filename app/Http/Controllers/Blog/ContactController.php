@@ -21,7 +21,7 @@ class ContactController extends Controller
     public function store(ContactRequest $request)
     {
         Contact::create($request->all());  
-        return redirect()->route('blog.contact.index')->with('info','Se envio el mensaje con exito');    
+        return redirect()->route('blog.contact')->with('info','Se envio el mensaje con exito');    
     }    
 
 

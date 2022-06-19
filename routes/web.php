@@ -15,23 +15,24 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
-Route::get('/', [LanddingController::class,'index'])->middleware('mantenimiento')->name('landding.index');
+Route::get('/', [LanddingController::class,'index'])->middleware('mantenimientoCasa','mantenimientoGeneral')->name('landding.index');
 
 //CONTROLADORES DEL BLOG
-Route::get('acercade', [ContactController::class,'acercade'])->middleware('mantenimiento')->name('blog.acercade');
+Route::get('acercade', [ContactController::class,'acercade'])->middleware('mantenimientoAcercade','mantenimientoGeneral')->name('blog.acercade');
 
-Route::resource('contactanos', ContactController::class)->only('index','store')->middleware('mantenimiento')->names('blog.contact');
+Route::get('contactanos', [ContactController::class,'index'])->middleware('mantenimientoGeneral','mantenimientoContactanos')->name('blog.contact');
+Route::post('contactanos',[ ContactController::class,'store'])->name('blog.contact.store');
 
-Route::get('noticias', [AnnounceController::class,'index'])->middleware('mantenimiento')->name('blog.announces');
+Route::get('noticias', [AnnounceController::class,'index'])->middleware('mantenimientoNoticias','mantenimientoGeneral')->name('blog.announces');
 Route::get('noticias/{slug}',[AnnounceController::class,'show'])->name('blog.show_announces');
 
-Route::get('enseñanzas',[TeachingController::class,'index'])->middleware('mantenimiento')->name('blog.teaching');
+Route::get('enseñanzas',[TeachingController::class,'index'])->middleware('mantenimientoEnseñanzas','mantenimientoGeneral')->name('blog.teaching');
 Route::get('enseñanzas/{slug}',  [TeachingController::class,'show'])->name('blog.show_teaching');
 
-Route::get('ministerios',[MinisteryController::class,'index'])->middleware('mantenimiento')->name('blog.ministery');
+Route::get('ministerios',[MinisteryController::class,'index'])->middleware('mantenimientoMinisterios','mantenimientoGeneral')->name('blog.ministery');
 Route::get('ministerios/{slug}',[MinisteryController::class,'show'])->name('blog.show_ministery');
 
-Route::get('testimonios', [TestimonyController::class,'index'])->middleware('mantenimiento')->name('blog.testimony');
+Route::get('testimonios', [TestimonyController::class,'index'])->middleware('mantenimientoTestimonios','mantenimientoGeneral')->name('blog.testimony');
 Route::get('testimonios/{slug}',  [TestimonyController::class,'show'])->name('blog.show_testimony');
 
 Route::get('privacidad',  function(){

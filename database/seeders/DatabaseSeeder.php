@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         // User::factory(20)->create();
 
-        Contact::factory(15)->create();
+        // Contact::factory(15)->create();
         Category::factory(8)->create();
         $this->call(EmailsendSeeder::class);
         // $this->call(AcercadeSeeder::class);
