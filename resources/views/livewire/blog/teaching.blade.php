@@ -10,13 +10,13 @@
     </div>
     <div class="pt-5 mb-10 shadow-lg">
         <div class="max-w-6xl mx-auto px-6 sm:px-6 lg:px-6">
-            <div class=" text-center lg:pb-3 pt-3">
+            <div class=" text-center md:pb-3 pt-3">
                 <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl  text-yellow-600">
                     Conoce Las Enseñanzas que Cambiaran Tu Vida
                 </h1>
             </div>
 
-            <div class="grid grid-cols-5">
+            <div class="grid grid-cols-5 py-5">
                 <div class="py-3 col-span-5 sm:col-span-5 md:col-span-2 lg:col-span-2">
                     <h5 class=" text-gray-600 text-center text-2xl ">
                         <strong>Encuentra las mejores enseñanzas</strong>
