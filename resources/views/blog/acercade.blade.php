@@ -55,7 +55,7 @@
                 </p>
                 <div class="text-center">
                     <div class="container flex justify-center  pb-10"><a target="_blank" rel="noreferrer"
-                            href="{{ route('blog.contact.index') }}"
+                            href="{{ route('blog.contact') }}"
                             class="
                       flex
                       justify-between
