@@ -22,7 +22,16 @@ class AnnouncePolicy
     }
 
     public function publicado(?User $user, Announce $anuncio){
-        if($anuncio->status==2){
+        $variable = 0;
+        if(auth()->check()){
+            $roles = $user->getRoleNames();
+            foreach ($roles as $rol) {
+                if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Programador') {
+                    $variable++;
+                }
+            }
+        }
+        if($anuncio->status==2 || $variable>0 ){
             return true;
         }else{
             return false;

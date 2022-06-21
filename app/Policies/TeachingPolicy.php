@@ -23,7 +23,16 @@ class TeachingPolicy
     }
 
     public function publicado(?User $user, Teaching $teaching){
-        if($teaching->status==2){
+        $variable = 0;
+        if(auth()->check()){
+            $roles = $user->getRoleNames();
+            foreach ($roles as $rol) {
+                if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Programador') {
+                    $variable++;
+                }
+            }
+        }
+        if($teaching->status==2 || $variable>0 ){
             return true;
         }else{
             return false;

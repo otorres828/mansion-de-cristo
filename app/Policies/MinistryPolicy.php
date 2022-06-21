@@ -23,7 +23,16 @@ class MinistryPolicy
     }
 
     public function publicado(?User $user, Ministry $ministry){
-        if($ministry->status==2){
+        $variable = 0;
+        if(auth()->check()){
+            $roles = $user->getRoleNames();
+            foreach ($roles as $rol) {
+                if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Programador') {
+                    $variable++;
+                }
+            }
+        }
+        if($ministry->status==2 || $variable>0 ){
             return true;
         }else{
             return false;
