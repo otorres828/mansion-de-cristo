@@ -95,7 +95,7 @@
                         <p class="mb-5 text-justify">
                             {!! $ministery->extract !!}
                         </p>
-                        <div class="text-justify">
+                        <div class="md:prose-lg lg:prose-xl text-justify">
                             {!! $ministery->body !!}
                         </div>
                     </div>
