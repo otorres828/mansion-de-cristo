@@ -183,101 +183,14 @@
                                     <li class="flex md:items-center justify-between">
                                         <span>
                                             <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Instalar Vue Router
+                                            Pastores Principales: Ap. Luis y Yoli de Figueroa
                                         </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
                                         <span>
                                             <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Analizar el funcionamiento de Vue Router
+                                            Co-pastores: Ap. Luis y Luselvis de Figueroa
                                         </span>
-
                                     </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Crear nueva ruta
-                                        </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Rutas con parametros
-                                        </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Pasar dos parametros
-                                        </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Ruta 404 Not Found
-                                        </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Sintaxis de coincidencia de rutas
-                                        </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Rutas con parámetros opcionales
-                                        </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Rutas anidadas
-                                        </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Rutas con nombre
-                                        </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Redirecciones
-                                        </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Recibir parametros de la url dentro de props
-                                        </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Diferentes modos history
-                                        </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Ciclos de vida
-                                        </span>
-
-                                    </li>
+                                 
                                 </ul>
                             </li>
                         </ul>
