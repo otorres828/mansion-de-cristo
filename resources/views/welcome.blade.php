@@ -9,10 +9,11 @@
             <div class="swiper-wrapper">
                 {{-- PRIMERA IMAGEN --}}
                 <div class="swiper-slide ">
-                    <article     class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
+                    <article
+                        class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
                         style="background-image: url({{ asset('images/primera.jpg') }})">
-                        <div class="w-full h-full px-8 flex flex-col justify-center " >
-                            <h1 class="text-4xl text-white leading-8 font-bold text-left   " >
+                        <div class="w-full h-full px-8 flex flex-col justify-center ">
+                            <h1 class="text-4xl text-white leading-8 font-bold text-left   ">
                                 <a href="{{ route('blog.contact') }}">
                                     Envianos tu peticion <br> de oracion
                                 </a>
@@ -25,9 +26,10 @@
                 @foreach ($announces as $post)
                     @if ($loop->first)
                         <div class="swiper-slide ">
-                            <article     class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
-                            style="background-image: url(@if ($post->image)https://mdc.nyc3.cdn.digitaloceanspaces.com/{{ $post->image->url }}@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
-                            <div class="w-full h-full px-8 flex flex-col justify-center ">
+                            <article
+                                class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
+                                style="background-image: url(@if ($post->image) https://mdc.nyc3.cdn.digitaloceanspaces.com/{{ $post->image->url }}@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
+                                <div class="w-full h-full px-8 flex flex-col justify-center ">
                                     <h1 class="text-4xl text-white leading-8 font-bold text-left">
                                         <a href="{{ route('blog.show_announces', $post) }}">
                                             {{ $post->name }}
@@ -42,11 +44,12 @@
                 @foreach ($teachings as $post)
                     @if ($loop->first)
                         <div class="swiper-slide ">
-                            <article     class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
-                            style="background-image: url(@if ($post->image)https://mdc.nyc3.cdn.digitaloceanspaces.com/{{ $post->image->url }}@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
+                            <article
+                                class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
+                                style="background-image: url(@if ($post->image) https://mdc.nyc3.cdn.digitaloceanspaces.com/{{ $post->image->url }}@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
                                 <div class="w-full h-full px-8 flex flex-col justify-center ">
                                     <h1 class="text-4xl text-white leading-8 font-bold text-left">
-                                        <a href="{{ route('blog.show_teaching', $post) }}" >
+                                        <a href="{{ route('blog.show_teaching', $post) }}">
                                             {{ $post->name }}
                                         </a>
                                     </h1>
@@ -58,7 +61,8 @@
                 @endforeach
                 {{-- PETICION DE ORACION --}}
                 <div class="swiper-slide ">
-                    <article     class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
+                    <article
+                        class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
                         style="background-image: url({{ asset('images/oracion.jpg') }})">
                         <div class=" w-full h-full px-8 flex flex-col justify-center  ">
                             <h1 class="text-4xl text-white leading-8 font-bold text-left">
@@ -128,12 +132,12 @@
                                     </span>
                                 </button>
 
-                                <ul class="p-4" x-show="open == 109" x-transition:enter=""
-                                    style="display: none;">
+                                <ul class="p-4" x-show="open == 109" x-transition:enter="" style="display: none;">
                                     <li class="flex md:items-center justify-between">
                                         <span>
                                             <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Universidad Bicentenaria Aragua, antiguo Teatro Fetra Bolivar, Av. Centurion, Ciudad Guayana 8051, Bolívar
+                                            Universidad Bicentenaria Aragua, antiguo Teatro Fetra Bolivar, Av. Centurion,
+                                            Ciudad Guayana 8051, Bolívar
                                         </span>
                                 </ul>
                             </li>
@@ -145,8 +149,7 @@
                                     </span>
                                 </button>
 
-                                <ul class="p-4" x-show="open == 110" x-transition:enter=""
-                                    style="display: none;">
+                                <ul class="p-4" x-show="open == 110" x-transition:enter="" style="display: none;">
                                     <li class="flex md:items-center justify-between">
                                         <span>
                                             <div class="far fa-play-circle mr-2 text-blue-500"></div>
@@ -178,19 +181,20 @@
                                     </span>
                                 </button>
 
-                                <ul class="p-4" x-show="open == 112" x-transition:enter=""
-                                    style="display: none;">
+                                <ul class="p-4" x-show="open == 112" x-transition:enter="" style="display: none;">
                                     <li class="flex md:items-center justify-between">
                                         <span>
                                             <i class="far fa-play-circle mr-2 text-blue-500"></i>
                                             Pastores Principales: Ap. Luis y Yoli de Figueroa
                                         </span>
+                                    </li>
+                                    <li class="flex md:items-center justify-between">
+
                                         <span>
                                             <i class="far fa-play-circle mr-2 text-blue-500"></i>
                                             Co-pastores: Ap. Luis y Luselvis de Figueroa
                                         </span>
                                     </li>
-                                 
                                 </ul>
                             </li>
                         </ul>
