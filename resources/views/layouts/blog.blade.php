@@ -20,9 +20,7 @@
     <meta property="og:image:width" content="828" />
     <meta property="og:image:height" content="450" />
     <meta property="og:site_name" content="Mansion de Cristo" />
-    {{-- @laravelPWA --}}
-    <link rel="manifest" href="{{ asset('manifest.json') }}" />
-
+    @laravelPWA
 </head>
 <body >
     <header>
@@ -36,8 +34,6 @@
     @yield('js')
     @stack('js')
     @livewireScripts
-    <script src="{{ asset('serviceworker.js') }}">
-    </script>
     <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
 </body>
 </html>
