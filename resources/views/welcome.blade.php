@@ -135,7 +135,6 @@
                                 <ul class="p-4" x-show="open == 109" x-transition:enter="" style="display: none;">
                                     <li class="flex md:items-center justify-between">
                                         <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
                                             Universidad Bicentenaria Aragua, antiguo Teatro Fetra Bolivar, Av. Centurion,
                                             Ciudad Guayana 8051, Bolívar
                                         </span>
@@ -184,14 +183,12 @@
                                 <ul class="p-4" x-show="open == 112" x-transition:enter="" style="display: none;">
                                     <li class="flex md:items-center justify-between">
                                         <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
                                             Pastores Principales: Ap. Luis y Yoli de Figueroa
                                         </span>
                                     </li>
                                     <li class="flex md:items-center justify-between">
 
                                         <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
                                             Co-pastores: Ap. Luis y Luselvis de Figueroa
                                         </span>
                                     </li>
