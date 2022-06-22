@@ -11,8 +11,8 @@
                 <div class="swiper-slide ">
                     <article     class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
                         style="background-image: url({{ asset('images/primera.jpg') }})">
-                        <div class="w-full h-full px-8 flex flex-col justify-center ">
-                            <h1 class="text-4xl text-white leading-8 font-bold text-left">
+                        <div class="w-full h-full px-8 flex flex-col justify-center " >
+                            <h1 class="text-4xl text-white leading-8 font-bold text-left   " >
                                 <a href="{{ route('blog.contact') }}">
                                     Envianos tu peticion <br> de oracion
                                 </a>
@@ -46,7 +46,7 @@
                             style="background-image: url(@if ($post->image)https://mdc.nyc3.cdn.digitaloceanspaces.com/{{ $post->image->url }}@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
                                 <div class="w-full h-full px-8 flex flex-col justify-center ">
                                     <h1 class="text-4xl text-white leading-8 font-bold text-left">
-                                        <a href="{{ route('blog.show_teaching', $post) }}">
+                                        <a href="{{ route('blog.show_teaching', $post) }}" >
                                             {{ $post->name }}
                                         </a>
                                     </h1>
@@ -133,38 +133,8 @@
                                     <li class="flex md:items-center justify-between">
                                         <span>
                                             <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Introducción a componentes
+                                            Universidad Bicentenaria Aragua, antiguo Teatro Fetra Bolivar, Av. Centurion, Ciudad Guayana 8051, Bolívar
                                         </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Pasar datos a componentes (props)
-                                        </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Emitir eventos
-                                        </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Emitir eventos II
-                                        </span>
-
-                                    </li>
-                                    <li class="flex md:items-center justify-between">
-                                        <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
-                                            Slots
-                                        </span>
-
-                                    </li>
                                 </ul>
                             </li>
                             <li class="bg-white rounded-md overflow-hidden shadow-md">

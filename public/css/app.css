@@ -1016,6 +1016,9 @@ select {
 .z-40 {
   z-index: 40;
 }
+.z-30 {
+  z-index: 30;
+}
 .order-3 {
   order: 3;
 }
@@ -2484,8 +2487,18 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(191 219 254 / var(--tw-bg-opacity));
 }
+.hover\:bg-slate-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
+}
 .hover\:to-blue-700:hover {
   --tw-gradient-to: #1d4ed8;
+}
+.hover\:p-2:hover {
+  padding: 0.5rem;
+}
+.hover\:p-4:hover {
+  padding: 1rem;
 }
 .hover\:font-bold:hover {
   font-weight: 700;
