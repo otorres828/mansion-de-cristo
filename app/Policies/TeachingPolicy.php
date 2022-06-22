@@ -14,7 +14,7 @@ class TeachingPolicy
     public function autor(User $user, Teaching $teaching){
         $roles = $user->getRoleNames();
         foreach($roles as $rol){
-            if($user->id == $teaching->user_id || $rol=='Admin Blog'||  $rol=='Master' || $rol=='Aprobar Publicaciones'){
+            if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Programador'|| $rol == 'Aprobar Publicaciones') {
                 return true;
             }else{
                 return false;
@@ -27,7 +27,7 @@ class TeachingPolicy
         if(auth()->check()){
             $roles = $user->getRoleNames();
             foreach ($roles as $rol) {
-                if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Programador') {
+                if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Programador'|| $rol == 'Aprobar Publicaciones') {
                     $variable++;
                 }
             }

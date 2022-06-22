@@ -27,7 +27,7 @@ class MinistryPolicy
         if(auth()->check()){
             $roles = $user->getRoleNames();
             foreach ($roles as $rol) {
-                if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Programador') {
+                if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Programador'|| $rol == 'Aprobar Publicaciones') {
                     $variable++;
                 }
             }
