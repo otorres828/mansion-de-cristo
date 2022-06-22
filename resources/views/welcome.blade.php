@@ -149,7 +149,7 @@
                                     style="display: none;">
                                     <li class="flex md:items-center justify-between">
                                         <span>
-                                            <i class="far fa-play-circle mr-2 text-blue-500"></i>
+                                            <div class="far fa-play-circle mr-2 text-blue-500"></div>
                                             ¿Quienes son los pastores de la iglesia
                                         </span>
 
