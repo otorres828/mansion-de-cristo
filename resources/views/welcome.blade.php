@@ -187,9 +187,32 @@
                                         </span>
                                     </li>
                                     <li class="flex md:items-center justify-between">
-
                                         <span>
                                             Co-pastores: Ap. Luis y Luselvis de Figueroa
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="bg-white rounded-md overflow-hidden shadow-md">
+                                <button class="flex items-center w-full text-left p-4 bg-gray-50 border-b"
+                                    x-on:click="open == 113 ? open = null : open = 113 ">
+                                    <span class="text-xl font-semibold">
+                                        ¿Cuantos turnos dominicales existen y cuales son sus horarios?
+                                    </span>
+                                </button>
+                               
+                                <ul class="p-4" x-show="open == 113" x-transition:enter="" style="display: none;">
+                                    <span>
+                                        Existen 2 (dos) turnos dominicales:
+                                    </span>
+                                    <li class="flex md:items-center justify-between">
+                                        <span>
+                                            Primero = 8:00 am hasta las 10:00 am
+                                        </span>
+                                    </li>
+                                    <li class="flex md:items-center justify-between">
+                                        <span>
+                                            Segundo = 10:00 am hasta las 12:00 pm
                                         </span>
                                     </li>
                                 </ul>
