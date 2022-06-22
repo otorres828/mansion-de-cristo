@@ -1785,6 +1785,9 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(219 234 254 / var(--tw-bg-opacity));
 }
+.bg-inherit {
+  background-color: inherit;
+}
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
@@ -1836,6 +1839,9 @@ select {
 }
 .bg-center {
   background-position: center;
+}
+.bg-repeat {
+  background-repeat: repeat;
 }
 .bg-no-repeat {
   background-repeat: no-repeat;

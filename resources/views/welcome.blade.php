@@ -9,7 +9,7 @@
             <div class="swiper-wrapper">
                 {{-- PRIMERA IMAGEN --}}
                 <div class="swiper-slide ">
-                    <article class="w-full h-96 opacity-90"
+                    <article     class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
                         style="background-image: url({{ asset('images/primera.jpg') }})">
                         <div class="w-full h-full px-8 flex flex-col justify-center ">
                             <h1 class="text-4xl text-white leading-8 font-bold text-left">
@@ -25,7 +25,7 @@
                 @foreach ($announces as $post)
                     @if ($loop->first)
                         <div class="swiper-slide ">
-                            <article class="w-full h-96 bg-cover bg-center  opacity-90"
+                            <article     class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
                             style="background-image: url(@if ($post->image)https://mdc.nyc3.cdn.digitaloceanspaces.com/{{ $post->image->url }}@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
                             <div class="w-full h-full px-8 flex flex-col justify-center ">
                                     <h1 class="text-4xl text-white leading-8 font-bold text-left">
@@ -42,8 +42,8 @@
                 @foreach ($teachings as $post)
                     @if ($loop->first)
                         <div class="swiper-slide ">
-                            <article class="w-full h-96 bg-cover bg-center  opacity-90"
-                                style="background-image: url(@if ($post->image)https://mdc.nyc3.cdn.digitaloceanspaces.com/{{ $post->image->url }})@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
+                            <article     class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
+                            style="background-image: url(@if ($post->image)https://mdc.nyc3.cdn.digitaloceanspaces.com/{{ $post->image->url }})@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
                                 <div class="w-full h-full px-8 flex flex-col justify-center ">
                                     <h1 class="text-4xl text-white leading-8 font-bold text-left">
                                         <a href="{{ route('blog.show_teaching', $post) }}">
@@ -58,7 +58,7 @@
                 @endforeach
                 {{-- PETICION DE ORACION --}}
                 <div class="swiper-slide ">
-                    <article class="w-full h-96 bg-cover bg-center  opacity-90"
+                    <article     class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
                         style="background-image: url({{ asset('images/oracion.jpg') }})">
                         <div class=" w-full h-full px-8 flex flex-col justify-center  ">
                             <h1 class="text-4xl text-white leading-8 font-bold text-left">
