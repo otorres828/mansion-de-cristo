@@ -74,7 +74,8 @@ function obtejerEstadisticas($pagina,$inicio,$fin){
             ->select(DB::raw('COUNT(*) AS conteo_visitas,fecha'))
             ->where('pagina','=',$pagina)
             ->where('fecha', '>=',$inicio)
-            ->where('fecha', '<=',$fin) 
-            ->groupBy('fecha')->get();
+            ->where('fecha', '<=',$fin)
+            ->groupBy('fecha')
+            ->orderBy('conteo_visitas','desc')->get();
 }
 ?>
