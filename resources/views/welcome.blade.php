@@ -10,12 +10,14 @@
                 {{-- PRIMERA IMAGEN --}}
                 <div class="swiper-slide ">
                     <article
-                        class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
+                        class="transition duration-300 hover:opacity-80 rounded-lg shadow w-full h-96 bg-cover bg-center "
                         style="background-image: url({{ asset('images/primera.jpg') }})">
                         <div class="w-full h-full px-8 flex flex-col justify-center ">
-                            <h1 class="text-4xl text-white leading-8 font-bold text-left   ">
+                            <h1 class="text-4xl text-white leading-8 font-bold text-center   ">
                                 <a href="{{ route('blog.contact') }}">
-                                    Envianos tu peticion <br> de oracion
+                                    Y haré de ti una nación grande, y te bendeciré, y engrandeceré tu nombre, y serás bendición.
+                                    <br>
+                                    <span class="text-cyan-200">Gen.12:2</span>
                                 </a>
                             </h1>
 
@@ -27,7 +29,7 @@
                     @if ($loop->first)
                         <div class="swiper-slide ">
                             <article
-                                class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
+                                class="transition duration-300 hover:opacity-80 rounded-lg shadow w-full h-96 bg-cover bg-center "
                                 style="background-image: url(@if ($post->image) https://mdc.nyc3.cdn.digitaloceanspaces.com/{{ $post->image->url }}@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
                                 <div class="w-full h-full px-8 flex flex-col justify-center ">
                                     <h1 class="text-4xl text-white leading-8 font-bold text-left">
@@ -45,7 +47,7 @@
                     @if ($loop->first)
                         <div class="swiper-slide ">
                             <article
-                                class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
+                                class="transition duration-300 hover:opacity-80 rounded-lg shadow w-full h-96 bg-cover bg-center "
                                 style="background-image: url(@if ($post->image) https://mdc.nyc3.cdn.digitaloceanspaces.com/{{ $post->image->url }}@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
                                 <div class="w-full h-full px-8 flex flex-col justify-center ">
                                     <h1 class="text-4xl text-white leading-8 font-bold text-left">
@@ -62,7 +64,7 @@
                 {{-- PETICION DE ORACION --}}
                 <div class="swiper-slide ">
                     <article
-                        class="transition duration-300 hover:opacity-90 rounded-lg shadow w-full h-96 bg-cover bg-center "
+                        class="transition duration-300 hover:opacity-80 rounded-lg shadow w-full h-96 bg-cover bg-center "
                         style="background-image: url({{ asset('images/oracion.jpg') }})">
                         <div class=" w-full h-full px-8 flex flex-col justify-center  ">
                             <h1 class="text-4xl text-white leading-8 font-bold text-left">
