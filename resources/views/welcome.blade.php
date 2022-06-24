@@ -140,7 +140,7 @@
                                         </span>
                                 </ul>
                             </li>
-                            <li class="bg-white rounded-md overflow-hidden shadow-md">
+                            {{-- <li class="bg-white rounded-md overflow-hidden shadow-md">
                                 <button class="flex items-center w-full text-left p-4 bg-gray-50 border-b"
                                     x-on:click="open == 110 ? open = null : open = 110 ">
                                     <span class="text-xl font-semibold">
@@ -171,7 +171,7 @@
 
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li class="bg-white rounded-md overflow-hidden shadow-md">
                                 <button class="flex items-center w-full text-left p-4 bg-gray-50 border-b"
                                     x-on:click="open == 112 ? open = null : open = 112 ">
@@ -186,11 +186,11 @@
                                             Pastores Principales: Ap. Luis y Yoli de Figueroa
                                         </span>
                                     </li>
-                                    <li class="flex md:items-center justify-between">
+                                    {{-- <li class="flex md:items-center justify-between">
                                         <span>
                                             Co-pastores: Ap. Luis y Luselvis de Figueroa
                                         </span>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </li>
                             <li class="bg-white rounded-md overflow-hidden shadow-md">
@@ -231,28 +231,29 @@
 
         </div>
 
-        {{-- TESTIMONIOS --}}
-        <section class="relative pt-16">
-            {{-- <div class="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 bg-gray-800 pointer-events-none" aria-hidden="true">
-                </div> --}}
+        @if ($teachings->count() > 0)
+            {{-- TESTIMONIOS --}}
+            <section class="relative pt-16">
+                {{-- <div class="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 bg-gray-800 pointer-events-none" aria-hidden="true">
+                    </div> --}}
 
-            <div class="relative  mx-auto ">
-                <div class="max-w-3xl mx-auto text-center  md:pb-16  px-4 sm:px-6">
-                    <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer los Testimonios <a
-                            class="text-cyan-900 font-bold" href="{{ route('blog.testimony') }}">Mas
-                            Recientes</a>
-                    </h2>
-                    <p class="text-xl text-gray-600">
-                        Contemos las historias que inspiren a otras personas seguir creyendo por su milagro. Tu
-                        testimonio las puede llenar de fe a otro, <a class="text-cyan-900 font-bold"
-                            href="{{ route('blog.contact') }}">compártelo aqui</a>.
-                    </p>
+                <div class="relative  mx-auto ">
+                    <div class="max-w-3xl mx-auto text-center  md:pb-16  px-4 sm:px-6">
+                        <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer los Testimonios <a
+                                class="text-cyan-900 font-bold" href="{{ route('blog.testimony') }}">Mas
+                                Recientes</a>
+                        </h2>
+                        <p class="text-xl text-gray-600">
+                            Contemos las historias que inspiren a otras personas seguir creyendo por su milagro. Tu
+                            testimonio las puede llenar de fe a otro, <a class="text-cyan-900 font-bold"
+                                href="{{ route('blog.contact') }}">compártelo aqui</a>.
+                        </p>
+                    </div>
+                    @livewire('blog.landding.testimony')
                 </div>
-                @livewire('blog.landding.testimony')
-            </div>
-        </section>
+            </section>
+        @endif
         <br>
-
         {{-- SUSCRIPCION
             <form action="{{ route('suscripcion') }}" class="pb-16" method="POST">
                 @csrf
