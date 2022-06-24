@@ -16,7 +16,7 @@
     <meta property="og:image:width" content="828" />
     <meta property="og:image:height" content="450" />
     <meta property="og:site_name" content="Mansion de Cristo" />
-    {{-- @laravelPWA --}}
+    @laravelPWA
 </head>
 
 <body class="leading-normal tracking-normal  m-6 bg-cover bg-fixed"
