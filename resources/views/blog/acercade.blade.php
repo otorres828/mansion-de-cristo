@@ -29,7 +29,7 @@
                         
                         @if (isset($acerca->image))
                         <div class="mx-auto container pb-5 px-2 lg:px-8  mt-8 bg-cover bg-fixed">
-                            <img class="mx-auto w-full h-96" src="https://mdc.nyc3.cdn.digitaloceanspaces.com/{{$acerca->image->url}}" alt="">
+                            <img class="mx-auto w-full h-96" src="{{imagenes_storage($acerca->image->url)}}" alt="">
                         </div>
                         @endif
                         <h3 class="px-3 sm:px-8 text-center font-bold text-2xl md:text-4xl lg:text-3xl font-heading text-gray-700">

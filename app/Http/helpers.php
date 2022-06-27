@@ -78,4 +78,8 @@ function obtejerEstadisticas($pagina,$inicio,$fin){
             ->groupBy('fecha')
             ->orderBy('conteo_visitas','desc')->get();
 }
+
+function imagenes_storage($enlace){
+    return " https://mdc.nyc3.cdn.digitaloceanspaces.com/".$enlace;
+}
 ?>

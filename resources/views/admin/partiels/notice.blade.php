@@ -39,7 +39,7 @@
         <div class="image-wraper">
             @isset($anuncio->image)
                 {{-- <img id="picture " src="{{ asset('storage/' . $anuncio->image->url) }}" alt=""> --}}
-                <img id="picture " src="https://mdc.nyc3.cdn.digitaloceanspaces.com/{{ $anuncio->image->url }}" alt="">
+                <img id="picture " src="{{ imagenes_storage($anuncio->image->url) }}" alt="">
             @else
                 <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg" alt="">
             @endisset
