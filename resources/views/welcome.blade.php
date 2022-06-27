@@ -233,7 +233,7 @@
 
         </div>
 
-        @if ($teachings->count() > 0)
+        @if ($testimonies->count() > 0)
             {{-- TESTIMONIOS --}}
             <section class="relative pt-16">
                 {{-- <div class="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 bg-gray-800 pointer-events-none" aria-hidden="true">
