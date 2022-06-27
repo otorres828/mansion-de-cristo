@@ -1,6 +1,6 @@
 
 @component('mail::message')
-# En Hora Buena
+#Enhorabuena!
 {{$enterate}}
 @if ($noticia)
     @component('mail::panel')
