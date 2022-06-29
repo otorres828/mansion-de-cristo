@@ -2,6 +2,10 @@
 
 @section('title', 'Mansion de Cristo')
 
+@section('seo_principal')
+<meta name="description" content="En Mansion de Cristo encontrarás noticias, enseñanzas y testimonios que te ayudarán en tu crecimiento espiritual">
+@endsection
+
 @section('main')
     <div class="mx-auto container pb-5">
         {{-- CARRUSEL PRINCIPAL --}}
