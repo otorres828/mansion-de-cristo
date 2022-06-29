@@ -1,6 +1,10 @@
 @extends('layouts.blog')
 @section('title', 'MDC-Contactanos')
 
+@section('seo_principal')
+<meta name="description" content="Este es un formulario de contácto, donde podremos aclarar dudas especificas y de gran relevancia. Tambien puedes visitarnos en nuestras redes sociales y conocer un poco mas de nuestra congregacion">
+@endsection
+
 @section('header')
     @include('components.aminblog.header')
 @endsection

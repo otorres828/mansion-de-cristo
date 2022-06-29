@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="En Mansion de Cristo encontrarás noticias, enseñanzas y testimonios que te ayudarán en tu crecimiento espiritual">
+    @yield('seo_principal')
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">    
@@ -14,7 +14,7 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="▷ Iglesia Mansion de Cristo" />
-    <meta property="og:description" content="En nuestra pagina web podras encontrar enseñanzas y noticias relacionadas a nuestra congregacion" />
+     @yield('seo_redes_sociales')
     <meta property="og:url" content="https://mansiondecristo.com" />
     <meta property="og:image" content="{{ asset('favicon.ico') }}" />
     <meta property="og:image:width" content="828" />

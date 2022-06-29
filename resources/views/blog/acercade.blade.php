@@ -1,6 +1,10 @@
 @extends('layouts.blog')
 @section('title', 'MDC-Acerca De')
 
+@section('seo_principal')
+<meta name="description" content="En este apartado encontraras toda la informacion referente a nustra congregacion, como lo es: Vision, Mision, Pastores y otras cosas mas...">
+@endsection
+
 @section('header')
     @include('components.aminblog.header')
 @endsection

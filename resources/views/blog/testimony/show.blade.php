@@ -14,6 +14,10 @@
     </style>
 @endsection
 
+@section('seo_redes_sociales')
+    <meta property="og:description" content="{{ $testimony->name }}" />
+@endsection
+
 @section('main')
     <div class="bg-white font-sans leading-normal tracking-normal">
         <div id="header" class="bg-white fixed w-full z-20 top-0 hidden animated" style="opacity: .95;">
@@ -131,7 +135,6 @@
     <br><br>
 
 @endsection
-
 
 @section('css')
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
