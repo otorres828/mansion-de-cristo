@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Contact extends Model
 {
     use HasFactory;
-    protected $guarded =['id','updated_at'];
+    protected $guarded =['id'];
+    public $timestamps = false;
+
 }

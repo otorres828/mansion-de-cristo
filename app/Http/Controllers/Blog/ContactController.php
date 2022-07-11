@@ -22,7 +22,7 @@ class ContactController extends Controller
     {
         $fecha = date("Y-m-d");
         $ip = $_SERVER["REMOTE_ADDR"] ?? "";
-        $consulta = Contact::where('ip',$ip)->where('created_at',$fecha)->get();
+        $consulta = Contact::where('ip',$ip)->where('fecha',$fecha)->get();
         if($consulta->count() > 0)
             return redirect()->route('blog.contact')->with('failer','Lo sentimos, no puede enviar mas de un mensaje el mismo dia. Debe de esperar 24 horas para volver a enviar un mensaje');    
         Contact::create(['name'=>$request->name,
@@ -30,7 +30,7 @@ class ContactController extends Controller
                          'title' =>$request->title,
                          'description'=>$request->description,
                          'ip'=>$ip,
-                         'created_at'=>$fecha
+                         'fecha'=>$fecha
                         ]);  
         return redirect()->route('blog.contact')->with('info','Se envio el mensaje con exito');    
     }    
