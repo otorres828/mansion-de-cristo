@@ -19,6 +19,7 @@ class CreateContactsTable extends Migration
             $table->string('email');
             $table->text('title')->nullable();
             $table->longText('description')->nullable();
+            $table->string('ip');
             $table->enum('status',[1,2])->default(1);  //1: borrador 2:publicado
             $table->timestamps();
         });

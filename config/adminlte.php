@@ -225,12 +225,11 @@ return [
 
 
     'menu' => [
-
-        [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
-
+        // // Sidebar items:
+        // [
+        //     'type' => 'sidebar-menu-search',
+        //     'text' => 'Buscar',
+        // ],
         // Sidebar items:
 
         [
@@ -329,6 +328,7 @@ return [
         //     ],
 
         // ],
+        
 
         [
             'text'    => 'Panel Blog',

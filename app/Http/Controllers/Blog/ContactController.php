@@ -20,7 +20,18 @@ class ContactController extends Controller
 
     public function store(ContactRequest $request)
     {
-        Contact::create($request->all());  
+        $fecha = date("Y-m-d");
+        $ip = $_SERVER["REMOTE_ADDR"] ?? "";
+        $consulta = Contact::where('ip',$ip)->where('created_at',$fecha)->get();
+        if($consulta->count() > 0)
+            return redirect()->route('blog.contact')->with('failer','Lo sentimos, no puede enviar mas de un mensaje el mismo dia. Debe de esperar 24 horas para volver a enviar un mensaje');    
+        Contact::create(['name'=>$request->name,
+                         'email'=>$request->email,
+                         'title' =>$request->title,
+                         'description'=>$request->description,
+                         'ip'=>$ip,
+                         'created_at'=>$fecha
+                        ]);  
         return redirect()->route('blog.contact')->with('info','Se envio el mensaje con exito');    
     }    
 
