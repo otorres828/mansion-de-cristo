@@ -12,9 +12,26 @@ class ImportController extends Controller
 {
     public function store(Request $request)
     {
-
         $file = $request->file('import_file');
         Excel::import(new CorreoImport, $file);
         return redirect()->route('admin.blog.email.index')->with('info', 'Correos importados exitosamente');
+    }
+
+    public function destroy($correo){
+        EnviarCorreo::where('correo', $correo)->delete();
+        return redirect()->route('admin.blog.email.index')->with('delete', 'Correos eliminado exitosamente');
+    }
+
+ 
+    public function update(Request $request, EnviarCorreo $correo)
+    {
+        return $correo;
+        $request->validate([
+            'correo'=>'required',
+        ]);
+        $correo->update([
+                $request->all()
+         ]);
+        return redirect()->route('admin.blog.email.index')->with('info', 'El correo se actualizo a: ' .$correo->name.'');
     }
 }
