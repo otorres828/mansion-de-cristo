@@ -9,11 +9,11 @@ class EnviarCorreo extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['correo'];
+    protected $fillable = ['email'];
 
     public function getRouteKeyName()
     {
-        return 'correo';
+        return 'email';
     }
 
 }

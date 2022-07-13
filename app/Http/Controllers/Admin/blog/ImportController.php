@@ -18,7 +18,7 @@ class ImportController extends Controller
     }
 
     public function destroy($correo){
-        EnviarCorreo::where('correo', $correo)->delete();
+        EnviarCorreo::where('email', $correo)->delete();
         return redirect()->route('admin.blog.email.index')->with('delete', 'Correos eliminado exitosamente');
     }
 
@@ -27,7 +27,7 @@ class ImportController extends Controller
     {
         return $correo;
         $request->validate([
-            'correo'=>'required',
+            'email'=>'required',
         ]);
         $correo->update([
                 $request->all()

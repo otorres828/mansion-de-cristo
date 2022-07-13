@@ -14,7 +14,7 @@ class CorreoImport implements ToModel, WithHeadingRow, WithBatchInserts, WithChu
     public function model(array $row)
     {
         return new EnviarCorreo([
-            'correo' => $row['correo'],
+            'email' => $row['email'],
         ]);
     }
 
@@ -31,7 +31,7 @@ class CorreoImport implements ToModel, WithHeadingRow, WithBatchInserts, WithChu
     public function rules(): array
     {
         return [
-            '*.correo' => [
+            '*.email' => [
                 'string',
                 'required|unique:enviar_correos'
             ],

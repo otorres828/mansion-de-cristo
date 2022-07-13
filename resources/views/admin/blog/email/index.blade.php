@@ -62,7 +62,7 @@
                                             {{ $i++ }}
                                         </td>
                                         <td>
-                                            {{ $correo->correo }}
+                                            {{ $correo->email }}
                                         </td>
                                         <td>
                                             <div class="dropdown">
@@ -104,8 +104,8 @@
                                                         'method' => 'put',
                                                     ]) !!}
                                                     <div class="form-group">
-                                                        {!! Form::label('correo', 'Nombre del nuevo correo') !!}
-                                                        {!! Form::text('correo', $correo->correo, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del nuevo correo']) !!}
+                                                        {!! Form::label('email', 'Nombre del nuevo correo') !!}
+                                                        {!! Form::text('email', $correo->email, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del nuevo correo']) !!}
                                                     </div>
                                                     <div class="d-flex justify-content-end align-items-baseline">
                                                         {!! Form::submit('Actualizar', ['class' => 'btn btn-success']) !!}

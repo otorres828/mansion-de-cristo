@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('enviar_correos', function (Blueprint $table) {
             $table->id();
-            $table->string('correo');
+            $table->string('email');
         });
     }
 
