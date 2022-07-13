@@ -53,11 +53,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{ $i = 1 }}
+                                @php
+                                    $i=1;
+                                @endphp
                                 @foreach ($correos as $correo)
                                     <tr>
                                         <td>
-
                                             {{ $i++ }}
                                         </td>
                                         <td>
