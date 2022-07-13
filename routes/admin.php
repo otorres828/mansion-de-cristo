@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\blog\AcercadeController;
 use App\Http\Controllers\Admin\blog\EmailController;
 use App\Http\Controllers\Admin\blog\PanelController;
 use App\Http\Controllers\Blog\EstadisticaController;
+use App\Http\Controllers\Admin\blog\ImportController;
 use App\Http\Controllers\MantenimientoController;
 
 Route::resource('user', UserController::class)->middleware('can:admin.blog.user.index')->except('create','show','edit')->names('admin.blog.user');
@@ -28,5 +29,4 @@ Route::any('estadisticas/registrar', [EstadisticaController::class, 'registrar']
 Route::resource('acercade', AcercadeController::class)->middleware('can:admin.blog.acercade')->except('show')->names('admin.blog.acercade');
 Route::get('panel-de-control', [PanelController::class,'index'])->middleware('auth','verified')->name('admin.blog.panel');
 Route::get('mantenimiento', [MantenimientoController::class,'mantenimiento'])->middleware('auth','verified')->name('programador.mantenimiento');
-
-
+Route::post('importar',[ImportController::class,'store'])->middleware('auth','verified')->name('importar');

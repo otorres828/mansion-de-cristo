@@ -9,5 +9,6 @@ class EnviarCorreo extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['id'];
-}
+    protected $fillable = [
+        'correo',
+    ];}

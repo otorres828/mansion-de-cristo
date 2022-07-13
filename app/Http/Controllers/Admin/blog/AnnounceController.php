@@ -56,8 +56,8 @@ class AnnounceController extends Controller
         if($request->get('status')==2){
             $modulo1 = EmailSend::find(2);
             if($modulo1->status==2){
-                Notification::route('mail',DB::table('users')->select('email')   
-                                                 ->whereNotNull('email_verified_at')    
+                Notification::route('mail',DB::table('enviar_correos')->select('correo') 
+                                                //  ->whereNotNull('email_verified_at')    
                                                 ->get()
                                     )->notify(new EmailNotification($anuncio));     
             }
@@ -103,8 +103,8 @@ class AnnounceController extends Controller
         if($request->get('status')==2){
             $modulo1 = EmailSend::find(2);
             if($modulo1->status==2){
-                Notification::route('mail',DB::table('users')->select('email')   
-                                                 ->whereNotNull('email_verified_at')    
+                Notification::route('mail',DB::table('enviar_correos')->select('correo') 
+                                                //  ->whereNotNull('email_verified_at')    
                                                 ->get()
                                     )->notify(new EmailNotification($anuncio));     
             }

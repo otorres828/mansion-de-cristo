@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\blog;
 
 use App\Http\Controllers\Controller;
 use App\Models\EmailSend;
+use App\Models\EnviarCorreo;
 use Illuminate\Http\Request;
 
 class EmailController extends Controller
@@ -14,7 +15,8 @@ class EmailController extends Controller
         $modulo1 = EmailSend::where('name','Enseñanzas')->first(); //ENSEÑANZAS
         $modulo2 = EmailSend::where('name','Noticias')->first(); //NOTICIAS
         $modulo3 = EmailSend::where('name','Testimonios')->first(); //TESTIMONIOS
-        return view('admin.blog.email.index',compact('modulo1', 'modulo2','modulo3'));
+        $correos = EnviarCorreo::all();
+        return view('admin.blog.email.index',compact('modulo1', 'modulo2','modulo3','correos'));
     }
 
 }

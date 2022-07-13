@@ -56,8 +56,8 @@ class TestimonyController extends Controller
         if($request->get('status')==2){
             $modulo3 = EmailSend::find(2);
             if($modulo3->status==2){
-                Notification::route('mail',DB::table('users')->select('email')   
-                                                ->whereNotNull('email_verified_at')    
+                Notification::route('mail',DB::table('enviar_correos')->select('correo') 
+                                                // ->whereNotNull('email_verified_at')    
                                                 ->get()
                                     )->notify(new EmailNotification($testimony));   
             }  
@@ -104,8 +104,8 @@ class TestimonyController extends Controller
         if($request->get('status')==2){
             $modulo3 = EmailSend::find(2);
             if($modulo3->status==2){
-                Notification::route('mail',DB::table('users')->select('email')   
-                                                ->whereNotNull('email_verified_at')    
+                Notification::route('mail',DB::table('enviar_correos')->select('correo') 
+                                                // ->whereNotNull('email_verified_at')    
                                                 ->get()
                                     )->notify(new EmailNotification($testimony));   
             }  
