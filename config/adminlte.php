@@ -344,12 +344,6 @@ return [
                     'can'=>'admin.blog.user.index',
                 ],
                 [
-                    'text' => 'Envio de Correos',
-                    'route'  => 'admin.blog.email.index',
-                    'icon' => 'fa  fa-fw fa-envelope',
-                    'can'=>'admin.blog.user.index',
-                ],
-                [
                     'text' => 'Categorias de Enseñanzas',
                     'icon' => 'fab fa-fw fa-buffer',
                     'route'  => 'admin.blog.category.index',
@@ -465,6 +459,12 @@ return [
             'text' => 'Configuracion',
             'route'  => 'programador.mantenimiento',
             'icon' => 'fas fa-users fa-fw',
+            'can'=>'mantenimiento',
+        ],
+        [
+            'text' => 'Envio de Correos',
+            'route'  => 'admin.blog.email.index',
+            'icon' => 'fa  fa-fw fa-envelope',
             'can'=>'mantenimiento',
         ],
 
