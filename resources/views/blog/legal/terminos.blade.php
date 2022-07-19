@@ -102,10 +102,7 @@
                         Dirección de correo electrónico: olivertorres1997@gmail.com
                     </p>
                     <p>+58 4148848537</p>
-                    <h3>Contáctenos - Iglesia</h3>
-                    <p>
-                        Business address: Calle Chile y Av. Paulo Emilio Macias, Diagonal al jardín Gabriela Mistral, Portoviejo, M, 130103, Ecuador
-                    </p>
+                    
             </div>
             <div class="w-full col-span-5 relative hidden sm:block ">
                 <div class="fixed">
