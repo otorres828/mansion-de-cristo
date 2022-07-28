@@ -8,6 +8,7 @@ use App\Http\Requests\AnnounceRequest;
 use App\Models\EmailSend;
 use App\Models\User;
 use App\Notifications\EmailNotification;
+use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
@@ -103,13 +104,18 @@ class AnnounceController extends Controller
         if($request->get('status')==2){
             $modulo1 = EmailSend::find(2);
             if($modulo1->status==2){
-                Notification::route('mail',DB::table('enviar_correos')->select('email') 
-                                                //  ->whereNotNull('email_verified_at')    
-                                                ->get()
-                                    )->notify(new EmailNotification($anuncio));     
+                try{
+                    DB::update("UPDATE visitas set url='$urlnueva',pagina='$paginanueva' WHERE url='$urlvieja'");                           
+                    Notification::route('mail',DB::table('enviar_correos')->select('email') 
+                                                    //  ->whereNotNull('email_verified_at')    
+                                                    ->get()
+                                        )->notify(new EmailNotification($anuncio));     
+
+                }catch(Exception $e){
+                    return redirect()->route('admin.blog.announce.index')->with('delete','se ha actualizado el anuncio pero ha ocurrido un error en el envio de los correos. El mensaje fue el siguiente: '.$e);
+                }
             }
         }
-        DB::update("UPDATE visitas set url='$urlnueva',pagina='$paginanueva' WHERE url='$urlvieja'");                           
         return redirect()->route('admin.blog.announce.index')->with('info','Se actualizo la Noticia');
     }
 
