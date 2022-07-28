@@ -231,7 +231,7 @@ return [
         //     'text' => 'Buscar',
         // ],
         // Sidebar items:
-
+        // Sidebar items:
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
