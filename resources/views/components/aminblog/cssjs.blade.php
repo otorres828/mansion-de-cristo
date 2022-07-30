@@ -36,7 +36,7 @@
         });
     </script>
     {{-- CKEDITOR. 5 --}}
-    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+    <script src="{{ asset('vendor\ckeditor5-build-classic\build/ckeditor.js') }}"></script>
     <script>
 
         class MyUploadAdapter {
