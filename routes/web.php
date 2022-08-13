@@ -56,6 +56,7 @@ Route::get('/clear', function () {
     echo Artisan::call('config:cache');
     echo Artisan::call('cache:clear');
     echo Artisan::call('route:clear');
+    echo Artisan::call('storage:link');
 });
 
 Route::get('mantenimiento', function () {
