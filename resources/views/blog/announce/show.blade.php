@@ -83,11 +83,9 @@
         </div>
 
         {{-- FOTO LG --}}
-        <img src="@if ($anuncio->image) {{ imagenes_storage($anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
-        class="mx-auto w-4/5 mt-10 rounded-md drop-shadow-sm">
-        {{-- <div class="hidden md:block max-w-6xl mx-auto bg-cover mt-8 rounded"
+        <div class="hidden md:block max-w-6xl mx-auto bg-cover mt-8 rounded"
             style="background-image:url('@if ($anuncio->image) {{ imagenes_storage($anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif');min-height: 75vh;">
-        </div> --}}
+        </div>
 
         {{-- FOTO SM/MD --}}
         <div class="md:hidden mx-auto container px-2 lg:px-8  mt-4 bg-cover ">
