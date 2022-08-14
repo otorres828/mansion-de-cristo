@@ -82,29 +82,28 @@
 
         </div>
         {{-- FOTO LG --}}
-        <div class="mx-auto max-w-8xl">
-            <div class="mx-auto sm:px-6 xl:max-w-5xl">
-                @isset($teaching->image)
-                    <img id="picture " src="{{ imagenes_storage($teaching->image->url) }}" alt=""
-                        class="mx-auto w-4/5 mt-10 rounded-md drop-shadow-sm">
-                @else
-                    <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg"
-                        class="mx-auto w-4/5 mt-10 rounded-md drop-shadow-sm">
-                @endisset
-    
+        <div class="w-full sm:px-6 pb-12 antialiased bg-white">
+            <div class="mx-auto max-w-8xl">
+                <div class="mx-auto sm:px-6 xl:max-w-5xl xl:px-0 mt-10">
+                    @isset($teaching->image)
+                        <img id="picture " src="{{ imagenes_storage($teaching->image->url) }}" alt=""
+                            class="mx-auto w-4/5 mt-10 rounded-md drop-shadow-sm">
+                    @else
+                        <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg"
+                            class="mx-auto w-4/5 mt-10 rounded-md drop-shadow-sm">
+                    @endisset
+                </div>
             </div>
-
         </div>
 
-{{-- 
-        <div class="hidden md:block max-w-6xl mx-auto bg-cover mt-8 rounded"
+        {{-- <div class="hidden md:block max-w-6xl mx-auto bg-cover mt-8 rounded"
             style="background-image:url('@if ($teaching->image) {{ imagenes_storage($teaching->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif');min-height: 75vh;">
         </div>
         <div class="md:hidden mx-auto container px-2 lg:px-8  mt-4 bg-cover ">
             <img class="w-full h-96"src="@if ($teaching->image) {{ imagenes_storage($teaching->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
                 alt="">
         </div> --}}
-        
+
         {{-- CUERPO DE LA NOTICIA --}}
         <div class="container max-w-5xl mx-auto pb-8">
             <div class="mx-0 sm:mx-6">
