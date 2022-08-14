@@ -82,13 +82,19 @@
 
         </div>
         {{-- FOTO LG --}}
-        @isset($teaching->image)
-            <img id="picture " src="{{ imagenes_storage($teaching->image->url) }}" alt=""
-                class="mx-auto w-4/5 mt-10 rounded-md drop-shadow-sm">
-        @else
-            <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg"
-                class="mx-auto w-4/5 mt-10 rounded-md drop-shadow-sm">
-        @endisset
+        <div class="mx-auto max-w-8xl">
+            <div class="mx-auto sm:px-6 xl:max-w-5xl">
+                @isset($teaching->image)
+                    <img id="picture " src="{{ imagenes_storage($teaching->image->url) }}" alt=""
+                        class="mx-auto w-4/5 mt-10 rounded-md drop-shadow-sm">
+                @else
+                    <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg"
+                        class="mx-auto w-4/5 mt-10 rounded-md drop-shadow-sm">
+                @endisset
+    
+            </div>
+
+        </div>
 
 {{-- 
         <div class="hidden md:block max-w-6xl mx-auto bg-cover mt-8 rounded"
