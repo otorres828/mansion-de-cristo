@@ -9,7 +9,9 @@
 @section('content')
     <x-aminblog.alert />
     <div class="mb-3">
-        <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#crear" data-bs-whatever="@mdo">Crear Usuario</a>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#crear">
+            Crear Usuario
+        </button>
     </div>
 
     {{-- REGISTRAR USUARIO --}}
@@ -18,8 +20,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Crear Usuario</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>                </div>
                 <div class="modal-body">
                     <form method="POST" action="{{ route('admin.blog.user.store') }}">
                         @csrf
