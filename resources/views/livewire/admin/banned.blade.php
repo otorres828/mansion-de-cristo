@@ -33,7 +33,7 @@
         @endif
         <div class="mb-0">
             <div class="d-flex justify-content-end align-items-baseline">
-                <button type="button" class=" ml-1 btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button"  class=" ml-1 btn btn-danger" data-dismiss="modal" aria-label="Close">Cerrar</button>
             </div>
         </div>
     </div>
