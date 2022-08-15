@@ -104,9 +104,9 @@
                                         Acciones
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <button class="dropdown-item cursor-pointer" data-bs-toggle="modal"
-                                            data-bs-target="#editar{{ $user->id }}" data-bs-whatever="@mdo">Editar
-                                            Roles</button>
+                                        <button class="dropdown-item cursor-pointer" 
+                                        data-toggle="modal" data-target="#editar{{ $user->id }}"
+                                        >Editar Roles</button>
 
                                         <form class="destroy mr-1"
                                             action="{{ route('admin.blog.user.destroy', $user) }}" method="POST">
@@ -128,8 +128,9 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="staticBackdropLabel">Editar Rol de Usuario</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
                                     </div>
                                     <div class="modal-body">
                                         <p class="h5">Nombre:</p>

@@ -1448,9 +1448,6 @@ select {
 .w-20 {
   width: 5rem;
 }
-.w-4\/5 {
-  width: 80%;
-}
 .min-w-0 {
   min-width: 0px;
 }
@@ -2154,9 +2151,6 @@ select {
 .pl-8 {
   padding-left: 2rem;
 }
-.pb-12 {
-  padding-bottom: 3rem;
-}
 .pl-12 {
   padding-left: 3rem;
 }
@@ -2492,10 +2486,6 @@ select {
 }
 .blur {
   --tw-blur: blur(8px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-.drop-shadow-sm {
-  --tw-drop-shadow: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .filter {
@@ -3925,15 +3915,6 @@ select {
 
   .xl\:w-3\/5 {
     width: 60%;
-  }
-
-  .xl\:max-w-5xl {
-    max-width: 64rem;
-  }
-
-  .xl\:px-0 {
-    padding-left: 0px;
-    padding-right: 0px;
   }
 }
 
