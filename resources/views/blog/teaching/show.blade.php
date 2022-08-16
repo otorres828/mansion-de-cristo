@@ -18,7 +18,6 @@
 @endsection
 
 @section('main')
-    @include('components.bar')
     <div class="w-full sm:px-6 pb-12 antialiased bg-white">
         <div class="mx-auto max-w-8xl">
             <div class="mx-auto sm:px-6 xl:max-w-5xl xl:px-0 mt-10">
