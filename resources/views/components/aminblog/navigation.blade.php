@@ -26,7 +26,7 @@
             <div class="flex-1 flex items-center justify-center md:items-stretch sm:justify-start">
                 {{-- LOGOTIPO --}}
                 <div class="flex-shrink-0 flex items-center">
-                    <img class="block sm:hidden h-8 w-auto" src="{{ asset('images/icons/icon-96x96.png') }}"
+                    <img class="block md:hidden h-8 w-auto" src="{{ asset('images/icons/icon-96x96.png') }}"
                         alt="MDC">
                     <img class="hidden md:block h-8 w-auto" src="{{ asset('images/icons/icon-96x96.png') }}"
                         alt="MDC">

@@ -1,10 +1,10 @@
-<div id="header" class="bg-white fixed w-full z-20 top-auto hidden animated" style="opacity: .95;">
+<div id="header" class="bg-white fixed w-full z-20 top-0 hidden animated" style="opacity: .95;">
     <div class="bg-white">
         <div class="flex flex-wrap items-center content-center">
             <div class="flex w-1/2 justify-start text-white font-extrabold sm:pl-12">
                 <a class="flex text-gray-900 no-underline hover:text-gray-900 hover:no-underline pl-2"
                     href="#">
-                    📰 <span class="hidden w-0 md:w-auto md:block ">Cooperacion Economica - Blog</span>
+                    📰 <span class="hidden w-0 md:w-auto md:block ">Enseñanzas - Blog</span>
                 </a>
             </div>
             <div class="flex w-1/2 justify-end content-center">
