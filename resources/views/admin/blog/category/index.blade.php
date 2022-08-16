@@ -62,8 +62,7 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <button class="dropdown-item" data-bs-toggle="modal"
-                                            data-bs-target="#edit{{ $category->id }}"
-                                            data-bs-whatever="@mdo">Editar</button>
+                                        data-toggle="modal" data-target="#editar{{ $category->id }}">Editar</button>
                                     @can('eliminarpublicaciones')
                                         <form class="destroy"
                                             action="{{ route('admin.blog.category.destroy', $category) }}" method="POST">
