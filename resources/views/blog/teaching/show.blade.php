@@ -23,7 +23,7 @@
         <div class="mx-auto max-w-8xl">
             <div class="mx-auto sm:px-6 xl:max-w-5xl xl:px-0 mt-10">
                 <p class="text-center font-bold my-5 text-indigo-500">
-                    September 25, 2019
+                    {{ $teaching->created_at->toFormattedDateString() }}
                 </p>
                 <h1 class="text-4xl text-gray-700 font-extrabold mb-10 text-center">
                     {{ $teaching->name }}
