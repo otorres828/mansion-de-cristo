@@ -80,6 +80,6 @@ function obtejerEstadisticas($pagina,$inicio,$fin){
 }
 
 function imagenes_storage($enlace){
-    return "https://mdc.nyc3.cdn.digitaloceanspaces.com/".$enlace;
+    return "https://mansiondecristo.nyc3.cdn.digitaloceanspaces.com/".$enlace;
 }
 ?>
