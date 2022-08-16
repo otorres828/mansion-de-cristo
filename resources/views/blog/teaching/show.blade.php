@@ -55,9 +55,10 @@
                                     {!! $teaching->extract !!}
                                 </div>
                                 {!! $teaching->body !!}
+                                <blockquote class="pt-4 border-l-4 border-green-500 italic my-8 pl-8 md:pl-12"><strong>Autor:
+                                 </strong>{{ $teaching->user->name }}
+                                </blockquote>
                             </div>
-                            <blockquote class="pt-4 border-l-4 border-green-500 italic my-8 pl-8 md:pl-12"><strong>Autor:
-                            </strong>{{ $teaching->user->name }}</blockquote>
                         </div>
                     </div>
                 </div>
