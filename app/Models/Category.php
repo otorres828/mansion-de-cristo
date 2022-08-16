@@ -10,6 +10,7 @@ class Category extends Model
     use HasFactory;
     //asignacion masiva
     protected $fillable =['name','slug'];
+    public $timestamps = false;
 
     public function getRouteKeyName()
     {

@@ -19,7 +19,6 @@ class CreateHierarchiesTable extends Migration
             $table->integer('nivel');
             $table->unsignedBigInteger('temple_id');
             $table->foreign('temple_id')->references('id')->on('temples')->onDelete('CASCADE');
-            $table->timestamps();
         });
     }
 

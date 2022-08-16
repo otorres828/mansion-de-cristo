@@ -11,6 +11,8 @@ class Finance extends Model
 
     protected $fillable = ['amount','reference','method_pay','type_finance','date','status','financeable_id','financeable_type','temple_id'];
     //relacion polimorfica
+    public $timestamps = false;
+
     public function financeable(){
         return $this->morphTo();
     }

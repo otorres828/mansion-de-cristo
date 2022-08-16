@@ -12,7 +12,8 @@ class Visitas extends Model
     use HasFactory;
     protected $guarded =['id','updated_at','created_at'];
 
-    
+    public $timestamps = false;
+
     public function toSearchableArray()
     {
         $array = $this->toArray();

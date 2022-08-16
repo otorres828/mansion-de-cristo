@@ -9,7 +9,8 @@ class Note extends Model
 {
     use HasFactory;
     protected $fillable=['name','user_id'];
-    
+    public $timestamps = false;
+
     //relacion uno a muchos inversa
 
     public function user(){

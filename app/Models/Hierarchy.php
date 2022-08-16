@@ -9,6 +9,7 @@ class Hierarchy extends Model
 {
     use HasFactory;
     protected $fillable =['name','nivel','temple_id'];
+    public $timestamps = false;
 
     //relacion uno a muchos:: 1 jerarquia tiene muchos usuarios
     public function user(){

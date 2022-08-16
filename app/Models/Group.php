@@ -10,6 +10,7 @@ class Group extends Model
     use HasFactory;
     //asignacion masiva
     protected $fillable =['name','temple_id'];
+    public $timestamps = false;
 
     //relacion uno a muchos inversa
     public function temple(){

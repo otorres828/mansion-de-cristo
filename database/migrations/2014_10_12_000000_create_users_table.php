@@ -30,7 +30,6 @@ class CreateUsersTable extends Migration
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('CASCADE');
             $table->foreign('hierarchy_id')->references('id')->on('hierarchies')->onDelete('CASCADE');
             $table->foreign('parent_id')->references('id')->on('users')->onDelete('SET NULL');
-            $table->timestamps();
         });
     }
 

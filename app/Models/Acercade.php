@@ -9,6 +9,7 @@ class Acercade extends Model
 {
     protected $guarded =['id','create_at','updated_at'];
     use HasFactory;
+    public $timestamps = false;
 
     public function getRouteKeyName()
     {

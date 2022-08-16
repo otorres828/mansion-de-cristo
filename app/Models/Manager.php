@@ -10,6 +10,7 @@ class Manager extends Model
     use HasFactory;
     use HasFactory;
     protected $fillable =['id','user_id','group_id','temple_id'];
+    public $timestamps = false;
 
     //relacion uno a muchos 
     public function user(){

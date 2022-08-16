@@ -10,7 +10,8 @@ class Temple extends Model
     use HasFactory;
     //asignacion masiva
     protected $fillable =['name','slug'];
-    
+    public $timestamps = false;
+
     //relacion uno a muchos: 1 iglesia tiene muchos usuarios
     public function user(){
         return $this->hasMany(User::class);

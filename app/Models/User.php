@@ -23,6 +23,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use Notifiable;
     use TwoFactorAuthenticatable;
     
+    public $timestamps = false;
 
     protected $fillable = [
         'name',

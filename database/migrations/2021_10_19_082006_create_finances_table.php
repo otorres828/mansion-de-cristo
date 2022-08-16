@@ -29,7 +29,6 @@ class CreateFinancesTable extends Migration
             $table->foreign('temple_id')->references('id')->on('temples')->onDelete('CASCADE');
 
 
-            $table->timestamps();
         });
     }
 
