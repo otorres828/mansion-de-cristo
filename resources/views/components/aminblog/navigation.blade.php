@@ -37,23 +37,23 @@
                     <div class="flex">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="{{ route('landding.index') }}"
-                            class="text-gray-800 hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-medium"
+                            class="text-gray-800 hover:bg-gray-200 px-3 py-2 rounded-md text-sm leading-5 font-medium"
                             aria-current="page" data-turbolinks="false">Casa</a>
                         <a href="{{ route('blog.announces') }}"
-                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm font-medium">Noticias</a>
+                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Noticias</a>
                         <a href="{{ route('blog.teaching') }}"
-                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm font-medium">Enseñanzas</a>
+                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Enseñanzas</a>
                         <a href="{{ route('blog.ministery') }}"
-                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm font-medium">Ministerios</a>
+                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Ministerios</a>
                         <a href="{{ route('blog.testimony') }}"
-                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm font-medium">Testimonios</a>
+                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Testimonios</a>
                         <a href="{{ route('blog.acercade') }}"
-                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm font-medium">Acerca
+                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Acerca
                             de</a>
                         <a href="{{ route('blog.contact') }}"
-                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm font-medium">Contactanos</a>
+                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Contactanos</a>
                         @auth
-                            <a class="text-blue-600 hover:bg-blue-600 hover:text-gray-50 px-3 py-2  rounded-md text-sm font-medium"
+                            <a class="text-blue-600 hover:bg-blue-600 hover:text-gray-50 px-3 py-2  leading-5 rounded-md text-sm font-medium"
                                 href="{{ route('admin.blog.panel') }}" data-turbolinks="false">
                                 Panel de Blog
                             </a>

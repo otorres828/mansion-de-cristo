@@ -12,6 +12,7 @@
   'blog.landding.teaching' => 'App\\Http\\Livewire\\Blog\\Landding\\Teaching',
   'blog.landding.testimony' => 'App\\Http\\Livewire\\Blog\\Landding\\Testimony',
   'blog.ministery' => 'App\\Http\\Livewire\\Blog\\Ministery',
+  'blog.nav' => 'App\\Http\\Livewire\\Blog\\Nav',
   'blog.navigation' => 'App\\Http\\Livewire\\Blog\\Navigation',
   'blog.search-announces' => 'App\\Http\\Livewire\\Blog\\SearchAnnounces',
   'blog.search-ministeries' => 'App\\Http\\Livewire\\Blog\\SearchMinisteries',
@@ -21,5 +22,6 @@
   'blog.suscripcion' => 'App\\Http\\Livewire\\Blog\\Suscripcion',
   'blog.teaching' => 'App\\Http\\Livewire\\Blog\\Teaching',
   'blog.testimony' => 'App\\Http\\Livewire\\Blog\\Testimony',
+  'nav' => 'App\\Http\\Livewire\\Nav',
   'panel.todolist' => 'App\\Http\\Livewire\\Panel\\Todolist',
 );

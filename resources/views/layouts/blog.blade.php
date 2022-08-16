@@ -34,6 +34,7 @@
 <body>
     <header>
         @include('components.aminblog.navigation')
+        {{-- @livewire('blog.nav') --}}
     </header>
 
     @yield('header')
