@@ -18,6 +18,7 @@
 @endsection
 
 @section('main')
+    @include('components.bar')
     <div class="w-full sm:px-6 pb-12 antialiased bg-white">
         <div class="mx-auto max-w-8xl">
             <div class="mx-auto sm:px-6 xl:max-w-5xl xl:px-0 mt-10">
@@ -28,7 +29,7 @@
                     {{ $teaching->name }}
                 </h1>
                 <div class="flex items-center font-medium mt-6 sm:mx-3 justify-center"><img
-                        src="{{ asset('images/icons/icon-152x152.png') }}" alt="" loading="lazy"
+                        src="{{ asset('images/logo_ucab.png') }}" alt="" loading="lazy"
                         class="mr-3 w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800">
                     <div>
                         <div class="text-slate-500 dark:text-slate-200">
@@ -55,10 +56,9 @@
                                     {!! $teaching->extract !!}
                                 </div>
                                 {!! $teaching->body !!}
-                                <blockquote class="pt-4 border-l-4 border-green-500 italic my-8 pl-8 md:pl-12"><strong>Autor:
-                                 </strong>{{ $teaching->user->name }}
-                                </blockquote>
                             </div>
+                            <blockquote class="pt-4 border-l-4 border-green-500 italic my-8 pl-8 md:pl-12"><strong>Autor:
+                            </strong>{{ $teaching->user->name }}</blockquote>
                         </div>
                     </div>
                 </div>
@@ -128,11 +128,10 @@
 
 @section('js')
     @include('components.aminblog.show')
-
 @endsection
 
 @section('css')
-@include('components.estilos_welcome')
+    @include('components.estilos_welcome')
 
 @endsection
 @section('footer')

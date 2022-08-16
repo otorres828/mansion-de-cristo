@@ -1138,6 +1138,9 @@ select {
 .-left-3 {
   left: -0.75rem;
 }
+.top-auto {
+  top: auto;
+}
 .z-0 {
   z-index: 0;
 }
@@ -3353,6 +3356,10 @@ select {
 
   .sm\:pb-4 {
     padding-bottom: 1rem;
+  }
+
+  .sm\:pl-12 {
+    padding-left: 3rem;
   }
 
   .sm\:text-left {
