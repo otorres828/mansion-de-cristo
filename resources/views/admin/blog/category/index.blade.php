@@ -61,23 +61,25 @@
                                         Acciones
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <button class="dropdown-item" data-bs-toggle="modal"
-                                        data-toggle="modal" data-target="#editar{{ $category->id }}">Editar</button>
-                                    @can('eliminarpublicaciones')
-                                        <form class="destroy"
-                                            action="{{ route('admin.blog.category.destroy', $category) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="dropdown-item">Eliminar</button>
-                                        </form>
-                                    @endcan
+                                        <button class="dropdown-item cursor-pointer" 
+                                            data-toggle="modal" data-target="#editar{{ $category->id }}"
+                                            >Editar
+                                        </button>
+
+                                        @can('eliminarpublicaciones')
+                                            <form class="destroy" action="{{ route('admin.blog.category.destroy', $category) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="dropdown-item">Eliminar</button>
+                                            </form>
+                                        @endcan
                                     </div>
                                 </div>
                             </td>
 
                         </tr>
                         {{-- modal editar categoria --}}
-                        <div class="modal fade" id="edit{{ $category->id }}" tabindex="-1"
+                        <div class="modal fade" id="editar{{ $category->id }}" tabindex="-1"
                             aria-labelledby="edit{{ $category->id }}" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -94,8 +96,8 @@
                                         </div>
                                         <div class="d-flex justify-content-end align-items-baseline">
                                             {!! Form::submit('Actualizar', ['class' => 'btn btn-success']) !!}
-                                            <button type="button" class="ml-1 btn btn-danger"
-                                                data-bs-dismiss="modal">Cerrar</button>
+                                            <button type="button" class="ml-1 btn btn-danger "
+                                             data-dismiss="modal">Cerrar</button>
                                         </div>
                                         {!! Form::close() !!}
                                     </div>
@@ -115,6 +117,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 @stop
+
 
 @section('js')
     <script>
