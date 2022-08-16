@@ -27,6 +27,7 @@
     <meta property="og:image:width" content="828" />
     <meta property="og:image:height" content="450" />
     <meta property="og:site_name" content="Mansion de Cristo" />
+    @yield('css')
     @laravelPWA
 </head>
 
