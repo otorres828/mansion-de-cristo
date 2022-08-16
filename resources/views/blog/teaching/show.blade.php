@@ -28,7 +28,7 @@
                     {{ $teaching->name }}
                 </h1>
                 <div class="flex items-center font-medium mt-6 sm:mx-3 justify-center"><img
-                        src="{{ asset('images/logo_ucab.png') }}" alt="" loading="lazy"
+                        src="{{ asset('images/icons/icon-152x152.png') }}" alt="" loading="lazy"
                         class="mr-3 w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800">
                     <div>
                         <div class="text-slate-500 dark:text-slate-200">
