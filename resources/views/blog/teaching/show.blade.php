@@ -81,10 +81,10 @@
                     <p class="text-center font-bold my-5 text-indigo-500">
                         {{ $teaching->created_at->toFormattedDateString() }}
                     </p>
-                    <h1 class="mx-4 sm:mx-0 text-4xl text-gray-700 font-bold mb-10 text-center">
+                    <h1 class="mx-4 sm:mx-0 text-4xl text-gray-700 font-bold mb-5 text-center">
                         {{ $teaching->name }}
                     </h1>
-                    <div class="flex items-center font-medium mt-6 sm:mx-3 justify-center"><img
+                    <div class="flex items-center font-medium sm:mx-3 justify-center"><img
                             src="{{ asset('images/icons/icon-152x152.png') }}" alt="" loading="lazy"
                             class="mr-3 w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800">
                         <div>
