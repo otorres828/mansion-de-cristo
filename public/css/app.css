@@ -1586,6 +1586,14 @@ select {
 .max-w-md {
   max-width: 28rem;
 }
+.max-w-full {
+  max-width: 100%;
+}
+.max-w-min {
+  max-width: -webkit-min-content;
+  max-width: -moz-min-content;
+  max-width: min-content;
+}
 .flex-1 {
   flex: 1 1 0%;
 }
