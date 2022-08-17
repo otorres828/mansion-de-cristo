@@ -3188,6 +3188,11 @@ select {
     margin-right: 1.5rem;
   }
 
+  .sm\:mx-4 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
   .sm\:ml-3 {
     margin-left: 0.75rem;
   }

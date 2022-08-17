@@ -84,7 +84,7 @@
                     <h1 class="mx-4 sm:mx-0 text-4xl text-gray-700 font-bold mb-5 text-center">
                         {{ $teaching->name }}
                     </h1>
-                    <div class="flex items-center font-medium sm:mx-3 justify-center"><img
+                    <div class="flex items-center font-medium sm:mx-4 justify-center"><img
                             src="{{ asset('images/icons/icon-152x152.png') }}" alt="" loading="lazy"
                             class="mr-3 w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800">
                         <div>
@@ -98,10 +98,10 @@
                     </div>
                     @isset($teaching->image)
                         <img id="picture " src="{{imagenes_storage($teaching->image->url)}}" alt=""
-                            class="mx-auto w-4/5 mt-10 rounded-md drop-shadow-sm">
+                            class="mx-auto w-4/5 mt-6 rounded-md drop-shadow-sm">
                     @else
                         <img src="https://images.unsplash.com/photo-1648737966614-55e58b5e3caf?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1472&amp;q=80"
-                            class="mx-auto w-4/5 mt-10 rounded-md drop-shadow-sm">
+                            class="mx-auto w-4/5 mt-6 rounded-md drop-shadow-sm">
                     @endisset
     
                     <div class="container max-w-5xl mx-auto py-8">
