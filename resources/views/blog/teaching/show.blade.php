@@ -75,7 +75,7 @@
                 style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
         </div>
 
-        <div class="w-full sm:px-6 pb-12 antialiased bg-white">
+        <div class="w-full sm:px-6 antialiased bg-white">
             <div class="mx-auto max-w-8xl">
                 <div class="mx-auto sm:px-6 xl:max-w-5xl xl:px-0 mt-10">
                     <p class="text-center font-bold my-5 text-indigo-500">
