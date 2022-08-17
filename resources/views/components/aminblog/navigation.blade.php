@@ -1,4 +1,4 @@
-<nav class="bg-white  sticky top-0 z-[200]" x-data="{ open: false }">
+<nav class="bg-white  sticky top-0 z-[200] border-b" x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
 
@@ -26,7 +26,7 @@
             <div class="flex-1 flex items-center justify-center md:items-stretch sm:justify-start">
                 {{-- LOGOTIPO --}}
                 <div class="flex-shrink-0 flex items-center">
-                    <img class="block md:hidden h-8 w-auto" src="{{ asset('images/icons/icon-96x96.png') }}"
+                    <img class="block sm:hidden h-8 w-auto" src="{{ asset('images/icons/icon-96x96.png') }}"
                         alt="MDC">
                     <img class="hidden md:block h-8 w-auto" src="{{ asset('images/icons/icon-96x96.png') }}"
                         alt="MDC">
