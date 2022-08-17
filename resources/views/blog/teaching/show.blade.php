@@ -81,7 +81,7 @@
                     <p class="text-center font-bold my-5 text-indigo-500">
                         {{ $teaching->created_at->toFormattedDateString() }}
                     </p>
-                    <h1 class="text-4xl text-gray-700 font-extrabold mb-10 text-center">
+                    <h1 class="mx-4 sm:mx-0 text-4xl text-gray-700 font-bold mb-10 text-center">
                         {{ $teaching->name }}
                     </h1>
                     <div class="flex items-center font-medium mt-6 sm:mx-3 justify-center"><img
@@ -90,7 +90,7 @@
                         <div>
                             <div class="text-slate-500 dark:text-slate-200">
                                 Mansion De Cristo
-                            </div> <a target="_blank" href="#"
+                            </div> <a target="_blank" href="https://www.instagram.com/mansiondecristo/"
                                 class="text-sky-500 hover:text-sky-600 dark:text-sky-400">
                                 @mansiondecristo
                             </a>
@@ -163,7 +163,7 @@
 
         {{-- SIMILARES --}}
         <div class="bg-gray-200">
-            <div class=" text-center pt-10 md:pt-10 container mx-auto">
+            <div class=" text-center pt-5 md:pt-5 container mx-auto">
                 <h1 class=" text-green-500 font-bold break-normal text-3xl md:text-5xl">Tal vez te pueda interesar</h1>
             </div>
             <div class="grid grid-flow-row  container w-full max-w-6xl mx-auto px-2 py-8">
