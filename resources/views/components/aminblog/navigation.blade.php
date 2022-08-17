@@ -1,4 +1,4 @@
-<nav class="bg-white  sticky top-0 z-[200] border-b" x-data="{ open: false }">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 sticky top-0 z-[200]">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
 
