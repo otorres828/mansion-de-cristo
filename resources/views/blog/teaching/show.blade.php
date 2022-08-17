@@ -123,43 +123,6 @@
     
             </div>
         </div>
-        {{-- CUERPO DE LA NOTICIA --}}
-        {{-- <div class="container max-w-5xl mx-auto md:-mt-32 pb-8">
-            <div class="mx-0 sm:mx-6">
-                <div class="bg-white w-full p-8 md:pt-24 md:px-24 text-xl md:text-2xl text-gray-800 leading-normal"
-                    style="font-family:Georgia,serif;">
-                    <p class="text-2xl md:text-3xl mb-5 text-justify">
-                        {{ $teaching->extract }}
-                    </p>
-                    <div class="prose md:prose-lg lg:prose-xl text-justify">
-                        {!! $teaching->body !!}
-                    </div>
-                    <blockquote class="pt-4 border-l-4 border-green-500 italic my-8 pl-8 md:pl-12"><strong>Autor:
-                        </strong>{{ $teaching->user->name }}</blockquote>
-
-                </div>
-
-                {{-- SUSCRIPCION --}}
-                {{-- @livewire('blog.suscripcion') --}}
-
-                {{-- <div class="pb-8 flex w-full items-center font-sans px-8 md:px-24">
-                    <img class="w-10 h-10 rounded-full mr-4"
-                        src="@if ($teaching->image) {{ imagenes_storage($teaching->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
-                        alt="Avatar of Author">
-                    <div class="flex-1">
-                        <p class="text-base font-bold md:text-xl lg:text-3xl leading-none">VER MAS ENSEÑANZAS</p>
-                        <p class="text-gray-600 text-xs md:text-base">Si necesitas, no dudes en contactarnos a <a
-                                class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500"
-                                href="{{ route('landding.index') }}">olivertorres1997@gmail.com.com</a></p>
-                    </div>
-                    <div class="justify-end">
-                        <a href="{{ route('blog.teaching') }}"
-                            class="bg-transparent border border-gray-500 hover:border-green-500 text-xs text-gray-500 hover:text-green-500 font-bold py-2 px-4 rounded-full">Leer
-                            Mas</a>
-                    </div>
-                </div>
-            </div>
-        </div>  --}}
 
         {{-- SIMILARES --}}
         <div class="bg-gray-200">
@@ -218,7 +181,6 @@
             </div>
 
         </div>
-
     </div>
 @endsection
 
