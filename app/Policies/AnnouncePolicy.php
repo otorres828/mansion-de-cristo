@@ -12,13 +12,10 @@ class AnnouncePolicy
 
     public function autor(User $user, Announce $anuncio){
         $roles = $user->getRoleNames();   
-        foreach($roles as $rol){
-            if($user->id == $anuncio->user_id || $rol=='Admin Blog'||  $rol=='Master' || $rol=='Aprobar Publicaciones'){
-                return true;
-            }else{
-                return false;
-            }
-        }  
+        foreach($roles as $rol)
+            if($user->id == $anuncio->user_id || $rol=='Admin Blog'||  $rol=='Master' || $rol=='Aprobar Publicaciones')
+                return true; 
+        return false;
     }
 
     public function publicado(?User $user, Announce $anuncio){

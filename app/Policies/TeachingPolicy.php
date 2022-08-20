@@ -13,13 +13,10 @@ class TeachingPolicy
 
     public function autor(User $user, Teaching $teaching){
         $roles = $user->getRoleNames();
-        foreach($roles as $rol){
-            if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Programador'|| $rol == 'Aprobar Publicaciones') {
-                return true;
-            }else{
-                return false;
-            }
-        }   
+        foreach($roles as $rol)
+            if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Programador'|| $rol == 'Aprobar Publicaciones') 
+                return true;   
+        return false;
     }
 
     public function publicado(?User $user, Teaching $teaching){

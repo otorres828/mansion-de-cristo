@@ -13,13 +13,10 @@ class MinistryPolicy
 
     public function autor(User $user, Ministry $ministry){
         $roles = $user->getRoleNames();   
-        foreach($roles as $rol){
-            if($user->id == $ministry->user_id || $rol=='Admin Blog'||  $rol=='Master' || $rol=='Aprobar Publicaciones'){
-                return true;
-            }else{
-                return false;
-            }
-        }  
+        foreach($roles as $rol)
+            if($user->id == $ministry->user_id || $rol=='Admin Blog'||  $rol=='Master' || $rol=='Aprobar Publicaciones')
+                return true;  
+        return false;
     }
 
     public function publicado(?User $user, Ministry $ministry){

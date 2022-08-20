@@ -12,13 +12,10 @@ class TestimonyPolicy
 
     public function autor(User $user, Testimony $testimony){
         $roles = $user->getRoleNames();   
-        foreach($roles as $rol){
-            if($user->id == $testimony->user_id || $rol=='Admin Blog'||  $rol=='Master' || $rol=='Aprobar Publicaciones'){
+        foreach($roles as $rol)
+            if($user->id == $testimony->user_id || $rol=='Admin Blog'||  $rol=='Master' || $rol=='Aprobar Publicaciones')
                 return true;
-            }else{
-                return false;
-            }
-        }  
+        return false;
     }
 
     public function publicado(?User $user, Testimony $testimony){
