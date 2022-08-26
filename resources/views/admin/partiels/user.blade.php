@@ -1,6 +1,6 @@
 <div class="form-group">
     {!! Form::label('name', 'Nombre Completo') !!}
-    {!! Form::text('name', null, ['class'=>'form-control','placeholder'=>'Ingrese el nombre completo']) !!}
+    {!! Form::text('name', null, ['class'=>'form-control','placeholder'=>'Ingrese el nombre completo','required']) !!}
     @error('name')
         <span class="text-danger">{{$message}}</span>
      @enderror
@@ -17,18 +17,14 @@
 @livewire('admin.temples-user')
 
 <div class="form-group">
-    <x-jet-label value="{{ __('Clave') }}" />
-
-    <x-jet-input class="{{ $errors->has('password') ? 'is-invalid' : '' }}" type="password"
-                 name="password" required autocomplete="new-password" />
-    <x-jet-input-error for="password"></x-jet-input-error>
+    {!! Form::label('password', 'Clave') !!}
+    <input type="password" class="form-control" placeholder="*********" required>
 </div>
 
 <div class="mb-0">
     <div class="d-flex justify-content-end align-items-baseline">
-        <x-jet-button>
-            {{ __('Registrar') }}
-        </x-jet-button>
+        <button type="submit" class="btn btn-success" >Registrar</button>
+
         <button type="button" class=" ml-1 btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
     </div>
 </div>

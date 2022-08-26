@@ -22,15 +22,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="card">
-                        <div class="card-body">
-                            {!! Form::open(['route' => 'admin.secretary.user.store', 'autocomplete' => 'off', 'method' => 'post']) !!}
-                            @include('admin.partiels.user')
 
-                            {!! Form::close() !!}
-                        </div>
+                    {!! Form::open(['route' => 'admin.secretary.user.store', 'autocomplete' => 'off', 'method' => 'post']) !!}
+                    @include('admin.partiels.user')
 
-                    </div>
+                    {!! Form::close() !!}
+
                 </div>
             </div>
         </div>
@@ -94,7 +91,11 @@
                                         <div class="modal-body">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    {!! Form::model($user, ['route' => ['admin.secretary.user.update', $user], 'autocomplete' => 'off', 'method' => 'put']) !!}
+                                                    {!! Form::model($user, [
+                                                        'route' => ['admin.secretary.user.update', $user],
+                                                        'autocomplete' => 'off',
+                                                        'method' => 'put',
+                                                    ]) !!}
                                                     @include('admin.partiels.user')
                                                     {!! Form::close() !!}
                                                 </div>

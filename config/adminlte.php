@@ -262,13 +262,13 @@ return [
                     'can'=>'admin.secretary.admin',
 
                 ],
-                [
-                    'text' => 'Otras Iglesias',
-                    'icon' => 'fas fa-synagogue',
-                    'route'  => 'admin.secretary.temple.index',
-                    'can'=>'admin.secretary.temple',
+                // [
+                //     'text' => 'Otras Iglesias',
+                //     'icon' => 'fas fa-synagogue',
+                //     'route'  => 'admin.secretary.temple.index',
+                //     'can'=>'admin.secretary.temple',
 
-                ],
+                // ],
                 ['header' => 'OPCIONES DE PANEL'],
                 [
                     'text' => 'Equipo',
