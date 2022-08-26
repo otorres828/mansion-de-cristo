@@ -1,5 +1,4 @@
 <x-guest-layout>
- 
     @include('components.aminblog.navigation')
     <div class="image">
         <x-jet-authentication-card>
@@ -65,5 +64,4 @@
             </form>
         </x-jet-authentication-card>
     </div>
-
 </x-guest-layout>
