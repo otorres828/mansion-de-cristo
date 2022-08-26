@@ -6,26 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTemplesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('temples', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('temples');

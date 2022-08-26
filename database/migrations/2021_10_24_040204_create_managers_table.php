@@ -22,6 +22,7 @@ class CreateManagersTable extends Migration
             $table->foreign('temple_id')->references('id')->on('temples')->onDelete('CASCADE');
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('CASCADE');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
+            
         });
     }
 

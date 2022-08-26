@@ -17,8 +17,8 @@ class HelperController extends Controller
 
     public function store()
     {
-        $manager = Manager::find(request('id'));
-        $manager->update([
+        $encargado = Manager::find(request('id_red'));
+        $encargado->update([
             'user_id'=>request('manager')
         ]);
         return redirect()->route('admin.secretary.group.index')->with('info','Encargado asignado con exito');

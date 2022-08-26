@@ -16,6 +16,6 @@ Route::resource('iglesias', TempleController::class)->except('show')->middleware
 Route::get('redes/encargado',  [HelperController::class,'manager'])->name('admin.helper');
 Route::post('redes/encargado/',  [HelperController::class,'store'])->name('admin.helper.loadin');
 Route::post('usuarios/equipo/{id}',  [HelperController::class,'team'])->name('user.team');
-Route::post('redes/equipo/{id}',  [HelperController::class,'group'])->name('group.team');
+Route::get('redes/equipo/{id}',  [HelperController::class,'group'])->name('group.team');
 Route::resource('finanzas', FinanceUserController::class)->except('show','create')->names('admin.secretary.finance.user');
 Route::resource('registrar/usuario', FinanceUserController::class)->except('store')->names('admin.register');

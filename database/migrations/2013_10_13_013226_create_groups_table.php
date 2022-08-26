@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateGroupsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('groups', function (Blueprint $table) {
@@ -19,8 +15,6 @@ class CreateGroupsTable extends Migration
             $table->unsignedBigInteger('temple_id');
 
             $table->foreign('temple_id')->references('id')->on('temples')->onDelete('CASCADE');
-
-            $table->timestamps();
         });
     }
     

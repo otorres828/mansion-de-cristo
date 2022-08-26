@@ -19,6 +19,5 @@ class Manager extends Component
 
     public function updatedSelectedManager($id){
         $this->users = User::where('group_id',$id)->get();  
-     
     }
 }
