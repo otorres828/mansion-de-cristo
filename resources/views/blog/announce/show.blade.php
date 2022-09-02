@@ -75,64 +75,38 @@
                 style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
         </div>
 
-        <div class=" text-center pt-10 md:pt-10 container mx-auto">
-            <p class=" md:text-2xl text-green-500 font-bold">{{ $anuncio->created_at->toFormattedDateString() }}</p>
-            <h1 class="font-bold break-normal text-3xl md:text-5xl">{{ $anuncio->name }}</h1>
-            <input value="{{ $anuncio->name }}" id="titulo" hidden>
-
-        </div>
-
-        {{-- FOTO LG --}}
-        <div class="hidden md:block max-w-6xl mx-auto bg-cover mt-8 rounded"
-            style="background-image:url('@if ($anuncio->image) {{ imagenes_storage($anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif');min-height: 75vh;">
-        </div>
-
-        {{-- FOTO SM/MD --}}
-        <div class="md:hidden mx-auto container px-2 lg:px-8  mt-4 bg-cover ">
-            <img class="w-full h-96"
-                src="@if ($anuncio->image) {{ imagenes_storage($anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
-                alt="">
-            {{-- <img class="w-full h-96"
-                src="@if ($anuncio->image) {{ asset('storage/' . $anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
-                alt=""> --}}
-        </div>
-        {{-- CUERPO DE LA NOTICIA --}}
-        <div class="container max-w-5xl mx-auto md:-mt-32 pb-8">
-            <div class="mx-0 sm:mx-6">
-                <div class="bg-white w-full p-8 md:pt-24 md:px-24 text-xl md:text-2xl text-gray-800 leading-normal"
-                    style="font-family:Georgia,serif;">
-                    <!--Lead Para-->
-                    <p class="text-2xl md:text-3xl mb-5 text-justify ">
-                        👋 {{ $anuncio->extract }}
+        <div class="w-full sm:px-6 antialiased bg-white">
+            <div class="mx-auto max-w-8xl">
+                <div class="mx-auto sm:px-6 xl:max-w-5xl xl:px-0 mt-10">
+                    <p class="text-center font-bold my-5 text-indigo-500">
+                        {{ $anuncio->created_at->toFormattedDateString() }}
                     </p>
-                    <article class="prose md:prose-lg lg:prose-xl text-justify">
-                        {!! $anuncio->body !!}
-                    </article>
-
-                    {{-- <blockquote class="pt-4 border-l-4 border-green-500 italic my-8 pl-8 md:pl-12">{{ $anuncio->extract }}
-                    </blockquote> --}}
-
-                </div>
-
-                {{-- SUSCRIPCION --}}
-                {{-- @livewire('blog.suscripcion') --}}
-
-                <div class="pb-8 flex w-full items-center font-sans px-8 md:px-24">
-                    <img class="w-10 h-10 rounded-full mr-4"
-                        src="@if ($anuncio->image) {{ imagenes_storage($anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
-                        alt="Avatar of Author">
-                    <div class="flex-1">
-                        <p class="text-base font-bold md:text-xl lg:text-3xl leading-none">VER MAS NOTICIAS</p>
-                        <p class="text-gray-600 text-xs md:text-base">Si necesitas, no dudes en contactarnos a <a
-                                class="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500"
-                                href="{{ route('landding.index') }}">olivertorres1997@gmail.com.com</a></p>
+                    <h1 class="mx-4 sm:mx-0 text-4xl text-gray-700 font-bold mb-5 text-center">
+                        {{ $anuncio->name }}
+                    </h1>
+                    <div class="flex items-center font-medium sm:mx-4 justify-center"><img
+                            src="{{ asset('images/icons/icon-152x152.png') }}" alt="" loading="lazy"
+                            class="mr-3 w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800">
+                        <div>
+                            <div class="text-slate-500 dark:text-slate-200">
+                                Mansion De Cristo
+                            </div> <a target="_blank" href="https://www.instagram.com/mansiondecristo/"
+                                class="text-sky-500 hover:text-sky-600 dark:text-sky-400">
+                                @mansiondecristo
+                            </a>
+                        </div>
                     </div>
-                    <div class="justify-end">
-                        <a href="{{ route('blog.announces') }}"
-                            class="bg-transparent border border-gray-500 hover:border-green-500 text-xs text-gray-500 hover:text-green-500 font-bold py-2 px-4 rounded-full">Leer
-                            Mas</a>
-                    </div>
+                    @isset($anuncio->image)
+                        <img id="picture " src="{{imagenes_storage($anuncio->image->url)}}" alt=""
+                            class="mx-auto w-4/5 mt-6 rounded-md drop-shadow-sm">
+                    @else
+                        <img src="https://images.unsplash.com/photo-1648737966614-55e58b5e3caf?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1472&amp;q=80"
+                            class="mx-auto w-4/5 mt-6 rounded-md drop-shadow-sm">
+                    @endisset
+
+    
                 </div>
+    
             </div>
         </div>
 
