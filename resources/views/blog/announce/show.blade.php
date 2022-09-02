@@ -103,7 +103,20 @@
                         <img src="https://images.unsplash.com/photo-1648737966614-55e58b5e3caf?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1472&amp;q=80"
                             class="mx-auto w-4/5 mt-6 rounded-md drop-shadow-sm">
                     @endisset
-
+                    <div class="container max-w-5xl mx-auto py-8">
+                        <div class="mx-6">
+                            <div class="lg:px-28 text-xl md:text-2xl text-gray-800 leading-normal">
+                                <div class="prose md:prose-lg lg:prose-xl text-justify">
+                                    <div class="mb-5 font-semibold">
+                                        {!! $anuncio->extract !!}
+                                    </div>
+                                    {!! $anuncio->body !!}
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
     
                 </div>
     
