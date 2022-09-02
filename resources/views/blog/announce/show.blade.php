@@ -127,7 +127,6 @@
                 </x-aminblog.slide>
             </div>
         </div>
-
     </div>
     <br><br>
 @endsection
