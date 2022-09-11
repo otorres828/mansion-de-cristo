@@ -9,8 +9,7 @@
 @section('content')
     <x-aminblog.alert />
     <div class="mb-3">
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#register"
-            data-bs-whatever="@mdo">Agregar Categoria</button>
+        <button type="button" class="btn btn-success"onclick="modalCrear()">Agregar Categoria</button>
     </div>
 
     <div class="modal fade" id="register" tabindex="-1" aria-labelledby="register" aria-hidden="true">
@@ -157,4 +156,27 @@
         });
         });
     </script>
+
+    
+<script type="text/javascript">
+    function modalCrear() {
+        Swal.fire({
+                        title: 'Crear Categoria',
+                        html: ' {!! Form::open(['route' => 'admin.blog.category.store', 'autocomplete' => 'off']) !!}<div class="form-group">{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre Categoria']) !!}</div><div class="d-flex justify-content-end align-items-baseline">{!! Form::submit('Crear', ['class' => 'btn btn-success w-full botoncrear']) !!}</div> {!! Form::close() !!}',
+                        showCloseButton: true,
+                        showCancelButton: false,
+                        showConfirmButton: false,
+                        returnFocus: false,
+                    })
+
+        let botoncrear = document.querySelector('.botoncrear');
+   // Prevenir doble clic en mi boton
+   botoncrear.addEventListener('click', function (e) {
+        e.preventDefault();
+        botoncrear.disabled = true;
+        botoncrear.innerHTML = 'Creando...';
+        botoncrear.form.submit();
+    });
+                }
+</script>
 @stop
