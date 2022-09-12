@@ -12,34 +12,8 @@
         <button type="button" class="btn btn-success"onclick="modalCrear()">Agregar Categoria</button>
     </div>
 
-    <div class="modal fade" id="register" tabindex="-1" aria-labelledby="register" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Registrar una nueva categoria</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    {!! Form::open(['route' => 'admin.blog.category.store', 'autocomplete' => 'off']) !!}
-                    <div class="form-group">
-                        {!! Form::label('name', 'NOMBRE DE LA CATEGORIA') !!}
-                        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre Categoria']) !!}
-                    </div>
-                    <div class="d-flex justify-content-end align-items-baseline">
-                        {!! Form::submit('Crear', ['class' => 'btn btn-success']) !!}
-                        <button type="button" class="ml-1 btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                    {!! Form::close() !!}
-
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="px-3">
-        @error('name')
-            <span class="text-danger">{{ $message }}</span>
-        @enderror
+
         <div class="table-responsive">
             <table class="table table-flush" id="example">
                 <thead>
@@ -158,25 +132,40 @@
     </script>
 
     
-<script type="text/javascript">
-    function modalCrear() {
-        Swal.fire({
-                        title: 'Crear Categoria',
-                        html: ' {!! Form::open(['route' => 'admin.blog.category.store', 'autocomplete' => 'off']) !!}<div class="form-group">{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre Categoria']) !!}</div><div class="d-flex justify-content-end align-items-baseline">{!! Form::submit('Crear', ['class' => 'btn btn-success w-full botoncrear']) !!}</div> {!! Form::close() !!}',
-                        showCloseButton: true,
-                        showCancelButton: false,
-                        showConfirmButton: false,
-                        returnFocus: false,
-                    })
+    <script type="text/javascript">
+        function modalCrear() {
+            Swal.fire({
+                            title: 'Crear Categoria',
+                            html: ' {!! Form::open(['route' => 'admin.blog.category.store', 'autocomplete' => 'off']) !!}<div class="form-group">{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre Categoria']) !!}</div><div class="d-flex justify-content-end align-items-baseline">{!! Form::submit('Crear', ['class' => 'btn btn-success w-full botoncrear']) !!}</div> {!! Form::close() !!}',
+                            showCloseButton: true,
+                            showCancelButton: false,
+                            showConfirmButton: false,
+                            returnFocus: false,
+                        })
 
-        let botoncrear = document.querySelector('.botoncrear');
-   // Prevenir doble clic en mi boton
-   botoncrear.addEventListener('click', function (e) {
-        e.preventDefault();
-        botoncrear.disabled = true;
-        botoncrear.innerHTML = 'Creando...';
-        botoncrear.form.submit();
-    });
-                }
-</script>
+            let botoncrear = document.querySelector('.botoncrear');
+        // Prevenir doble clic en mi boton
+        botoncrear.addEventListener('click', function (e) {
+                e.preventDefault();
+                botoncrear.disabled = true;
+                botoncrear.innerHTML = 'Creando...';
+                botoncrear.form.submit();
+            });
+                    
+        }
+    </script>
+
+    @error('name')
+    <script>
+        Swal.fire({
+                    title: '{{ $message }}',
+                    icon: 'error',
+                    showCloseButton: true,
+                    showCancelButton: false,
+                    focusConfirm: true,
+                    confirmButtonText: 'Aceptar'
+                });
+            
+    </script>
+    @enderror
 @stop
