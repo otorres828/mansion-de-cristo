@@ -15,6 +15,12 @@ class AnnouncePolicy
         foreach($roles as $rol)
             if($user->id == $anuncio->user_id || $rol=='Admin Blog'||  $rol=='Master' || $rol=='Aprobar Publicaciones')
                 return true; 
+
+            if($user)
+                if($user->id== $anuncio->user_id)
+                    return true;
+            else 
+                return false;  
         return false;
     }
 
