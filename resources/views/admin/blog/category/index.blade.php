@@ -9,7 +9,7 @@
 @section('content')
     <x-aminblog.alert />
     <div class="mb-3">
-        <button type="button" class="btn btn-success"onclick="modalCrear()">Agregar Categoria</button>
+        <button type="button" class="btn btn-success" onclick="modalCrear()">Agregar Categoria</button>
     </div>
 
     <div class="px-3">
@@ -58,8 +58,9 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="staticBackdropLabel">Editar Categoria</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
                                     </div>
                                     <div class="modal-body">
                                         {!! Form::model($category, ['route' => ['admin.blog.category.update', $category], 'autocomplete' => 'off', 'method' => 'put']) !!}
@@ -85,12 +86,6 @@
         </div>
     </div>
 @stop
-
-@section('css')
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-@stop
-
 
 @section('js')
     <script>

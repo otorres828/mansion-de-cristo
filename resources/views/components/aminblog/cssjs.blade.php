@@ -22,9 +22,7 @@
             $('.select2').select2();
         });
     </script>
-   <script>
   
-   </script>
     <script src="{{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}}"></script>
     <script>
         $(document).ready( function() {

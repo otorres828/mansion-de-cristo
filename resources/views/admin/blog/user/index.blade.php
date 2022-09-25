@@ -22,12 +22,14 @@
                     <h5 class="modal-title" id="staticBackdropLabel">Crear Usuario</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
-                    </button>                </div>
+                    </button>
+                </div>
                 <div class="modal-body">
                     <form method="POST" action="{{ route('admin.blog.user.store') }}">
                         @csrf
                         <div class="input-group mb-3">
-                            <input type="text" name="name" class="form-control" placeholder="Nombre Completo" required>
+                            <input type="text" name="name" class="form-control" placeholder="Nombre Completo"
+                                required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -35,7 +37,8 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="email" name="email" class="form-control" placeholder="Correo Electronico" required>
+                            <input type="email" name="email" class="form-control" placeholder="Correo Electronico"
+                                required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
@@ -43,8 +46,9 @@
                             </div>
                         </div>
                         <div class="alert alert-primary text-justify text-sm" role="alert">
-                            La clave por temporal del usuario sera "password", al loguearse debera confirmar su correo y posteriormente cambiarla.
-                          </div>
+                            La clave por temporal del usuario sera "password", al loguearse debera confirmar su correo y
+                            posteriormente cambiarla.
+                        </div>
                         <div class="text-right">
                             <button type="submit" class="btn btn-primary btn-block">Registrar Usuario</button>
                         </div>
@@ -88,7 +92,7 @@
                             <td>{{ $user->email }}</td>
                             <td class="w-full">
                                 <select class="form-select">
-                                    @isset ($user->roles) 
+                                    @isset($user->roles)
                                         @foreach ($user->roles as $rol)
                                             <option>{{ $rol->name }}</option>
                                         @endforeach
@@ -104,12 +108,11 @@
                                         Acciones
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <button class="dropdown-item cursor-pointer" 
-                                        data-toggle="modal" data-target="#editar{{ $user->id }}"
-                                        >Editar Roles</button>
+                                        <button class="dropdown-item cursor-pointer" data-toggle="modal"
+                                            data-target="#editar{{ $user->id }}">Editar Roles</button>
 
-                                        <form class="destroy mr-1"
-                                            action="{{ route('admin.blog.user.destroy', $user) }}" method="POST">
+                                        <form class="destroy mr-1" action="{{ route('admin.blog.user.destroy', $user) }}"
+                                            method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="dropdown-item" type="submit">
@@ -193,6 +196,6 @@
             })
         });
     </script>
- 
+
     <x-scrip-table-blog />
 @stop

@@ -14,9 +14,8 @@ class CelulaController extends Controller
     {
         $celulas = Celula::where('user_id', '=', auth()->user()->id)->get();
         $descendientes = User::find(auth()->user()->id)
-            ->descendants
+            ->descendantsAndSelf
             ->pluck('name', 'id');
-        $descendientes->prepend(auth()->user()->name, auth()->user()->id);
         return view('admin.secretary.celulas.mis_celulas', compact('celulas', 'descendientes'));
     }
 

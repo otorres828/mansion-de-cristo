@@ -83,7 +83,6 @@
 
 </div>
 
-
 <div class="form-group">
     {!! Form::label('extract', 'Breve Introduccion de la Enseñanza') !!}
     {!! Form::text('extract', null, ['class' => 'form-control']) !!}
