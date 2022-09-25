@@ -12,8 +12,12 @@ class CelulaController extends Controller
 
     public function index()
     {
-       return $celulas = Celula::where('user_id', '=', auth()->user()->id)->get();
-        return view ('admin.secretary.celulas.mis_celulas',compact('celulas'));
+        $celulas = Celula::where('user_id', '=', auth()->user()->id)->get();
+        $descendientes = User::find(auth()->user()->id)
+            ->descendants
+            ->pluck('name', 'id');
+        $descendientes->prepend(auth()->user()->name, auth()->user()->id);
+        return view('admin.secretary.celulas.mis_celulas', compact('celulas', 'descendientes'));
     }
 
 
@@ -25,29 +29,30 @@ class CelulaController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'nombre'=>'required',
-            'direccion' =>'required',
-            'datatime' =>'required',
-            'user_id' =>'required',
+        // return $request->all();
+        $validated = $request->validate([
+            'nombre' => 'required',
+            'direccion' => 'required',
+            'fecha_hora' => 'required',
+            'user_id' => 'required',
         ]);
 
         Celula::create($request->all());
-        return redirect()->route('celulas.index')->with('success','Celula creada con exito con exitosamente');
+        return redirect()->route('celulas.index')->with('success', 'Celula creada con exito con exitosamente');
     }
 
     public function show(Celula $celula)
     {
-        return view('admin.secreta.detalles_celula',compact('celula'));
+        return view('admin.secreta.detalles_celula', compact('celula'));
     }
 
-  
+
     public function edit($id)
     {
         //
     }
 
-   
+
     public function update(Request $request, $id)
     {
         //
@@ -59,15 +64,21 @@ class CelulaController extends Controller
         //
     }
 
-    public function mi_equipo(){
-        $celulas_equipo= User::find(auth()->user()->id)->recursiveCelulas;
-        return view ('admin.secretary.celulas.celulas_equipo',compact('celulas_equipo'));
-
+    public function mi_equipo()
+    {
+        $celulas_equipo = User::find(auth()->user()->id)->recursiveCelulas;
+        $celulas_equipo->filter(function ($celula, $index) {
+            return $celula->user_id != auth()->user()->id;
+        });
+        $descendientes = User::find(auth()->user()->id)
+            ->descendants
+            ->pluck('name', 'id');
+        return view('admin.secretary.celulas.celulas_equipo', compact('celulas_equipo', 'descendientes'));
     }
 
-    public function miembro($id){
-        $celulas_miembro= User::find($id)->recursiveCelulas;
-        return view ('admin.secretary.celulas.miembro',compact('celulas_miembro'));
-
+    public function miembro($id)
+    {
+        $celulas_miembro = User::find($id)->recursiveCelulas;
+        return view('admin.secretary.celulas.miembro', compact('celulas_miembro'));
     }
 }
