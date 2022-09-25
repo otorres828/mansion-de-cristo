@@ -278,22 +278,16 @@ return [
                 [
                     'text' => 'Celulas',
                     'icon' => 'fas fa-users fa-fw',
-                    'url'  => 'admin.blog.category.index',
                     'submenu' => [
-                        [
-                            'text' => 'Crear Celula',
-                            'url'  => 'admin.secretary.user.index',
-                            'icon' => 'fas fa-users fa-fw',
-                        ],
                         [
                             'text' => 'Mis Celulas',
                             'icon' => 'fab fa-fw fa-buffer',
-                            'url'  => 'admin.blog.category.index',
+                            'route'  => 'celulas.index',
                         ],  
                         [
                             'text' => 'Celulas de mi Equipo',
                             'icon' => 'fab fa-fw fa-buffer',
-                            'url'  => 'admin.blog.category.index',
+                            'route'  => 'celulas_equipo',
                         ],                    
                     ],
 

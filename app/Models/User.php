@@ -27,7 +27,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public $timestamps = false;
 
     //RELACION PARA TRAER LAS CELULAS DE LOS HIJOS
-    public function recursivePosts()
+    public function recursiveCelulas()
     {
         return $this->hasManyOfDescendantsAndSelf(Celula::class);
     }

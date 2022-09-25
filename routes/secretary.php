@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Secretary\BannedController;
+use App\Http\Controllers\Admin\Secretary\CelulaController;
 use App\Http\Controllers\Admin\secretary\FinanceUserController;
 use App\Http\Controllers\Admin\secretary\GroupController;
 use App\Http\Controllers\Admin\secretary\HelperController;
@@ -19,3 +20,7 @@ Route::post('usuarios/equipo/{id}',  [HelperController::class,'team'])->name('us
 Route::get('redes/equipo/{id}',  [HelperController::class,'group'])->name('group.team');
 Route::resource('finanzas', FinanceUserController::class)->except('show','create')->names('admin.secretary.finance.user');
 Route::resource('registrar/usuario', FinanceUserController::class)->except('store')->names('admin.register');
+
+Route::resource('mis-celulas', CelulaController::class)->names('celulas');
+Route::get('celulas/equipo',[CelulaController::class,'mi_equipo'])->name('celulas_equipo');
+Route::get('celulas/equipo/{id}',[CelulaController::class,'celula_miembro'])->name('celula_miembro');
