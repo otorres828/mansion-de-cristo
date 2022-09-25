@@ -324,7 +324,7 @@ return [
                 [
                     'text' => 'Crecimiento',
                     'icon' => 'fab fa-fw fa-buffer',
-                    'url'  => 'admin.blog.category.index',
+                    'route'  => 'crecimiento.index',
                 ],
             ],
 
