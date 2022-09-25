@@ -33,14 +33,14 @@ class UserSeeder extends Seeder
         //     'password' => bcrypt('26269828'),
         //     'email_verified_at' =>'2022-05-21 07:02:22'
         // ])->assignRole('Master');
-        // User::create([
-        //     'name' => 'Jesus Alfonzo',
-        //     'email' => 'jesusalfonzo97@gmail.com',
-        //     'temple_id' => Temple::first()->id,
-        //     'group_id' => Group::all()->random()->id,
-        //     'hierarchy_id' => Hierarchy::first()->id,
-        //     'password' => bcrypt('123456')
-        // ])->assignRole('Master');
+        User::create([
+            'name' => 'Jesus Alfonzo',
+            'email' => 'jesusalfonzo97@gmail.com',
+            'temple_id' => Temple::first()->id,
+            'group_id' => Group::all()->random()->id,
+            'hierarchy_id' => Hierarchy::first()->id,
+            'password' => bcrypt('123456')
+        ])->assignRole('Master');
         // User::create([
         //     'name' => 'Carmen Arenas',
         //     'email' => 'arenasduque.ca@gmail.com',
