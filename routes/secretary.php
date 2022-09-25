@@ -23,4 +23,4 @@ Route::resource('registrar/usuario', FinanceUserController::class)->except('stor
 
 Route::resource('mis-celulas', CelulaController::class)->names('celulas');
 Route::get('celulas/equipo',[CelulaController::class,'mi_equipo'])->name('celulas_equipo');
-Route::get('celulas/equipo/{id}',[CelulaController::class,'celula_miembro'])->name('celula_miembro');
+Route::get('celulas/equipo/{id}',[CelulaController::class,'miembro'])->name('celula_miembro');
