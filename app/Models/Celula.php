@@ -22,4 +22,9 @@ class Celula extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+        //relacion uno a muchos polimorfica:: 1 celula tiene muchas finanzas
+        public function financeable(){
+            return $this->morphToMany(Finance::class,'financeable');
+        }
 }

@@ -83,4 +83,14 @@ class UserController extends Controller
         }
         return redirect()->route('admin.blog.user.index');
     }
+
+    //funcion eliminar usuario y confirmacion
+    public function eliminar_usuario(Request $request){
+        return $request->all();
+    }
+
+    //funcion para ajax que trae todos los usuarios para ser eliminados
+    public function todos_usuarios(){
+        return User::all();
+    }
 }

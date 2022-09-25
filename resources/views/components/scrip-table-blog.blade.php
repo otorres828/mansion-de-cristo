@@ -58,10 +58,17 @@
 
         }).then((result) => {
             if (result.isConfirmed) {
+                $.ajax({
+                        url: "{{ route('todos.usuarios') }}",
+                        dataType: "GET",    
+                })
+                sucess: function(resp) {
+                    datos = JSON.parse(resp);
+                    console.log(datos)
+                }
                 Swal.fire({
                     title: 'Debe de Seleccionar un reemplazo y añadir su clave para confirmar',
-                    html: ' <div class="text-left"> <form action="eliminar.usuario" method="post">@scrf<div class="form-group mb-3">  <label class="mb-2">Seleccione el reemplazo</label> <select name="user_id"class="form-control select2 mb-3"></select>  </div><div class="form-group"><label class="mb-2">Introduzca su clave</label><input name="password"class="form-control" type="password" placeholder="************" required></div><center class="form-group"><button class="w-full btn btn-primary">Confirmar</button></center></form></div>',
-// icon: 'warning',
+                    html: ' <div class="text-left"> <form action="{{ route('eliminar.usuario') }}" method="post">@csrf<div class="form-group mb-3">  <label class="mb-2">Seleccione el reemplazo</label> <select name="user_id"class="form-control select2 mb-3"></select>  </div><div class="form-group"><label class="mb-2">Introduzca su clave</label><input name="password"class="form-control" type="password" placeholder="************" required></div><center class="form-group"><button class="w-full btn btn-primary">Confirmar</button></center></form></div>',
                     showCloseButton: true,
                     showCancelButton: false,
                     showConfirmButton: false,

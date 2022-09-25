@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\secretary\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource('usuarios', UserController::class)->except('show', 'create', 'edit')->names('admin.secretary.user');
+Route::post('eliminar-usuario',[UserController::class, 'eliminar_usuario'])->name('eliminar.usuario');
+Route::post('todos-usuarios',[UserController::class, 'todos_usuarios'])->name('todos.usuarios');
 Route::resource('jerarquias', HierarchyController::class)->except('show', 'create', 'edit')->middleware('can:admin.secretary.admin')->names('admin.secretary.hierarchy');
 Route::resource('redes', GroupController::class)->except('show', 'create', 'edit')->middleware('can:admin.secretary.admin')->names('admin.secretary.group');
 Route::resource('iglesias', TempleController::class)->except('show')->middleware('can:admin.secretary.temple')->names('admin.secretary.temple');
