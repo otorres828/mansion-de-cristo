@@ -58,7 +58,7 @@
                                 <td>{{ $user->group->name }}</td>
                             @endif
                             <td>
-                               @include('admin.partiels.drowdown')
+                                @include('admin.partiels.drowdown')
                             </td>
 
                             <div class="modal fade" id="edit{{ $user->id }}" tabindex="-1"
@@ -111,14 +111,36 @@
     </div>
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css">
-@stop
-
 @section('js')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
     <x-scrip-table-blog />
+
+    <script type="text/javascript">
+        function eliminar_usuario(id) {
+            Swal.fire({
+                title: '¿Estas Seguro?',
+                text: "que quieres eliminar esta Red!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Confirmar',
+                cancelButtonText: 'Cancelar'
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Seleccione el Usuario que sera su reemplazo',
+                        html: '<select ></select>',
+                        icon: 'warning',
+                        showCloseButton: true,
+                        showCancelButton: false,
+                        showConfirmButton: false,
+                        returnFocus: false,
+
+                    })
+                }
+            })
+
+        }
+    </script>
 @stop
