@@ -21,9 +21,9 @@ class Finance extends Model
         'financeable_type',
         'temple_id'
     ];
-    //relacion polimorfica
     public $timestamps = false;
 
+    //relacion polimorfica
     public function financeable()
     {
         return $this->morphTo();

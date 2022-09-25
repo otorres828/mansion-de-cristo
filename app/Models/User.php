@@ -14,7 +14,7 @@ use \Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    
+
     use HasRecursiveRelationships;
     use HasRoles;
     use HasApiTokens;
@@ -41,7 +41,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'hierarchy_id',
         'parent_id',
     ];
- 
+
     protected $hidden = [
         'password',
         'remember_token',
@@ -49,7 +49,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'two_factor_secret',
     ];
 
-  
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
@@ -60,53 +60,63 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     //relacion uno a muchos// 1 usuario puede terner varios anuncios
-    public function announce(){
+    public function announce()
+    {
         return $this->hasMany(Announce::class);
     }
 
     //relacion uno a muchos// 1 usuario puede terner varios anuncios
-    public function teaching(){
+    public function teaching()
+    {
         return $this->hasMany(Teaching::class);
     }
 
     //relacion uno a muchos// 1 usuario puede terner varios anuncios
-    public function ministry(){
+    public function ministry()
+    {
         return $this->hasMany(Ministry::class);
     }
 
     //relacion uno a muchos// 1 usuario puede terner varios anuncios
-    public function testimony(){
+    public function testimony()
+    {
         return $this->hasMany(Testimony::class);
     }
 
 
     //relacion uno a muchos// 1 usuario puede terner varios anuncios
-    public function user(){
+    public function user()
+    {
         return $this->hasMany(User::class);
     }
 
-    public function adminlte_profile_url(){
+    public function adminlte_profile_url()
+    {
         return route('profile.show');
     }
 
     //relacion uno a muchos inversa
-    public function temple(){
+    public function temple()
+    {
         return $this->belongsTo(Temple::class);
     }
 
     //relacion uno a muchos inversa
-    public function group(){
+    public function group()
+    {
         return $this->belongsTo(Group::class);
     }
 
     //relacion uno a muchos inversa::1 usuario tiene 1 jerarquia
-    public function hierarchy(){
+    public function hierarchy()
+    {
         return $this->belongsTo(Hierarchy::class);
     }
 
     //relacion uno a muchos polimorfica:: 1 usuario tiene muchas finanzas
-    public function financeable(){
-        return $this->morphToMany(Finance::class,'financeable');
+    public function finance()
+    {
+        return $this->morphMany(Finance::class, 'financeable');
     }
 
     public function getParentKeyName()
@@ -119,19 +129,21 @@ class User extends Authenticatable implements MustVerifyEmail
         return 'id';
     }
 
-    //relacion uno a uno 
-    public function manager(){
+    //relacion uno a uno
+    public function manager()
+    {
         return $this->hasOne(Manager::class);
     }
 
     //relacion uno a muchos// 1 usuario puede terner varios anuncios
-    public function note(){
+    public function note()
+    {
         return $this->hasMany(Note::class);
     }
 
     //relacion uno a muchos// 1 usuario puede terner varios CELULAS
-    public function celula(){
+    public function celula()
+    {
         return $this->hasMany(Celula::class);
     }
-
 }

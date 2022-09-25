@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Secretary;
 
 use App\Http\Controllers\Controller;
+use App\Models\Celula;
 use App\Models\Finance;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -63,7 +64,6 @@ class FinanceUserController extends Controller
 
     public function update(Request $request, $id)
     {
-        return $request->all();
         $finanza = Finance::find($id);
 
         $validated = $request->validate([
@@ -74,8 +74,6 @@ class FinanceUserController extends Controller
             'date' => 'required',
             'status' => 'required',
             'financeable_id' => 'required',
-            'financeable_type' => 'required',
-            'temple_id' => 'required'
         ]);
         $finanza->update($request->all());
         return redirect()->back()->with('info', 'Finanza actualizada con exito');
@@ -94,11 +92,11 @@ class FinanceUserController extends Controller
         $user = User::find(auth()->user()->id);
         $roles = $user->getRoleNames();
         if ($roles[0] == 'Master') {
-            $finances = Finance::where('temple_id', $user->temple_id)
-                ->where('financeable_type', User::class)->get();
+            $finances = Finance::with('financeable')
+                ->where('financeable_type', Celula::class)->get();
         } else {
             $finances = Finance::where('financeable_id', $user->id)
-                ->where('financeable_type', User::class)->get();
+                ->where('financeable_type', Celula::class)->get();
         }
         return view('admin.secretary.finance.celula.index', compact('finances',));
     }

@@ -9,6 +9,16 @@
 @section('content')
 <x-aminblog.alert />
 
+@if ($errors->any())
+
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <div class="mb-3">
     <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#register" data-bs-whatever="@mdo">Agregar
         Finanza</a>
@@ -18,6 +28,7 @@
         Verificadores</a>
 </div>
 
+{{-- Modal agregar --}}
 <div class="modal fade" id="register" tabindex="-1" aria-labelledby="register" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -150,7 +161,7 @@
                                                 {!! Form::hidden('financeable_id', auth()->user()->id) !!}
                                                 {!! Form::hidden('status', 1) !!}
 
-                                                {!! Form::hidden('templea_id', auth()->user()->temples_id) !!}
+                                                {!! Form::hidden('temple_id', auth()->user()->temples_id) !!}
                                                 <div class="form-group">
                                                     {!! Form::label('amount', 'Cantidad',) !!}
                                                     {!! Form::number('amount', $finance->amount,
@@ -250,7 +261,7 @@
                                     <div class="card-body">
                                         @csrf
                                         <div class="form-group">
-                                            <label class="">Usuario: {{$finance->financeable->name}}</label><br>
+                                            <label class="">Usuario: {{($finance->financeable->name)}}</label><br>
                                             <label class="">Cantidad: {{$finance->amount}}</label><br>
                                             <label class="">Referencia: {{$finance->reference}}</label><br>
                                             <label class="">Tipo de Finanza: {{$finance->type_finance}}</label><br>

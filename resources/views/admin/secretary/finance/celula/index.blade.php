@@ -249,7 +249,7 @@
                                     <div class="card-body">
                                         @csrf
                                         <div class="form-group">
-                                            <label class="">Usuario: {{$finance->financeable->name}}</label><br>
+                                            <label class="">Celula: {{($finance->financeable->nombre)}}</label><br>
                                             <label class="">Cantidad: {{$finance->amount}}</label><br>
                                             <label class="">Referencia: {{$finance->reference}}</label><br>
                                             <label class="">Tipo de Finanza: {{$finance->type_finance}}</label><br>
