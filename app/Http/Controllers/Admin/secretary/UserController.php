@@ -8,6 +8,7 @@ use App\Models\Hierarchy;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Laravel\Fortify\Rules\Password;
 
 class UserController extends Controller
@@ -86,11 +87,12 @@ class UserController extends Controller
 
     //funcion eliminar usuario y confirmacion
     public function eliminar_usuario(Request $request){
-        return $request->all();
+        $request->validate([
+            'password' => 'required'
+        ]);
+        if(Hash::check($request->password,auth()->user()->password)){           
+            DB::update('update users set parent_id ='.$request->parent_id.' where parent_id='.$request->id_usuario_eliminar);
+        }
     }
 
-    //funcion para ajax que trae todos los usuarios para ser eliminados
-    public function todos_usuarios(){
-        return User::all();
-    }
 }

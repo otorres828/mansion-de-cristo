@@ -14,7 +14,9 @@
         <a class="dropdown-item" href="#">Ver Crecimiento</a>
         <a class="dropdown-item" href="{{ route('celula_miembro',$user->id) }}">Ver Celulas</a>
         <a class="dropdown-item" href="#">Ver Detalles</a>
-        <a class="dropdown-item" style="cursor:pointer;" onclick="eliminar_usuario('{{ $user->id }}')">Eliminar</a>
-
+        
+        <a class="dropdown-item" data-bs-toggle="modal"href="#"
+        data-bs-target="#eliminar{{ $user->id }}" data-bs-whatever="@mdo">Eliminar
+        Registro</a>
     </div>
 </div>
