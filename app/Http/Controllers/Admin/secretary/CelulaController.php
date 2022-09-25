@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Secretary;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CelulaRequest;
 use App\Models\Celula;
+use App\Models\Celulas_usuario;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -40,9 +41,11 @@ class CelulaController extends Controller
         return redirect()->route('celulas.index')->with('success', 'Celula creada con exito con exitosamente');
     }
 
-    public function show(Celula $celula)
+    public function show($id)
     {
-        return view('admin.secreta.detalles_celula', compact('celula'));
+        $celula = Celula::find($id);
+        $celula_miembros = Celulas_usuario::where('celula_id', '=', $id)->get();
+        return view('admin.secretary.celulas.detalles_celula', compact('celula', 'celula_miembros'));
     }
 
 
@@ -89,8 +92,8 @@ class CelulaController extends Controller
 
     public function miembro($id)
     {
-        $user= User::find($id);
-        $celulas_miembro =$user->recursiveCelulas;
-        return view('admin.secretary.celulas.miembro', compact('celulas_miembro','user'));
+        $user = User::find($id);
+        $celulas_miembro = $user->recursiveCelulas;
+        return view('admin.secretary.celulas.miembro', compact('celulas_miembro', 'user'));
     }
 }
