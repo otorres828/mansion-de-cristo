@@ -63,13 +63,15 @@ class CelulaController extends Controller
             'user_id' => 'required',
         ]);
         $celula->update($request->all());
-        return redirect()->route('celulas.index')->with('info', 'Celula actualizada con exito');
+        return redirect()->back()->with('info', 'Celula actualizada con exito');
     }
 
 
-    public function destroy($id)
+    public function destroy($celula)
     {
-        //
+        $celula = Celula::find($celula);
+        $celula->delete();
+        return redirect()->back()->with('delete', 'La celula se elimino con exito');
     }
 
 
