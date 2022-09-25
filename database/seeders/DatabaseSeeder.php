@@ -5,9 +5,12 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\Celula;
 use App\Models\Contact;
+use App\Models\Crecimiento;
+use App\Models\Crecimiento_usuario;
 use App\Models\Group;
 use App\Models\Manager as ModelsManager;
 use App\Models\User;
+use Database\Factories\CrecimientoUsuarioFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
 
@@ -50,6 +53,8 @@ class DatabaseSeeder extends Seeder
         $this->call(TeachingSeeder::class);
         // $this->call(MinistrySeeder::class);
         // $this->call(TestimonySeeder::class);
-        Celula::factory(200)->create();        
+        Celula::factory(200)->create();
+        Crecimiento::factory(20)->create();
+        Crecimiento_usuario::factory(20)->create();
     }
 }

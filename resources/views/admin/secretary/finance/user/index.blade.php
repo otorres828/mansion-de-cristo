@@ -142,101 +142,7 @@
 
                         <a class="btn btn-primary mr-1" data-bs-toggle="modal" data-bs-target="#edit{{$finance->id}}"
                             data-bs-whatever="@mdo"><i class="far fa-edit"></i></a>
-                        <div class="modal fade" id="edit{{$finance->id}}" tabindex="-1"
-                            aria-labelledby="edit{{$finance->id}}" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel">Agregar una Finanza</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                {!!
-                                                Form::model($finance,['route'=>['admin.secretary.finance.user.update',$finance],'autocomplete'=>'off','method'=>'put'])
-                                                !!}
-                                                @csrf
-                                                {!! Form::hidden('financeable_id', auth()->user()->id) !!}
-                                                {!! Form::hidden('status', 1) !!}
 
-                                                {!! Form::hidden('temple_id', auth()->user()->temples_id) !!}
-                                                <div class="form-group">
-                                                    {!! Form::label('amount', 'Cantidad',) !!}
-                                                    {!! Form::number('amount', $finance->amount,
-                                                    ['class'=>'form-control','placeholder'=>'Ingrese la cantidad']) !!}
-                                                    @error('amount')
-                                                    <span class="text-danger">{{$message}}</span>
-                                                    @enderror
-                                                </div>
-
-                                                <div class="form-group">
-                                                    {!! Form::label('reference', 'Referencia',) !!}
-                                                    {!! Form::text('reference', $finance->reference,
-                                                    ['class'=>'form-control','placeholder'=>'Ingrese la referencia'])
-                                                    !!}
-                                                    @error('amount')
-                                                    <span class="text-danger">{{$message}}</span>
-                                                    @enderror
-                                                </div>
-                                                <div class="form-group">
-                                                    {!! Form::label(null, 'Metodo de Pago') !!}
-                                                    <select name="method_pay" class="form-control">
-                                                        <option value='Transferencia'>Transferencia</option>
-                                                        <option value='Bs efectivo'>Bs efectivo</option>
-                                                        <option value='Divisas'>Divisas</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    {!! Form::label(null, 'Tipo de Finanza') !!}
-                                                    <select name="type_finance" class="form-control">
-                                                        <option value='Diezmo'>Diezmo</option>
-                                                        <option value='Ofrenda'>Ofrenda</option>
-                                                        <option value='Pacto'>Pacto</option>
-                                                        <option value='Primicia'>Primicia</option>
-
-                                                    </select>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    {!! Form::label(null, 'Fecha') !!}
-                                                    {!! Form::date('date', null, ['class'=>'form-control']) !!}
-                                                    <x-jet-input-error for="date"></x-jet-input-error>
-                                                </div>
-                                                <div class="form-group">
-                                                    <p class="font-weight-bold">Estado</p>
-                                                    <label>
-                                                        {!! Form::radio('status', 1, true) !!}
-                                                        NO VERIFICADO
-                                                    </label>
-                                                    @can('topost')
-                                                    <label>
-                                                        {!! Form::radio('status', 2) !!}
-                                                        VERIFICADO
-                                                    </label>
-                                                    @endcan
-                                                </div>
-
-                                                <div class="mb-0">
-                                                    <div class="d-flex justify-content-end align-items-baseline">
-
-                                                        <button type="submit"
-                                                            class=" ml-1 btn btn-success">Editar</button>
-
-                                                        <button type="button" class=" ml-1 btn btn-danger"
-                                                            data-bs-dismiss="modal">Cerrar</button>
-                                                    </div>
-                                                </div>
-
-                                                {!! Form::close() !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <form class="destroy" action="{{route('admin.secretary.finance.user.destroy',$finance)}}"
                             method="POST">
@@ -246,7 +152,7 @@
                         </form>
                     </td>
                 </tr>
-
+                {{-- Modal de ver --}}
                 <div class="modal fade" id="ver{{$finance->id}}" tabindex="-1" aria-labelledby="register"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -276,6 +182,102 @@
                         </div>
                     </div>
                 </div>
+                {{-- Modal editar --}}
+                <div class="modal fade" id="edit{{$finance->id}}" tabindex="-1" aria-labelledby="edit{{$finance->id}}"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Agregar una Finanza</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card">
+                                    <div class="card-body">
+                                        {!!
+                                        Form::model($finance,['route'=>['admin.secretary.finance.user.update',$finance],'autocomplete'=>'off','method'=>'put'])
+                                        !!}
+                                        @csrf
+                                        {!! Form::hidden('financeable_id', auth()->user()->id) !!}
+                                        {!! Form::hidden('status', 1) !!}
+
+                                        {!! Form::hidden('temple_id', auth()->user()->temples_id) !!}
+                                        <div class="form-group">
+                                            {!! Form::label('amount', 'Cantidad',) !!}
+                                            {!! Form::number('amount', $finance->amount,
+                                            ['class'=>'form-control','placeholder'=>'Ingrese la cantidad']) !!}
+                                            @error('amount')
+                                            <span class="text-danger">{{$message}}</span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group">
+                                            {!! Form::label('reference', 'Referencia',) !!}
+                                            {!! Form::text('reference', $finance->reference,
+                                            ['class'=>'form-control','placeholder'=>'Ingrese la referencia'])
+                                            !!}
+                                            @error('amount')
+                                            <span class="text-danger">{{$message}}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            {!! Form::label(null, 'Metodo de Pago') !!}
+                                            <select name="method_pay" class="form-control">
+                                                <option value='Transferencia'>Transferencia</option>
+                                                <option value='Bs efectivo'>Bs efectivo</option>
+                                                <option value='Divisas'>Divisas</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            {!! Form::label(null, 'Tipo de Finanza') !!}
+                                            <select name="type_finance" class="form-control">
+                                                <option value='Diezmo'>Diezmo</option>
+                                                <option value='Ofrenda'>Ofrenda</option>
+                                                <option value='Pacto'>Pacto</option>
+                                                <option value='Primicia'>Primicia</option>
+
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            {!! Form::label(null, 'Fecha') !!}
+                                            {!! Form::date('date', null, ['class'=>'form-control']) !!}
+                                            <x-jet-input-error for="date"></x-jet-input-error>
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="font-weight-bold">Estado</p>
+                                            <label>
+                                                {!! Form::radio('status', 1, true) !!}
+                                                NO VERIFICADO
+                                            </label>
+                                            @can('topost')
+                                            <label>
+                                                {!! Form::radio('status', 2) !!}
+                                                VERIFICADO
+                                            </label>
+                                            @endcan
+                                        </div>
+
+                                        <div class="mb-0">
+                                            <div class="d-flex justify-content-end align-items-baseline">
+
+                                                <button type="submit" class=" ml-1 btn btn-success">Editar</button>
+
+                                                <button type="button" class=" ml-1 btn btn-danger"
+                                                    data-bs-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </div>
+
+                                        {!! Form::close() !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 @endforeach
             </tbody>
         </table>

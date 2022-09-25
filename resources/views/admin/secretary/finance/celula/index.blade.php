@@ -113,6 +113,7 @@
         <table class="table table-striped " id="example">
             <thead>
                 <th>#id</th>
+                <th>Celula</th>
                 <th>Cantidad</th>
                 <th scope="col">Fecha</th>
                 <th scope="col" class="">Estatus</th>
@@ -122,6 +123,7 @@
                 @foreach ($finances as $finance)
                 <tr>
                     <td>{{$finance->id}}</td>
+                    <td>{{$finance->financeable->nombre}}</td>
                     <td>{{$finance->amount}}</td>
                     <td>{{$finance->date}}</td>
                     <td class="">@if ($finance->status==1) <button class="btn btn-danger">X</button> @else <button
