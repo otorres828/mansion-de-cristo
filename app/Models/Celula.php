@@ -9,12 +9,17 @@ class Celula extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $guarded =['id'];
-
+    protected $guarded = ['id'];
+    protected $fillable = [
+        'nombre',
+        'direccion',
+        'fecha_hora',
+        'user_id',
+    ];
 
     //relacion uno a muchos inversa
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-
 }

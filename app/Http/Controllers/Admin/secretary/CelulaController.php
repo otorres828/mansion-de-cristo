@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Secretary;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CelulaRequest;
 use App\Models\Celula;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,7 +29,6 @@ class CelulaController extends Controller
 
     public function store(Request $request)
     {
-        // return $request->all();
         $validated = $request->validate([
             'nombre' => 'required',
             'direccion' => 'required',
@@ -54,7 +54,16 @@ class CelulaController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $celula = Celula::find($id);
+
+        $validated = $request->validate([
+            'nombre' => 'required',
+            'direccion' => 'required',
+            'fecha_hora' => 'required',
+            'user_id' => 'required',
+        ]);
+        $celula->update($request->all());
+        return redirect()->route('celulas.index')->with('info', 'Celula actualizada con exito');
     }
 
 
