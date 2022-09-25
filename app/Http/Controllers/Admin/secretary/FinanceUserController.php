@@ -24,8 +24,6 @@ class FinanceUserController extends Controller
         return view('admin.secretary.finance.user.index', compact('finances',));
     }
 
-
-
     public function store(Request $request)
     {
         $request->validate([
@@ -47,18 +45,6 @@ class FinanceUserController extends Controller
         ]);
 
         return redirect()->route('admin.secretary.finance.user.index')->with('info', 'la finanza se creo con exito');
-    }
-
-
-    public function show($id)
-    {
-        //
-    }
-
-
-    public function edit($id)
-    {
-        //
     }
 
 
@@ -99,5 +85,18 @@ class FinanceUserController extends Controller
                 ->where('financeable_type', Celula::class)->get();
         }
         return view('admin.secretary.finance.celula.index', compact('finances',));
+    }
+
+    //listar todos los administradores de las finanzas dela iglesia
+    public function administrar_finanzas_index(){
+        $usuarios = User::permission('finanzas')->get();
+        return view ('admin.secretary.finance.administrar', compact('usuarios'));
+    }
+
+    //eliminar administrador de las finanzas de la iglesia
+    public function administrar_finanzas_eliminar($id){
+        $usuario=User::find($id);
+        $usuario->revokePermissionTo('finanzas');
+        return redirect()->back()->with('success', 'Administrador eliminado con exito');
     }
 }

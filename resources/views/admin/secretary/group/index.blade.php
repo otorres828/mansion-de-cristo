@@ -63,8 +63,7 @@
                                 <button type="button" class="ml-1 btn btn-danger mt-3"
                                     data-bs-dismiss="modal">Cerrar</button>
                             </div>
-                            {!! Form::close() !!}
-                       
+                            {!! Form::close() !!}  
                 </div>
             </div>
         </div>

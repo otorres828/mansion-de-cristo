@@ -264,6 +264,11 @@ return [
                     'can' => 'admin.secretary.admin',
 
                 ],
+                [
+                'text' => 'Finanzas',
+                'icon' => 'fas fa-hand-holding-usd',
+                'route'  => 'administrar.finanzas',
+                'can' => 'administrar.roles.finanzas'],
                 // [
                 //     'text' => 'Otras Iglesias',
                 //     'icon' => 'fas fa-synagogue',
