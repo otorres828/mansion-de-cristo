@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Celula;
 use App\Models\Contact;
 use App\Models\Group;
 use App\Models\Manager as ModelsManager;
@@ -49,6 +50,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TeachingSeeder::class);
         // $this->call(MinistrySeeder::class);
         // $this->call(TestimonySeeder::class);
-        
+        Celula::factory(200)->create();        
     }
 }

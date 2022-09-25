@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('celulas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('direccion');
+            $table->text('direccion');
             $table->dateTime('fecha_hora');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');

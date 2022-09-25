@@ -12,7 +12,7 @@ class CelulaController extends Controller
 
     public function index()
     {
-        $celulas = Celula::where('user_id', '=', auth()->user()->id)->get();
+       return $celulas = Celula::where('user_id', '=', auth()->user()->id)->get();
         return view ('admin.secretary.celulas.mis_celulas',compact('celulas'));
     }
 
