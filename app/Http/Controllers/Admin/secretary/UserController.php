@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-<<<<<<< HEAD
+
         $request->validate([
             'parent_id'=>'required',
             'hierarchy_id'=>'required',
@@ -29,9 +29,7 @@ class UserController extends Controller
         ]);
 
         $user=User::create([
-=======
-        $user = User::create([
->>>>>>> 112b94aacad702aaff66dc5aa17350b81721edeb
+
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
@@ -40,16 +38,11 @@ class UserController extends Controller
             'hierarchy_id' => $request['hierarchy_id'],
             'parent_id' => $request['parent_id'],
         ]);
-<<<<<<< HEAD
         $nivel = Hierarchy::all()->count(); 
   
-        if($request['temple_id']==1 && $request['hierarchy_id']<$nivel-1)
-=======
-        $nivel = Hierarchy::all()->count();
-
         if ($request['temple_id'] == 1 && $request['hierarchy_id'] < $nivel)
->>>>>>> 112b94aacad702aaff66dc5aa17350b81721edeb
             $user->assignRole('Enseñanzas');
+
         // $request->validate( [
         //     'name' => ['required', 'string', 'max:255'],
         //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -63,15 +56,10 @@ class UserController extends Controller
         // ]);
         return redirect()->route('admin.secretary.user.index')->with('info', 'Usuario Registrado con exito');
     }
-<<<<<<< HEAD
     
-  
-    public function update(Request $request, User $usuario)
-=======
 
 
     public function update(UserRequest $request, User $usuario)
->>>>>>> 112b94aacad702aaff66dc5aa17350b81721edeb
     {
         $request->validate([
             'name' =>'required',
