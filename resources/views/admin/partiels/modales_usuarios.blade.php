@@ -54,7 +54,7 @@
                 <h5>Debe de Seleccionar un reemplazo y añadir su clave para confirmar</h5>
                 <form action="{{ route('eliminar.usuario') }}" method="post">
                     @csrf
-                    <input type="hidden" id="id_usuario_eliminar"value="{{ $user->id }}">
+                    <input type="hidden" name="id_usuario_eliminar"value="{{ $user->id }}">
                     <div class="form-group mb-3">
                         <label class="mb-2">Seleccione el reemplazo</label>
                         <select name="parent_id" class="form-control select2 mb-3">

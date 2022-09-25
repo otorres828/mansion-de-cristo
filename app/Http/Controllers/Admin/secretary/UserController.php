@@ -91,8 +91,12 @@ class UserController extends Controller
             'password' => 'required'
         ]);
         if(Hash::check($request->password,auth()->user()->password)){           
-            DB::update('update users set parent_id ='.$request->parent_id.' where parent_id='.$request->id_usuario_eliminar);
-        }
-    }
+            DB::update('update users set parent_id='.$request->parent_id.' where parent_id='.$request->id_usuario_eliminar);
+            User::find($request->id_usuario_eliminar)->delete();
+            return redirect()->back()->with('info','Usuario eliminado con exito, todos sus hijos directos tienen un nuevo padre');
 
+        }
+        
+        return redirect()->back()->with('delete','Clave incorrecta, no se puede eliminar');
+    }
 }
