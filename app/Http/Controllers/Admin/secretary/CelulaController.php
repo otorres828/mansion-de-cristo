@@ -67,9 +67,11 @@ class CelulaController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy($celula)
     {
-        //
+        $celula = Celula::find($celula);
+        $celula->delete();
+        return redirect()->route('celulas.index')->with('delete', 'La celula se elimino con exito');
     }
 
 

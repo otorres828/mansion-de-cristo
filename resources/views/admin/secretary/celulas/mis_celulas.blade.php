@@ -86,10 +86,14 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal">Editar
-                                    Registro</a>
+                                </a>
                                 {{-- <a class="dropdown-item" href="{{ route('user.team', $celula) }}">Ver Equipo</a>
                                 --}}
-                                <a class="dropdown-item" href="#">Ver Detalles</a>
+                                <form class="destroy" action="{{ route('celulas.destroy', $celula) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="dropdown-item">Eliminar</button>
+                                </form>
 
                             </div>
                         </div>
