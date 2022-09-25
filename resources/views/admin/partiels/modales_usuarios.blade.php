@@ -5,20 +5,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Editar Acceso</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+                <button type="button" class="close" data-bs-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>            </div>
             <div class="modal-body">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="{{ route('admin.secretary.user.update', $user) }}" method="post"
-                            autocomplete="off">
-                            @csrf
-                            @method('put')
-                            @include('admin.partiels.team')
-                        </form>
-                    </div>
-
-                </div>
+                <form action="{{ route('admin.secretary.user.update', $user) }}" method="post" autocomplete="off">
+                    @csrf
+                    @method('put')
+                    @include('admin.partiels.team')
+                </form>
             </div>
         </div>
     </div>
@@ -31,7 +26,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Editar Acceso de Usuario
                 </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
@@ -47,8 +42,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Editar Usuario</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="staticBackdropLabel">Eliminar Usuario</h5>
+                <button type="button" class="close" data-bs-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
             <div class="modal-body">
                 <h5>Debe de Seleccionar un reemplazo y añadir su clave para confirmar</h5>

@@ -23,7 +23,7 @@
 
 <div class="mb-0">
     <div class="d-flex justify-content-end align-items-baseline">
-        <button type="submit" class="btn btn-success" >Registrar</button>
+        <button type="submit" class="btn btn-primary" >Registrar</button>
 
         <button type="button" class=" ml-1 btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
     </div>
