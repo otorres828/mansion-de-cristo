@@ -1,8 +1,7 @@
-
 <script>
     $(document).ready(function() {
         $('#example').DataTable({
-   
+
             "language": {
                 "lengthMenu": "Mostrar " +
                     `<select>
@@ -24,13 +23,13 @@
                     'previous': 'anterior'
                 }
             },
-           
+
             responsive: true,
             dom: 'Bfrtip',
             buttons: [
                 'excel', 'pdf', 'print',
             ],
-            
+
 
         });
     });
@@ -43,3 +42,34 @@
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script>
+
+{{-- FUNCION ELIMINAR --}}
+<script type="text/javascript">
+    function eliminar_usuario(id) {
+        Swal.fire({
+            title: '¿Estas Seguro?',
+            text: "que quieres eliminar este usuario!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar'
+
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'Debe de Seleccionar un reemplazo y añadir su clave para confirmar',
+                    html: ' <div class="text-left"> <form action="eliminar.usuario" method="post">@scrf<div class="form-group mb-3">  <label class="mb-2">Seleccione el reemplazo</label> <select name="user_id"class="form-control select2 mb-3"></select>  </div><div class="form-group"><label class="mb-2">Introduzca su clave</label><input name="password"class="form-control" type="password" placeholder="************" required></div><center class="form-group"><button class="w-full btn btn-primary">Confirmar</button></center></form></div>',
+// icon: 'warning',
+                    showCloseButton: true,
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    returnFocus: false,
+
+                })
+            }
+        })
+
+    }
+</script>

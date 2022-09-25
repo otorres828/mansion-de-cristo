@@ -113,34 +113,4 @@
 
 @section('js')
     <x-scrip-table-blog />
-
-    <script type="text/javascript">
-        function eliminar_usuario(id) {
-            Swal.fire({
-                title: '¿Estas Seguro?',
-                text: "que quieres eliminar esta Red!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirmar',
-                cancelButtonText: 'Cancelar'
-
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire({
-                        title: 'Seleccione el Usuario que sera su reemplazo',
-                        html: '<select ></select>',
-                        icon: 'warning',
-                        showCloseButton: true,
-                        showCancelButton: false,
-                        showConfirmButton: false,
-                        returnFocus: false,
-
-                    })
-                }
-            })
-
-        }
-    </script>
 @stop
