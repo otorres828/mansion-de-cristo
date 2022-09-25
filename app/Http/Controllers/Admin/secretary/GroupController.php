@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Secretary;
 use App\Http\Controllers\Controller;
 use App\Models\Group;
 use App\Models\Manager;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -15,9 +16,7 @@ class GroupController extends Controller
         $groups = Manager::where('temple_id',auth()->user()->temple_id)->get();
         return view('admin.secretary.group.index',compact('groups'));
     }
-
-
-  
+ 
     public function store(Request $request)
     {
         $request->validate([
@@ -57,5 +56,9 @@ class GroupController extends Controller
         return redirect()->route('admin.secretary.group.index')->with('delete','La red se elimino con exito');
     }
 
-
+    public function group($id){
+        $users = User::where('group_id',$id)->get();
+        $red = Group::find($id);
+        return view('admin.secretary.user.red',compact('users','red'));
+    }
 }

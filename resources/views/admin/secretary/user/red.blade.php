@@ -3,14 +3,12 @@
 @section('title', 'Equipo')
 
 @section('content_header')
-    <h1>Red: {{ $us->group->name }} </h1>
+<h1>Red: {{ $red->name }} </h1>
 @stop
 
 @section('content')
     <x-aminblog.alert />
-    <div class="text-center">
-        <h1>Equipo de: {{ $us->name }}</h1>
-    </div>
+
     <div class="pb-4 px-3">
         <div class="table-responsive">
             <table class="table table-striped " id="example">
@@ -67,11 +65,11 @@
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <form action="{{ route('admin.secretary.user.update', $user) }}"
-                                                            method="post" autocomplete="off">
-                                                            @csrf
-                                                            @method('put')
-                                                            @include('admin.partiels.team')
-                                                        </form>
+                                                        method="post" autocomplete="off">
+                                                        @csrf
+                                                        @method('put')
+                                                        @include('admin.partiels.team')
+                                                    </form>
                                                     </div>
 
                                                 </div>

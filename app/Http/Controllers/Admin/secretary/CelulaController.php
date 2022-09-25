@@ -12,7 +12,7 @@ class CelulaController extends Controller
 
     public function index()
     {
-       return $celulas = Celula::where('user_id', '=', auth()->user()->id)->get();
+       $celulas = Celula::where('user_id', '=', auth()->user()->id)->get();
         return view ('admin.secretary.celulas.mis_celulas',compact('celulas'));
     }
 
@@ -60,7 +60,7 @@ class CelulaController extends Controller
     }
 
     public function mi_equipo(){
-        $celulas_equipo= User::find(auth()->user()->id)->recursiveCelulas;
+        return $celulas_equipo= User::find(auth()->user()->id)->recursiveCelulas;
         return view ('admin.secretary.celulas.celulas_equipo',compact('celulas_equipo'));
 
     }

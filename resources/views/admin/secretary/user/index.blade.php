@@ -25,7 +25,6 @@
 
                     {!! Form::open(['route' => 'admin.secretary.user.store', 'autocomplete' => 'off', 'method' => 'post']) !!}
                     @include('admin.partiels.user')
-
                     {!! Form::close() !!}
 
                 </div>
@@ -42,23 +41,22 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Jerarquia</th>
                         <th scope="col">Cobertura</th>
-                        <th scope="col">Red</th>
+                        @if (auth()->user()->hasRole('Master'))
+                            <th scope="col">Red</th>
+                        @endif
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
                         <tr>
-                            <td class="text-center">
-                                <form action="{{ route('user.team', $user) }}" method="post">
-                                    @csrf
-                                    <button type="submit">{{ $user->id }}</button>
-                                </form>
-                            </td>
+                            <td class="text-center"> {{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->hierarchy->name }}</td>
                             <td>{{ $user->parent->name }}</td>
-                            <td>{{ $user->group->name }}</td>
+                            @if (auth()->user()->hasRole('Master'))
+                                <td>{{ $user->group->name }}</td>
+                            @endif
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -72,8 +70,10 @@
                                         <a class="dropdown-item" data-bs-toggle="modal" href="#"
                                             data-bs-target="#bloquear{{ $user->id }}" data-bs-whatever="@mdo">Editar
                                             Acceso</a>
+                                        <a class="dropdown-item" href="{{ route('user.team', $user) }}">Ver Equipo</a>
                                         <a class="dropdown-item" href="#">Ver Crecimiento</a>
                                         <a class="dropdown-item" href="#">Ver Celulas</a>
+                                        <a class="dropdown-item" href="#">Ver Detalles</a>
 
                                     </div>
                                 </div>
@@ -91,13 +91,12 @@
                                         <div class="modal-body">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    {!! Form::model($user, [
-                                                        'route' => ['admin.secretary.user.update', $user],
-                                                        'autocomplete' => 'off',
-                                                        'method' => 'put',
-                                                    ]) !!}
-                                                    @include('admin.partiels.user')
-                                                    {!! Form::close() !!}
+                                                    <form action="{{ route('admin.secretary.user.update', $user) }}"
+                                                        method="post" autocomplete="off">
+                                                        @csrf
+                                                        @method('put')
+                                                        @include('admin.partiels.team')
+                                                    </form>
                                                 </div>
 
                                             </div>

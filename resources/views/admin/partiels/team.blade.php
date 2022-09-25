@@ -1,6 +1,6 @@
 <div class="form-group">
     {!! Form::label('name', 'Nombre Completo') !!}
-    {!! Form::text('name', null, ['class'=>'form-control','placeholder'=>'Ingrese el nombre completo','required']) !!}
+    {!! Form::text('name',$user->name, ['class'=>'form-control','placeholder'=>'Ingrese el nombre completo','required']) !!}
     @error('name')
         <span class="text-danger">{{$message}}</span>
      @enderror
@@ -8,7 +8,7 @@
 
 <div class="form-group">
     {!! Form::label('email', 'Correo Electronico') !!}
-    {!! Form::email('email', null, ['class'=>'form-control','placeholder'=>'Ingrese el correo electronico']) !!}
+    {!! Form::email('email', $user->email, ['class'=>'form-control','placeholder'=>'Ingrese el correo electronico']) !!}
     @error('email')
         <span class="text-danger">{{$message}}</span>
      @enderror
@@ -18,7 +18,7 @@
 
 <div class="form-group">
     {!! Form::label('password', 'Clave') !!}
-    <input type="password" class="form-control" placeholder="*********">
+    <input type="password" class="form-control" placeholder="*********" value="{{ $user->password }}">
 </div>
 
 <div class="mb-0">

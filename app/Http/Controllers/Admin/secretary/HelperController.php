@@ -35,9 +35,5 @@ class HelperController extends Controller
         return view('admin.secretary.user.team',compact('users','us'));
     }
 
-    public function group($id){
-        $users = User::where('group_id',$id)->get();
-        $us = Group::find($id);
-        return view('admin.secretary.user.team',compact('users','us'));
-    }
+
 }
