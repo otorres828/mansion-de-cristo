@@ -22,7 +22,6 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-
         $request->validate([
             'parent_id'=>'required',
             'hierarchy_id'=>'required',
@@ -58,8 +57,6 @@ class UserController extends Controller
         return redirect()->route('admin.secretary.user.index')->with('info', 'Usuario Registrado con exito');
     }
     
-
-
     public function update(UserRequest $request, User $usuario)
     {
         $request->validate([
@@ -71,7 +68,6 @@ class UserController extends Controller
         $usuario->update($request->all());
         return redirect()->route('admin.secretary.user.index')->with('info', 'Usuario actualizado con exito');
     }
-
 
     public function destroy($user)
     {
@@ -96,7 +92,18 @@ class UserController extends Controller
             return redirect()->back()->with('info','Usuario eliminado con exito, todos sus hijos directos tienen un nuevo padre');
 
         }
-        
         return redirect()->back()->with('delete','Clave incorrecta, no se puede eliminar');
     }
+
+        //cambiar cobertura
+        public function cambiar_cobertura(Request $request){
+            $request->validate([
+                'password' => 'required'
+            ]);
+            if(Hash::check($request->password,auth()->user()->password)){           
+                DB::update('update users set parent_id='.$request->parent_id.' where id='.$request->id_usuario_eliminar);
+                return redirect()->back()->with('info','Se cambio la cobertura con exito');
+            }
+            return redirect()->back()->with('delete','Clave incorrecta, no se puede eliminar');
+        }
 }
