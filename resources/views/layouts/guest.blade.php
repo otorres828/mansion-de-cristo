@@ -16,9 +16,10 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body>
+    <body  style="backdrop-filter: brightness(50%);background-image:url(' {{asset('images/portada.webp')}}'); " class="font-sans text-gray-900 bg-cover h-screen pt-20 sm:pt-0 ">
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
     </body>
+
 </html>

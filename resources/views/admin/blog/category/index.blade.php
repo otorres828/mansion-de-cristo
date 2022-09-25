@@ -130,15 +130,15 @@
     <script type="text/javascript">
         function modalCrear() {
             Swal.fire({
-                            title: 'Crear Categoria',
-                            html: ' {!! Form::open(['route' => 'admin.blog.category.store', 'autocomplete' => 'off']) !!}<div class="form-group">{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre Categoria']) !!}</div><div class="d-flex justify-content-end align-items-baseline">{!! Form::submit('Crear', ['class' => 'btn btn-success w-full botoncrear']) !!}</div> {!! Form::close() !!}',
-                            showCloseButton: true,
-                            showCancelButton: false,
-                            showConfirmButton: false,
-                            returnFocus: false,
-                        })
+                title: 'Crear Categoria',
+                html: ' {!! Form::open(['route' => 'admin.blog.category.store', 'autocomplete' => 'off']) !!}<div class="form-group">{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre Categoria']) !!}</div><div class="d-flex justify-content-end align-items-baseline">{!! Form::submit('Crear', ['class' => 'btn btn-success w-full botoncrear']) !!}</div> {!! Form::close() !!}',
+                showCloseButton: true,
+                showCancelButton: false,
+                showConfirmButton: false,
+                returnFocus: false,
+            })
 
-            let botoncrear = document.querySelector('.botoncrear');
+        let botoncrear = document.querySelector('.botoncrear');
         // Prevenir doble clic en mi boton
         botoncrear.addEventListener('click', function (e) {
                 e.preventDefault();
