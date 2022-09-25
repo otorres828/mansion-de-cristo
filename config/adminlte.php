@@ -246,20 +246,22 @@ return [
                     'route'  => 'secretary.index',
                     'icon' => 'fas fa-columns fa-fw',
                 ],
-                ['header' => 'ADMINISTRADOR',
-                'can'=>'admin.secretary.admin',],
+                [
+                    'header' => 'ADMINISTRADOR',
+                    'can' => 'admin.secretary.admin',
+                ],
                 [
                     'text' => 'Jerarquia',
                     'icon' => 'fas fa-sitemap',
                     'route'  => 'admin.secretary.hierarchy.index',
-                    'can'=>'admin.secretary.admin',
+                    'can' => 'admin.secretary.admin',
 
                 ],
                 [
                     'text' => 'Redes',
                     'icon' => 'far fa-registered',
                     'route'  => 'admin.secretary.group.index',
-                    'can'=>'admin.secretary.admin',
+                    'can' => 'admin.secretary.admin',
 
                 ],
                 // [
@@ -283,15 +285,15 @@ return [
                             'text' => 'Mis Celulas',
                             'icon' => 'fab fa-fw fa-buffer',
                             'route'  => 'celulas.index',
-                        ],  
+                        ],
                         [
                             'text' => 'Celulas de mi Equipo',
                             'icon' => 'fab fa-fw fa-buffer',
                             'route'  => 'celulas_equipo',
-                        ],                    
+                        ],
                     ],
 
- 
+
                 ],
                 [
                     'text' => 'Finanzas',
@@ -300,85 +302,87 @@ return [
                         [
                             'text' => 'Personales',
                             'icon' => 'fab fa-fw fa-buffer',
-                            'route'=> 'admin.secretary.finance.user.index',
+                            'route' => 'admin.secretary.finance.user.index',
                         ],
                         [
                             'text' => 'Por Celulas',
                             'icon' => 'fab fa-fw fa-buffer',
-                            'url'  => 'admin.blog.category.index',
-                        ],  
-                    ],  
+                            'route'  => 'por_celula',
+                        ],
+                    ],
                 ],
                 // [
                 //     'text' => 'Repositorio',
                 //     'icon' => 'fab fa-fw fa-buffer',
                 //     'url'  => 'admin.blog.category.index',
-                // ],                
+                // ],
                 [
                     'text' => 'Crecimiento',
                     'icon' => 'fab fa-fw fa-buffer',
                     'url'  => 'admin.blog.category.index',
-                ], 
+                ],
             ],
 
         ],
-        
+
 
         [
             'text'    => 'Panel Blog',
             'icon'    => 'fas fa-tachometer-alt fa-fw',
-            'can'=>'admin.blog.home',
+            'can' => 'admin.blog.home',
             'submenu' => [
-                ['header' => 'ADMINISTRADaOR',
-                'can'=>'admin.blog.user.index'],
+                [
+                    'header' => 'ADMINISTRADaOR',
+                    'can' => 'admin.blog.user.index'
+                ],
                 [
                     'text' => 'Usuarios',
                     'route'  => 'admin.blog.user.index',
                     'icon' => 'fas fa-users fa-fw',
-                    'can'=>'admin.blog.user.index',
+                    'can' => 'admin.blog.user.index',
                 ],
                 [
                     'text' => 'Categorias de Enseñanzas',
                     'icon' => 'fab fa-fw fa-buffer',
                     'route'  => 'admin.blog.category.index',
-                    'can'=>'admin.blog.category.index',
+                    'can' => 'admin.blog.category.index',
                 ],
                 [
                     'text' => 'Estadisticas',
                     'icon' => 'fa fa-chart-area',
                     'route'  => 'admin.blog.estadisticas',
-                    'can'=>'admin.blog.user.index',
+                    'can' => 'admin.blog.user.index',
                 ],
-           
+
                 ['header' => 'OPCIONES DE BLOG'],
                 [
                     'text' => 'Noticias',
                     'url'  => '',
                     'icon' => 'fas fa-bullhorn fa-fw',
-                    'submenu' =>[
+                    'submenu' => [
                         [
                             'text' => 'Publicar Noticia',
                             'route'  => 'admin.blog.announce.create',
-                            'icon'=> 'fas fa-plus-circle fa-fw',
+                            'icon' => 'fas fa-plus-circle fa-fw',
                         ],
                         [
                             'text' => 'Lista de Noticias',
                             'icon' => 'fas fa-list fa-fw',
                             'route'  => 'admin.blog.announce.index',
                         ],
-                       
+
                     ],
-                    'can'=>'admin.blog.announce.index',
+                    'can' => 'admin.blog.announce.index',
                 ],
                 [
                     'text' => 'Enseñanzas',
                     'url'  => '',
                     'icon' => 'fas fa-bible fa-fw',
-                    'submenu' =>[
+                    'submenu' => [
                         [
                             'text' => 'Publicar Enseñanza',
                             'route'  => 'admin.blog.teaching.create',
-                            'icon'=> 'fas fa-plus-circle fa-fw',
+                            'icon' => 'fas fa-plus-circle fa-fw',
                         ],
                         [
                             'text' => 'Lista de Enseñanzas',
@@ -386,17 +390,17 @@ return [
                             'route'  => 'admin.blog.teaching.index',
                         ],
                     ],
-                    'can'=>'admin.blog.teaching',
+                    'can' => 'admin.blog.teaching',
                 ],
                 [
                     'text' => 'Ministerios',
                     'url'  => '',
                     'icon' => 'fas fa-users fa-fw',
-                    'submenu' =>[
+                    'submenu' => [
                         [
                             'text' => 'Publicar Ministerio',
                             'route'  => 'admin.blog.ministry.create',
-                            'icon'=> 'fas fa-plus-circle fa-fw',
+                            'icon' => 'fas fa-plus-circle fa-fw',
                         ],
                         [
                             'text' => 'Lista de Ministerios',
@@ -404,62 +408,64 @@ return [
                             'route'  => 'admin.blog.ministry.index',
                         ],
                     ],
-                    'can'=>'admin.blog.ministry',
+                    'can' => 'admin.blog.ministry',
                 ],
                 [
                     'text' => 'Testimonios',
                     'url'  => '',
                     'icon' => 'far fa-laugh-beam fa-fw',
-                    'submenu' =>[
+                    'submenu' => [
                         [
                             'text' => 'Publicar Testimonio',
                             'route'  => 'admin.blog.testimony.create',
-                            'icon'=> 'fas fa-plus-circle fa-fw',
+                            'icon' => 'fas fa-plus-circle fa-fw',
                         ],
                         [
                             'text' => 'Lista de Testimonios',
                             'icon' => 'fas fa-list fa-fw',
                             'route'  => 'admin.blog.testimony.index',
                         ],
-                       
+
                     ],
-                    'can'=>'admin.blog.testimony',
+                    'can' => 'admin.blog.testimony',
                 ],
                 [
                     'text' => 'Acerca de',
                     'url'  => '',
                     'icon' => 'fas fa-question-circle fa-fw',
-                    'can'=>'admin.blog.contacts'
+                    'can' => 'admin.blog.contacts'
 
                 ],
                 [
                     'text' => 'Mensajes',
                     'route'  => 'admin.blog.contact.index',
                     'icon' => 'fas fa-envelope-square fa-fw',
-                    'can'=>'admin.blog.contact'
+                    'can' => 'admin.blog.contact'
                 ],
                 [
                     'text' => 'Acerca de',
                     'route'  => 'admin.blog.acercade.index',
                     'icon' => 'fas fa-envelope-square fa-fw',
-                    'can' =>'admin.blog.acercade'
+                    'can' => 'admin.blog.acercade'
                 ],
 
-            ],      
+            ],
         ],
-        ['header' => 'Mantenimiento ',
-        'can'=>'mantenimiento'],
+        [
+            'header' => 'Mantenimiento ',
+            'can' => 'mantenimiento'
+        ],
         [
             'text' => 'Configuracion',
             'route'  => 'programador.mantenimiento',
             'icon' => 'fas fa-users fa-fw',
-            'can'=>'mantenimiento',
+            'can' => 'mantenimiento',
         ],
         [
             'text' => 'Envio de Correos',
             'route'  => 'admin.blog.email.index',
             'icon' => 'fa  fa-fw fa-envelope',
-            'can'=>'mantenimiento',
+            'can' => 'mantenimiento',
         ],
 
     ],
@@ -517,7 +523,7 @@ return [
                     'asset' => false,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
-                
+
             ],
         ],
         'Select2' => [

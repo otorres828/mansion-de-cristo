@@ -3,7 +3,7 @@
 @section('title', 'Finanzas Personales')
 
 @section('content_header')
-<h1>Listado de Finanzas Personales</h1>
+<h1>Listado de Finanzas por celula</h1>
 @stop
 
 @section('content')
@@ -12,12 +12,10 @@
 <div class="mb-3">
     <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#register" data-bs-whatever="@mdo">Agregar
         Finanza</a>
-    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#register"
-        data-bs-whatever="@mdo">Verificadores</a>
-    <a class="btn btn-info" data-bs-toggle="modal" data-bs-target="#register" data-bs-whatever="@mdo">Lista de
-        Verificadores</a>
+
 </div>
 
+{{-- Modal agregar Finanza --}}
 <div class="modal fade" id="register" tabindex="-1" aria-labelledby="register" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -94,7 +92,9 @@
 
                         <div class="mb-0">
                             <div class="d-flex justify-content-end align-items-baseline">
-                                <button type="submit" class=" ml-1 btn btn-success">Agregar</button>
+                                <x-jet-button>
+                                    {{ __('Registrar') }}
+                                </x-jet-button>
                                 <button type="button" class=" ml-1 btn btn-danger"
                                     data-bs-dismiss="modal">Cerrar</button>
                             </div>
@@ -150,7 +150,7 @@
                                                 {!! Form::hidden('financeable_id', auth()->user()->id) !!}
                                                 {!! Form::hidden('status', 1) !!}
 
-                                                {!! Form::hidden('templea_id', auth()->user()->temples_id) !!}
+                                                {!! Form::hidden('temple_id', auth()->user()->temples_id) !!}
                                                 <div class="form-group">
                                                     {!! Form::label('amount', 'Cantidad',) !!}
                                                     {!! Form::number('amount', $finance->amount,
@@ -210,10 +210,9 @@
 
                                                 <div class="mb-0">
                                                     <div class="d-flex justify-content-end align-items-baseline">
-
-                                                        <button type="submit"
-                                                            class=" ml-1 btn btn-success">Editar</button>
-
+                                                        <x-jet-button>
+                                                            {{ __('Registrar') }}
+                                                        </x-jet-button>
                                                         <button type="button" class=" ml-1 btn btn-danger"
                                                             data-bs-dismiss="modal">Cerrar</button>
                                                     </div>
