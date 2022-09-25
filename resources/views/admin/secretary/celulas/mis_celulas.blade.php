@@ -85,7 +85,8 @@
                                 Acciones
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal">Editar
+                                <a class="dropdown-item" data-toggle="modal"
+                                    data-target="#edit-{{ $celula->id }}">Editar
                                 </a>
                                 {{-- <a class="dropdown-item" href="{{ route('user.team', $celula) }}">Ver Equipo</a>
                                 --}}
@@ -101,7 +102,7 @@
                 </tr>
                 {{-- Modal editar --}}
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="edit-{{ $celula->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
