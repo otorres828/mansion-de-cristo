@@ -82,6 +82,9 @@
                                     @method('DELETE')
                                     <button class="dropdown-item">Eliminar</button>
                                 </form>
+                                <a class="dropdown-item" href="{{ route('celulas.show',$celula->id) }}">Ver
+                                    detalles
+                                </a>
 
                             </div>
                         </div>
