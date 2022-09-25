@@ -10,18 +10,10 @@ use Illuminate\Support\Str;
 
 class TeachingFactory extends Factory
 {
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
+ 
     protected $model = Teaching::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
+
     public function definition()
     {
         $name = $this->faker->unique()->sentence();
@@ -34,7 +26,6 @@ class TeachingFactory extends Factory
             'status'=>$this->faker->randomElement([1,2]),
             'category_id'=>Category::all()->random()->id,
             'user_id'=>$user_id,
-
         ];
     }
 }

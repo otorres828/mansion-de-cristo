@@ -22,8 +22,15 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use \Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
     
     public $timestamps = false;
+
+    //RELACION PARA TRAER LAS CELULAS DE LOS HIJOS
+    public function recursivePosts()
+    {
+        return $this->hasManyOfDescendantsAndSelf(Celula::class);
+    }
 
     protected $fillable = [
         'name',
@@ -121,5 +128,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function note(){
         return $this->hasMany(Note::class);
     }
+
+        //relacion uno a muchos// 1 usuario puede terner varios CELULAS
+        public function celula(){
+            return $this->hasMany(Celula::class);
+        }
 
 }

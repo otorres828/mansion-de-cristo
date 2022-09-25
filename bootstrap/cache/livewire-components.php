@@ -5,6 +5,7 @@
   'admin.mantenimiento' => 'App\\Http\\Livewire\\Admin\\Mantenimiento',
   'admin.temples-index' => 'App\\Http\\Livewire\\Admin\\TemplesIndex',
   'admin.temples-user' => 'App\\Http\\Livewire\\Admin\\TemplesUser',
+  'alfonzo' => 'App\\Http\\Livewire\\Alfonzo',
   'blog.announce' => 'App\\Http\\Livewire\\Blog\\Announce',
   'blog.eliminarimagen' => 'App\\Http\\Livewire\\Blog\\Eliminarimagen',
   'blog.estadisticas' => 'App\\Http\\Livewire\\Blog\\Estadisticas',
@@ -22,6 +23,5 @@
   'blog.suscripcion' => 'App\\Http\\Livewire\\Blog\\Suscripcion',
   'blog.teaching' => 'App\\Http\\Livewire\\Blog\\Teaching',
   'blog.testimony' => 'App\\Http\\Livewire\\Blog\\Testimony',
-  'nav' => 'App\\Http\\Livewire\\Nav',
   'panel.todolist' => 'App\\Http\\Livewire\\Panel\\Todolist',
 );

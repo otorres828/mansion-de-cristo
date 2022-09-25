@@ -315,11 +315,11 @@ return [
                         ],  
                     ],  
                 ],
-                [
-                    'text' => 'Repositorio',
-                    'icon' => 'fab fa-fw fa-buffer',
-                    'url'  => 'admin.blog.category.index',
-                ],                
+                // [
+                //     'text' => 'Repositorio',
+                //     'icon' => 'fab fa-fw fa-buffer',
+                //     'url'  => 'admin.blog.category.index',
+                // ],                
                 [
                     'text' => 'Crecimiento',
                     'icon' => 'fab fa-fw fa-buffer',

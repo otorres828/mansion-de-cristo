@@ -15,7 +15,12 @@ class TeachingPolicy
         $roles = $user->getRoleNames();
         foreach($roles as $rol)
             if ($rol == 'Admin Blog' || $rol == 'Master'|| $rol == 'Programador'|| $rol == 'Aprobar Publicaciones') 
-                return true;   
+                return true; 
+            if($user)
+                if($user->id== $teaching->user_id)
+                    return true;
+            else 
+                return false;    
         return false;
     }
 

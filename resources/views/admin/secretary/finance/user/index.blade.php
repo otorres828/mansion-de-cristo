@@ -11,6 +11,8 @@
   
     <div class="mb-3">
         <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#register" data-bs-whatever="@mdo">Agregar Finanza</a>
+        <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#register" data-bs-whatever="@mdo">Verificadores</a>
+        <a class="btn btn-info" data-bs-toggle="modal" data-bs-target="#register" data-bs-whatever="@mdo">Lista de Verificadores</a>
     </div>
 
     <div class="modal fade" id="register" tabindex="-1" aria-labelledby="register" aria-hidden="true">
