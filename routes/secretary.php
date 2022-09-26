@@ -30,11 +30,11 @@ Route::get('celulas/equipo/{id}', [CelulaController::class, 'miembro'])->name('c
 //-----------------------Finanzas
 Route::resource('finanzas', FinanceUserController::class)->except('show', 'create','edit')->names('admin.secretary.finance.user');
 Route::get('finanzas/por_celula', [FinanceUserController::class, 'por_celula'])->name('por_celula');
-Route::get('finanzas/administradores', [FinanceUserController::class,'administrar_finanzas_index'])->name('administrar.finanzas'); //VER TODOS LOS USUARIOS ADMINISTRADORES
-Route::delete('finanzas/administradores/{id}', [FinanceUserController::class,'administrar_finanzas_eliminar'])->name('administrar.finanzas.eliminar'); //ELIMINAR USUARIO ADMINISTRADOR
+Route::get('finanzas/administradores', [FinanceUserController::class,'administrar_finanzas_index'])->middleware('can:finanzas')->name('administrar.finanzas'); //VER TODOS LOS USUARIOS ADMINISTRADORES
+Route::delete('finanzas/administradores/{id}', [FinanceUserController::class,'administrar_finanzas_eliminar'])->middleware('can:finanzas')->name('administrar.finanzas.eliminar'); //ELIMINAR USUARIO ADMINISTRADOR
 
 Route::resource('registrar/usuario', FinanceUserController::class)->except('store')->names('admin.register');
 
 //-----------------------Crecimiento
-Route::resource('crecimiento', CrecimientoController::class)
+Route::resource('crecimiento', CrecimientoController::class)->middleware('can:crecimiento')
     ->names('crecimiento');

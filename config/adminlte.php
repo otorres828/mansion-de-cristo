@@ -269,6 +269,12 @@ return [
                 'icon' => 'fas fa-hand-holding-usd',
                 'route'  => 'administrar.finanzas',
                 'can' => 'administrar.roles.finanzas'],
+                [
+                    'text' => 'Crecimiento',
+                    'icon' => 'fab fa-fw fa-buffer',
+                    'route'  => 'crecimiento.index',
+                    'can' =>'crecimiento',
+                ],
                 // [
                 //     'text' => 'Otras Iglesias',
                 //     'icon' => 'fas fa-synagogue',
@@ -322,7 +328,7 @@ return [
                 //     'url'  => 'admin.blog.category.index',
                 // ],
                 [
-                    'text' => 'Crecimiento',
+                    'text' => 'Mi Crecimiento',
                     'icon' => 'fab fa-fw fa-buffer',
                     'route'  => 'crecimiento.index',
                 ],
