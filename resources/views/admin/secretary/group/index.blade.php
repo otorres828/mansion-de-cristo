@@ -81,7 +81,7 @@
                 <tr>
                     <td class="text-center">
                         <a href="{{ route('group.team', $group) }}" type="submit" class="text-black"
-                            style="text-decoration:none">{{ $group->id }}</a>
+                            style="text-decoration:none">{{ $group->group->id }}</a>
                     </td>
                     <td>{{ $group->group->name }}</td>
                     <td>

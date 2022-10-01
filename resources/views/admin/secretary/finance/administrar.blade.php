@@ -34,31 +34,10 @@
                 </div>
                 <div class="modal-body">
 
-                    {!! Form::open(['route' => 'admin.secretary.finance.user.store', 'autocomplete' => 'off', 'method' => 'post']) !!}
+                    {!! Form::open(['route' => 'administrar.finanzas.agregar', 'autocomplete' => 'off', 'method' => 'post']) !!}
                     @csrf
         
-
-                    <div class="form-group">
-                        {!! Form::label(null, 'Seleccione la Red') !!}
-                        {!! Form::select('group_id',['1','2','3'], null, ['class' => 'form-control select2']) !!}
-                        @error('amount')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label(null, 'Seleccione el Administrador') !!}
-                        {!! Form::select('group_id',['1','2','3'], null, ['class' => 'form-control select2']) !!}
-                        @error('amount')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="mb-0">
-                        <div class="d-flex justify-content-end align-items-baseline">
-                            <button type="submit" class=" ml-1 btn btn-success">Agregar</button>
-                            <button type="button" class=" ml-1 btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
+                    @livewire('admin.finanzas')
 
                     {!! Form::close() !!}
                 </div>

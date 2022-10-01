@@ -47,7 +47,6 @@ class FinanceUserController extends Controller
         return redirect()->route('admin.secretary.finance.user.index')->with('info', 'la finanza se creo con exito');
     }
 
-
     public function update(Request $request, $id)
     {
         $finanza = Finance::find($id);
@@ -97,6 +96,13 @@ class FinanceUserController extends Controller
     public function administrar_finanzas_eliminar($id){
         $usuario=User::find($id);
         $usuario->revokePermissionTo('finanzas');
-        return redirect()->back()->with('success', 'Administrador eliminado con exito');
+        return redirect()->back()->with('warning', 'Administrador eliminado con exito');
+    }
+
+    ///agrear un administrador de finanzas
+    public function administrar_finanzas_agregar(Request $request){
+        $usuario = User::find($request->user_id);
+        $usuario->givePermissionTo('finanzas');
+        return redirect()->back()->with('info', 'Administrador agregado con exito');
     }
 }

@@ -32,6 +32,7 @@ Route::resource('finanzas', FinanceUserController::class)->except('show', 'creat
 Route::get('finanzas/por_celula', [FinanceUserController::class, 'por_celula'])->name('por_celula');
 Route::get('finanzas/administradores', [FinanceUserController::class,'administrar_finanzas_index'])->middleware('can:finanzas')->name('administrar.finanzas'); //VER TODOS LOS USUARIOS ADMINISTRADORES
 Route::delete('finanzas/administradores/{id}', [FinanceUserController::class,'administrar_finanzas_eliminar'])->middleware('can:finanzas')->name('administrar.finanzas.eliminar'); //ELIMINAR USUARIO ADMINISTRADOR
+Route::post('finanzas/administradores', [FinanceUserController::class,'administrar_finanzas_agregar'])->middleware('can:finanzas')->name('administrar.finanzas.agregar'); //ELIMINAR USUARIO ADMINISTRADOR
 
 Route::resource('registrar/usuario', FinanceUserController::class)->except('store')->names('admin.register');
 
