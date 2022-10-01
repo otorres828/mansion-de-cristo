@@ -75,7 +75,7 @@ class RoleSeeder extends Seeder
    
         //FINANZAS
         Permission::create(['name' => 'administrar.roles.finanzas'])->syncRoles([$programador,$master]);
-        Permission::create(['name' => 'finanzas'])->syncRoles([$programador,$master]);
+        Permission::create(['name' => 'finanzas']);
 
         //CRECIMIENTO
         Permission::create(['name' => 'crecimiento'])->syncRoles([$programador,$master]);

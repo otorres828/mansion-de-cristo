@@ -8,6 +8,7 @@
 @stop
 
 @section('content')
+@livewire('contador')
   <div class="div" >
     <div class="container-fluid">
       <!-- Small boxes (Stat box) -->

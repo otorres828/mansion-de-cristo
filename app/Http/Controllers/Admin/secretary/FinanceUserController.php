@@ -90,7 +90,7 @@ class FinanceUserController extends Controller
     //listar todos los administradores de las finanzas dela iglesia
     public function administrar_finanzas_index(){
         $usuarios = User::permission('finanzas')->get();
-        return view ('admin.secretary.finance.administrar', compact('usuarios'));
+        return view('admin.secretary.finance.administrar', compact('usuarios'));
     }
 
     //eliminar administrador de las finanzas de la iglesia
