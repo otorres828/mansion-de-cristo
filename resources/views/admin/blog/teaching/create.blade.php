@@ -11,7 +11,7 @@
         <div class="card-body">
             {!! Form::open(['route' => 'admin.blog.teaching.store', 'autocomplete' => 'off', 'files' => true]) !!}
                 @include('admin.partiels.teaching')          
-                {!! Form::submit('Publicar Enseñanza', ['class' => 'btn btn-primary float-right']) !!}
+                <button type="submit"  class="actualizar btn btn-primary float-right">Publicar Enseñanza</button>
             {!! Form::close() !!}
         </div>
     </div>

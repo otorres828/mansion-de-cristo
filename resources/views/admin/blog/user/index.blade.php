@@ -151,7 +151,7 @@
                                             </div>
                                         @endforeach
                                         <div class="justify-center">
-                                            {!! Form::submit('Asignar Roll', ['class' => 'btn btn-primary w-full text-center']) !!}
+                                            <button type="submit"  class="actualizar btn btn-primary text-center w-full">Asignar Rol</button>
                                         </div>
                                         {!! Form::close() !!}
                                     </div>
@@ -196,6 +196,14 @@
             })
         });
     </script>
-
+    <script>
+        let actualizar = document.querySelector('.actualizar');
+        actualizar.addEventListener('click', (e) => {
+            e.preventDefault();
+            actualizar.disabled = true;
+            actualizar.innerHTML = 'Actualizando...';
+            actualizar.form.submit();
+        });
+    </script>
     <x-scrip-table-blog />
 @stop

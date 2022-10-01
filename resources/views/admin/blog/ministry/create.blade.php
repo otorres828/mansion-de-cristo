@@ -13,7 +13,7 @@
             {!! Form::open(['route'=>'admin.blog.ministry.store','autocomplete'=>'off','files'=>true]) !!}
                 {!! Form::hidden('user_id', auth()->user()->id) !!}
                 @include('admin.partiels.ministery')
-                {!! Form::submit('Publicar Ministerio/Departamento', ['class'=>'btn btn-primary float-right']) !!}
+                <button type="submit"  class="actualizar btn btn-primary float-right">Publicar</button>
             {!! Form::close() !!}
         </div>
     </div>

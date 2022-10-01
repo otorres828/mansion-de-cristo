@@ -11,7 +11,7 @@
         <div class="card-body">
             {!! Form::open(['route'=>'admin.blog.acercade.store','autocomplete'=>'off','files'=>true]) !!}
                 @include('admin.partiels.acercade')
-                {!! Form::submit('Crear Informacion', ['class'=>'btn btn-primary float-right']) !!}
+                {!! Form::submit('Crear Informacion', ['class'=>'btn btn-primary float-right actualizar']) !!}
             {!! Form::close() !!}
         </div>
     </div>

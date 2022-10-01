@@ -13,7 +13,7 @@
         <div class="card-body">
             {!! Form::model($testimony,['route'=>['admin.blog.testimony.update',$testimony],'autocomplete'=>'off','files'=>true,'method'=>'put']) !!}
                 @include('admin.partiels.testimony')
-                {!! Form::submit('Actualizar Testimonio', ['class'=>'btn btn-primary float-right']) !!}
+                <button type="submit"  class="actualizar btn btn-primary float-right">Actualizar Testimonio</button>
             {!! Form::close() !!}
         </div>
     </div>

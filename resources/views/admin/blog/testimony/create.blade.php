@@ -13,7 +13,7 @@
             {!! Form::open(['route'=>'admin.blog.testimony.store','autocomplete'=>'off','files'=>true]) !!}
                 {!! Form::hidden('user_id', auth()->user()->id) !!}
                 @include('admin.partiels.testimony')
-                {!! Form::submit('Publicar Testimonio', ['class'=>'btn btn-primary float-right']) !!}
+                <button type="submit"  class="actualizar btn btn-primary float-right">Publicar Testimonio</button>
             {!! Form::close() !!}
         </div>
     </div>

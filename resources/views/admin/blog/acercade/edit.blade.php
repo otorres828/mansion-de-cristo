@@ -11,7 +11,7 @@
         <div class="card-body">
             {!! Form::model($acercade,['route'=>['admin.blog.acercade.update',$acercade],'autocomplete'=>'off','files'=>true,'method'=>'put']) !!}
                 @include('admin.partiels.acercade')
-                {!! Form::submit('Actualizar Informacion', ['class'=>'btn btn-primary float-right']) !!}
+                <button type="submit"  class="actualizar btn btn-primary float-right">Actualizar Informacion</button>
             {!! Form::close() !!}
         </div>
     </div>
