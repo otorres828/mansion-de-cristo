@@ -71,7 +71,7 @@ class TeachingController extends Controller
         if($request->get('status')==2){
             $modulo1 = EmailSend::find(1);
             if($modulo1->status==2){
-                Notification::route('mail',DB::table('enviar_correos')->select('correo') 
+                Notification::route('mail',DB::table('enviar_correos')->select('email') 
                                                 // ->whereNotNull('email_verified_at')     
                                                 ->get()
                                     )->notify(new EmailNotification($teaching));     
