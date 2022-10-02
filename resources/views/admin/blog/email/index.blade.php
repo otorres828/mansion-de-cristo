@@ -35,7 +35,7 @@
 
                             <input type="file" name="import_file" required />
 
-                            <button class="btn btn-primary" type="submit">Importar {{ $correos->count() }}</button>
+                            <button class="actualizar btn btn-primary" type="submit">Importar {{ $correos->count() }}</button>
 
                         </form>
                     </div>
@@ -135,7 +135,15 @@
 @stop --}}
 
 @section('js')
- 
+    <script>
+        let actualizar = document.querySelector('.actualizar');
+        actualizar.addEventListener('click',  (e)=> {
+            e.preventDefault();
+            actualizar.disabled = true;
+            actualizar.innerHTML = 'Actualizando...';
+            actualizar.form.submit();
+        });
+    </script>
     <x-scrip-table-blog />
     <script>
         $('.destroy').submit(function(e){
