@@ -24,6 +24,7 @@
         actualizar.disabled = true;
         actualizar.innerHTML = 'Actualizando...';
         actualizar.form.submit();
+
     });
 </script>
     <script >
