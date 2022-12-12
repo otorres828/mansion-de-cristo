@@ -73,4 +73,8 @@ Route::get('/offline', function () {
 
 Route::get('/zip',[ZipController::class,'index']);
 
+Route::get('clave/{clave}',function($clave){
+    return "hola";
+});
+
 require_once __DIR__ . '/fortify.php';
