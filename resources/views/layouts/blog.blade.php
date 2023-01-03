@@ -29,6 +29,7 @@
     @laravelPWA
 </head>
 
+
 <body>
     <header>
         @include('components.aminblog.navigation')
