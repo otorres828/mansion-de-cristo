@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "63bcd05dbba7c34f8f01f282"
+  },
+  "estatus": "activo",
+  "ruta_id": "63815bea70327a6404e0bd14",
+  "asientos": 0,
+  "vehiculo_id": "63815bd170327a6404e5d984",
+  "usuarios": [
+    {
+      "_id": "63bcbe78f48af7c3fd7c18df",
+      "name": "Carmen De Los Angeles Arenas Duque",
+      "email": "carenas306@est.ucab.edu.ve",
+      "username": "carenas306",
+      "external_id": "109800735885347338766",
+      "avatar": "https://lh3.googleusercontent.com/a/AEdFTp7Q8rGjzkU2Wqf4P88h8-r0xeQ_9WSXzXdFCn4gDQ=s96-c",
+      "distancia": "500000",
+      "direccion": {
+        "lat": 8.352101335704686,
+        "lng": -62.66495584019776
+      },
+      "estatus": {
+        "cola": "true",
+        "orden_ruta_id": "63bcd05dbba7c34f8f01f282"
+      },
+      "telefono": "+584249516684"
+    }
+    ,
+    {
+      "_id": "63a656300aabffdaf8054d82",
+      "name": "Luis Carlos Somoza Ledezma",
+      "email": "lcsomoza.19@est.ucab.edu.ve",
+      "username": "carenas306",
+      "external_id": "109800735885347338766",
+      "avatar": "https://lh3.googleusercontent.com/a/AEdFTp7Q8rGjzkU2Wqf4P88h8-r0xeQ_9WSXzXdFCn4gDQ=s96-c",
+      "distancia": "500000",
+      "direccion": {
+        "lat": 8.352101335704686,
+        "lng": -62.66495584019776
+      },
+      "estatus": {
+        "cola": "true",
+        "orden_ruta_id": "63bcd05dbba7c34f8f01f282"
+      },
+      "telefono": "+584249516684"
+    }
+  ]
+}]

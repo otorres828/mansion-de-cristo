@@ -4,7 +4,7 @@
             <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
     </span>       
-    <input class=" py-1 border-solid border-4 border-light-blue-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md  w-full pl-10" wire:model="search" type="text" placeholder="Escribe una frase relacionada con la enseñanza que estas buscando">
+    <input class=" py-1 border-solid border-1 border-light-blue-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md  w-full pl-10" wire:model="search" type="text" placeholder="Escribe una frase relacionada con la enseñanza que estas buscando">
 
     @if($search!=null && $search!=' ' && $teachings->count())
         <div class="shadow-2xl w-full rounded px-3 py-3 pb-0 absolute z-20" style="background-color: white">
