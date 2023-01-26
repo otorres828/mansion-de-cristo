@@ -19,7 +19,7 @@
                 <li class="py-1 hover:bg-slate-200">
                     <a href="{{ route('blog.show_teaching', $teaching->slug) }}"
                             class="block font-sans font-semibold px-2 py-1 text-gray-600 hover:bg-primary 
-                                hover:text-purple-800 leading-5">
+                                hover:text-purple-800 leading-5 border-b">
                             {{ $teaching->name }}</a>
                     </li>
                 @endforeach
