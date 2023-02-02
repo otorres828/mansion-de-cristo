@@ -13,7 +13,7 @@
             <div class="grid  px-4 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 grid-cols-12 lg:pt-28">
                 <div class="hidden lg:block mr-auto place-self-center md:col-span-7">
                     <h1
-                        class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
+                        class=" bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300 max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
                         Mansion de Cristo <br>Internacional</h1>
                     <p
                         class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 
