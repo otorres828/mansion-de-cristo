@@ -1,4 +1,3 @@
-
 <footer class="p-4  rounded-lg shadow md:px-6 md:py-8 ">
     <div class="sm:flex sm:items-center sm:justify-between">
         <a class="hidden sm:block  items-right text-yellow-300 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
