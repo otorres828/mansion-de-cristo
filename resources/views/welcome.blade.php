@@ -97,7 +97,7 @@
                                                 Y haré de ti una nación grande, y te bendeciré, y engrandeceré tu nombre, y
                                                 serás bendición.
                                                 <br>
-                                                <span class="text-cyan-200">Gen.12:2</span>
+                                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300">Gen.12:2</span>
                                             </a>
                                         </h1>
 
@@ -166,12 +166,12 @@
 
         {{-- NOTICIAS --}}
         <div class="max-w-3xl mx-auto text-center mt-8">
-            <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer las Noticias <a class="text-cyan-900 font-bold"
+            <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer las Noticias <a class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300 font-bold"
                     href="{{ route('blog.testimony') }}">Mas Recientes</a>
             </h2>
             <p class="text-xl text-gray-600">
-                Conoce las noticias de interes mas recientes acerca de nuestra congregacion, si quieres puedes ver <a
-                    class="text-cyan-900 font-bold" href="{{ route('blog.announces') }}">mas noticias aqui</a>.
+                Conoce las enseñanzas de interes mas recientes acerca de nuestra congregacion, si quieres puedes ver <a
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300 font-bold" href="{{ route('blog.announces') }}">mas noticias aqui</a>.
             </p>
         </div>
 
@@ -181,12 +181,12 @@
 
         {{-- ENSEÑANZAS --}}
         <div class="max-w-3xl mx-auto text-center mt-8">
-            <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer las Enseñanzas <a class="text-cyan-900 font-bold"
+            <h2 class="h1 text-3xl border-l-black mb-4">Puedes Leer las Enseñanzas <a class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300 font-bold"
                     href="{{ route('blog.announces') }}">Mas Recientes</a>
             </h2>
             <p class="text-xl text-gray-600">
                 Conoce las enseñanzas de interes mas recientes acerca de nuestra congregacion, si quieres puedes ver <a
-                    class="text-cyan-900 font-bold" href="{{ route('blog.announces') }}">mas noticias aqui</a>.
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300 font-bold" href="{{ route('blog.announces') }}">mas noticias aqui</a>.
             </p>
         </div>
 
