@@ -2244,6 +2244,9 @@ select {
 .pb-14 {
   padding-bottom: 3.5rem;
 }
+.pr-3 {
+  padding-right: 0.75rem;
+}
 .text-left {
   text-align: left;
 }
@@ -3677,6 +3680,14 @@ select {
     grid-column: span 7 / span 7;
   }
 
+  .md\:col-span-6 {
+    grid-column: span 6 / span 6;
+  }
+
+  .md\:col-span-5 {
+    grid-column: span 5 / span 5;
+  }
+
   .md\:float-right {
     float: right;
   }
@@ -4134,6 +4145,10 @@ select {
 
   .lg\:col-span-7 {
     grid-column: span 7 / span 7;
+  }
+
+  .lg\:col-span-6 {
+    grid-column: span 6 / span 6;
   }
 
   .lg\:my-8 {

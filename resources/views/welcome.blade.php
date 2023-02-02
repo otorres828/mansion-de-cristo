@@ -11,7 +11,7 @@
     <div class="mx-auto container pb-5">
         <section class="bg-white dark:bg-gray-900">
             <div class="grid  px-4 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 grid-cols-12 lg:pt-28">
-                <div class="hidden lg:block mr-auto place-self-center md:col-span-7">
+                <div class="hidden lg:block mr-auto place-self-center md:col-span-6">
                     <h1
                         class=" bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300 max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
                         Mansion de Cristo <br>Internacional</h1>
@@ -82,7 +82,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="lg:mt-0 col-span-12 lg:col-span-5">
+                <div class="lg:mt-0 col-span-12 lg:col-span-6">
                     {{-- CARRUSEL PRINCIPAL --}}
                     <div class="swiper mySwiper p-5">
                         <div class="swiper-wrapper">
