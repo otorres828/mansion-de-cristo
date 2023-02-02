@@ -2,6 +2,8 @@
 @section('title', 'MDC-Enseñanzas')
 
 @section('head')
+    <meta name="viewport" content= "width=device-width, user-scalable=no">
+
     <style>
         .smooth {
             transition: box-shadow 0.3s ease-in-out;
