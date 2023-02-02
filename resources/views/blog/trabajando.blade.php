@@ -43,7 +43,7 @@
             </div>
         </main>
     </div>
-    @include('components.footerM')
+    @include('components.footerT')
 
 
 </body>

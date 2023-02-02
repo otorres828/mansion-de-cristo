@@ -21,7 +21,7 @@
 
 @section('main')
     <div class="bg-white font-sans leading-normal tracking-normal">
-        <div id="header" class="bg-white fixed w-full z-50 top-0 hidden animated" >
+        <div id="header" class="bg-white fixed w-full z-50 top-0 hidden animated h-24" >
             <div class="bg-white">
                 <div class="flex flex-wrap items-center content-center">
                     <div class="flex w-1/2 justify-start text-white font-extrabold">
