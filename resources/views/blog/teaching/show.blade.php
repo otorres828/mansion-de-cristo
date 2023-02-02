@@ -116,6 +116,12 @@
                                     </strong>{{ $teaching->user->name }}</blockquote>
                                 </div>
                             </div>
+                            <div class="flex space-x-2 justify-center">
+                                <a  data-turbolinks="false"
+                                  href="{{route('blog.download_teaching',$teaching->slug)}}"
+                                  class="inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out"
+                                >Descargar PDF</a>
+                              </div>
                         </div>
                     </div>
     
@@ -186,22 +192,6 @@
 
 @section('js')
     @include('components.aminblog.show')
-    {{-- <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script type="text/javaScript">
-        $(document).ready(function() {
-            $.ajax({
-                url: "{{ route('admin.blog.estadisticas.registrar') }}",
-                dataType: "POST",
-                data: {
-                    pagina: document.getElementById("titulo").value,
-                    url:window.location.href,
-                },
-                sucess: function(resp) {
-                    datos = JSON.parse(resp);
-                }
-            })
-        })
-    </script> --}}
 @endsection
 
 @section('footer')

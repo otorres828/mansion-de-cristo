@@ -1,12 +1,11 @@
 <?php
 namespace App\Http\Controllers\Blog;
-use App\Http\Controllers\Controller;
 
-use App\Models\Category;
+use App\Http\Controllers\Controller;
 use App\Models\Teaching;
-use App\Models\User;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 
 class TeachingController extends Controller
 {
@@ -15,8 +14,6 @@ class TeachingController extends Controller
     }
 
     public function show($slug){   
-
-       
         $teaching = Teaching::where('slug',$slug)->first();
         $this->authorize('publicado',$teaching); 
         $similares = Teaching::where('status',2)
@@ -35,5 +32,11 @@ class TeachingController extends Controller
         return view('blog.teaching.show',compact('teaching','similares'));
     }
 
+    public function downloadPdf($slug){
+        $teaching = Teaching::where('slug',$slug)->first();   
+        view()->share('blog.teaching.download',$teaching);
+        $pdf = FacadePdf::loadView('blog.teaching.download', ['teaching' => $teaching]);
+        return $pdf->download($slug.'.pdf');
+    }
 
 }

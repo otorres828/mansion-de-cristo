@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.0",
         "ext-gd": "*",
+        "barryvdh/laravel-dompdf": "^2.0",
         "fakerphp/faker": "^1.9.1",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
