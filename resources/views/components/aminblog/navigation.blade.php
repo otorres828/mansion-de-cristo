@@ -48,9 +48,9 @@
                         {{-- <a href="{{ route('blog.testimony') }}"
                             class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Testimonios</a>
                         --}}
-                            <a href="{{ route('blog.acercade') }}"
+                            {{-- <a href="{{ route('blog.acercade') }}"
                             class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Acerca
-                            de</a>
+                            de</a> --}}
                         <a href="{{ route('blog.contact') }}"
                             class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Contactanos</a>
                         @auth
@@ -81,9 +81,10 @@
             {{-- <a href="{{ route('blog.testimony') }}"
                 class="text-gray-800 hover:bg-gray-200  block px-3 py-2 rounded-md text-base font-medium">Testimonios</a>
              --}}
-                <a href="{{ route('blog.acercade') }}"
+                {{-- <a href="{{ route('blog.acercade') }}"
                 class="text-gray-800 hover:bg-gray-200  block px-3 py-2 rounded-md text-base font-medium">Acerca de</a>
-            <a href="{{ route('blog.contact') }}"
+            --}}
+                <a href="{{ route('blog.contact') }}"
                 class="text-gray-800 hover:bg-gray-200  block px-3 py-2 rounded-md text-base font-medium">Contactanos</a>
             @auth
                 <a class="text-blue-600 hover:bg-blue-600 hover:text-gray-50 px-3 block py-2 rounded-md text-base font-medium"

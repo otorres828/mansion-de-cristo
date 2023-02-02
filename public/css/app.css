@@ -1339,6 +1339,9 @@ select {
 .-mt-px {
   margin-top: -1px;
 }
+.mr-10 {
+  margin-right: 2.5rem;
+}
 .block {
   display: block;
 }
@@ -1675,6 +1678,9 @@ select {
 }
 .gap-8 {
   gap: 2rem;
+}
+.gap-3 {
+  gap: 0.75rem;
 }
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
