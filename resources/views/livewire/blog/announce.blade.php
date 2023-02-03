@@ -73,7 +73,7 @@
 
                         <div class="py-2 px-6 ">
                             <div class="flex-grow items-center  justify-between ">
-                                <h1 class="mb-3 text-gray-600 ">{{$announce->extract}}</h1>
+                                {{ Illuminate\Support\Str::limit($announce->extract, 200, '...') }}</h1>
                             </div>
                         </div>
                     </div>
