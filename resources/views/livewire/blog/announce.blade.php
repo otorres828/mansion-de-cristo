@@ -75,7 +75,7 @@
                 <div class=" text-center pb-3 pt-3">
                     <h1
                         class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300">
-                        Publicaciones de nuestra cuenta en Ig
+                        Publicaciones de nuestra cuenta en Instagram
                     </h1>
                 </div>
 
@@ -116,6 +116,8 @@
                             </div>
                         </div>
                     @endforeach
+                    {{ $instagrams->links() }}
+
                     @foreach ($announces as $announce)
                         <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative max-w-64 border-0  rounded-lg break-words text-gray-800 flex flex-col"
                             style="background-color:white;">
@@ -153,8 +155,8 @@
                             </div>
                         </div>
                     @endforeach
+                    {{-- {{ $announces->links() }} --}}
                 </div>
-                {{ $announces->links() }}
             </div>
         </div>
 
