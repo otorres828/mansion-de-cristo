@@ -1348,6 +1348,12 @@ select {
 .mr-10 {
   margin-right: 2.5rem;
 }
+.mt-14 {
+  margin-top: 3.5rem;
+}
+.mt-16 {
+  margin-top: 4rem;
+}
 .block {
   display: block;
 }

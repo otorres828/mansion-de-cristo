@@ -82,7 +82,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="lg:mt-0 col-span-12 lg:col-span-6">
+                <div class="mt-16 lg:mt-0 col-span-12 lg:col-span-6">
                     {{-- CARRUSEL PRINCIPAL --}}
                     <div class="swiper mySwiper p-5">
                         <div class="swiper-wrapper">
