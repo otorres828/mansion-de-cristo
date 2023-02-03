@@ -6,11 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Announce;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class AnnounceController extends Controller
 {
     
     public function index(){
+        $token= env('APP_INSTAGRAM');
+        $respuesta= json_decode(Http::get('https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,timestamp&access_token='.$token));
+       return $instagrams=$respuesta->data;
         $announces = Announce::where('status',2)->orderBy('id','desc')->paginate(8);
         return view('blog.announce.index',compact('announces'));
     }

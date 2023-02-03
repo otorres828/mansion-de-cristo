@@ -88,6 +88,9 @@
                                     @if ($publicacion->media_type == 'IMAGE')
                                         <img class="rounded-lg shadow" src="{{ $publicacion->media_url }}"
                                             alt="Card image cap">
+                                    @elseif($publicacion->media_type == 'CAROUSEL_ALBUM')
+                                        <img class="rounded-lg shadow" src="{{ $publicacion->media_url }}"
+                                        alt="Card image cap">
                                     @else
                                         <video controls=""autostart="0" o autostart="1" name="media" class="">
                                             <source
@@ -145,7 +148,7 @@
 
                             <div class="py-2 px-6 ">
                                 <div class="flex-grow items-center  justify-between ">
-                                    {{ Illuminate\Support\Str::limit($announce->extract, 200, '...') }}</h1>
+                                    {{ Illuminate\Support\Str::limit($announce->extract, 150, '...') }}</h1>
                                 </div>
                             </div>
                         </div>
