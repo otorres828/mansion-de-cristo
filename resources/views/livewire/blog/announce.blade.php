@@ -75,7 +75,7 @@
                 <div class=" text-center pb-3 pt-3">
                     <h1
                         class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300">
-                        Conoce las ultimas noticias de Instagram
+                        Publicaciones de nuestra cuenta en Ig
                     </h1>
                 </div>
 
