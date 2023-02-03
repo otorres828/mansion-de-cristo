@@ -11,7 +11,13 @@ class SearchMinisteries extends Component
 
     public function render()
     {
+        $ministerios=Ministry::search($this->search)->where('status',2)->get();
+        $h =0;
+        if ($ministerios->count() == 1) $h=11;
+        else if($ministerios->count() == 2) $h=22; 
+        elseif($ministerios->count() == 3) $h=33;
+        elseif($ministerios->count() > 3) $h=34; 
         return view('livewire.blog.search-ministeries',[
-        'ministeries' =>Ministry::search($this->search)->where('status',2)->get()]);
+        'ministeries' =>$ministerios,'h'=>$h]);
     }
 }

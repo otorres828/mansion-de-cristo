@@ -16,7 +16,7 @@ class SearchTeachings extends Component
         if ($teachings->count() == 1) $h=11;
         else if($teachings->count() == 2) $h=22; 
         elseif($teachings->count() == 3) $h=33;
-        elseif($teachings->count() > 3) $h=40; 
+        elseif($teachings->count() > 3) $h=34; 
 
         return view('livewire.blog.search-teachings',[
         'teachings' => $teachings,'h'=>$h]);

@@ -7,7 +7,7 @@
         </svg>
     </span>
     <input
-        class=" py-1 border-solid border-1 border-light-blue-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md  w-full pl-10"
+        class=" py-2 border-solid border-1 border-light-blue-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md  w-full pl-10"
         wire:model="search" type="text"
         placeholder="Escribe una frase relacionada con la enseñanza que estas buscando">
 
