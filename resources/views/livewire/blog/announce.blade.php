@@ -53,7 +53,7 @@
                     <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative max-w-64 border-0  rounded-lg break-words text-gray-800 flex flex-col" style="background-color:white;">
                         <div class="py-0 z-10 mx-6 -mt-8 rounded-lg relative">
                             <a href="{{route('blog.show_announces',$announce->slug)}}" class="block bg-transparent leading-none m-0 p-0 z-20 relative"><!----> 
-                                <img class="rounded-lg shadow" src="@if ($announce->image){{asset('storage/'.$announce->image->url)}}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="Card image cap">
+                                <img class="rounded-lg shadow" src="@if ($announce->image){{ imagenes_storage($anuncio->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif" alt="Card image cap">
                             </a> 
                                   
                         </div> 
