@@ -79,7 +79,7 @@
                     </h1>
                 </div>
 
-                <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-6">
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
                     @foreach ($instagrams as $publicacion)
                         <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative min-w-64 min-h-64 border-0  rounded-lg break-words text-gray-800 flex flex-col"
                             style="background-color:white;">
