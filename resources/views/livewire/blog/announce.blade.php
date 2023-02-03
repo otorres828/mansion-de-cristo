@@ -10,20 +10,20 @@
             shadow">
     <div class="pt-5 pb-5 ">
         <div class="max-w-6xl mx-auto px-6 sm:px-6 lg:px-6 ">
-            <div class=" text-center pb-3 pt-3">
+            <div class=" text-center mb-5 pt-3">
                 <h1
                     class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300">
                     Conoce Los ultimos anuncios de MDC
                 </h1>
             </div>
 
-            <div class="grid grid-cols-5 py-5">
+            <div class="grid grid-cols-5 md:py-5">
                 <div class="col-span-5 sm:col-span-5 md:col-span-2 lg:col-span-2">
                     <h5 class=" text-gray-600 text-center text-2xl ">
                         <strong>Encuentra un anuncio por su titulo</strong>
                     </h5>
                 </div>
-                <div class="col-span-5 sm:col-span-5 md:col-span-3 lg:col-span-3">
+                <div class="mt-3 md:mt-0 col-span-5 sm:col-span-5 md:col-span-3 lg:col-span-3">
                     @livewire('blog.search-announces')
                 </div>
             </div>
@@ -81,7 +81,7 @@
 
                 <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-6">
                     @foreach ($instagrams as $publicacion)
-                        <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative max-w-64 border-0  rounded-lg break-words text-gray-800 flex flex-col"
+                        <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative min-w-64 min-h-64 border-0  rounded-lg break-words text-gray-800 flex flex-col"
                             style="background-color:white;">
                             <div class="py-0 z-10 mx-6 -mt-8 rounded-lg relative">
                                 <a class="block bg-transparent leading-none m-0 p-0 z-20 relative">
@@ -89,9 +89,9 @@
                                         <img class="rounded-lg shadow" src="{{ $publicacion->media_url }}"
                                             alt="Card image cap">
                                     @else
-                                        <video controls=""autostart="0" o autostart="1" name="media">
+                                        <video controls=""autostart="0" o autostart="1" name="media" class="">
                                             <source
-                                                src="https://video-mia3-1.cdninstagram.com/v/t50.2886-16/139943185_1086882771827930_1210326483997544391_n.mp4?_nc_cat=101&amp;vs=17871765368175580_1125480955&amp;_nc_vs=HBksFQAYJEdCRmRWd2phLUlhZGc5d0RBTWZQNjB5Rzhjc1Fia1lMQUFBRhUAAsgBABUAGCRHTXNHZkFnZ0VlUGptdE1BQUowd2JoQ0J1RmtkYmtZTEFBQUYVAgLIAQAoABgAGwGIB3VzZV9vaWwBMRUAACa4hOCEzJG%2FPxUCKAJDMywXQEP3bItDlYEYEmRhc2hfYmFzZWxpbmVfMV92MREAdeoHAA%3D%3D&amp;ccb=1-7&amp;_nc_sid=59939d&amp;efg=eyJ2ZW5jb2RlX3RhZyI6InZ0c192b2RfdXJsZ2VuLjcyMC5mZWVkIn0%3D&amp;_nc_ohc=6YZHp7Z6LsIAX_C8W5U&amp;_nc_ht=video-mia3-1.cdninstagram.com&amp;edm=ANo9K5cEAAAA&amp;oh=00_AfCP695PbL9-4g6gN4bjTnbPRAMNV1DylO7k8COgnwAzHg&amp;oe=63DD157F&amp;_nc_rid=b8008c98d7"
+                                                src="{{$publicacion->media_url}}"
                                                 type="video/mp4">
                                         </video>
                                     @endif
