@@ -2,7 +2,7 @@
 @section('title','MDC-Anuncios')
 
 @section('main')
-    <div class="bg-gray-200 pb-5">
+    <div class="bg-gray-200 pb-5 mt-16">
         <div class="container grid grid-cols-12 py-22 px-6 sm:px-6 lg:px-28 mx-auto ">
             <div class=" text-justify col-span-12 lg:col-span-7 mt-6 p-10 shadow-md  sm:rounded-lg bg-white prose ">
                     <h1 class="text-2xl ">Terminos y Condiciones</h1>

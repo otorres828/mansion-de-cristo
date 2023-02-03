@@ -2277,6 +2277,9 @@ select {
 .pr-3 {
   padding-right: 0.75rem;
 }
+.pt-14 {
+  padding-top: 3.5rem;
+}
 .text-left {
   text-align: left;
 }
@@ -3269,6 +3272,10 @@ select {
     margin-bottom: 0px;
   }
 
+  .sm\:mt-16 {
+    margin-top: 4rem;
+  }
+
   .sm\:block {
     display: block;
   }
@@ -3745,6 +3752,10 @@ select {
 
   .md\:-mt-32 {
     margin-top: -8rem;
+  }
+
+  .md\:mt-16 {
+    margin-top: 4rem;
   }
 
   .md\:block {
