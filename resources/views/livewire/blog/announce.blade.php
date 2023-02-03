@@ -28,7 +28,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-6 pt-6">
                 @foreach ($announces as $announce)
                     <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative max-w-64 border-0  rounded-lg break-words text-gray-800 flex flex-col"
                         style="background-color:white;">
@@ -92,7 +92,8 @@
                                         <img class="rounded-lg shadow" src="{{ $publicacion->media_url }}"
                                         alt="Card image cap">
                                     @else
-                                        <video controls=""autostart="0" o autostart="1" name="media"  width="600" height="400" >
+                                        <video controls=""autostart="0" o autostart="1" name="media" 
+                                         >
                                             <source
                                                 src="{{$publicacion->media_url}}"
                                                 type="video/mp4">
