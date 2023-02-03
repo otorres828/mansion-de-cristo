@@ -1,4 +1,4 @@
-{{-- <div  class="mr-3 ml-3
+<div  class="mr-3 ml-3
             z-10
             mb-10
             -mt-64
@@ -10,7 +10,7 @@
     <div class="pt-5 pb-5 shadow-lg">
         <div class="max-w-6xl mx-auto px-6 sm:px-6 lg:px-6 ">
             <div class=" text-center pb-3 pt-3">
-                <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-700">
+                <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300">
                     Conoce Los ultimos anuncios de MDC
                 </h1>
             </div>
@@ -27,6 +27,28 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-6">
+                {{-- @foreach ($instagrams as $publicacion)
+                    <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative max-w-64 border-0  rounded-lg break-words text-gray-800 flex flex-col" style="background-color:white;">
+                        <div class="py-0 z-10 mx-6 -mt-8 rounded-lg relative">
+                            <a class="block bg-transparent leading-none m-0 p-0 z-20 relative">
+                                @if ($publicacion->media_type == 'IMAGE')
+                                <img class="rounded-lg shadow" src="{{$publicacion->media_url}}" alt="Card image cap">
+                                    
+                                @else
+                                <video controls="" autoplay="" name="media"><source src="https://video-mia3-1.cdninstagram.com/v/t50.2886-16/139943185_1086882771827930_1210326483997544391_n.mp4?_nc_cat=101&amp;vs=17871765368175580_1125480955&amp;_nc_vs=HBksFQAYJEdCRmRWd2phLUlhZGc5d0RBTWZQNjB5Rzhjc1Fia1lMQUFBRhUAAsgBABUAGCRHTXNHZkFnZ0VlUGptdE1BQUowd2JoQ0J1RmtkYmtZTEFBQUYVAgLIAQAoABgAGwGIB3VzZV9vaWwBMRUAACa4hOCEzJG%2FPxUCKAJDMywXQEP3bItDlYEYEmRhc2hfYmFzZWxpbmVfMV92MREAdeoHAA%3D%3D&amp;ccb=1-7&amp;_nc_sid=59939d&amp;efg=eyJ2ZW5jb2RlX3RhZyI6InZ0c192b2RfdXJsZ2VuLjcyMC5mZWVkIn0%3D&amp;_nc_ohc=6YZHp7Z6LsIAX_C8W5U&amp;_nc_ht=video-mia3-1.cdninstagram.com&amp;edm=ANo9K5cEAAAA&amp;oh=00_AfCP695PbL9-4g6gN4bjTnbPRAMNV1DylO7k8COgnwAzHg&amp;oe=63DD157F&amp;_nc_rid=b8008c98d7" type="video/mp4"></video>
+                                @endif
+                            </a> 
+                                  
+                        </div> 
+                      
+              
+                        <div class="py-2 px-6 ">
+                            <div class="flex-grow items-center  justify-between ">
+                                <h1 class="mb-3 text-gray-600 text-xs">@if(isset($publicacion->caption)){{$publicacion->caption}} @else No hay comentarios en esta publicacion @endif</h1>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach --}}
                 @foreach ($announces as $announce)
                     <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative max-w-64 border-0  rounded-lg break-words text-gray-800 flex flex-col" style="background-color:white;">
                         <div class="py-0 z-10 mx-6 -mt-8 rounded-lg relative">
@@ -60,8 +82,8 @@
             {{$announces->links()}}
         </div>
     </div>    
-</div> --}}
-
+</div>
+{{-- 
 <div class="container grid grid-cols-10 py-22 px-6 sm:px-6 lg:px-28 mx-auto z-10 mb-10 -mt-64 relative">
     <div class="col-span-12 mx-auto px-14 text-center z-40 relative">
         <p class="font-serif  text-3xl lg:text-6xl text-gray-50">Seccion de Noticias</p>
@@ -180,4 +202,4 @@
         </div>
     </div>
 
-</div>
+</div> --}}
