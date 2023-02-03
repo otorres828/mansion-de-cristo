@@ -10,10 +10,10 @@
         <div class="shadow-2xl w-full rounded px-3 py-3 pb-0 absolute z-40" style="background-color: white">
             @foreach($announces as $announce)
                 <ul class=" max-h-screen  bottom-auto text-sm pb-2" >
-                    <li>
+                    <li class="py-1 hover:bg-slate-200">
                         <a href="{{route('blog.show_announces',$announce->slug)}}" 
                             class="block font-sans font-semibold px-2 py-1 text-gray-600 hover:bg-primary 
-                                hover:text-purple-800 leading-5">
+                            hover:text-purple-800 leading-5 border-b">
                             {{ $announce->name }}</a>
                     </li>   
                 </ul>
