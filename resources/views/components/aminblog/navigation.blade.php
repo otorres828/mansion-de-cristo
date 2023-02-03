@@ -1,10 +1,9 @@
 @php
-    $active = request()->routeIs('blog.show_teaching') + request()->routeIs('blog.show_ministery')  + request()->routeIs('blog.show_announces') ;  
+    $active = request()->routeIs('blog.show_teaching') + request()->routeIs('blog.show_ministery') + request()->routeIs('blog.show_announces');
 @endphp
 
-<nav x-data="{ open: false }" class="@if (!$active)
-fixed min-w-full
-@endif bg-white border-b border-gray-100 top-0 z-[20]">
+<nav x-data="{ open: false }"
+    class="@if (!$active) fixed min-w-full @endif bg-white border-b border-gray-100 top-0 z-[20]">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
 
@@ -40,7 +39,7 @@ fixed min-w-full
 
                 {{-- MENU LG --}}
                 <div class="hidden md:block md:ml-6 justify-end">
-                    <div class="flex">
+                    <div class="flex space-x-8">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="{{ route('landding.index') }}"
                             class="text-gray-800 hover:bg-gray-200 px-3 py-2 rounded-md text-sm leading-5 font-medium"
@@ -54,7 +53,7 @@ fixed min-w-full
                         {{-- <a href="{{ route('blog.testimony') }}"
                             class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Testimonios</a>
                         --}}
-                            {{-- <a href="{{ route('blog.acercade') }}"
+                        {{-- <a href="{{ route('blog.acercade') }}"
                             class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Acerca
                             de</a> --}}
                         <a href="{{ route('blog.contact') }}"
@@ -87,16 +86,16 @@ fixed min-w-full
             {{-- <a href="{{ route('blog.testimony') }}"
                 class="text-gray-800 hover:bg-gray-200  block px-3 py-2 rounded-md text-base font-medium">Testimonios</a>
              --}}
-                {{-- <a href="{{ route('blog.acercade') }}"
+            {{-- <a href="{{ route('blog.acercade') }}"
                 class="text-gray-800 hover:bg-gray-200  block px-3 py-2 rounded-md text-base font-medium">Acerca de</a>
             --}}
-                <a href="{{ route('blog.contact') }}"
+            <a href="{{ route('blog.contact') }}"
                 class="text-gray-800 hover:bg-gray-200  block px-3 py-2 rounded-md text-base font-medium">Contactanos</a>
             @auth
                 <a class="text-blue-600 hover:bg-blue-600 hover:text-gray-50 px-3 block py-2 rounded-md text-base font-medium"
                     href="{{ route('admin.blog.panel') }}" data-turbolinks="false">
                     <strong>Panel de Blog</strong>
-                </a>     
+                </a>
             @endauth
         </div>
     </div>
