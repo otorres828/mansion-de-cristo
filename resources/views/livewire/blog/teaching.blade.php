@@ -11,7 +11,7 @@
     <div class="pt-5 mb-10 shadow-lg">
         <div class="max-w-6xl mx-auto px-6 sm:px-6 lg:px-6">
             <div class=" text-center md:pb-3 pt-3">
-                <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl  text-yellow-600">
+                <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl  bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300">
                     Conoce Las Enseñanzas que Cambiaran Tu Vida
                 </h1>
             </div>

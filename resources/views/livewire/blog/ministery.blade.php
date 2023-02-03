@@ -6,7 +6,7 @@
     <div class="pt-5 pb-5 shadow-lg">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 ">
             <div class=" text-center pb-3 pt-3">
-                <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-yellow-600">
+                <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300">
                     Conoce Los Ministerios de MDC
                 </h1>
             </div>
