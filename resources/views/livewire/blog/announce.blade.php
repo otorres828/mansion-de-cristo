@@ -116,46 +116,7 @@
                             </div>
                         </div>
                     @endforeach
-                    {{ $instagrams->links() }}
-
-                    @foreach ($announces as $announce)
-                        <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative max-w-64 border-0  rounded-lg break-words text-gray-800 flex flex-col"
-                            style="background-color:white;">
-                            <div class="py-0 z-10 mx-6 -mt-8 rounded-lg relative">
-                                <a href="{{ route('blog.show_announces', $announce->slug) }}"
-                                    class="block bg-transparent leading-none m-0 p-0 z-20 relative">
-                                    <!---->
-                                    <img class="rounded-lg shadow"
-                                        src="@if ($announce->image) {{ imagenes_storage($announce->image->url) }}@else https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg @endif"
-                                        alt="Card image cap">
-                                </a>
-
-                            </div>
-                            <div class="w-full text-center relative mt-4 px-6">
-                                <div class="bg-gray-300 rounded overflow-hidden shadow h-1">
-                                    <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
-                                        class="bg-green progress-bar h-1" style="width: 0%;">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class=" mt-0  px-6  flex flex-wrap items-baseline ">
-
-                                <h4
-                                    class="mt-2  flex w-full text-lg leading-tight text-gray-700  hover:text-blue-800  font-bold font-serif ">
-                                    <a
-                                        href="{{ route('blog.show_announces', $announce->slug) }}">{{ $announce->name }}</a>
-                                </h4>
-
-                            </div>
-
-                            <div class="py-2 px-6 ">
-                                <div class="flex-grow items-center  justify-between ">
-                                    {{ Illuminate\Support\Str::limit($announce->extract, 150, '...') }}</h1>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                    {{-- {{ $announces->links() }} --}}
+                    {{-- {{ $instagrams->links() }} --}}
                 </div>
             </div>
         </div>
