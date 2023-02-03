@@ -2,7 +2,8 @@
 @section('title', 'MDC-Contactanos')
 
 @section('seo_principal')
-<meta name="description" content="Este es un formulario de contácto, donde podremos aclarar dudas especificas y de gran relevancia. Tambien puedes visitarnos en nuestras redes sociales y conocer un poco mas de nuestra congregacion">
+    <meta name="description"
+        content="Este es un formulario de contácto, donde podremos aclarar dudas especificas y de gran relevancia. Tambien puedes visitarnos en nuestras redes sociales y conocer un poco mas de nuestra congregacion">
 @endsection
 
 @section('header')
@@ -41,29 +42,32 @@
                             </div>
                         @endif
                         @if (session('failer'))
-                        <div class="flex p-4 mb-4 bg-red-100 rounded-lg dark:bg-red-200 " role="alert">
-                            <svg class="flex-shrink-0 w-5 h-5 text-red-700 dark:text-red-800" fill="currentColor"
-                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <div class="ml-3 text-sm font-medium text-red-700 dark:text-red-800">
-                                Ops, Tu mensaje no pudo ser enviado!
-                            </div>
-                            <button type="button"
-                                class="ml-auto -mx-1.5 -my-1.5 bg-red-100 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex h-8 w-8 dark:bg-red-200 dark:text-red-600 dark:hover:bg-red-300"
-                                data-dismiss-target="#alert-3" aria-label="Close">
-                                <span class="sr-only">Cerrar</span>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
+                            <div class="flex p-4 mb-4 bg-red-100 rounded-lg dark:bg-red-200 " role="alert">
+                                <svg class="flex-shrink-0 w-5 h-5 text-red-700 dark:text-red-800" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
-                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                            </button>
-                        </div>
-                    @endif
+                                @if(session('failer'))
+                                <div class="ml-3 text-sm font-medium text-red-700 dark:text-red-800">
+                                    {{session('failer')}}
+                                </div>
+                                    
+                                @endif
+                                <button type="button"
+                                    class="ml-auto -mx-1.5 -my-1.5 bg-red-100 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex h-8 w-8 dark:bg-red-200 dark:text-red-600 dark:hover:bg-red-300"
+                                    data-dismiss-target="#alert-3" aria-label="Close">
+                                    <span class="sr-only">Cerrar</span>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        @endif
                         {{-- FIN ALERTA --}}
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -100,40 +104,45 @@
                                         </div>
                                     </div>
                                 </div>
-                                {!! Form::open(['route' => 'blog.contact.store', 'class' => 'space-y-6 ng-untouched ng-pristine ng-valid', 'autocomplete' => 'off']) !!}
+                                {!! Form::open([
+                                    'route' => 'blog.contact.store',
+                                    'class' => 'space-y-6 ng-untouched ng-pristine ng-valid',
+                                    'autocomplete' => 'off',
+                                ]) !!}
 
                                 <div>
                                     <label for="name" class="text-sm">Nombre completo</label>
                                     <input
                                         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
-                                        name="name" type="text" placeholder="Nombre completo"  required>
+                                        name="name" type="text" placeholder="Nombre completo" required>
                                     @error('name')
-                                        <span class="text-red-600">{{$message}}</span>
-                                     @enderror
+                                        <span class="text-red-600">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div>
                                     <label for="email" class="text-sm">Email</label>
                                     <input
                                         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
                                         type="email" placeholder="Escriba aquí su correo electrónico" id="email"
-                                        name="email"  required>
-                                        @error('email')
-                                            <span class="text-red-600">{{$message}}</span>
-                                        @enderror
+                                        name="email" required>
+                                    @error('email')
+                                        <span class="text-red-600">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div>
                                     <label for="name" class="text-sm">Asunto</label>
                                     <input
                                         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
-                                        name="title" type="text" placeholder="Asunto"  required>
+                                        name="title" type="text" placeholder="Asunto" required>
                                     @error('title')
-                                        <span class="text-red-600">{{$message}}</span>
-                                     @enderror
+                                        <span class="text-red-600">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div>
                                     <label for="message" class="text-sm">Mensaje</label>
                                     <div class="w-full">
-                                        <textarea name="description" class="
+                                        <textarea name="description"
+                                            class="
                                                   form-control
                                                   block
                                                   w-full
@@ -152,7 +161,35 @@
                                                 "
                                             rows="3" placeholder="Escribe tu mensaje" required></textarea>
                                         @error('description')
-                                            <span class="text-red-600">{{$message}}</span>
+                                            <span class="text-red-600">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="message" class="text-sm">Verifica que no eres un robot: <span class="font-bold">{{$codigo}}</span></label>
+                                    <input type="text" name="codigo" hidden value={{$codigo}}>
+                                    <div class="w-full">
+                                        <input name="robot"
+                                            class="
+                                                  form-control
+                                                  block
+                                                  w-full
+                                                  px-3
+                                                  py-1.5
+                                                  text-base
+                                                  font-normal
+                                                  text-gray-700
+                                                  bg-white bg-clip-padding
+                                                  border border-solid border-gray-300
+                                                  rounded
+                                                  transition
+                                                  ease-in-out
+                                                  m-0
+                                                  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                                                "
+                                            rows="3" placeholder="Escribe el codigo" required />
+                                        @error('robot')
+                                            <span class="text-red-600">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>

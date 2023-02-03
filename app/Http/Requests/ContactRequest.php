@@ -28,6 +28,7 @@ class ContactRequest extends FormRequest
                 'email' =>'required',
                 'title' =>'required',
                 'description' =>'required',
+                'robot'=>'required'
         ];
        
         

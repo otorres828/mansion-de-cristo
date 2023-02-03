@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactRequest;
 use App\Models\Acercade;
 use App\Models\Contact;
-use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ContactController extends Controller
 {
@@ -15,11 +15,15 @@ class ContactController extends Controller
     }
 
     public function index(){
-        return view('blog.contactanos');
+        $codigo= strtoupper(Str::random(6));
+        return view('blog.contactanos',compact('codigo'));
     }
 
     public function store(ContactRequest $request)
     {
+        if($request->codigo!=$request->robot)
+            return redirect()->route('blog.contact')->with('failer','Codigo Errado');    
+
         $fecha = date("Y-m-d");
         $ip = $_SERVER["REMOTE_ADDR"] ?? "";
         $consulta = Contact::where('ip',$ip)->where('fecha',$fecha)->get();
