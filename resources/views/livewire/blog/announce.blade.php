@@ -92,7 +92,7 @@
                                         <img class="rounded-lg shadow" src="{{ $publicacion->media_url }}"
                                         alt="Card image cap">
                                     @else
-                                        <video controls=""autostart="0" o autostart="1" name="media" class="">
+                                        <video controls=""autostart="0" o autostart="1" name="media"  width="600" height="400" >
                                             <source
                                                 src="{{$publicacion->media_url}}"
                                                 type="video/mp4">
