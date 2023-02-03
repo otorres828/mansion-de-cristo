@@ -17,7 +17,7 @@
             class="bottom-auto text-sm pb-2 overflow-y-scroll h-{{$h}}">
                 @foreach ($teachings as $teaching)
                 <li class="py-1 hover:bg-slate-200">
-                    <a href="{{ route('blog.show_teaching', $teaching->slug) }}"
+                    <a href="{{ route('blog.show_teaching', [$teaching->slug,$teaching->id]) }}"
                             class="block font-sans font-semibold px-2 py-1 text-gray-600 hover:bg-primary 
                                 hover:text-purple-800 leading-5 border-b">
                             {{ $teaching->name }}</a>

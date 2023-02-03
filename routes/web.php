@@ -27,7 +27,7 @@ Route::get('noticias', [AnnounceController::class,'index'])->middleware('manteni
 Route::get('noticias/{slug}',[AnnounceController::class,'show'])->name('blog.show_announces');
 
 Route::get('enseñanzas',[TeachingController::class,'index'])->middleware('mantenimientoEnseñanzas','mantenimientoGeneral')->name('blog.teaching');
-Route::get('enseñanzas/{slug}',  [TeachingController::class,'show'])->name('blog.show_teaching');
+Route::get('enseñanzas/{slug}/{id}',  [TeachingController::class,'show'])->name('blog.show_teaching');
 Route::get('enseñanzas/download/{slug}',  [TeachingController::class,'downloadPdf'])->name('blog.download_teaching');
 
 Route::get('ministerios',[MinisteryController::class,'index'])->middleware('mantenimientoMinisterios','mantenimientoGeneral')->name('blog.ministery');

@@ -46,7 +46,7 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item " data-turbolinks="false"
-                                            href="{{ route('blog.show_teaching', $teaching->slug) }}">Ver</a>
+                                            href="{{ route('blog.show_teaching', [$teaching->slug,$teaching->id]) }}">Ver</a>
                                         <a class="dropdown-item"
                                             href="{{ route('admin.blog.teaching.edit', $teaching) }}">Editar</a>
                                         @can('eliminarpublicaciones')

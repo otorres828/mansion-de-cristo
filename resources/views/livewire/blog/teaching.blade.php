@@ -63,7 +63,7 @@
                     <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative max-w-64 border-0  rounded-lg break-words text-gray-800 flex flex-col"
                         style="background-color:white;">
                         <div class="py-0 z-10 mx-6 -mt-8 rounded-lg relative">
-                            <a href="{{ route('blog.show_teaching', $teaching->slug) }}"
+                            <a href="{{ route('blog.show_teaching', [$teaching->slug,$teaching->id]) }}"
                                 class="block bg-transparent leading-none m-0 p-0 z-20 relative">
                                 <!---->
                                 <img class="rounded-lg shadow"
@@ -84,7 +84,7 @@
                             <h4
                                 class="mt-2  flex w-full text-lg leading-tight text-gray-700  hover:text-blue-800  font-bold font-serif ">
                                 <a
-                                    href="{{ route('blog.show_teaching', $teaching->slug) }}">{{ $teaching->name }}</a>
+                                    href="{{ route('blog.show_teaching', [$teaching->slug,$teaching->id]) }}">{{ $teaching->name }}</a>
                             </h4>
                             <div wire:click="filtro({{ $teaching->category_id }})"
                                 class="mt-2 p-1 w-auto rounded text-xs   shadow-lg  uppercase font-serif text-white bg-green-800">

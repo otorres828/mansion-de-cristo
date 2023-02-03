@@ -34,7 +34,7 @@
                         <p class="hidden sm:block mr-3 text-center h-14 p-4 text-xs"><span class="pr-2">Comparte
                                 esto</span> 👉</p>
                         <a class="inline-block text-white no-underline hover:text-white hover:text-underline text-center h-10 w-10 p-2 md:h-auto md:w-16 md:p-4"
-                            href="https://api.whatsapp.com/send/?text={{ route('blog.show_teaching', $teaching->slug) }}"
+                            href="https://api.whatsapp.com/send/?text={{ route('blog.show_teaching', [$teaching->slug,$teaching->id]) }}"
                             style="background-color:#25da76;">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20px" height="20px"
                                 fill-rule="evenodd" clip-rule="evenodd">
@@ -52,7 +52,7 @@
                             </svg>
                         </a>
                         <a class="inline-block text-white no-underline hover:text-white hover:text-underline text-center h-10 w-10 p-2 md:h-auto md:w-16 md:p-4"
-                            href="https://twitter.com/intent/tweet?url={{ route('blog.show_teaching', $teaching->slug) }}"
+                            href="https://twitter.com/intent/tweet?url={{ route('blog.show_teaching', [$teaching->slug,$teaching->id]) }}"
                             style="background-color:#33b1ff;">
                             <svg class="fill-current text-white h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                                 <path
@@ -61,7 +61,7 @@
                             </svg>
                         </a>
                         <a class="inline-block text-white no-underline hover:text-white hover:text-underline text-center h-10 w-10 p-2 md:h-auto md:w-16 md:p-4"
-                            href="https://www.facebook.com/sharer/sharer.php?u={{ route('blog.show_teaching', $teaching->slug) }}"
+                            href="https://www.facebook.com/sharer/sharer.php?u={{ route('blog.show_teaching', [$teaching->slug,$teaching->id]) }}"
                             style="background-color:#005e99">
                             <svg class="fill-current text-white h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                                 <path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z">
@@ -143,7 +143,7 @@
                         <div class="snap-center pt-4 grid-cols-2 shadow mt-5 text-sm relative max-w-64 border-0  rounded-lg break-words text-gray-800 flex flex-col"
                             style="background-color:white;">
                             <div class="py-0 z-10 mx-6 -mt-8 rounded-lg relative">
-                                <a href="{{ route('blog.show_teaching', $teaching->slug) }}"
+                                <a href="{{ route('blog.show_teaching', [$teaching->slug,$teaching->id]) }}"
                                     class="block bg-transparent leading-none m-0 p-0 z-20 relative">
                                     <!---->
                                     <img class="rounded-lg shadow"
@@ -164,7 +164,7 @@
                                 <h4
                                     class="mt-2  flex w-full text-lg leading-tight text-gray-700  hover:text-blue-800  font-bold font-serif ">
                                     <a
-                                        href="{{ route('blog.show_teaching', $teaching->slug) }}">{{ $teaching->name }}</a>
+                                        href="{{ route('blog.show_teaching',[ $teaching->slug,$teaching->id]) }}">{{ $teaching->name }}</a>
                                 </h4>
                                 <div wire:click="filtro({{ $teaching->category_id }})"
                                     class="mt-2 p-1 w-auto rounded text-xs   shadow-lg  uppercase font-serif text-white bg-green-800">

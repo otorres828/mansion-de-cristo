@@ -17,7 +17,7 @@ class TeachingRequest extends FormRequest
         $teaching = $this->route()->parameter('teaching');
         $rules = [
                 'name' =>'required',
-                'slug' =>'required|unique:teachings',
+                'slug' =>'required', //|unique:teachings
                 'status'=>'required|in:1,2',
                 'file' => 'image|max:15000|dimensions:max_width=4000,max_height=3000'
         ];
