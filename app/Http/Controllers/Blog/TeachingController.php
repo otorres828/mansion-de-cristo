@@ -32,11 +32,11 @@ class TeachingController extends Controller
         return view('blog.teaching.show',compact('teaching','similares'));
     }
 
-    public function downloadPdf($slug){
-        $teaching = Teaching::where('slug',$slug)->first();   
+    public function downloadPdf(Request $request){
+        $teaching = Teaching::where('slug',$request->slug)->where('id',$request->id)->first();
         view()->share('blog.teaching.download',$teaching);
         $pdf = FacadePdf::loadView('blog.teaching.download', ['teaching' => $teaching]);
-        return $pdf->download($slug.'.pdf');
+        return $pdf->download($request->slug.'.pdf');
     }
 
 }
