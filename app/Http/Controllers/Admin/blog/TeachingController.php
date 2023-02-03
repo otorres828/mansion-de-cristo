@@ -104,9 +104,9 @@ class TeachingController extends Controller
     {
         $this->authorize('autor', $teaching);
 
-        $urlvieja=route('blog.show_teaching',$teaching);
+        $urlvieja=route('blog.show_teaching',[$teaching->slug,$teaching->id]);
         $teaching->update($request->all());
-        $urlnueva=route('blog.show_teaching',$teaching);
+        $urlnueva=route('blog.show_teaching',[$teaching->slug,$teaching->id]);
         $paginanueva=$teaching->name;
         
         if ($request->file('file')) {

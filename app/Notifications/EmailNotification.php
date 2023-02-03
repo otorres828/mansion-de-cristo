@@ -25,20 +25,20 @@ class EmailNotification extends Notification implements ShouldQueue
         if($objeto instanceof Teaching){
             $this->subject="Nueva Enseñanza";
             $this->enterate="Enterate de la nueva enseñanza publicada por:";
-            $this->show= route('blog.show_teaching', $objeto->slug);
+            $this->show= route('blog.show_teaching', [$objeto->slug,$objeto->id]);
         }else if($objeto instanceof Testimony){
             $this->subject="Nuevo Testimonio";
             $this->enterate="Enterate del ultimo testimonio que transformo la vida de:";
-            $this->show= route('blog.show_testimony', $objeto->slug);
+            $this->show= route('blog.show_testimony', [$objeto->slug,$objeto->id]);
         }else if($objeto instanceof Announce){
             $this->subject="Nueva Noticia";
             $this->enterate="Enterate de la ultima noticia de nuestra congregacion titulada:";
-            $this->show= route('blog.show_announces', $objeto->slug);
+            $this->show= route('blog.show_announces', [$objeto->slug,$objeto->id]);
             $this->noticia=false;
         }else if($objeto instanceof Ministry){
             $this->subject="Nuevo Ministerio o departamento";
             $this->enterate="Enterate del nuevo ministerio o departamento:";
-            $this->show= route('blog.show_ministery', $objeto->slug);
+            $this->show= route('blog.show_ministery', [$objeto->slug,$objeto->id]);
         }
         $this->objeto = $objeto;
     }

@@ -131,7 +131,7 @@
                                             style="background-image: url(@if ($post->image) {{ imagenes_storage($post->image->url) }}@else https://cdn.pixabay.com/photo/2022/01/26/05/56/stairs-6968125_960_720.jpg @endif)">
                                             <div class="w-full h-full px-8 flex flex-col justify-center ">
                                                 <h1 class="text-4xl text-white leading-8 font-bold text-left">
-                                                    <a href="{{ route('blog.show_teaching', $post) }}">
+                                                    <a href="{{route('blog.show_teaching', [$post->slug,$post->id]) }}">
                                                         {{ $post->name }}
                                                     </a>
                                                 </h1>
