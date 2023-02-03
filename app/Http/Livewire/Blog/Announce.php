@@ -15,16 +15,16 @@ class Announce extends Component
 
     public function render()
     {
-        // $token= env('APP_INSTAGRAM');
-        // $respuesta= json_decode(Http::get('https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,timestamp&access_token='.$token));
-        // $instagrams=$respuesta->data;
+        $token= env('APP_INSTAGRAM');
+        $respuesta= json_decode(Http::get('https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,timestamp&access_token='.$token));
+        $instagrams=$respuesta->data;
         $announces = ModelsAnnounce::where('status',2)->orderBy('id','desc')->paginate(8);
         $similares = Testimony::where('status',2)->orderBy('id','desc')->paginate(2);
 
         return view('livewire.blog.announce',[
             'announces'=>$announces,
             'similares'=>$similares,
-            // 'instagrams'=>$instagrams
+            'instagrams'=>$instagrams
         ]);
     }
 }
