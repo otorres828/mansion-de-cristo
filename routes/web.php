@@ -24,7 +24,7 @@ Route::get('contactanos', [ContactController::class,'index'])->middleware('mante
 Route::post('contactanos',[ ContactController::class,'store'])->name('blog.contact.store');
 
 Route::get('noticias', [AnnounceController::class,'index'])->middleware('mantenimientoNoticias','mantenimientoGeneral')->name('blog.announces');
-Route::get('noticias/{slug}',[AnnounceController::class,'show'])->name('blog.show_announces');
+Route::get('noticias/{anuncio}',[AnnounceController::class,'show'])->name('blog.show_announces');
 
 Route::get('enseñanzas',[TeachingController::class,'index'])->middleware('mantenimientoEnseñanzas','mantenimientoGeneral')->name('blog.teaching');
 Route::get('enseñanzas/{slug}/{id}',  [TeachingController::class,'show'])->name('blog.show_teaching');

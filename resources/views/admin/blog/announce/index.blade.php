@@ -43,7 +43,7 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item " data-turbolinks="false"
-                                            href="{{ route('blog.show_announces', $anuncio->slug) }}">Ver</a>
+                                            href="{{ route('blog.show_announces', $anuncio) }}">Ver</a>
                                         <a class="dropdown-item"
                                             href="{{ route('admin.blog.announce.edit', $anuncio) }}">Editar</a>
                                         @can('eliminarpublicaciones')

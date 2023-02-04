@@ -15,9 +15,8 @@ class AnnounceController extends Controller
         return view('blog.announce.index',compact('announces'));
     }
 
-    public function show($slug){  
+    public function show(Announce $anuncio){  
         
-        $anuncio = Announce::where('slug',$slug)->first();
         $this->authorize('publicado',$anuncio); 
         $similares = Announce::where('status',2)
                             ->where('id','!=',$anuncio->id)
