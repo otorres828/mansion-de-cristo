@@ -79,7 +79,17 @@
                     </h1>
                 </div>
 
-                <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
+                <div class="md:mt-6 max-w-7xl mx-auto px-4 sm:px-6 ls:px-8 ">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+                        @foreach ($instagrams as $instagram)
+                            <div class="px-3 py-4">
+                                <x-aminblog.tarjeta-instagram :publicacion="$instagram" />
+                            </div>
+                        @endforeach
+                    </div>
+                  
+                </div>
+                {{-- <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
                     @foreach ($instagrams as $publicacion)
                         <div class="pt-4 shadow mt-5 text-sm relative min-w-64 min-h-64 border-0  rounded-lg text-gray-800"
                             style="background-color:white;">
@@ -117,8 +127,8 @@
                             </div>
                         </div>
                     @endforeach
-                    {{-- {{ $instagrams->links() }} --}}
-                </div>
+                </div> --}}
+                {{-- {{ $instagrams->links() }} --}}
             </div>
         </div>
 
