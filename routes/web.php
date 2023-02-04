@@ -31,7 +31,7 @@ Route::get('enseñanzas/{slug}/{id}',  [TeachingController::class,'show'])->name
 Route::get('enseñanzas/download/{slug}/{id}',  [TeachingController::class,'downloadPdf'])->name('blog.download_teaching');
 
 Route::get('ministerios',[MinisteryController::class,'index'])->middleware('mantenimientoMinisterios','mantenimientoGeneral')->name('blog.ministery');
-Route::get('ministerios/{slug}',[MinisteryController::class,'show'])->name('blog.show_ministery');
+Route::get('ministerios/{ministerio}',[MinisteryController::class,'show'])->name('blog.show_ministery');
 
 Route::get('testimonios', [TestimonyController::class,'index'])->middleware('mantenimientoTestimonios','mantenimientoGeneral')->name('blog.testimony');
 Route::get('testimonios/{slug}',  [TestimonyController::class,'show'])->name('blog.show_testimony');
