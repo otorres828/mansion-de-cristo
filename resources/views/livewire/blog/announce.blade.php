@@ -71,8 +71,8 @@
     </div>
     @if (count($instagrams) > 0)
         <div class="pt-5 pb-5 shadow-lg">
-            <div class="max-w-6xl mx-auto px-6 sm:px-6 lg:px-6 ">
-                <div class=" text-center pb-3 pt-3">
+            <div class=" px-6 sm:px-6 lg:px-6 ">
+                <div class="text-center pb-3 pt-3">
                     <h1
                         class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300">
                         Publicaciones de nuestra cuenta en Instagram
@@ -81,10 +81,10 @@
 
                 <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
                     @foreach ($instagrams as $publicacion)
-                        <div class="pt-4 grid-cols-2 shadow mt-5 text-sm relative min-w-64 min-h-64 border-0  rounded-lg break-words text-gray-800 flex flex-col"
+                        <div class="pt-4 shadow mt-5 text-sm relative min-w-64 min-h-64 border-0  rounded-lg text-gray-800"
                             style="background-color:white;">
-                            <div class="py-0 z-10 mx-6 -mt-8 rounded-lg relative">
-                                <a class="block bg-transparent leading-none m-0 p-0 z-20 relative">
+                            <div class="z-10 mx-6 -mt-8 rounded-lg">
+                                <a class="bg-transparent leading-nonez-20">
                                     @if ($publicacion->media_type == 'IMAGE')
                                         <img class="rounded-lg shadow" src="{{ $publicacion->media_url }}"
                                             alt="Card image cap">
@@ -92,7 +92,9 @@
                                         <img class="rounded-lg shadow" src="{{ $publicacion->media_url }}"
                                         alt="Card image cap">
                                     @else
-                                        <video controls=""autostart="0" o autostart="1" name="media" 
+                                        <video controls="" autostart="0" o autostart="1" name="media"
+                                        loop muted 
+                                        
                                          >
                                             <source
                                                 src="{{$publicacion->media_url}}"
@@ -100,9 +102,7 @@
                                         </video>
                                     @endif
                                 </a>
-
                             </div>
-
 
                             <div class="py-2 px-6 ">
                                 <div class="flex-grow items-center  justify-between ">
