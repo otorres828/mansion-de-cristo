@@ -79,7 +79,7 @@
                     </h1>
                 </div>
 
-                <div class="md:mt-6 max-w-7xl mx-auto ls:px-8 ">
+                <div class="md:mt-6 max-w-7xl mx-auto">
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                         @foreach ($instagrams as $instagram)
                             <div class="px-3 py-4">
