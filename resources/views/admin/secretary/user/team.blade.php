@@ -3,7 +3,7 @@
 @section('title', 'Equipo')
 
 @section('content_header')
-    <h1>Red: {{ $us->group->name }} </h1>
+    <h1>Red: {{ $us->red->name }} </h1>
 @stop
 
 @section('content')

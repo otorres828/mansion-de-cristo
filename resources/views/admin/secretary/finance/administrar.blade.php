@@ -61,7 +61,7 @@
                 <tr>
                     <td>{{ $usuario->id }}</td>
                     <td>{{ $usuario->name }}</td>
-                    <td>{{ $usuario->group->name }}</td>
+                    <td>{{ $usuario->red->name }}</td>
                     <td>
                         @if ($usuario->parent)
                             {{ $usuario->parent->name }}

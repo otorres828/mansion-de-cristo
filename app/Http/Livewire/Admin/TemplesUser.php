@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Admin;
 
-use app\Models\Red;
 use App\Models\Jerarquia;
+use App\Models\Red;
 use App\Models\Temple;
 use App\Models\User;
 use Livewire\Component;
