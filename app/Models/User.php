@@ -130,9 +130,9 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     //relacion uno a uno
-    public function manager()
+    public function encargado()
     {
-        return $this->hasOne(Manager::class);
+        return $this->hasOne(Encargado::class);
     }
 
     //relacion uno a muchos// 1 usuario puede terner varios anuncios

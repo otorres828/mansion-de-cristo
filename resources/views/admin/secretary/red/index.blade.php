@@ -55,7 +55,7 @@
                 <div class="modal-body">
                     {!! Form::open(['route' => 'admin.helper.loadin', 'autocomplete' => 'off', 'method' => 'post']) !!}
                     @csrf
-                    @livewire('admin.manager')
+                    @livewire('admin.encargado')
 
                     <div class="d-flex justify-content-end align-items-baseline">
                         {!! Form::submit('Asignar', ['class' => 'btn btn-primary mt-3']) !!}
@@ -83,8 +83,8 @@
                     </td>
                     <td>{{ $red->name }}</td>
                     <td>
-                        @isset($red->manager->user)
-                            {{ $red->manager->user->name }}
+                        @isset($red->encargado->user)
+                            {{ $red->encargado->user->name }}
                         @else
                             <strong>NO TIENE ENCARGADO</strong>
                         @endisset

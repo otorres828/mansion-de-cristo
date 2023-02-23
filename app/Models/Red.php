@@ -19,8 +19,8 @@ class Red extends Model
     }
     
     //relacion uno a uno 
-    public function manager(){
-        return $this->hasOne(Manager::class);
+    public function encargado(){
+        return $this->hasOne(Encargado::class);
     }
 
 }

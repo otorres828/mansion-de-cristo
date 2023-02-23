@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin\Secretary;
 
 use App\Http\Controllers\Controller;
+use App\Models\Encargado;
 use App\Models\Red;
-use App\Models\Manager;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -28,7 +28,7 @@ class RedController extends Controller
 
          ]);
         
-        Manager::create([
+        Encargado::create([
                         'id'=> Red::latest('id')->first()->id,
                         'temple_id'=>auth()->user()->temple_id,
                         'red_id'=> Red::latest('id')->first()->id

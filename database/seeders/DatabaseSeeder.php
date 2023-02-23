@@ -8,7 +8,7 @@ use App\Models\Contact;
 use App\Models\Crecimiento;
 use App\Models\Crecimiento_usuario;
 use App\Models\Red;
-use App\Models\Manager as ModelsManager;
+use App\Models\Encargado;
 use App\Models\User;
 use Database\Factories\CrecimientoUsuarioFactory;
 use Illuminate\Database\Seeder;
@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
         $this->call(TempleSeeder::class);
         Red::factory(8)->create();
-        $this->call(ManagerSeeder::class);
+        $this->call(EncargadoSeeder::class);
 
         $this->call(JerarquiaSeeder::class);
 

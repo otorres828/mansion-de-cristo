@@ -6,7 +6,7 @@ use App\Http\Requests\TempleRequest;
 use app\Models\Red;
 use App\Models\Jerarquia;
 use App\Models\Temple;
-use App\Models\Manager;
+use App\Models\Encargado;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -50,7 +50,7 @@ class TempleController extends Controller
                               'parent_id' => null,
                             ])->assignRole('Submaster');   
         //SE ANEXA LA RED EN LA TABLA INTERMEDIA MANAGER
-        Manager::create([
+        Encargado::create([
                         'id'=> Red::latest('id')->first()->id,
                         'temple_id'=>$temple->id,
                         'red_id'=> $group->id

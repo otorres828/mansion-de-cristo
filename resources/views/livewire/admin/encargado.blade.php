@@ -8,7 +8,7 @@
     @if (!is_null($users))
         <div class="form-group mt-3">
             {!! Form::label(null, 'Seleccione El Encargado') !!}
-            <select class="form-control" name="manager">
+            <select class="form-control" name="encargado">
                 <option>Seleccione un Encargado</option>
                 @foreach ($users as $user)
                     <option value="{{$user->id}}">{{$user->name}}</option>

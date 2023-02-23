@@ -4,22 +4,22 @@ namespace App\Http\Controllers\Admin\Secretary;
 
 use App\Http\Controllers\Controller;
 use app\Models\Red;
-use App\Models\Manager;
+use App\Models\Encargado;
 use App\Models\User;
 use GuzzleHttp\Psr7\Request;
 
 class HelperController extends Controller
 {
-    public function manager()
+    public function encargado()
     {
-        return view('admin.secretary.red.manager');
+        return view('admin.secretary.red.index');
     }
 
     public function store()
     {
-        $encargado = Manager::where('red_id',request('id_red'))->first();
+        $encargado = Encargado::where('red_id',request('id_red'))->first();
         $encargado->update([
-            'user_id'=>request('manager')
+            'user_id'=>request('encargado')
         ]);
         return redirect()->route('admin.secretary.red.index')->with('info','Encargado asignado con exito');
     }  

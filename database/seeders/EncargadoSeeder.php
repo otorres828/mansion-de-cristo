@@ -2,20 +2,20 @@
 
 namespace Database\Seeders;
 
-use App\Models\Manager;
+use App\Models\Encargado;
 use App\Models\Red;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ManagerSeeder extends Seeder
+class EncargadoSeeder extends Seeder
 {
-    protected $model = Manager::class;
+    protected $model = Encargado::class;
 
     public function run()
     {
         $redes=Red::all();
         foreach($redes as $red){
-            Manager::create([
+            Encargado::create([
                 'temple_id'=>1,
                 'red_id'=> $red->id
             ]);

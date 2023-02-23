@@ -17,7 +17,7 @@ Route::post('cambiar-cobertura', [UserController::class, 'cambiar_cobertura'])->
 Route::resource('jerarquias', JerarquiaController::class)->except('show', 'create', 'edit')->middleware('can:admin.secretary.admin')->names('admin.secretary.jerarquia');
 Route::resource('redes', RedController::class)->except('show', 'create', 'edit')->middleware('can:admin.secretary.admin')->names('admin.secretary.red');
 Route::resource('iglesias', TempleController::class)->except('show')->middleware('can:admin.secretary.temple')->names('admin.secretary.temple');
-Route::get('redes/encargado',  [HelperController::class, 'manager'])->name('admin.helper');
+Route::get('redes/encargado',  [HelperController::class, 'encargado'])->name('admin.helper');
 Route::post('redes/encargado/',  [HelperController::class, 'store'])->name('admin.helper.loadin');
 Route::get('usuarios/equipo/{id}',  [HelperController::class, 'team'])->name('user.team');
 Route::get('redes/equipo/{id}',  [RedController::class, 'red'])->name('red.team');

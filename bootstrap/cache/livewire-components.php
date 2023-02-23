@@ -1,8 +1,8 @@
 <?php return array (
   'admin.banned' => 'App\\Http\\Livewire\\Admin\\Banned',
   'admin.emailsend' => 'App\\Http\\Livewire\\Admin\\Emailsend',
+  'admin.encargado' => 'App\\Http\\Livewire\\Admin\\Encargado',
   'admin.finanzas' => 'App\\Http\\Livewire\\Admin\\Finanzas',
-  'admin.manager' => 'App\\Http\\Livewire\\Admin\\Manager',
   'admin.mantenimiento' => 'App\\Http\\Livewire\\Admin\\Mantenimiento',
   'admin.temples-index' => 'App\\Http\\Livewire\\Admin\\TemplesIndex',
   'admin.temples-user' => 'App\\Http\\Livewire\\Admin\\TemplesUser',
