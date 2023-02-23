@@ -36,7 +36,7 @@
 
                 @foreach ($users as $user)
 
-                    @if ($user->hierarchy->nivel<$level && $user->red_id == $selectedGroup)
+                    @if ($user->jerarquia->nivel<$level && $user->red_id == $selectedGroup)
                         <option value="{{$user->id}}">{{$user->name }}</option>
                     @endif
 

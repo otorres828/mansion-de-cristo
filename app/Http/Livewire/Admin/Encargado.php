@@ -13,7 +13,6 @@ class Encargado extends Component
     public function render()
     {
         $redes = Red::where('temple_id',auth()->user()->temple_id)->get();
-
         return view('livewire.admin.encargado',compact('redes'));
     }
 

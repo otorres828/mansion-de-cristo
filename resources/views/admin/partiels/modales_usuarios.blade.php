@@ -56,12 +56,12 @@
                         <label class="mb-2">Seleccione el reemplazo</label>
                         <select name="parent_id" class="form-control select2 mb-3">
                             <option class="form-control"value="{{ auth()->user()->id }}">
-                                {{ auth()->user()->name }} - {{ $user->hierarchy->name }}
+                                {{ auth()->user()->name }} - {{ $user->jerarquia->name }}
                             </option>
                             @foreach ($users as $item)
-                                @if ($item->hierarchy->nivel <= $user->hierarchy->nivel && $item->id != $user->id)
+                                @if ($item->jerarquia->nivel <= $user->jerarquia->nivel && $item->id != $user->id)
                                     <option class="form-control"value="{{ $item->id }}">
-                                        {{ $item->name }} - {{ $item->hierarchy->name }}
+                                        {{ $item->name }} - {{ $item->jerarquia->name }}
                                     </option>
                                 @endif
                             @endforeach
@@ -102,12 +102,12 @@
                         <label class="mb-2">Seleccione el reemplazo</label>
                         <select name="parent_id" class="form-control select2 mb-3">
                             <option class="form-control"value="{{ auth()->user()->id }}">
-                                {{ auth()->user()->name }} - {{ auth()->user()->hierarchy->name }}
+                                {{ auth()->user()->name }} - {{ auth()->user()->jerarquia->name }}
                             </option>
                             @foreach ($users as $item)
-                                @if ($item->hierarchy->nivel <= $user->hierarchy->nivel && $item->id != $user->id)
+                                @if ($item->jerarquia->nivel <= $user->jerarquia->nivel && $item->id != $user->id)
                                     <option class="form-control"value="{{ $item->id }}">
-                                        {{ $item->name }} - {{ $item->hierarchy->name }}
+                                        {{ $item->name }} - {{ $item->jerarquia->name }}
                                     </option>
                                 @endif
                             @endforeach

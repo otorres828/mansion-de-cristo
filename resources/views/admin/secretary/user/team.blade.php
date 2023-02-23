@@ -30,7 +30,7 @@
 
                                 <td class="text-center">{{ $user->id }} </td>
                                 <td>{{ $user->name }}</td>
-                                <td>{{ $user->hierarchy->name }}</td>
+                                <td>{{ $user->jerarquia->name }}</td>
                                 <td>{{ $user->parent->name }}</td>
                                 <td>
                                     @include('admin.partiels.drowdown')

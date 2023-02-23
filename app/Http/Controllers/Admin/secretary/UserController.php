@@ -4,12 +4,11 @@ namespace App\Http\Controllers\Admin\Secretary;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use App\Models\Hierarchy;
+use App\Models\Jerarquia;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Laravel\Fortify\Rules\Password;
 
 class UserController extends Controller
 {
@@ -38,7 +37,7 @@ class UserController extends Controller
             'jerarquia_id' => $request['jerarquia_id'],
             'parent_id' => $request['parent_id'],
         ]);
-        $nivel = Hierarchy::all()->count(); 
+        $nivel = Jerarquia::all()->count(); 
   
         if ($request['temple_id'] == 1 && $request['jerarquia_id'] < $nivel)
             $user->assignRole('Enseñanzas');

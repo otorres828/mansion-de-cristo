@@ -52,10 +52,10 @@
                         <tr>
                             <td class="text-center"> {{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
-                            <td>{{ $user->hierarchy->name }}</td>
+                            <td>{{ $user->jerarquia->name }}</td>
                             <td>{{ $user->parent->name }}</td>
                             @if (auth()->user()->hasRole('Master'))
-                                <td>{{ $user->group->name }}</td>
+                                <td>{{ $user->red->name }}</td>
                             @endif
                             <td>
                                 @include('admin.partiels.drowdown')

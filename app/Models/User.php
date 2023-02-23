@@ -102,15 +102,15 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     //relacion uno a muchos inversa
-    public function group()
+    public function red()
     {
         return $this->belongsTo(Red::class);
     }
 
     //relacion uno a muchos inversa::1 usuario tiene 1 jerarquia
-    public function hierarchy()
+    public function jerarquia()
     {
-        return $this->belongsTo(Hierarchy::class);
+        return $this->belongsTo(Jerarquia::class);
     }
 
     //relacion uno a muchos polimorfica:: 1 usuario tiene muchas finanzas
