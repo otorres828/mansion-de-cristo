@@ -165,33 +165,7 @@
     </div>
 </div>
 
-<div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Editar crecimiento</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        {{-- <div class="modal-body">
-            {!!Form::model($crecimiento,
-            ['route'=>['crecimiento.update',
-            $crecimiento],
-            'autocomplete'=>'off',
-            'method'=>'put'])
-            !!}
-            @csrf
-            @include('admin.partiels.crecimiento')
 
-            <div class="mb-0">
-                <div class="d-flex justify-content-end align-items-baseline">
-                    <button type="submit" class="btn btn-success">Registrar</button>
-
-                    <button type="button" class="ml-1 btn btn-danger " data-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-            {!! Form::close() !!}
-        </div> --}}
-    </div>
-</div>
 @stop
 
 @section('css')
