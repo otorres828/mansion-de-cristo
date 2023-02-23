@@ -16,10 +16,7 @@
 
 @livewire('admin.temples-user')
 
-<div class="form-group">
-    {!! Form::label('password', 'Clave') !!}
-    <input type="password" class="form-control" placeholder="*********" value="{{ $user->password }}">
-</div>
+
 
 <div class="mb-0">
     <div class="d-flex justify-content-end align-items-baseline">

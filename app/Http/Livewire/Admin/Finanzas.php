@@ -2,14 +2,14 @@
 
 namespace App\Http\Livewire\Admin;
 
-use app\Models\Red;
+use App\Models\Red;
 use App\Models\User;
 use Livewire\Component;
 
 class Finanzas extends Component
 {
     public $selectedRed =null;
-    public $redes;
+    public $redes,$usuarios;
     public function render()
     {
         $this->redes =  Red::where('temple_id', '=', auth()->user()->temple_id)->get();
