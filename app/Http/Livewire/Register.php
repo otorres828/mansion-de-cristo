@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class Register extends Component
 {
-    public $nombre,$correo,$clave,$confirmarclave,$jerarquia,$cobertura;
+    public $nombre,$correo,$clave,$confirmarclave,$jerarquia,$cobertura,$genero;
 
     public function render()
     {
@@ -36,6 +36,8 @@ class Register extends Component
                             'jerarquia_id' => $jerarquia->id,
                             'password' => bcrypt($this->clave),
                             'codigo' => strtoupper(bin2hex(random_bytes(3))),
+                            'genero'=>$this->genero,
+                            'parent_id'=>$cobertura->id
                         ]);
                         Auth::login($user);
                         return redirect()->route('admin.blog.panel');

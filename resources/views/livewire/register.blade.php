@@ -24,6 +24,14 @@
                 required />
         </div>
         <div class="mt-4">
+            <x-jet-label for="email" value="{{ __('Seleccione el genero') }}" />
+            <select wire:model="genero" class="w-full p-2 shadow rounded" required>
+                <option value="">Seleccione el genero</option>
+                <option value="H">Hombre</option>
+                <option value="M">Mujer</option>
+            </select>
+        </div>
+        <div class="mt-4">
             <x-jet-label value="Ingrese el codigo de su jerarquia" />
             <x-jet-input wire:model="jerarquia" class="block mt-1 w-full uppercase" type="text" required />
         </div>
