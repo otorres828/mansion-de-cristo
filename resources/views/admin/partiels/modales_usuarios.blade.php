@@ -115,7 +115,7 @@
                     </div>
                     <div class="form-group">
                         <label class="mb-2">Introduzca su clave</label>
-                        <input name="password" class="form-control" type="password" placeholder="************" required>
+                        <input name="password" class="form-control" type="password" placeholder="****" required>
                     </div>
                     <center class="form-group">
                         <button class="w-full btn btn-primary">Confirmar</button>
