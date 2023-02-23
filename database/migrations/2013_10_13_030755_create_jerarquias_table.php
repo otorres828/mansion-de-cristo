@@ -18,7 +18,7 @@ class CreateJerarquiasTable extends Migration
             $table->string('name');
             $table->integer('nivel');
             $table->unsignedBigInteger('temple_id');
-            $table->foreign('temple_id')->references('id')->on('temples')->onDelete('CASCADE');
+            $table->foreign('temple_id')->references('id')->on('temples')->onDelete('SET NULL');
         });
     }
 
