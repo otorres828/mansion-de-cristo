@@ -9,12 +9,12 @@
         </select>
     </div>
     
-    @if (!is_null($hierarchies))
+    @if (!is_null($jerarquias))
         <div class="form-group">
             {!! Form::label(null, 'Seleccione su Jerarquia') !!}
             <select wire:model="selectedHierarchy" class="seleccionador" name="hierarchy_id">
                 <option value="">Jerarquia</option>
-                @foreach ($hierarchies as $hierarchy)
+                @foreach ($jerarquias as $hierarchy)
                     <option value="{{$hierarchy->id}}">{{$hierarchy->name}}</option>
                 @endforeach
             </select>

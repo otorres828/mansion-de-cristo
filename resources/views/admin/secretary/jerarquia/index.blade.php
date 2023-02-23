@@ -22,38 +22,36 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="card">
-                        <div class="card-body">
-                            {!! Form::open(['route' => 'admin.secretary.hierarchy.store', 'autocomplete' => 'off']) !!}
-                            <div class="form-group">
-                                {!! Form::hidden('temple_id', auth()->user()->temple_id) !!}
-                                {!! Form::label('name', 'NOMBRE DE LA JERARQUIA') !!}
-                                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre Jerarquia']) !!}
-                                @error('name')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                    <div class="card-body">
+                        {!! Form::open(['route' => 'admin.secretary.jerarquia.store', 'autocomplete' => 'off']) !!}
+                        <div class="form-group">
+                            {!! Form::hidden('temple_id', auth()->user()->temple_id) !!}
+                            {!! Form::label('name', 'NOMBRE DE LA JERARQUIA') !!}
+                            {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre Jerarquia']) !!}
+                            @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
 
-                            </div>
-                            <div class="form-group">
-                                {!! Form::label('nivel', 'Nivel') !!}
-                                <input type="number" name="nivel" class="form-control">
-                                @error('number')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                            <div class="d-flex justify-content-end align-items-baseline">
-                                {!! Form::submit('Crear', ['class' => 'btn btn-success']) !!}
-                                <button type="button" class="ml-1 btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                            {!! Form::close() !!}
                         </div>
+                        <div class="form-group">
+                            {!! Form::label('nivel', 'Nivel') !!}
+                            <input type="number" name="nivel" class="form-control">
+                            @error('number')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="d-flex justify-content-end align-items-baseline">
+                            {!! Form::submit('Crear', ['class' => 'btn btn-success']) !!}
+                            <button type="button" class="ml-1 btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="">
         <table class="table table-striped" id="example">
             <thead>
                 <th scope="col">#id</th>
@@ -62,7 +60,7 @@
                 <th>Acciones</th>
             </thead>
             <tbody>
-                @foreach ($hierarchies as $hierarchy)
+                @foreach ($jerarquias as $hierarchy)
                     <tr>
                         <td>{{ $hierarchy->id }}</td>
                         <td>{{ $hierarchy->name }}</td>
@@ -70,7 +68,7 @@
                         <td class="d-flex">
                             <a class="btn btn-primary mr-1"data-bs-toggle="modal" data-bs-target="#edit{{ $hierarchy->id }}"
                                 data-bs-whatever="@mdo"><i class="far fa-edit"></i></a>
-                            <form class="destroy" action="{{ route('admin.secretary.hierarchy.destroy', $hierarchy) }}"
+                            <form class="destroy" action="{{ route('admin.secretary.jerarquia.destroy', $hierarchy) }}"
                                 method="POST">
                                 @csrf
                                 @method('delete')
@@ -88,39 +86,37 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            {!! Form::model($hierarchy, [
-                                                'route' => ['admin.secretary.hierarchy.update', $hierarchy],
-                                                'autocomplete' => 'off',
-                                                'method' => 'put',
+                                    <div class="card-body">
+                                        {!! Form::model($hierarchy, [
+                                            'route' => ['admin.secretary.jerarquia.update', $hierarchy],
+                                            'autocomplete' => 'off',
+                                            'method' => 'put',
+                                        ]) !!}
+                                        <div class="form-group">
+                                            {!! Form::label('name', 'NOMBRE DE LA JERARQUIA') !!}
+                                            {!! Form::text('name', $hierarchy->name, [
+                                                'class' => 'form-control',
+                                                'placeholder' => 'Ingrese el nombre Jerarquia',
                                             ]) !!}
-                                            <div class="form-group">
-                                                {!! Form::label('name', 'NOMBRE DE LA JERARQUIA') !!}
-                                                {!! Form::text('name', $hierarchy->name, [
-                                                    'class' => 'form-control',
-                                                    'placeholder' => 'Ingrese el nombre Jerarquia',
-                                                ]) !!}
-                                                @error('name')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-
-                                            <div class="form-group">
-                                                {!! Form::label('nivel', 'Nivel') !!}
-                                                <input type="number" name="nivel" class="form-control"
-                                                    value="{{ $hierarchy->nivel }}">
-                                                @error('number')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="d-flex justify-content-end align-items-baseline">
-                                                {!! Form::submit('Actualizar', ['class' => 'btn btn-success']) !!}
-                                                <button type="button" class=" ml-1 btn btn-danger"
-                                                    data-bs-dismiss="modal">Cerrar</button>
-                                            </div>
-                                            {!! Form::close() !!}
+                                            @error('name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
+
+                                        <div class="form-group">
+                                            {!! Form::label('nivel', 'Nivel') !!}
+                                            <input type="number" name="nivel" class="form-control"
+                                                value="{{ $hierarchy->nivel }}">
+                                            @error('number')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="d-flex justify-content-end align-items-baseline">
+                                            {!! Form::submit('Actualizar', ['class' => 'btn btn-success']) !!}
+                                            <button type="button" class=" ml-1 btn btn-danger"
+                                                data-bs-dismiss="modal">Cerrar</button>
+                                        </div>
+                                        {!! Form::close() !!}
                                     </div>
                                 </div>
                             </div>

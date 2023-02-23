@@ -14,12 +14,12 @@ class TemplesUser extends Component
     public $selectedGroup =null;
     public $selectedUser=null;
     public $count;
-    public $groups,$hierarchies,$users,$master=null,$level=null;
+    public $groups,$jerarquias,$users,$master=null,$level=null;
 
     public function render()  {
         $user = User:: find(auth()->user()->id);  
         $temple = Temple::find($user->temple_id);
-        $this->hierarchies = Hierarchy::where('temple_id',$user->temple_id)
+        $this->jerarquias = Hierarchy::where('temple_id',$user->temple_id)
                                 ->where('nivel','>',$user->hierarchy->nivel)
                                 ->get();
 

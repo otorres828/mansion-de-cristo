@@ -2,22 +2,19 @@
 
 namespace Database\Seeders;
 
-use App\Models\Hierarchy;
+use App\Models\Jerarquia;
 use App\Models\Temple;
 use Illuminate\Database\Seeder;
 
-class HierarchySeeder extends Seeder
+class JerarquiaSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    protected $model = Jerarquia::class;
+
     public function run()
     {
  
         $name='MASTER';
-        Hierarchy::create([
+        Jerarquia::create([
             'name'=>$name,
             'nivel'=>'0',
             'temple_id'=>Temple::all()->random()->id,
@@ -25,7 +22,7 @@ class HierarchySeeder extends Seeder
         ]);
 
         $name='APOSTOL DE RED';
-        Hierarchy::create([
+        Jerarquia::create([
             'name'=>$name,
             'nivel'=>'1',
             'temple_id'=>Temple::all()->random()->id,
@@ -33,7 +30,7 @@ class HierarchySeeder extends Seeder
         ]);
 
         $name='PASTOR DE RED';
-        Hierarchy::create([
+        Jerarquia::create([
             'name'=>$name,
             'nivel'=>'2',
             'temple_id'=>Temple::all()->random()->id,
@@ -41,7 +38,7 @@ class HierarchySeeder extends Seeder
         ]);
 
         $name='PASTOR DE CELULA';
-        Hierarchy::create([
+        Jerarquia::create([
             'name'=>$name,
             'nivel'=>'3',
             'temple_id'=>Temple::all()->random()->id,
@@ -49,7 +46,7 @@ class HierarchySeeder extends Seeder
         ]);
 
         $name='LIDER DE CELULA';
-        Hierarchy::create([
+        Jerarquia::create([
             'name'=>$name,
             'nivel'=>'4',
             'temple_id'=>Temple::all()->random()->id,
@@ -57,7 +54,7 @@ class HierarchySeeder extends Seeder
         ]);
 
         $name='DISCIPULO';
-        Hierarchy::create([
+        Jerarquia::create([
             'name'=>$name,
             'nivel'=>'5',
             'temple_id'=>Temple::all()->random()->id,

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHierarchiesTable extends Migration
+class CreateJerarquiasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateHierarchiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('hierarchies', function (Blueprint $table) {
+        Schema::create('jerarquias', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->integer('nivel');
@@ -29,6 +29,6 @@ class CreateHierarchiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hierarchies');
+        Schema::dropIfExists('jerarquias');
     }
 }

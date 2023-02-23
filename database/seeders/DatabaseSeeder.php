@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
         Group::factory(8)->create();
         ModelsManager::factory(8)->create();
 
-        $this->call(HierarchySeeder::class);
+        $this->call(JerarquiaSeeder::class);
 
         $this->call(UserSeeder::class);
         User::factory(20)->create();

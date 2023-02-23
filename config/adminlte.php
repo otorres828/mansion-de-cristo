@@ -253,7 +253,7 @@ return [
                 [
                     'text' => 'Jerarquia',
                     'icon' => 'fas fa-sitemap',
-                    'route'  => 'admin.secretary.hierarchy.index',
+                    'route'  => 'admin.secretary.jerarquia.index',
                     'can' => 'admin.secretary.admin',
 
                 ],

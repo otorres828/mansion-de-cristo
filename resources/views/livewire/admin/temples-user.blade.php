@@ -11,7 +11,7 @@
          {!! Form::label(null, 'Seleccione su Jerarquia') !!}
         <select wire:model="selectedHierarchy" class="form-control" name="hierarchy_id">
             <option value="">Jerarquia</option>
-             @foreach ($hierarchies as $hierarchy)
+             @foreach ($jerarquias as $hierarchy)
                 <option value="{{$hierarchy->id}}">{{$hierarchy->name}}</option>
              @endforeach
          </select>

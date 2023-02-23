@@ -15,7 +15,7 @@ class TemplesIndex extends Component
     public $selectedHierarchy=null;
     public $selectedUser=null;
     public $count;
-    public $groups,$hierarchies,$users;
+    public $groups,$jerarquias,$users;
 
     public function render() {
         $temples = Temple::all();
@@ -24,7 +24,7 @@ class TemplesIndex extends Component
 
     public function updatedSelectedtemple($temple_id){
         $this->count = Hierarchy::all()->count();
-        $this->hierarchies = Hierarchy::where('temple_id',$temple_id)
+        $this->jerarquias = Hierarchy::where('temple_id',$temple_id)
                                     ->where('nivel','!=','0')
                                     ->where('nivel','<',$this->count-1)
                                     ->get();

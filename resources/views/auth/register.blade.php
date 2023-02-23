@@ -20,16 +20,16 @@
                 @livewire('admin.temples-index')
             </div> --}}
             <div class="mt-4">
-                <x-jet-label value="Ingrese el codigo de su iglesia" />
-                <x-jet-input class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-jet-label value="Ingrese el codigo de su jerarquia" />
+                <x-jet-input class="block mt-1 w-full uppercase" type="text" required autocomplete="new-password" />
             </div>
             <div class="mt-4">
                 <x-jet-label  value="Ingrese el codigo de su red" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-jet-input id="password" class="block mt-1 w-full uppercase" type="text" required autocomplete="new-password" />
             </div>
             <div class="mt-4">
                 <x-jet-label value="Ingrese el codigo de su cobertura" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-jet-input id="password" class="block mt-1 w-full uppercase" type="text" required autocomplete="new-password" />
             </div>
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
