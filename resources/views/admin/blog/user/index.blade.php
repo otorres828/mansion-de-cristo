@@ -91,7 +91,7 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td class="w-full">
-                                <select class="form-select">
+                                <select class="form-control">
                                     @isset($user->roles)
                                         @foreach ($user->roles as $rol)
                                             <option>{{ $rol->name }}</option>
