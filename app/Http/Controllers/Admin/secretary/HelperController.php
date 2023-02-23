@@ -18,12 +18,20 @@ class HelperController extends Controller
     public function store()
     {
         $encargado = Encargado::where('red_id',request('id_red'))->first();
-        $encargado->update([
-            'user_id'=>request('encargado')
-        ]);
-        return redirect()->route('admin.secretary.red.index')->with('info','Encargado asignado con exito');
+        $usuario = User::find(request('encargado'));
+        if($usuario){
+            if($usuario->red_id==$encargado->red_id){
+                $encargado->update([
+                    'user_id'=>request('encargado')
+                ]);
+                return redirect()->route('admin.secretary.red.index')->with('info','Encargado asignado con exito');
+
+            }
+        }
+        return redirect()->route('admin.secretary.red.index')->with('delete','No se pudo asignar un encargado, revise el id');
     }  
     
+
     public function team($user){
         $count = User::find($user)->descendantsAndSelf()->count();
         $users = User:: find($user)->descendants;             
