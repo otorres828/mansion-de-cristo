@@ -15,7 +15,17 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::find(auth()->user()->id)->descendants;
+        $user=auth()->user();
+        if($user->conyugue){
+            $conyugue=User::find($user->conyugue);
+            if($conyugue->genero=='H')
+                $users = User::find($user->conyugue)->descendants;
+            else
+                $users = User::find(auth()->user()->id)->descendants;
+        }else{
+            $users = User::find(auth()->user()->id)->descendants;
+        }
+ 
         return view('admin.secretary.user.index', compact('users'));
     }
 
@@ -28,7 +38,6 @@ class UserController extends Controller
         ]);
 
         $user=User::create([
-
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
@@ -39,20 +48,9 @@ class UserController extends Controller
         ]);
         $nivel = Jerarquia::all()->count(); 
   
-        if ($request['temple_id'] == 1 && $request['jerarquia_id'] < $nivel)
-            $user->assignRole('Enseñanzas');
+        // if ($request['temple_id'] == 1 && $request['jerarquia_id'] < $nivel)
+        //     $user->assignRole('Enseñanzas');
 
-        // $request->validate( [
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        //     'password' => ['required', 'string', new Password, 'confirmed'],
-        // ]);
-
-        // User::create([
-        //     'name' => $request['name'],
-        //     'email' => $request['email'],
-        //     'password' => Hash::make($request['password']),
-        // ]);
         return redirect()->route('admin.secretary.user.index')->with('info', 'Usuario Registrado con exito');
     }
     

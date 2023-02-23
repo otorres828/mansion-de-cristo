@@ -14,7 +14,6 @@ use \Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-
     use HasRecursiveRelationships;
     use HasRoles;
     use HasApiTokens;
@@ -133,6 +132,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function encargado()
     {
         return $this->hasOne(Encargado::class);
+    }
+
+    public function conyugue(){
+        return $this->hasOne(User::class,'conyugue');
     }
 
     //relacion uno a muchos// 1 usuario puede terner varios anuncios

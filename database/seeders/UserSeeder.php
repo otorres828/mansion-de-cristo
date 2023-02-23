@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('123456'),
             'email_verified_at' =>'2022-05-21 07:02:22'
 
-        ])->assignRole('Master')->givePermissionTo('finanzas');
+        ]);
 
  
     }

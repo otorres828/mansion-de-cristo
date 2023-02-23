@@ -49,19 +49,21 @@
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
-                        <tr>
-                            <td class="text-center"> {{ $user->id }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->jerarquia->name }}</td>
-                            <td>{{ $user->parent->name }}</td>
-                            @if (auth()->user()->hasRole('Master'))
-                                <td>{{ $user->red->name }}</td>
-                            @endif
-                            <td>
-                                @include('admin.partiels.drowdown')
-                            </td>
-                            @include('admin.partiels.modales_usuarios')
-                        </tr>
+                        @if (auth()->user()->id != $user->id && auth()->user()->id  != $user->conyugue)
+                            <tr>
+                                <td class="text-center"> {{ $user->id }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->jerarquia->name }}</td>
+                                <td>{{ $user->parent->name }}</td>
+                                @if (auth()->user()->hasRole('Master'))
+                                    <td>{{ $user->red->name }}</td>
+                                @endif
+                                <td>
+                                    @include('admin.partiels.drowdown')
+                                </td>
+                                @include('admin.partiels.modales_usuarios')
+                            </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>

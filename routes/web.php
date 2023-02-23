@@ -1,19 +1,19 @@
 <?php
 
 use App\Http\Controllers\Admin\blog\ImageController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Blog\AnnounceController;
 use App\Http\Controllers\Blog\TeachingController;
 use App\Http\Controllers\Blog\ContactController;
 use App\Http\Controllers\Blog\LanddingController;
 use App\Http\Controllers\Blog\MinisteryController;
-use App\Http\Controllers\Blog\SuscripcionController;
 use App\Http\Controllers\Blog\TestimonyController;
 use App\Http\Controllers\Secretary\SecretaryController;
 use App\Http\Controllers\ZipController;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
+
+Route::post('iniciar',[AuthController::class,'iniciar'])->name('iniciar');
 
 Route::get('/', [LanddingController::class,'index'])->middleware('mantenimientoCasa','mantenimientoGeneral')->name('landding.index');
 
@@ -43,7 +43,6 @@ Route::get('terminos',  function(){
     return view('blog.legal.terminos');
 });
 
-// Route::post('suscripcion',[SuscripcionController::class,'suscribirse'])->name('suscripcion');
 
 //CONTROLADORES SECRETARIA
 Route::get('/secretaria', [SecretaryController::class,'index'])->name('secretary.index')->middleware('auth');

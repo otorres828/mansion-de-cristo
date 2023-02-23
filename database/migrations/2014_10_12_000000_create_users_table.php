@@ -16,16 +16,19 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('status',[1,2])->default(2);  //1: NO PUEDE ACCEDER 2:PUEDE ACCEDER
+            $table->enum('genero',['H','M'])->default('M');  //1: NO PUEDE ACCEDER 2:PUEDE ACCEDER
             $table->unsignedBigInteger('temple_id')->nullable();
             $table->unsignedBigInteger('red_id')->nullable();
             $table->unsignedBigInteger('jerarquia_id')->nullable();
             $table->unsignedBigInteger('parent_id')->nullable();
+            $table->unsignedBigInteger('conyugue')->nullable();
             $table->rememberToken();
 
             $table->foreign('temple_id')->references('id')->on('temples')->onDelete('CASCADE');
             $table->foreign('red_id')->references('id')->on('redes')->onDelete('CASCADE');
             $table->foreign('jerarquia_id')->references('id')->on('jerarquias')->onDelete('CASCADE');
             $table->foreign('parent_id')->references('id')->on('users')->onDelete('SET NULL');
+            $table->foreign('conyugue')->references('id')->on('users')->onDelete('SET NULL');
         });
     }
 
