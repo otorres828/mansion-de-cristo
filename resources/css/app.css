@@ -1,3 +1,8 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+
+.seleccionador{
+    @apply w-full p-2 rounded shadow;
+}

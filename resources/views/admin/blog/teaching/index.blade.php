@@ -96,5 +96,4 @@
         });
     </script>
     <x-scrip-table-blog />
-
 @stop

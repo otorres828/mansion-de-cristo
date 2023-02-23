@@ -1,67 +1,50 @@
-<x-guest-layout>
-    {{-- @include('components.aminblog.navigation') --}}
-    <section>
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            {{-- <img src="{{ asset('images/logo2.png') }}" alt="Mansion de Cristo"> --}}
-     
-            <div
-                class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                    <x-jet-validation-errors class="mb-4" />
-
-                    @if (session('status'))
-                        <div class="mb-4 font-medium text-sm text-green-600">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    @if (session('banned'))
-                        <div class="mb-4 font-medium text-sm text-red-600 text-justify">
-                            {{ session('banned') }}
-                        </div>
-                    @endif
-                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                        Iniciar Sesion
-                    </h1>
-                    <form class="space-y-4 md:space-y-6" method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <div>
-                            <label for="email"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo </label>
-                            <input type="email" name="email" id="email"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="usuario@gmail.com" required>
-                        </div>
-                        <div>
-                            <label for="password"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Clave</label>
-                            <input type="password" name="password" id="password" placeholder="Contraseña"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required="">
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-start">
-                                <div class="flex items-center h-5">
-                                    <input id="remember" aria-describedby="remember" type="checkbox"
-                                        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                                        >
-                                </div>
-                                <div class="ml-3 text-sm">
-                                    <label for="remember" class="text-gray-500 dark:text-gray-300">Recuerdame</label>
-                                </div>
-                            </div>
-                            <a href="#"
-                                class="text-sm font-medium text-primary-600 hover:underline dark:text-gray-300">Olvidaste tu clave?</a>
-                        </div>
-                        <button type="submit"
-                            class="w-full text-white bg-sky-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Ingresar</button>
-                        <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                            Aun no estas registrado? <a href="{{ route('register') }}"
-                                class="font-medium text-primary-600 hover:underline dark:text-primary-500">Registrarse</a>
-                        </p>
-                    </form>
-                </div>
+<x-authentication-layout>
+    <h1 class="text-2xl text-slate-800 font-bold mb-6">{{ __('Bienvenido de vuelta!') }} ✨</h1>
+    @if (session('status'))
+        <div class="mb-4 font-medium text-sm text-green-600">
+            {{ session('status') }}
+        </div>
+    @endif   
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
+        <div class="space-y-4">
+            <div>
+                <x-jet-label for="email" value="{{ __('Correo') }}" />
+                <x-jet-input id="email" type="email" class="w-full"  name="email" :value="old('email')" required autofocus />                
+            </div>
+            <div>
+                <x-jet-label for="password" value="{{ __('Clave') }}" />
+                <x-jet-input id="password" class="w-full" type="password" name="password" required autocomplete="current-password" />                
             </div>
         </div>
-    </section>
-
-</x-guest-layout>
+        <div class="flex items-center justify-between mt-6">
+            {{-- @if (Route::has('password.request'))
+                <div class="mr-1">
+                    <a class="text-sm underline hover:no-underline" href="{{ route('password.request') }}">
+                        {{ __('Forgot Password?') }}
+                    </a>
+                </div>
+            @endif             --}}
+            <button type="submit" class="rounded w-full p-2 text-indigo-100 bg-indigo-500 hover:bg-indigo-700">
+                {{ __('Iniciar Sesion') }}
+            </button>
+        </div>
+    </form>
+    <x-jet-validation-errors class="mt-4" />   
+    <div class="pt-5 mt-6 border-t border-slate-200">
+        <div class="text-sm">
+            {{ __('¿Aun no tienes una cuenta?') }} <a class="font-medium text-indigo-500 hover:text-indigo-600" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+        </div>
+        <!-- Warning -->
+        <div class="mt-5">
+            <div class="bg-amber-100 text-amber-600 px-3 py-2 rounded">
+                <svg class="inline w-3 h-3 shrink-0 fill-current" viewBox="0 0 12 12">
+                    <path d="M10.28 1.28L3.989 7.575 1.695 5.28A1 1 0 00.28 6.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 1.28z" />
+                </svg>
+                <span class="text-sm">
+                    De parte del departamento de Tecnologia e Innovacion, esperamos que te pueda ser util esta aplicacion.
+                </span>
+            </div>
+        </div>
+    </div>
+</x-authentication-layout>
