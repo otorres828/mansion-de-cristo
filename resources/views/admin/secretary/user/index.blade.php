@@ -24,9 +24,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['route' => 'admin.secretary.user.store', 'autocomplete' => 'off', 'method' => 'post']) !!}
-                    @include('admin.partiels.user')
-                    {!! Form::close() !!}
+                    @livewire('admin.register')
                 </div>
             </div>
         </div>

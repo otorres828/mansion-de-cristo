@@ -14,11 +14,11 @@
      @enderror
 </div>
 
-@livewire('admin.temples-user')
 
 <div class="form-group">
-    {!! Form::label('password', 'Clave') !!}
-    <input type="password" class="form-control" placeholder="*********">
+    {!! Form::label(null, 'Ingrese el codigo de la cobertura') !!}
+    <input type="text" class="form-control uppercase" name="codigo">
+
 </div>
 
 <div class="mb-0">

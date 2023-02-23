@@ -39,6 +39,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'red_id',
         'jerarquia_id',
         'parent_id',
+        'codigo',
+        'conyugue',
+        'genero',
     ];
 
     protected $hidden = [
@@ -148,5 +151,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public function celula()
     {
         return $this->hasMany(Celula::class);
+    }
+
+    public function cobertura(){
+        return $this->belongsTo(User::class,'parent_id');
     }
 }

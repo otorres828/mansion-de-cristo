@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 
@@ -10,7 +10,7 @@ class Login extends Component
 
     public function render()
     {
-        return view('livewire.admin.login');
+        return view('livewire.login');
     }
 
     public function save(){

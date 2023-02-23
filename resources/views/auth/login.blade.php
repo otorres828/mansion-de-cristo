@@ -1,5 +1,5 @@
 <x-authentication-layout>
-    {{-- @livewire('admin.login') --}}
+    {{-- @livewire('login') --}}
 
     <h1 class="text-2xl text-slate-800 font-bold mb-6">{{ __('Bienvenido de vuelta!') }} ✨</h1>
     @if (session('status'))

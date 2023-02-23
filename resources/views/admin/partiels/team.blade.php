@@ -14,9 +14,11 @@
      @enderror
 </div>
 
-@livewire('admin.temples-user')
 
-
+<div class="form-group">
+    {!! Form::label(null, 'Ingrese el codigo de la cobertura') !!}
+    {!! Form::email('codigo', $user->cobertura->codigo, ['class'=>'form-control','placeholder'=>'Ingrese el codigo de la cobertyra']) !!}
+</div>
 
 <div class="mb-0">
     <div class="d-flex justify-content-end align-items-baseline">

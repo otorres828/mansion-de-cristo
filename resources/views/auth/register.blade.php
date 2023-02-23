@@ -1,3 +1,3 @@
 <x-authentication-layout>
-    @livewire('admin.register')
+    @livewire('register')
 </x-authentication-layout>
