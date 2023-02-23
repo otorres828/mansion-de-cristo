@@ -7,7 +7,7 @@ use App\Models\Celula;
 use App\Models\Contact;
 use App\Models\Crecimiento;
 use App\Models\Crecimiento_usuario;
-use App\Models\Group;
+use App\Models\Red;
 use App\Models\Manager as ModelsManager;
 use App\Models\User;
 use Database\Factories\CrecimientoUsuarioFactory;
@@ -37,8 +37,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RoleSeeder::class);
         $this->call(TempleSeeder::class);
-        Group::factory(8)->create();
-        ModelsManager::factory(8)->create();
+        Red::factory(8)->create();
+        $this->call(ManagerSeeder::class);
 
         $this->call(JerarquiaSeeder::class);
 
@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EmailsendSeeder::class);
         // $this->call(AcercadeSeeder::class);
         // $this->call(AnnounceSeeder::class);
-        $this->call(TeachingSeeder::class);
+        // $this->call(TeachingSeeder::class);
         // $this->call(MinistrySeeder::class);
         // $this->call(TestimonySeeder::class);
         Celula::factory(200)->create();

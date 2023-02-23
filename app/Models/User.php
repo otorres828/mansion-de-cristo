@@ -37,8 +37,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'temple_id',
-        'group_id',
-        'hierarchy_id',
+        'red_id',
+        'jerarquia_id',
         'parent_id',
     ];
 
@@ -104,7 +104,7 @@ class User extends Authenticatable implements MustVerifyEmail
     //relacion uno a muchos inversa
     public function group()
     {
-        return $this->belongsTo(Group::class);
+        return $this->belongsTo(Red::class);
     }
 
     //relacion uno a muchos inversa::1 usuario tiene 1 jerarquia

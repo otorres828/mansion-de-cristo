@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Group;
+use app\Models\Red;
 use App\Models\User;
 use Livewire\Component;
 
@@ -12,17 +12,17 @@ class Finanzas extends Component
     public $redes;
     public function render()
     {
-        $this->redes =  Group::where('temple_id', '=', auth()->user()->temple_id)->get();
+        $this->redes =  Red::where('temple_id', '=', auth()->user()->temple_id)->get();
         return view('livewire.admin.finanzas');
     }
 
     public function mount(){
         $this->usuarios=User::where('id','!=', auth()->user()->id)
-        ->where('group_id','=',auth()->user()->group_id)->get();
+        ->where('red_id','=',auth()->user()->red_id)->get();
     }
   
     public function updatedSelectedRed(){
         $this->usuarios=User::where('id', '!=', auth()->user()->id)
-        ->where('group_id', '=', $this->selectedRed)->get();
+        ->where('red_id', '=', $this->selectedRed)->get();
     }
 }

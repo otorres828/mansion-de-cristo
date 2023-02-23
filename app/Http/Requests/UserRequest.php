@@ -16,7 +16,7 @@ class UserRequest extends FormRequest
         $rules = [
             'name' =>'required',
             'temple_id' =>'required',
-            'group_id' =>'required',
+            'red_id' =>'required',
             'parent_id' =>'required',
         ];
       

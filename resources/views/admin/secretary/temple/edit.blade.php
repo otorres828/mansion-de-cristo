@@ -14,7 +14,7 @@
 @endif
 <div class="card">
     <div class="card-body">
-        {!! Form::model($rede,['route'=>['admin.secretary.group.update',$rede],'autocomplete'=>'off','method'=>'put']) !!}
+        {!! Form::model($rede,['route'=>['admin.secretary.red.update',$rede],'autocomplete'=>'off','method'=>'put']) !!}
             <div class="form-group">
                 {!! Form::label('name', 'NOMBRE DE LA RED',) !!}
                 {!! Form::text('name', null, ['class'=>'form-control','placeholder'=>'Ingrese el nombre Red']) !!}           

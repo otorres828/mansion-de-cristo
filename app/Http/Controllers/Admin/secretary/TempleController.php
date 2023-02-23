@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Secretary;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TempleRequest;
-use App\Models\Group;
+use app\Models\Red;
 use App\Models\Jerarquia;
 use App\Models\Temple;
 use App\Models\Manager;
@@ -37,7 +37,7 @@ class TempleController extends Controller
                                         'nivel'=>'0',
                                         'temple_id'=>$temple->id]);
         //SE CREA SU PRIMERA RED POR DEFECTO 1                                
-        $group = Group::create(['name'=>'1',
+        $group = Red::create(['name'=>'1',
                                 'slug'=>'1',
                                 'temple_id'=>$temple->id]);
         //SE CREA EL USUARIO ENCARGADO DE LA IGLESIA
@@ -45,15 +45,15 @@ class TempleController extends Controller
                               'email' => $request['email'],
                               'password'=>bcrypt($request['password']),
                               'temple_id' => $temple->id,
-                              'group_id' => $group->id,
-                              'hierarchy_id' => $jerarquia->id,
+                              'red_id' => $group->id,
+                              'jerarquia_id' => $jerarquia->id,
                               'parent_id' => null,
                             ])->assignRole('Submaster');   
         //SE ANEXA LA RED EN LA TABLA INTERMEDIA MANAGER
         Manager::create([
-                        'id'=> Group::latest('id')->first()->id,
+                        'id'=> Red::latest('id')->first()->id,
                         'temple_id'=>$temple->id,
-                        'group_id'=> $group->id
+                        'red_id'=> $group->id
         ]);     
         return redirect()->route('admin.secretary.temple.index')->with('info','Iglesia Registrada con exito');
     }

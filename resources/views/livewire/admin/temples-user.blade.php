@@ -9,19 +9,19 @@
 
     <div class="form-group">
          {!! Form::label(null, 'Seleccione su Jerarquia') !!}
-        <select wire:model="selectedHierarchy" class="form-control" name="hierarchy_id">
+        <select wire:model="selectedHierarchy" class="form-control" name="jerarquia_id">
             <option value="">Jerarquia</option>
              @foreach ($jerarquias as $jerarquia)
                 <option value="{{$jerarquia->id}}">{{$jerarquia->name}}</option>
              @endforeach
          </select>
     </div>    
-    @if (!is_null($groups))
+    @if (!is_null($redes))
         <div class="form-group">
             {!! Form::label(null, 'Seleccione su Red') !!}
-            <select wire:model="selectedGroup" class="form-control" name="group_id">
+            <select wire:model="selectedGroup" class="form-control" name="red_id">
                 <option value="">Red</option>
-                @foreach ($groups as $group)
+                @foreach ($redes as $group)
                     <option value="{{$group->id}}">{{$group->name}}</option>
                 @endforeach
             </select>
@@ -36,7 +36,7 @@
 
                 @foreach ($users as $user)
 
-                    @if ($user->hierarchy->nivel<$level && $user->group_id == $selectedGroup)
+                    @if ($user->hierarchy->nivel<$level && $user->red_id == $selectedGroup)
                         <option value="{{$user->id}}">{{$user->name }}</option>
                     @endif
 

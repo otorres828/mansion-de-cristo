@@ -260,7 +260,7 @@ return [
                 [
                     'text' => 'Redes',
                     'icon' => 'far fa-registered',
-                    'route'  => 'admin.secretary.group.index',
+                    'route'  => 'admin.secretary.red.index',
                     'can' => 'admin.secretary.admin',
 
                 ],

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Secretary;
 
 use App\Http\Controllers\Controller;
-use App\Models\Group;
+use app\Models\Red;
 use App\Models\Manager;
 use App\Models\User;
 use GuzzleHttp\Psr7\Request;
@@ -12,16 +12,16 @@ class HelperController extends Controller
 {
     public function manager()
     {
-        return view('admin.secretary.group.manager');
+        return view('admin.secretary.red.manager');
     }
 
     public function store()
     {
-        $encargado = Manager::find(request('id_red'));
+        $encargado = Manager::where('red_id',request('id_red'))->first();
         $encargado->update([
             'user_id'=>request('manager')
         ]);
-        return redirect()->route('admin.secretary.group.index')->with('info','Encargado asignado con exito');
+        return redirect()->route('admin.secretary.red.index')->with('info','Encargado asignado con exito');
     }  
     
     public function team($user){

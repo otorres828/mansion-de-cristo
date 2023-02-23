@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Group;
+use app\Models\Red;
 
 use App\Models\Team;
 use App\Models\Temple;
@@ -24,8 +24,8 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'temple_id'=>Temple::all()->random()->id, 
-            'group_id'=>Group::all()->random()->id, 
-            'hierarchy_id'=>$this->faker->randomElement([2,3]),
+            'red_id'=>Red::all()->random()->id, 
+            'jerarquia_id'=>$this->faker->randomElement([2,3]),
             'parent_id'=>User::all()->random()->id,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),

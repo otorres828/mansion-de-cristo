@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Group;
+use App\Models\Red;
 use App\Models\User;
 use Livewire\Component;
 
@@ -12,12 +12,12 @@ class Manager extends Component
     public $users;
     public function render()
     {
-        $groups = Group::where('temple_id',auth()->user()->temple_id)->get();
+        $redes = Red::where('temple_id',auth()->user()->temple_id)->get();
 
-        return view('livewire.admin.manager',compact('groups'));
+        return view('livewire.admin.manager',compact('redes'));
     }
 
     public function updatedSelectedManager($id){
-        $this->users = User::where('group_id',$id)->get();  
+        $this->users = User::where('red_id',$id)->get();  
     }
 }

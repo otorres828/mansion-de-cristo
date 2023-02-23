@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Temple;
-use App\Models\Group;
+use app\Models\Red;
 use App\Models\Hierarchy;
 use App\Models\User;
 use Livewire\Component;
@@ -15,7 +15,7 @@ class TemplesIndex extends Component
     public $selectedHierarchy=null;
     public $selectedUser=null;
     public $count;
-    public $groups,$jerarquias,$users;
+    public $redes,$jerarquias,$users;
 
     public function render() {
         $temples = Temple::all();
@@ -28,14 +28,14 @@ class TemplesIndex extends Component
                                     ->where('nivel','!=','0')
                                     ->where('nivel','<',$this->count-1)
                                     ->get();
-        $this->groups = Group::where('temple_id',$temple_id)->get();
+        $this->groups = Red::where('temple_id',$temple_id)->get();
         
     }
 
-    public function updatedSelectedGroup($group_id){
+    public function updatedSelectedGroup($red_id){
         
-        $this->users = User::where('group_id',$group_id)->
-                            where('hierarchy_id','<',$this->selectedHierarchy)->get();
+        $this->users = User::where('red_id',$red_id)->
+                            where('jerarquia_id','<',$this->selectedHierarchy)->get();
     }
     
 }

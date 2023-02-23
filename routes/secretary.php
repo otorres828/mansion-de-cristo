@@ -4,7 +4,7 @@ use App\Http\Controllers\Admin\Secretary\BannedController;
 use App\Http\Controllers\Admin\Secretary\CelulaController;
 use App\Http\Controllers\Admin\secretary\CrecimientoController;
 use App\Http\Controllers\Admin\secretary\FinanceUserController;
-use App\Http\Controllers\Admin\secretary\GroupController;
+use App\Http\Controllers\Admin\secretary\RedController;
 use App\Http\Controllers\Admin\secretary\HelperController;
 use App\Http\Controllers\Admin\secretary\JerarquiaController;
 use App\Http\Controllers\Admin\secretary\TempleController;
@@ -15,12 +15,12 @@ Route::resource('usuarios', UserController::class)->except('show', 'create', 'ed
 Route::post('eliminar-usuario', [UserController::class, 'eliminar_usuario'])->name('eliminar.usuario');
 Route::post('cambiar-cobertura', [UserController::class, 'cambiar_cobertura'])->name('cambiar.cobertura');
 Route::resource('jerarquias', JerarquiaController::class)->except('show', 'create', 'edit')->middleware('can:admin.secretary.admin')->names('admin.secretary.jerarquia');
-Route::resource('redes', GroupController::class)->except('show', 'create', 'edit')->middleware('can:admin.secretary.admin')->names('admin.secretary.group');
+Route::resource('redes', RedController::class)->except('show', 'create', 'edit')->middleware('can:admin.secretary.admin')->names('admin.secretary.red');
 Route::resource('iglesias', TempleController::class)->except('show')->middleware('can:admin.secretary.temple')->names('admin.secretary.temple');
 Route::get('redes/encargado',  [HelperController::class, 'manager'])->name('admin.helper');
 Route::post('redes/encargado/',  [HelperController::class, 'store'])->name('admin.helper.loadin');
 Route::get('usuarios/equipo/{id}',  [HelperController::class, 'team'])->name('user.team');
-Route::get('redes/equipo/{id}',  [GroupController::class, 'group'])->name('group.team');
+Route::get('redes/equipo/{id}',  [RedController::class, 'red'])->name('red.team');
 
 //-----------------------Celulas
 Route::resource('mis-celulas', CelulaController::class)->names('celulas');

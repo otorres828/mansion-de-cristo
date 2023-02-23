@@ -24,7 +24,7 @@
     </div>
 @endif
 
-@error('hierarchy_id')
+@error('jerarquia_id')
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>Es obligatorio seleccionar una jerarquia.</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">

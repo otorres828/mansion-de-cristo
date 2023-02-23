@@ -24,8 +24,8 @@ class UserController extends Controller
     {
         $request->validate([
             'parent_id'=>'required',
-            'hierarchy_id'=>'required',
-            'group_id'=>'required',
+            'jerarquia_id'=>'required',
+            'red_id'=>'required',
         ]);
 
         $user=User::create([
@@ -34,13 +34,13 @@ class UserController extends Controller
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
             'temple_id' => $request['temple_id'],
-            'group_id' => $request['group_id'],
-            'hierarchy_id' => $request['hierarchy_id'],
+            'red_id' => $request['red_id'],
+            'jerarquia_id' => $request['jerarquia_id'],
             'parent_id' => $request['parent_id'],
         ]);
         $nivel = Hierarchy::all()->count(); 
   
-        if ($request['temple_id'] == 1 && $request['hierarchy_id'] < $nivel)
+        if ($request['temple_id'] == 1 && $request['jerarquia_id'] < $nivel)
             $user->assignRole('Enseñanzas');
 
         // $request->validate( [
@@ -62,8 +62,8 @@ class UserController extends Controller
         $request->validate([
             'name' =>'required',
             'parent_id'=>'required',
-            'hierarchy_id'=>'required',
-            'group_id'=>'required',
+            'jerarquia_id'=>'required',
+            'red_id'=>'required',
         ]);
         $usuario->update($request->all());
         return redirect()->route('admin.secretary.user.index')->with('info', 'Usuario actualizado con exito');

@@ -19,7 +19,7 @@ class Temple extends Model
 
     //relacion uno a muchos
     public function group(){
-        return $this->hasMany(Group::class);
+        return $this->hasMany(Red::class);
     }
 
     //relacion uno a muchos:: 1 iglesia tiene muchas jerarquias

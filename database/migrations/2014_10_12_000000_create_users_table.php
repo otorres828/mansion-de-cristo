@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
@@ -21,14 +17,14 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->enum('status',[1,2])->default(2);  //1: NO PUEDE ACCEDER 2:PUEDE ACCEDER
             $table->unsignedBigInteger('temple_id')->nullable();
-            $table->unsignedBigInteger('group_id')->nullable();
-            $table->unsignedBigInteger('hierarchy_id')->nullable();
+            $table->unsignedBigInteger('red_id')->nullable();
+            $table->unsignedBigInteger('jerarquia_id')->nullable();
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->rememberToken();
 
             $table->foreign('temple_id')->references('id')->on('temples')->onDelete('CASCADE');
-            $table->foreign('group_id')->references('id')->on('groups')->onDelete('CASCADE');
-            $table->foreign('hierarchy_id')->references('id')->on('jerarquias')->onDelete('CASCADE');
+            $table->foreign('red_id')->references('id')->on('redes')->onDelete('CASCADE');
+            $table->foreign('jerarquia_id')->references('id')->on('jerarquias')->onDelete('CASCADE');
             $table->foreign('parent_id')->references('id')->on('users')->onDelete('SET NULL');
         });
     }

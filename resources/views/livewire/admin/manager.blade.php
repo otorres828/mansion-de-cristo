@@ -1,8 +1,8 @@
 <div>
     {!! Form::label(null, 'Seleccione la Red') !!}
     <select wire:model="selectedManager" class="form-control" name="id_red">
-        @foreach ($groups as $group)
-            <option value="{{$group->id}}">{{$group->name}}</option>
+        @foreach ($redes as $red)
+            <option value="{{$red->id}}">{{$red->name}}</option>
         @endforeach
     </select>
     @if (!is_null($users))

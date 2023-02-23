@@ -1,12 +1,12 @@
 <div>
     <div class="form-group">
         {!! Form::label(null, 'Seleccione la Red') !!}
-        <select name="group_id" wire:model="selectedRed" class="form-control"required>
+        <select name="red_id" wire:model="selectedRed" class="form-control"required>
             @foreach ($redes as $red)
                 <option value="{{ $red->id }}">{{ $red->name }}</option>
             @endforeach
         </select>
-        @error('group_id')
+        @error('red_id')
             <span class="text-danger">{{ $message }}</span>
         @enderror
     </div>

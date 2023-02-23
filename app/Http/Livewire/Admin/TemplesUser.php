@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Group;
+use app\Models\Red;
 use App\Models\Hierarchy;
 use App\Models\Temple;
 use App\Models\User;
@@ -14,7 +14,7 @@ class TemplesUser extends Component
     public $selectedGroup =null;
     public $selectedUser=null;
     public $count;
-    public $groups,$jerarquias,$users,$master=null,$level=null;
+    public $redes,$jerarquias,$users,$master=null,$level=null;
 
     public function render()  {
         $user = User:: find(auth()->user()->id);  
@@ -33,17 +33,17 @@ class TemplesUser extends Component
         $this->level=Hierarchy::find($jerarquia_id)->nivel;
  
         if($user->hierarchy->nivel >0)  
-            $this->groups = Group::where('id',$user->group_id)
+            $this->groups = Red::where('id',$user->red_id)
                             ->get();
         else{
             $this->master=$user;
-            $this->groups = Group::where('temple_id',$user->temple_id)->get();
+            $this->groups = Red::where('temple_id',$user->temple_id)->get();
         }
     }
 
-    public function updatedSelectedGroup($group_id){
-        // $this->users = User:: where('group_id',$group_id)
-        //                     ->where('hierarchy_id','<',$this->selectedHierarchy)
+    public function updatedSelectedGroup($red_id){
+        // $this->users = User:: where('red_id',$red_id)
+        //                     ->where('jerarquia_id','<',$this->selectedHierarchy)
         //                     ->get();
 
         $this->users = User:: find(auth()->user()->id)->descendantsAndSelf;             

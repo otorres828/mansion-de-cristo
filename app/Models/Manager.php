@@ -9,7 +9,7 @@ class Manager extends Model
 {
     use HasFactory;
     use HasFactory;
-    protected $fillable =['id','user_id','group_id','temple_id'];
+    protected $fillable =['id','user_id','red_id','temple_id'];
     public $timestamps = false;
 
     //relacion uno a muchos 
@@ -18,8 +18,8 @@ class Manager extends Model
     }
 
     //relacion uno a muchos 
-    public function group(){
-        return $this->belongsTo(Group::class);
+    public function red(){
+        return $this->belongsTo(Red::class);
     }
     
 }

@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Group extends Model
+class Red extends Model
 {
     use HasFactory;
     //asignacion masiva
     protected $fillable =['name','temple_id'];
     public $timestamps = false;
+    protected $table = 'redes';
 
     //relacion uno a muchos inversa
     public function temple(){
@@ -21,8 +22,5 @@ class Group extends Model
     public function manager(){
         return $this->hasOne(Manager::class);
     }
-
-
-  
 
 }

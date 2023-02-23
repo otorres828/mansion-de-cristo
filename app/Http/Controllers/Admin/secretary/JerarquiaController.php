@@ -27,7 +27,7 @@ class JerarquiaController extends Controller
     public function update(JerarquiaRequest $request, Jerarquia $jerarquia)
     {
         $jerarquia->update($request->all());
-        return redirect()->route('admin.secretary.jerarquia.index',$jerarquia)->with('info','Se actualizo la jerarquia');
+        return redirect()->route('admin.secretary.jerarquia.index')->with('info','Se actualizo la jerarquia');
     }
 
    

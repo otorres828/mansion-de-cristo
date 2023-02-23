@@ -2,15 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\Group;
+use App\Models\Red;
 use App\Models\Temple;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class GroupFactory extends Factory
+class RedFactory extends Factory
 {
  
-    protected $model = Group::class;
+    protected $model = Red::class;
 
     public function definition()
     {     
