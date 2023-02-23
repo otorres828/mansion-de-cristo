@@ -24,9 +24,9 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('conyugue')->nullable();
             $table->rememberToken();
 
-            $table->foreign('temple_id')->references('id')->on('temples')->onDelete('CASCADE');
-            $table->foreign('red_id')->references('id')->on('redes')->onDelete('CASCADE');
-            $table->foreign('jerarquia_id')->references('id')->on('jerarquias')->onDelete('CASCADE');
+            $table->foreign('temple_id')->references('id')->on('temples')->onDelete('SET NULL');
+            $table->foreign('red_id')->references('id')->on('redes')->onDelete('SET NULL');
+            $table->foreign('jerarquia_id')->references('id')->on('jerarquias')->onDelete('SET NULL');
             $table->foreign('parent_id')->references('id')->on('users')->onDelete('SET NULL');
             $table->foreign('conyugue')->references('id')->on('users')->onDelete('SET NULL');
         });
