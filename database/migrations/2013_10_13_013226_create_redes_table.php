@@ -12,7 +12,7 @@ class CreateRedesTable extends Migration
         Schema::create('redes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('temple_id');
+            $table->unsignedBigInteger('temple_id')->nullable();
 
             $table->foreign('temple_id')->references('id')->on('temples')->onDelete('SET NULL');
         });
