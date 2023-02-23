@@ -3,6 +3,7 @@
   'admin.emailsend' => 'App\\Http\\Livewire\\Admin\\Emailsend',
   'admin.encargado' => 'App\\Http\\Livewire\\Admin\\Encargado',
   'admin.finanzas' => 'App\\Http\\Livewire\\Admin\\Finanzas',
+  'admin.login' => 'App\\Http\\Livewire\\Admin\\Login',
   'admin.mantenimiento' => 'App\\Http\\Livewire\\Admin\\Mantenimiento',
   'admin.register' => 'App\\Http\\Livewire\\Admin\\Register',
   'admin.temples-index' => 'App\\Http\\Livewire\\Admin\\TemplesIndex',

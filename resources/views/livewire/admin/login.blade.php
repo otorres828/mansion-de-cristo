@@ -1,29 +1,26 @@
-<x-authentication-layout>
-    {{-- @livewire('admin.login') --}}
-
+<div>
     <h1 class="text-2xl text-slate-800 font-bold mb-6">{{ __('Bienvenido de vuelta!') }} ✨</h1>
     @if (session('status'))
-        <div class="mb-4 font-medium text-sm text-green-600">
+        <div class="mb-4 font-bold text-md text-green-700">
             {{ session('status') }}
         </div>
     @endif
     @if (session('error'))
-        <div class="mb-4 font-medium text-sm text-red-600">
+        <div class="mb-4 font-bold text-md text-red-700">
             {{ session('error') }}
         </div>
     @endif
-    <form action="{{ route('login') }}" method="POST">
-        @csrf
+    <form wire:submit.prevent="save">
         <div class="space-y-4">
             <div>
                 <x-jet-label for="email" value="{{ __('Correo') }}" />
-                <x-jet-input id="email" type="email" class="w-full" name="email" :value="old('email')" required
+                <x-jet-input wire:model="correo" type="email" class="w-full" required
                     autofocus />
             </div>
             <div>
                 <x-jet-label for="password" value="{{ __('Clave') }}" />
-                <x-jet-input id="password" class="w-full" type="password" name="password" required
-                    autocomplete="current-password" />
+                <x-jet-input wire:model="clave" class="w-full" type="password" required
+                     />
             </div>
         </div>
         <div class="flex items-center justify-between mt-6">
@@ -59,4 +56,4 @@
             </div>
         </div>
     </div>
-</x-authentication-layout>
+</div>

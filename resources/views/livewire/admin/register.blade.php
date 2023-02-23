@@ -6,10 +6,10 @@
         </div>
     @endif
     @if (session('error'))
-    <div class="mb-4 font-bold text-md text-red-700">
-        {{ session('error') }}
-    </div>
-@endif
+        <div class="mb-4 font-bold text-md text-red-700">
+            {{ session('error') }}
+        </div>
+    @endif
     <form wire:submit.prevent="save">
 
         <div>
@@ -27,7 +27,7 @@
             <x-jet-label value="Ingrese el codigo de su jerarquia" />
             <x-jet-input wire:model="jerarquia" class="block mt-1 w-full uppercase" type="text" required />
         </div>
-  
+
         <div class="mt-4">
             <x-jet-label value="Ingrese el codigo de su cobertura" />
             <x-jet-input wire:model="cobertura" class="block mt-1 w-full uppercase" type="text" required />

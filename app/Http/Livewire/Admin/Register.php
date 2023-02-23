@@ -11,8 +11,6 @@ class Register extends Component
 {
     public $nombre,$correo,$clave,$confirmarclave,$jerarquia,$cobertura;
 
-
-
     public function render()
     {
         return view('livewire.admin.register');
