@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'red_id' => Red::all()->random()->id,
             'jerarquia_id' => Jerarquia::first()->id,
             'password' => bcrypt('26269828'),
+            'codigo' => strtoupper(bin2hex(random_bytes(3))),
             'email_verified_at' =>'2022-05-21 07:02:22'
         ])->assignRole('Master','Programador')->givePermissionTo('finanzas');
  
@@ -31,7 +32,7 @@ class UserSeeder extends Seeder
             'temple_id' => Temple::first()->id,
             'red_id' => Red::all()->random()->id,
             'jerarquia_id' => Jerarquia::first()->id,
-            'password' => bcrypt('123456'),
+            'password' => strtoupper(bin2hex(random_bytes(3))),
             'email_verified_at' =>'2022-05-21 07:02:22'
 
         ]);

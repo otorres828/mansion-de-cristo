@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('codigo')->nullable();
             $table->enum('status',[1,2])->default(2);  //1: NO PUEDE ACCEDER 2:PUEDE ACCEDER
             $table->enum('genero',['H','M'])->default('M');  //1: NO PUEDE ACCEDER 2:PUEDE ACCEDER
             $table->unsignedBigInteger('temple_id')->nullable();

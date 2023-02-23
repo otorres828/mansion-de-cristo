@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -11,5 +12,14 @@ class AuthController extends Controller
                 return back()->with('error','Las credenciales no coinciden con nuestro registro');
             }
         return redirect()->route('admin.blog.panel');
+    }
+
+    public function registrar(Request $request){
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required'
+        ]);
+        return $request->all();
+        
     }
 }

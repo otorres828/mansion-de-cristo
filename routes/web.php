@@ -13,6 +13,8 @@ use App\Http\Controllers\ZipController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
+Route::post('iniciar',[AuthController::class,'iniciar'])->name('iniciar');
+Route::post('registrar',[AuthController::class,'registrar'])->name('registrar');
 
 Route::get('/', [LanddingController::class,'index'])->middleware('mantenimientoCasa','mantenimientoGeneral')->name('landding.index');
 
