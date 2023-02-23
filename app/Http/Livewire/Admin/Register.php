@@ -40,7 +40,7 @@ class Register extends Component
                             'temple_id' => $cobertura->temple_id,
                             'red_id' => $cobertura->red_id,
                             'jerarquia_id' => $this->jerarquia,
-                            'password' => bcrypt('password'),
+                            'password' => bcrypt('clave'),
                             'codigo' => strtoupper(bin2hex(random_bytes(3))),
                             'parent_id'=>$cobertura->id,
                             'genero'=>$this->genero,
