@@ -4,11 +4,9 @@
 
 @section('content_header')
     <h1>PANEL DE SECRETARIA</h1>
-    <input type="datetime-local" class="form-control">
 @stop
 
 @section('content')
-@livewire('contador')
   <div class="div" >
     <div class="container-fluid">
       <!-- Small boxes (Stat box) -->
