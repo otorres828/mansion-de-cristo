@@ -60,15 +60,15 @@
                 <th>Acciones</th>
             </thead>
             <tbody>
-                @foreach ($jerarquias as $hierarchy)
+                @foreach ($jerarquias as $jerarquia)
                     <tr>
-                        <td>{{ $hierarchy->id }}</td>
-                        <td>{{ $hierarchy->name }}</td>
-                        <td>{{ $hierarchy->nivel }}</td>
+                        <td>{{ $jerarquia->id }}</td>
+                        <td>{{ $jerarquia->name }}</td>
+                        <td>{{ $jerarquia->nivel }}</td>
                         <td class="d-flex">
-                            <a class="btn btn-primary mr-1"data-bs-toggle="modal" data-bs-target="#edit{{ $hierarchy->id }}"
+                            <a class="btn btn-primary mr-1"data-bs-toggle="modal" data-bs-target="#edit{{ $jerarquia->id }}"
                                 data-bs-whatever="@mdo"><i class="far fa-edit"></i></a>
-                            <form class="destroy" action="{{ route('admin.secretary.jerarquia.destroy', $hierarchy) }}"
+                            <form class="destroy" action="{{ route('admin.secretary.jerarquia.destroy', $jerarquia) }}"
                                 method="POST">
                                 @csrf
                                 @method('delete')
@@ -76,8 +76,8 @@
                             </form>
                         </td>
                     </tr>
-                    <div class="modal fade" id="edit{{ $hierarchy->id }}" tabindex="-1"
-                        aria-labelledby="edit{{ $hierarchy->id }}" aria-hidden="true">
+                    <div class="modal fade" id="edit{{ $jerarquia->id }}" tabindex="-1"
+                        aria-labelledby="edit{{ $jerarquia->id }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -87,14 +87,14 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="card-body">
-                                        {!! Form::model($hierarchy, [
-                                            'route' => ['admin.secretary.jerarquia.update', $hierarchy],
+                                        {!! Form::model($jerarquia, [
+                                            'route' => ['admin.secretary.jerarquia.update', $jerarquia],
                                             'autocomplete' => 'off',
                                             'method' => 'put',
                                         ]) !!}
                                         <div class="form-group">
                                             {!! Form::label('name', 'NOMBRE DE LA JERARQUIA') !!}
-                                            {!! Form::text('name', $hierarchy->name, [
+                                            {!! Form::text('name', $jerarquia->name, [
                                                 'class' => 'form-control',
                                                 'placeholder' => 'Ingrese el nombre Jerarquia',
                                             ]) !!}
@@ -106,7 +106,7 @@
                                         <div class="form-group">
                                             {!! Form::label('nivel', 'Nivel') !!}
                                             <input type="number" name="nivel" class="form-control"
-                                                value="{{ $hierarchy->nivel }}">
+                                                value="{{ $jerarquia->nivel }}">
                                             @error('number')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror

@@ -28,9 +28,9 @@ class TemplesUser extends Component
         return view('livewire.admin.temples-user',compact('temple'));
     }
 
-    public function updatedSelectedHierarchy($hierarchy_id){
+    public function updatedSelectedHierarchy($jerarquia_id){
         $user = User:: find(auth()->user()->id); 
-        $this->level=Hierarchy::find($hierarchy_id)->nivel;
+        $this->level=Hierarchy::find($jerarquia_id)->nivel;
  
         if($user->hierarchy->nivel >0)  
             $this->groups = Group::where('id',$user->group_id)

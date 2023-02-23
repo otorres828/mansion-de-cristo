@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Secretary;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TempleRequest;
 use App\Models\Group;
-use App\Models\Hierarchy;
+use App\Models\Jerarquia;
 use App\Models\Temple;
 use App\Models\Manager;
 use App\Models\User;
@@ -32,7 +32,7 @@ class TempleController extends Controller
                                   'slug'=>$request['slug'],
                                   ]);
         //SE CREA LA JERARQUIA MASTER DEL ENCARGADO
-        $hierarchy = Hierarchy::create(['name'=>'MASTER',
+        $jerarquia = Jerarquia::create(['name'=>'MASTER',
                                         'slug'=>'master',
                                         'nivel'=>'0',
                                         'temple_id'=>$temple->id]);
@@ -46,7 +46,7 @@ class TempleController extends Controller
                               'password'=>bcrypt($request['password']),
                               'temple_id' => $temple->id,
                               'group_id' => $group->id,
-                              'hierarchy_id' => $hierarchy->id,
+                              'hierarchy_id' => $jerarquia->id,
                               'parent_id' => null,
                             ])->assignRole('Submaster');   
         //SE ANEXA LA RED EN LA TABLA INTERMEDIA MANAGER
