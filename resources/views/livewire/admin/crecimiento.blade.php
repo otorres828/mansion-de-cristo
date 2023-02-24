@@ -1,7 +1,7 @@
 <div class="pb-4 px-3">
     @php
-    $posicion = 1;
-@endphp
+        $posicion = 0;
+    @endphp
     <div class="table-responsive">
         <table class="table table-flush" id="example">
             <thead>
@@ -15,7 +15,7 @@
             <tbody>
                 @foreach ($crecimientos as $crecimiento)
                     <tr>
-                        <td class="text-center">{{ $crecimiento->id }}</td>
+                        <td class="text-center">{{ $posicion = $posicion + 1 }}</td>
                         <td>{{ $crecimiento->name }}</td>
                         <td class="text-center">
                             @if ($crecimiento->completado)
@@ -27,10 +27,11 @@
                             @endif
                         </td>
                         <td class="d-flex">
-                         
+
                             <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                <input type="checkbox" class="custom-control-input" id="estatus{{ $crecimiento->id }}" value="{{$crecimiento->completado}}"
-                                    wire:click="cambiar_estatus({{$crecimiento->id}})">
+                                <input type="checkbox" class="custom-control-input" id="estatus{{ $crecimiento->id }}"
+                                    value="{{ $crecimiento->completado }}"
+                                    wire:click="cambiar_estatus({{ $crecimiento->id }})">
                                 <label class="custom-control-label" for="estatus{{ $crecimiento->id }}"
                                     id="crecimiento{{ $crecimiento->id }}"></label>
                             </div>
