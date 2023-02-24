@@ -52,7 +52,7 @@
 
         <div class="form-group">
             {!! Form::label(null, 'Ingrese el codigo de la cobertura') !!}
-            <input type="text" class="form-control text-uppercase" wire:model="codigo">
+            <input type="text" class="form-control text-uppercase" wire:model="codigo" required>
 
         </div>
 

@@ -27,31 +27,35 @@ class Register extends Component
         if($correo)
             session()->flash('error','Ups, algo salio mal. El correo ya ha sido registrado');
         else {
-            $jerarquia=Jerarquia::find($this->jerarquia);
-            if($jerarquia){
-                $cobertura=User::where('codigo',$this->codigo)->first();
-                if($cobertura){
-                    if($jerarquia->nivel<=$cobertura->jerarquia->nivel){
-                        session()->flash('error','Ups, algo salio mal. El nivel de su jerarquia no puede ser superior o igual al de su cobertura.');
+            if($this->codigo!=''){
+                $jerarquia=Jerarquia::find($this->jerarquia);
+                if($jerarquia){
+                    $cobertura=User::where('codigo',$this->codigo)->first();
+                    if($cobertura){
+                        if($jerarquia->nivel<=$cobertura->jerarquia->nivel){
+                            session()->flash('error','Ups, algo salio mal. El nivel de su jerarquia no puede ser superior o igual al de su cobertura.');
+                        }else{
+                            User::create([
+                                'name' => $this->nombre,
+                                'email' => $this->correo,
+                                'temple_id' => $cobertura->temple_id,
+                                'red_id' => $cobertura->red_id,
+                                'jerarquia_id' => $this->jerarquia,
+                                'password' => bcrypt('clave'),
+                                'codigo' => strtoupper(bin2hex(random_bytes(3))),
+                                'parent_id'=>$cobertura->id,
+                                'genero'=>$this->genero,
+                            ]);
+                           return redirect()->route('admin.secretary.user.index')->with('status',"Registrado con exito");
+                        }
                     }else{
-                        User::create([
-                            'name' => $this->nombre,
-                            'email' => $this->correo,
-                            'temple_id' => $cobertura->temple_id,
-                            'red_id' => $cobertura->red_id,
-                            'jerarquia_id' => $this->jerarquia,
-                            'password' => bcrypt('clave'),
-                            'codigo' => strtoupper(bin2hex(random_bytes(3))),
-                            'parent_id'=>$cobertura->id,
-                            'genero'=>$this->genero,
-                        ]);
-                       return redirect()->route('admin.secretary.user.index')->with('status',"Registrado con exito");
+                        session()->flash('error','Ups, algo salio mal. El codigo de la cobertura no existe');
                     }
                 }else{
-                    session()->flash('error','Ups, algo salio mal. El codigo de la cobertura no existe');
+                    session()->flash('error','Ups, algo salio mal. Debe seleccionar una jerarquia');
                 }
             }else{
-                session()->flash('error','Ups, algo salio mal. Debe seleccionar una jerarquia');
+                session()->flash('error','Ups, algo salio mal. El codigo de la cobertura no puede quedar vacio');
             }
         }
     }
