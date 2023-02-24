@@ -23,11 +23,7 @@ Route::get('usuarios/equipo/{id}',  [HelperController::class, 'team'])->name('us
 Route::get('redes/equipo/{id}',  [RedController::class, 'red'])->name('red.team');
 
 //-----------------------Celulas
-Route::get('mis-celulas', [CelulaController::class,'index'])->name('celulas.index');
-Route::post('mis-celulas', [CelulaController::class,'store'])->name('celulas.store');
-Route::put('mis-celulas/{celula}', [CelulaController::class,'update'])->name('celulas.update');
-Route::delete('mis-celulas/{celula}', [CelulaController::class,'destroy'])->name('celulas.destroy');
-Route::get('mis-celulas/{celula}', [CelulaController::class,'show'])->name('celulas.show');
+Route::resource('mis-celulas', CelulaController::class)->names('celulas');
 Route::get('celulas/equipo', [CelulaController::class, 'mi_equipo'])->name('celulas_equipo');
 Route::get('celulas/equipo/{id}', [CelulaController::class, 'miembro'])->name('celula_miembro');
 Route::get('celulas-evangelisticas', [CE::class,'index'])->name('celulas_evangelisticas.index');
