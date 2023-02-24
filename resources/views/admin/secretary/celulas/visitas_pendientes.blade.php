@@ -49,7 +49,7 @@
                                 {{ Carbon\Carbon::parse($celula->fecha)->isoFormat('h:mm a') }}
                             </td>
                             <td class="text-center">
-                                <x-celulas.evangelisticas.drowdown :celula="$celula" />
+                                {{-- <x-celulas.evangelisticas.drowdown :celula="$celula" /> --}}
                             </td>
                         </tr>
                     @endforeach

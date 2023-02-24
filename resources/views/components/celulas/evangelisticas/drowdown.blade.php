@@ -14,5 +14,6 @@
 
         </form>
         <a class="dropdown-item" style="cursor: pointer;">Finalizar</a>
+        <a class="dropdown-item" style="cursor: pointer;">Convertir</a>
     </div>
 </div>
