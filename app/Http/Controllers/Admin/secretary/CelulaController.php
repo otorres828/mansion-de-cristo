@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Secretary;
+namespace App\Http\Controllers\Admin\secretary;
 
 use App\Http\Controllers\Controller;
 use App\Models\Celula;

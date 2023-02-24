@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\Secretary\CE;
-use App\Http\Controllers\Admin\Secretary\CelulaController;
+use App\Http\Controllers\Admin\secretary\CE;
+use App\Http\Controllers\Admin\secretary\CelulaController;
 use App\Http\Controllers\Admin\secretary\CrecimientoController;
 use App\Http\Controllers\Admin\secretary\FinanceUserController;
 use App\Http\Controllers\Admin\secretary\RedController;
