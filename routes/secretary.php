@@ -39,3 +39,4 @@ Route::resource('registrar/usuario', FinanceUserController::class)->except('stor
 //-----------------------Crecimiento
 Route::resource('crecimiento', CrecimientoController::class)->except('create','show')->middleware('can:crecimiento')->names('crecimiento');
 Route::get('mi-crecimiento',[CrecimientoController::class,'mi_crecimiento'])->middleware('auth')->name('mi_crecimiento');
+Route::get('crecimiento/usuario/{id}',[CrecimientoController::class,'crecimiento_usuario'])->middleware('auth')->name('crecimiento_usuario');

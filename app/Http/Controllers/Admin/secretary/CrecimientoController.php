@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CrecimientoRequest;
 use Illuminate\Http\Request;
 use App\Models\Crecimiento;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class CrecimientoController extends Controller
@@ -45,6 +46,12 @@ class CrecimientoController extends Controller
 
     public function mi_crecimiento(){
         return view('admin.secretary.crecimiento.micrecimiento');
+    }
+
+    public function crecimiento_usuario($id){
+        $user=User::findOrFail($id);
+        $crecimientos = Crecimiento::where('status',2)->get();
+        return view('admin.secretary.crecimiento.usuario',compact('crecimientos','user'));
 
     }
 }

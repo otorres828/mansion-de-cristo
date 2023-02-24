@@ -1,3 +1,12 @@
+@extends('adminlte::page')
+
+@section('title', 'Lista de Usuarios')
+
+@section('content_header')
+    <h1>Crecimiento de: {{$user->name}}</h1>
+@stop
+
+@section('content')
 <div class="pb-4 px-3">
     @php
         $posicion = 0;
@@ -9,7 +18,6 @@
                     <th scope="col" class="text-center">ID</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Estatus</th>
-                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,7 +26,7 @@
                         <td class="text-center">{{ $posicion = $posicion + 1 }}</td>
                         <td>{{ $crecimiento->name }}</td>
                         <td class="text-center">
-                            @if ($crecimiento->completado)
+                            @if ($crecimiento->completadouser($user->id))
                                 <button class="btn btn-success" title="Completado">
                                     <i class="fas fa-check-circle"></i></button>
                             @else
@@ -26,20 +34,7 @@
                                     <i class="fa fa-times-circle"></i></button>
                             @endif
                         </td>
-                        <td class="d-flex">
-                            <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                <input type="checkbox" class="custom-control-input"
-                                    id="crecimiento{{ $crecimiento->id }}"
-
-                                    @if ($crecimiento->completado) checked @endif
-                                    
-                                    wire:click="cambiar_estatus({{ $crecimiento->id }})">
-                                <label class="custom-control-label" for="crecimiento{{ $crecimiento->id }}"
-                                    id="crecimiento{{ $crecimiento->id }}"></label>
-
-                            </div>
-                        </td>
-
+                       
                     </tr>
                 @endforeach
             </tbody>
@@ -47,3 +42,6 @@
         </table>
     </div>
 </div>
+
+@stop
+
