@@ -1,12 +1,12 @@
 <?php return array (
   'admin.banned' => 'App\\Http\\Livewire\\Admin\\Banned',
   'admin.crecimiento' => 'App\\Http\\Livewire\\Admin\\Crecimiento',
+  'admin.edit-register' => 'App\\Http\\Livewire\\Admin\\EditRegister',
   'admin.emailsend' => 'App\\Http\\Livewire\\Admin\\Emailsend',
   'admin.encargado' => 'App\\Http\\Livewire\\Admin\\Encargado',
   'admin.finanzas' => 'App\\Http\\Livewire\\Admin\\Finanzas',
   'admin.mantenimiento' => 'App\\Http\\Livewire\\Admin\\Mantenimiento',
   'admin.register' => 'App\\Http\\Livewire\\Admin\\Register',
-  'admin.temples-index' => 'App\\Http\\Livewire\\Admin\\TemplesIndex',
   'blog.announce' => 'App\\Http\\Livewire\\Blog\\Announce',
   'blog.eliminarimagen' => 'App\\Http\\Livewire\\Blog\\Eliminarimagen',
   'blog.estadisticas' => 'App\\Http\\Livewire\\Blog\\Estadisticas',

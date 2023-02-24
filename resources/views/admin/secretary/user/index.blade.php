@@ -3,33 +3,14 @@
 @section('title', 'Lista de Usuarios')
 
 @section('content_header')
-    <h1>Lista de Miembros</h1>
+    <h1>Mi Equipo</h1>
 @stop
 
 @section('content')
     <x-aminblog.alert />
 
-    <div class="mb-3">
-        <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#register" data-bs-whatever="@mdo">Registrar
-            Usuario</a>
-    </div>
-
-    <div class="modal fade" id="register" tabindex="-1" aria-labelledby="register" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Registrar un nuevo usuario</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    @livewire('admin.register')
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <x-equipo.agregar />
+    
     <div class="pb-4 px-3">
         <div class="table-responsive">
             <table class="table table-flush" id="example">

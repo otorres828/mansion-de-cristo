@@ -12,7 +12,9 @@
                 <form action="{{ route('admin.secretary.user.update', $user) }}" method="post" autocomplete="off">
                     @csrf
                     @method('put')
-                    @include('admin.partiels.team')
+                    {{-- @include('admin.partiels.team') --}}
+                    @livewire('admin.edit-register',['user'=>$user])
+
                 </form>
             </div>
         </div>

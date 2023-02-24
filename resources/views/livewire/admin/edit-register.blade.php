@@ -7,8 +7,9 @@
     <form wire:submit.prevent="save">
         <div class="form-group">
             {!! Form::label('name', 'Nombre Completo') !!}
-            <x-jet-input wire:model="nombre" class="form-control" type="text" name="name" 
-                autofocus autocomplete="name" placeholder="Ingrese el nombre completo" />
+            <input wire:model="nombre" class="form-control" type="text" name="name" 
+                autofocus autocomplete="name" placeholder="Ingrese el nombre completo" 
+                />
             @error('name')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -58,7 +59,7 @@
 
         <div class="mb-0">
             <div class="d-flex justify-content-end align-items-baseline">
-                <button type="submit" class="btn btn-primary">Registrar</button>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
 
                 <button type="button" class=" ml-1 btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
             </div>
