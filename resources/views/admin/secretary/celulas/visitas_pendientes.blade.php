@@ -22,7 +22,7 @@
     <x-celulas.banner :ce="$ce" :cv="$cv" :pv="$pv" />
     @if ($celulas->count() > 0)
 
-        <div class="table-responsive">
+        <div class="table-responsive pb-5">
             <table class="table table-flush" id="example">
                 <thead>
                     <tr>

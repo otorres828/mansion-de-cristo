@@ -35,7 +35,7 @@ class CE extends Controller
 
         $cv=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',2)->count();
         $pv=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',1)->count();
-        $celulas=VisitaPendiente::where('estatus',1)->where('user_id',auth()->user()->id)->orderBy('fecha','asc')->paginate(10);
+        $celulas=VisitaPendiente::where('estatus',1)->where('user_id',auth()->user()->id)->orderBy('fecha','asc')->get();
         return view('admin.secretary.celulas.visitas_pendientes',compact('ce','cv','pv','celulas'));
 
     }
