@@ -13,7 +13,6 @@
             <button class="dropdown-item text-danger">Eliminar</button>
 
         </form>
-        <a class="dropdown-item" href="">Ver Visitas</a>
-        <a class="dropdown-item" style="cursor: pointer;">Convertir</a>
+        <a class="dropdown-item" style="cursor: pointer;">Finalizar</a>
     </div>
 </div>

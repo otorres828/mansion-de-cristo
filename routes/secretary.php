@@ -30,7 +30,8 @@ Route::get('celulas-evangelisticas', [CE::class,'index'])->name('celulas_evangel
 Route::post('celulas-evangelisticas', [CE::class,'store'])->name('celulas_evangelisticas.store');
 Route::put('celulas-evangelisticas/{celula}', [CE::class,'update'])->name('celulas_evangelisticas.update');
 Route::delete('celulas-evangelisticas/{celula}', [CE::class,'destroy'])->name('celulas_evangelisticas.destroy');
-Route::get('todas-las-visitas/{celula_id}',[CE::class,'visitas_todas_celula'])->name('celulas_evangelisticas.visitas');
+Route::get('celulas-evangelisticas/{celula}',[CE::class,'visitas_todas_celula'])->name('celulas_evangelisticas.visitas');
+Route::get('celulas-evangelisticas/todas-las-visitas',[CE::class,'visitas_todas_celula'])->name('visitas_todas');
 Route::get('visitas-pendientes',[CE::class,'visitas_pendientes'])->name('visitas_pendientes');
 
 //-----------------------Finanzas

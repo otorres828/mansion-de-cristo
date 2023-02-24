@@ -51,14 +51,14 @@
                                         Acciones
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" data-toggle="modal" data-target="#edit-{{ $celula->id }}">Editar
+                                        <a class="dropdown-item" style="cursor:pointer;"data-toggle="modal" data-target="#edit-{{ $celula->id }}">Editar
                                         </a>
                                     
                                         <form class="destroy" action="{{ route('celulas.destroy', $celula) }}"
                                             method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="dropdown-item">Eliminar</button>
+                                            <button class="dropdown-item text-danger">Eliminar</button>
                                         </form>
                                         <a class="dropdown-item" href="{{ route('celulas.show', $celula->id) }}">Ver
                                             detalles

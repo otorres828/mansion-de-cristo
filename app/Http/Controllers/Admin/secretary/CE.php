@@ -73,4 +73,15 @@ class CE extends Controller
         return view('admin.secretary.celulas.visitas_pendientes',compact('ce','cv','pv','celulas'));
 
     }
+
+    public function visitas_todas_celula(){
+        $ce= CelulasEvangelistica::where('user_id',auth()->user()->id)->get();
+
+        $cv=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',2)->count();
+        $pv=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',1)->count();
+        
+        $visitas=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',2)->get();;
+        return view('admin.secretary.celulas.todas_visitas',compact('ce','cv','pv','visitas'));
+
+    }
 }

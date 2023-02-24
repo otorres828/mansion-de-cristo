@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Visitas Pendientes')
+@section('title', 'Celulas Visitadas')
 
 @section('content_header')
-    <h1>Visitas Pendientes</h1>
+    <h1>Mis Celulas Evangelisticas Visitadas</h1>
 @stop
 
 @section('content')
@@ -20,36 +20,42 @@
         </div>
     @endif
     <x-celulas.banner :ce="$ce" :cv="$cv" :pv="$pv" />
-    @if ($celulas->count() > 0)
+    @if ($visitas->count() > 0)
 
         <div class="table-responsive pb-5">
             <table class="table table-flush" id="example">
                 <thead>
                     <tr>
                         <th>
+                            <div class="text-center">FECHA DE VISITA</div>
+                        </th>
+                        <th>
                             <div class="text-left">ANFITRION</div>
                         </th>
                         <th>
-                            <div class="text-center">FECHA DE VISITA</div>
+                            <div class="text-left">UBICACION</div>
                         </th>
-
                         <th>
-                            <div class=" text-center">ACCIONES</div>
+                            <div class="text-left">OBSERVACIONES</div>
                         </th>
                     </tr>
                 </thead>
                 <tbody class="">
-                    @foreach ($celulas as $celula)
+                    @foreach ($visitas as $celula)
                         <tr>
-                            <td>
-                                {{ $celula->anfitrion }}
-                            </td>
+                            
                             <td class="text-center">
                                 {{ Carbon\Carbon::parse($celula->fecha)->format('d-M') }}<br>
                                 {{ Carbon\Carbon::parse($celula->fecha)->isoFormat('h:mm a') }}
                             </td>
-                            <td class="text-center">
-                                <x-celulas.evangelisticas.drowdown :celula="$celula" />
+                            <td>
+                                {{ $celula->anfitrion }}
+                            </td>
+                            <td>
+                                {{ $celula->celula->ubicacion }}
+                            </td>
+                            <td>
+                                {{ $celula->observaciones }}
                             </td>
                         </tr>
                     @endforeach
@@ -70,11 +76,5 @@
 
 @section('js')
     <x-scrip-table-blog />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            $('.select2').select2();
-        });
-    </script>
 @stop
