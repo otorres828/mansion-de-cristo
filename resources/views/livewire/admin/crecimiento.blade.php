@@ -27,13 +27,15 @@
                             @endif
                         </td>
                         <td class="d-flex">
-
                             <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                <input type="checkbox" class="custom-control-input" id="estatus{{ $crecimiento->id }}"
-                                    value="{{ $crecimiento->completado }}"
+                                <input type="checkbox" class="custom-control-input" id="crecimiento{{ $crecimiento->id }}"
+                                @if ($crecimiento->completado)
+                                checked
+                                @endif
                                     wire:click="cambiar_estatus({{ $crecimiento->id }})">
-                                <label class="custom-control-label" for="estatus{{ $crecimiento->id }}"
+                                <label class="custom-control-label" for="crecimiento{{ $crecimiento->id }}"
                                     id="crecimiento{{ $crecimiento->id }}"></label>
+                                
                             </div>
                         </td>
 

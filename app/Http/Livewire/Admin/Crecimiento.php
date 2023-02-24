@@ -7,7 +7,6 @@ use Livewire\Component;
 
 class Crecimiento extends Component
 {
-    
     public function render()
     {
         $crecimientos = ModelsCrecimiento::where('status',2)->get();
