@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\Secretary\BannedController;
 use App\Http\Controllers\Admin\Secretary\CelulaController;
 use App\Http\Controllers\Admin\secretary\CrecimientoController;
 use App\Http\Controllers\Admin\secretary\FinanceUserController;

@@ -8,6 +8,8 @@ use Livewire\Component;
 class Banned extends Component
 {
     public $user,$status;
+    public $texto;
+
     public function mount(User $user){
         $this->user = $user;
         if($user->status ==1){
@@ -26,7 +28,6 @@ class Banned extends Component
             $this->user->status='1';
             $this->user->save();
             session()->flash('danger', 'Se ha actualizado el acceso de '.$this->user->name. ', ahora no puede ingresar');
-        
         }
     }
 
