@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin\Secretary;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CelulaRequest;
 use App\Models\Celula;
 use App\Models\Celulas_usuario;
 use App\Models\User;
