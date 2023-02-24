@@ -14,9 +14,7 @@ class Announce extends Model
     protected $guarded =['id','create_at','updated_at'];
 
     public function toSearchableArray()
-    {
-        $array = $this->toArray();
- 
+    { 
        return[
             'name'=>$this->name,
             'body'=>$this->body,

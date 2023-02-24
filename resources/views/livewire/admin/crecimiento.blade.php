@@ -8,7 +8,7 @@
                 <tr>
                     <th scope="col" class="text-center">ID</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Estatus</th>
+                    <th scope="col" class="text-center">Estatus</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
