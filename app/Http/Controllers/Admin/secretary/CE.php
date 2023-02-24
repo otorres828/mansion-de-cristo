@@ -29,4 +29,14 @@ class CE extends Controller
                 $contador=$contador+1;
         return $contador;
     }
+
+    public function visitas_pendientes(){
+        $ce= CelulasEvangelistica::where('user_id',auth()->user()->id)->get();
+
+        $cv=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',2)->count();
+        $pv=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',1)->count();
+        $celulas=VisitaPendiente::where('estatus',1)->where('user_id',auth()->user()->id)->orderBy('fecha','asc')->paginate(10);
+        return view('admin.secretary.celulas.visitas_pendientes',compact('ce','cv','pv','celulas'));
+
+    }
 }

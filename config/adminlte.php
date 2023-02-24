@@ -313,7 +313,7 @@ return [
                         [
                             'text' => 'Visitas Pendientes',
                             'icon' => 'fab fa-fw fa-buffer',
-                            'route'  => 'celulas_equipo',
+                            'route'  => 'visitas_pendientes',
                         ],
                     ],
 

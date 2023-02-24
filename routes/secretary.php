@@ -28,6 +28,7 @@ Route::get('celulas/equipo', [CelulaController::class, 'mi_equipo'])->name('celu
 Route::get('celulas/equipo/{id}', [CelulaController::class, 'miembro'])->name('celula_miembro');
 Route::get('celulas-evangelisticas', [CE::class,'index'])->name('celulas_evangelisticas.index');
 Route::get('todas-las-visitas/{celula_id}',[CE::class,'visitas_todas_celula'])->name('celulas_evangelisticas.visitas');
+Route::get('visitas-pendientes',[CE::class,'visitas_pendientes'])->name('visitas_pendientes');
 
 //-----------------------Finanzas
 Route::resource('finanzas', FinanceUserController::class)->except('show', 'create','edit')->names('admin.secretary.finance.user');
