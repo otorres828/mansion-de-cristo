@@ -21,6 +21,21 @@ class CE extends Controller
         return view('admin.secretary.celulas.mis_ce',compact('ce','cv','pv','cantidad_total','cantidad_visitar'));
     }
 
+    public function store(Request $request){
+        $request->validate([
+            'anfitrion'=>'required',
+            'ubicacion'=>'required',
+        ]);
+        CelulasEvangelistica::create([
+            'anfitrion'=>$request->anfitrion,
+            'ubicacion'=>$request->ubicacion,
+            'telefono'=>$request->telefono,
+            'user_id'=>auth()->user()->id
+        ]);
+
+        return redirect()->route('celulas_evangelisticas.index')->with('info','Se añadio la celula con exito');
+
+    }
     public function celulas_por_visitar(){
         $celulas= CelulasEvangelistica::where('user_id',auth()->user()->id)->get();
         $contador=0;

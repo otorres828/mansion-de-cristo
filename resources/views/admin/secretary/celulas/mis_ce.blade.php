@@ -19,7 +19,9 @@
             </ul>
         </div>
     @endif
-    <x-celulas.banner :ce="$ce" :cv="$cv" :pv="$pv" />
+        <x-celulas.banner :ce="$ce" :cv="$cv" :pv="$pv" />
+        <x-celulas.evangelisticas.agregar :ce="$ce"/>
+
     @if ($ce->count() > 0)
         <h1 class="ml-1 pb-2 text-lg font-semibold text-gray-600">hay
             {{ $cantidad_total - $cantidad_visitar }} celulas sin fecha para visitar</h1>
