@@ -30,10 +30,10 @@ class CelulaController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'nombre' => 'required',
-            'direccion' => 'required',
-            'fecha_hora' => 'required',
+        $request->validate([
+            'anfitrion' => 'required',
+            'ubicacion' => 'required',
+            'dia' => 'required',
             'user_id' => 'required',
         ]);
 
@@ -59,10 +59,10 @@ class CelulaController extends Controller
     {
         $celula = Celula::find($id);
 
-        $validated = $request->validate([
-            'nombre' => 'required',
-            'direccion' => 'required',
-            'fecha_hora' => 'required',
+        $request->validate([
+            'anfitrion' => 'required',
+            'ubicacion' => 'required',
+            'dia' => 'required',
             'user_id' => 'required',
         ]);
         $celula->update($request->all());

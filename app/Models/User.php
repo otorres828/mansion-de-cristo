@@ -153,10 +153,20 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Celula::class);
     }
 
+    public function celulas_evangelisticas(){
+        return $this->hasMany(CelulasEvangelistica::class);
+    }
+
+    public function visitaspendientes(){
+        return $this->hasMany(VisitaPendiente::class);
+    }
+
+
     public function cobertura(){
         return $this->belongsTo(User::class,'parent_id');
     }
 
+    //RELACION MUCHOS A MUCHOS
     public function crecimientos(){
         return $this->belongsToMany(Crecimiento::class);
     }

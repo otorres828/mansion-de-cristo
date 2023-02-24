@@ -13,9 +13,10 @@ class CelulaFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this->faker->unique()->sentence(),
-            'direccion' => $this->faker->text(200),
-            'fecha_hora' => $this->faker->dateTime(),
+            'anfitrion'=>$this->faker->name(),
+            'ubicacion' => $this->faker->text(200),
+            'dia'=>$this->faker->randomElement([1,2,3,4,5,6,7]),
+            'telefono'=>$this->faker->phoneNumber(),
             'user_id' => User::all()->random()->id,
         ];
     }

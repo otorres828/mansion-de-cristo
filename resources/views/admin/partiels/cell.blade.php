@@ -1,24 +1,18 @@
 <div class="form-group">
-    {!! Form::label('lider_cedula', 'Seleccione el lider de la celula') !!}
-    {!! Form::select('user_id', $descendientes, null, ['class' => 'form-control select2']) !!}
-    @error('user_id')
-    <span class="text-danger">{{ $message }}</span>
-    @enderror
+    {!! Form::label('lider_cedula', 'SELECCIONE EL LIDER DE CELULA') !!}
+    {!! Form::select('user_id', $descendientes, null, ['class' => 'form-control w-full select2']) !!}
 </div>
 
 <div class="form-group">
-    {!! Form::label('nombre', 'Nombre') !!}
-    {!! Form::text('nombre', $celula->nombre ?? null,
-    ['class'=>'form-control','placeholder'=>'Ingrese el nombre de la celula','required'])
-    !!}
-    @error('nombre')
-    <span class="text-danger">{{ $message }}</span>
-    @enderror
+    {!! Form::label('Anfitrion', 'INGRESE EL NOMBRE DEL ANFITRION') !!}
+    {!! Form::text('anfitrion', $celula->anfitrion ?? null,
+    ['class'=>'form-control','placeholder'=>'Ingrese el anfitrion','required']) !!}
+
 </div>
 
 <div class="form-group">
-    {!! Form::label('direccion', 'Direccion') !!}
-    {!! Form::textarea('direccion', $celula->direccion ?? null,
+    {!! Form::label('ubicacion', 'INGRESE LA UBICACION') !!}
+    {!! Form::textarea('ubicacion', $celula->ubicacion ?? null,
     ['class'=>'form-control','placeholder'=>'Ingrese la direccion donde se llevara acabo la celula','required']) !!}
     @error('direccion')
     <span class="text-danger">{{ $message }}</span>
@@ -26,9 +20,25 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('fecha_hora', 'Fecha del encuentro') !!}
-    {!! Form::input('datetime-local', 'fecha_hora',$celula->fecha_hora ?? null,['class'=>'form-control']) !!}
-    @error('fecha_hora')
-    <span class="text-danger">{{$message}}</span>
+    {!! Form::label('telefono', 'INTRODUZCA LA EL NUMERO DE TELEFONO (opcional)') !!}
+    {!! Form::text('telefono', $celula->telefono ?? null,
+    ['class'=>'form-control','placeholder'=>'Ingrese el numero de telefono','required']) !!}
+    @error('direccion')
+    <span class="text-danger">{{ $message }}</span>
     @enderror
+</div>
+
+<div class="form-group">
+    {!! Form::label('dia', 'SELECCIONE EL DIA') !!}
+    <select name="dia" class="form-control" value="1">
+        <div class="overflow-y-scroll">
+            <option value="1">Lunes</option>
+            <option value="2">Martes</option>
+            <option value="3">Miercoles</option>
+            <option value="4">Jueves</option>
+            <option value="5">Viernes</option>
+            <option value="6">Sabado</option>
+            <option value="7">Domingo</option>
+        </div>
+    </select>
 </div>

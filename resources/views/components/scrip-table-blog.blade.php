@@ -23,11 +23,7 @@
                     'previous': 'anterior'
                 }
             },
-
             responsive: true,
-          
-
-
         });
     });
 </script>

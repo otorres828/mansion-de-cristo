@@ -4,12 +4,14 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Celula;
+use App\Models\CelulasEvangelistica;
 use App\Models\Contact;
 use App\Models\Crecimiento;
 use App\Models\Crecimiento_usuario;
 use App\Models\Red;
 use App\Models\Encargado;
 use App\Models\User;
+use App\Models\VisitaPendiente;
 use Database\Factories\CrecimientoUsuarioFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
@@ -43,7 +45,7 @@ class DatabaseSeeder extends Seeder
         $this->call(JerarquiaSeeder::class);
 
         $this->call(UserSeeder::class);
-        User::factory(20)->create();
+        User::factory(1)->create();
 
         // Contact::factory(15)->create();
         Category::factory(8)->create();
@@ -53,8 +55,9 @@ class DatabaseSeeder extends Seeder
         // $this->call(TeachingSeeder::class);
         // $this->call(MinistrySeeder::class);
         // $this->call(TestimonySeeder::class);
-        Celula::factory(200)->create();
-        Crecimiento::factory(20)->create();
-        Crecimiento_usuario::factory(20)->create();
+        Celula::factory(50)->create();
+        Crecimiento::factory(50)->create();
+        CelulasEvangelistica::factory(15)->create();
+        VisitaPendiente::factory(100)->create();
     }
 }

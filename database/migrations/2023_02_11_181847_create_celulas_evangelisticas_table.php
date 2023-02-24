@@ -6,27 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+
     public function up()
     {
-        Schema::create('celulas', function (Blueprint $table) {
+        Schema::create('celulas_evangelisticas', function (Blueprint $table) {
             $table->id();
-            $table->text('anfitrion')->nullable();
-            $table->text('ubicacion')->nullable();
-            $table->enum('dia',['Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo'])->default('Miercoles');
+            $table->string('anfitrion');
+            $table->text('ubicacion');
             $table->string('telefono')->nullable();
             $table->unsignedBigInteger('user_id');
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+  
     public function down()
     {
-        Schema::dropIfExists('celulas');
+        Schema::dropIfExists('celulas_evangelisticas');
     }
 };

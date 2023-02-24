@@ -11,10 +11,11 @@ class Celula extends Model
     public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
-        'nombre',
-        'direccion',
-        'fecha_hora',
+        'anfitrion',
+        'ubicacion',
+        'telefono',
         'user_id',
+        'dia',
     ];
 
     //relacion uno a muchos inversa

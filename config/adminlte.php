@@ -302,6 +302,19 @@ return [
                             'icon' => 'fab fa-fw fa-buffer',
                             'route'  => 'celulas_equipo',
                         ],
+                        [
+                            'header' => 'PUERTAS ABIERTAS',
+                        ],
+                        [
+                            'text' => 'Celulas Evangelisticas',
+                            'icon' => 'fab fa-fw fa-buffer',
+                            'route'  => 'celulas_evangelisticas.index',
+                        ],
+                        [
+                            'text' => 'Visitas Pendientes',
+                            'icon' => 'fab fa-fw fa-buffer',
+                            'route'  => 'celulas_equipo',
+                        ],
                     ],
 
 
