@@ -19,6 +19,7 @@
                         <th scope="col" class="text-center">#id</th>
                         <th scope="col">Codigo</th>
                         <th scope="col">Nombre</th>
+                        <th scope="col" class="text-center">Genero</th>
                         <th scope="col">Jerarquia</th>
                         <th scope="col">Cobertura</th>
                         @if (auth()->user()->hasRole('Master'))
@@ -34,6 +35,14 @@
                                 <td class="text-center"> {{ $user->id }}</td>
                                 <td>{{ $user->codigo }}</td>
                                 <td>{{ $user->name }}</td>
+                                <td class="text-center">
+                                @if ($user->genero=='H' )
+                                    <p class="rounded-lg text-white bg-primary">Homber</p>
+                                @else
+                                <p class="rounded-lg text-white bg-info">Mujer</p>
+
+                                @endif    
+                                </td>
                                 <td>{{ $user->jerarquia->name }}</td>
                                 <td>{{ $user->parent->name }}</td>
                                 @if (auth()->user()->hasRole('Master'))

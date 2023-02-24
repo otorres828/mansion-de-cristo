@@ -54,17 +54,17 @@ class UserController extends Controller
         return redirect()->route('admin.secretary.user.index')->with('info', 'Usuario Registrado con exito');
     }
     
-    public function update(UserRequest $request, User $usuario)
-    {
-        $request->validate([
-            'name' =>'required',
-            'parent_id'=>'required',
-            'jerarquia_id'=>'required',
-            'red_id'=>'required',
-        ]);
-        $usuario->update($request->all());
-        return redirect()->route('admin.secretary.user.index')->with('info', 'Usuario actualizado con exito');
-    }
+    // public function update(UserRequest $request, User $usuario)
+    // {
+    //     $request->validate([
+    //         'name' =>'required',
+    //         'parent_id'=>'required',
+    //         'jerarquia_id'=>'required',
+    //         'red_id'=>'required',
+    //     ]);
+    //     $usuario->update($request->all());
+    //     return redirect()->route('admin.secretary.user.index')->with('info', 'Usuario actualizado con exito');
+    // }
 
     public function destroy($user)
     {

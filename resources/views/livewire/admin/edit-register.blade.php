@@ -4,7 +4,7 @@
             {{ session('error') }}
         </div>
     @endif
-    <form wire:submit.prevent="save">
+    <form wire:submit.prevent="actualizar">
         <div class="form-group">
             {!! Form::label('name', 'Nombre Completo') !!}
             <input wire:model="nombre" class="form-control" type="text" name="name" 
