@@ -36,6 +36,7 @@
                 <thead>
                     <tr>
                         <th scope="col" class="text-center">#id</th>
+                        <th scope="col">Codigo</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Jerarquia</th>
                         <th scope="col">Cobertura</th>
@@ -50,6 +51,7 @@
                         @if (auth()->user()->id != $user->id && auth()->user()->id  != $user->conyugue)
                             <tr>
                                 <td class="text-center"> {{ $user->id }}</td>
+                                <td>{{ $user->codigo }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->jerarquia->name }}</td>
                                 <td>{{ $user->parent->name }}</td>
