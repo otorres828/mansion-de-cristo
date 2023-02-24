@@ -15,9 +15,9 @@
         <a class="dropdown-item" href="{{ route('celula_miembro',$user->id) }}">Ver Celulas</a>
         <a class="dropdown-item" href="#">Ver Detalles</a>
         <a class="dropdown-item" data-bs-toggle="modal"href="#"
+        data-bs-target="#cambiar{{ $user->id }}" data-bs-whatever="@mdo">Cambiar Cobertura</a>
+        <a class="dropdown-item" data-bs-toggle="modal"href="#"
         data-bs-target="#eliminar{{ $user->id }}" data-bs-whatever="@mdo">Eliminar
         Registro</a>
-        <a class="dropdown-item" data-bs-toggle="modal"href="#"
-        data-bs-target="#cambiar{{ $user->id }}" data-bs-whatever="@mdo">Cambiar Cobertura</a>
     </div>
 </div>
