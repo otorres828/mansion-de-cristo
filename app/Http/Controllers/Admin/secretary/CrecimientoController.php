@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CrecimientoRequest;
 use Illuminate\Http\Request;
 use App\Models\Crecimiento;
+use Illuminate\Support\Facades\DB;
 
 class CrecimientoController extends Controller
 {
@@ -16,30 +17,11 @@ class CrecimientoController extends Controller
         return view('admin.secretary.crecimiento.index', compact('crecimientos'));
     }
 
-
-    public function create()
-    {
-        //
-    }
-
-
     public function store(CrecimientoRequest $request)
     {
         $Crecimiento = Crecimiento::create($request->all());
 
         return redirect()->back()->with('info', 'El crecimiento se creo con exito');
-    }
-
-
-    public function show($id)
-    {
-        //
-    }
-
-
-    public function edit($id)
-    {
-        //
     }
 
 
@@ -59,5 +41,10 @@ class CrecimientoController extends Controller
         $crecimiento = Crecimiento::find($crecimiento);
         $crecimiento->delete();
         return redirect()->back()->with('delete', 'el crecimiento se elimino con exito');
+    }
+
+    public function mi_crecimiento(){
+        return view('admin.secretary.crecimiento.micrecimiento');
+
     }
 }

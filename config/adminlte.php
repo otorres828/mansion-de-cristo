@@ -330,7 +330,7 @@ return [
                 [
                     'text' => 'Mi Crecimiento',
                     'icon' => 'fab fa-fw fa-buffer',
-                    'route'  => 'crecimiento.index',
+                    'route'  => 'mi_crecimiento',
                 ],
             ],
 

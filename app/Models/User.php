@@ -156,4 +156,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public function cobertura(){
         return $this->belongsTo(User::class,'parent_id');
     }
+
+    public function crecimientos(){
+        return $this->belongsToMany(Crecimiento::class);
+    }
 }

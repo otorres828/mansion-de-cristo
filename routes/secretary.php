@@ -37,5 +37,5 @@ Route::post('finanzas/administradores', [FinanceUserController::class,'administr
 Route::resource('registrar/usuario', FinanceUserController::class)->except('store')->names('admin.register');
 
 //-----------------------Crecimiento
-Route::resource('crecimiento', CrecimientoController::class)->middleware('can:crecimiento')
-    ->names('crecimiento');
+Route::resource('crecimiento', CrecimientoController::class)->except('create','show')->middleware('can:crecimiento')->names('crecimiento');
+Route::get('mi-crecimiento',[CrecimientoController::class,'mi_crecimiento'])->middleware('auth')->name('mi_crecimiento');

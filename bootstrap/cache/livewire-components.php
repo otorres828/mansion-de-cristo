@@ -1,5 +1,6 @@
 <?php return array (
   'admin.banned' => 'App\\Http\\Livewire\\Admin\\Banned',
+  'admin.crecimiento' => 'App\\Http\\Livewire\\Admin\\Crecimiento',
   'admin.emailsend' => 'App\\Http\\Livewire\\Admin\\Emailsend',
   'admin.encargado' => 'App\\Http\\Livewire\\Admin\\Encargado',
   'admin.finanzas' => 'App\\Http\\Livewire\\Admin\\Finanzas',

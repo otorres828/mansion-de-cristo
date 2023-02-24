@@ -13,4 +13,13 @@ class Crecimiento extends Model
         'name',
         'status'
     ];
+
+    //relacion n:N
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
+
+    public function getCompletadoAttribute(){
+        return $this->users->contains(auth()->user()->id);
+    }   
 }
