@@ -36,6 +36,25 @@ class CE extends Controller
         return redirect()->route('celulas_evangelisticas.index')->with('info','Se añadio la celula con exito');
 
     }
+
+    public function update(Request $request, CelulasEvangelistica $celula){
+        $request->validate([
+            'anfitrion'=>'required',
+            'ubicacion'=>'required',
+        ]);
+        $celula->update($request->all());
+        return redirect()->route('celulas_evangelisticas.index')->with('info','Se actualizo la celula con exito');
+
+    }
+
+
+    public function destroy(CelulasEvangelistica $celula)
+    {
+        $celula->delete(); 
+        return redirect()->route('celulas_evangelisticas.index')->with('info','Se elimino la celula con exito');
+
+    }
+    
     public function celulas_por_visitar(){
         $celulas= CelulasEvangelistica::where('user_id',auth()->user()->id)->get();
         $contador=0;

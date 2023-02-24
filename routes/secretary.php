@@ -28,6 +28,8 @@ Route::get('celulas/equipo', [CelulaController::class, 'mi_equipo'])->name('celu
 Route::get('celulas/equipo/{id}', [CelulaController::class, 'miembro'])->name('celula_miembro');
 Route::get('celulas-evangelisticas', [CE::class,'index'])->name('celulas_evangelisticas.index');
 Route::post('celulas-evangelisticas', [CE::class,'store'])->name('celulas_evangelisticas.store');
+Route::put('celulas-evangelisticas/{celula}', [CE::class,'update'])->name('celulas_evangelisticas.update');
+Route::delete('celulas-evangelisticas/{celula}', [CE::class,'destroy'])->name('celulas_evangelisticas.destroy');
 Route::get('todas-las-visitas/{celula_id}',[CE::class,'visitas_todas_celula'])->name('celulas_evangelisticas.visitas');
 Route::get('visitas-pendientes',[CE::class,'visitas_pendientes'])->name('visitas_pendientes');
 
