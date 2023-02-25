@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\secretary;
 
 use App\Http\Controllers\Controller;
+use App\Models\Celula;
 use App\Models\CelulasEvangelistica;
 use App\Models\VisitaPendiente;
 use Illuminate\Http\Request;
@@ -95,5 +96,18 @@ class CE extends Controller
         $visitas=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',2)->where('celula_id',$id)->get();;
         return view('admin.secretary.celulas.visitas_celula',compact('ce','cv','pv','visitas','celula'));
 
+    }
+
+    public function convertir($id,Request $request){
+        $celula=CelulasEvangelistica::find($id);
+        Celula::create([
+            'user_id'=>auth()->user()->id,
+            'ubicacion'=>$celula->ubicacion,
+            'dia'=>$request->dia,
+            'anfitrion'=>$celula->anfitrion,
+            'telefono'=>$celula->telefono
+        ]);
+        $celula->delete();
+        return redirect()->route('celulas_evangelisticas.index')->with('info','Se convirtio la celula evangelistica a celula oficial con exito');
     }
 }

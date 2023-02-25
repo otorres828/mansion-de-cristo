@@ -30,6 +30,7 @@ Route::get('celulas-evangelisticas', [CE::class,'index'])->name('celulas_evangel
 Route::post('celulas-evangelisticas', [CE::class,'store'])->name('celulas_evangelisticas.store');
 Route::put('celulas-evangelisticas/{celula}', [CE::class,'update'])->name('celulas_evangelisticas.update');
 Route::delete('celulas-evangelisticas/{celula}', [CE::class,'destroy'])->name('celulas_evangelisticas.destroy');
+Route::post('celulas/oficiales/convertir/{celula}', [CE::class,'convertir'])->name('ce.convertir');
 
 
 Route::get('celulas-evangelisticas/todas-las-visitas',[CE::class,'celulas_visitadas'])->name('celulas_visitadas');

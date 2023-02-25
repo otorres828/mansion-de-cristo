@@ -28,6 +28,8 @@
     @enderror
 </div>
 
+
+
 <div class="form-group">
     {!! Form::label('dia', 'SELECCIONE EL DIA') !!}
     <select name="dia" class="form-control" value="1">

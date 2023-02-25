@@ -14,6 +14,6 @@
 
         </form>
         <a class="dropdown-item text-success" href="{{route('celulas_evangelisticas.visitas',$celula->id)}}" style="cursor: pointer;">Ver Visitas</a>
-        <a class="dropdown-item text-success" style="cursor: pointer;">Convertir</a>
-    </div>
+        <a class="dropdown-item text-success" style="cursor: pointer;" data-toggle="modal"
+        data-target="#convertir{{ $celula->id }}">Convertir</a>    </div>
 </div>
