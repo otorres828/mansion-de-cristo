@@ -264,11 +264,11 @@ return [
                     'can' => 'admin.secretary.admin',
 
                 ],
-                [
-                'text' => 'Finanzas',
-                'icon' => 'fas fa-hand-holding-usd',
-                'route'  => 'administrar.finanzas',
-                'can' => 'administrar.roles.finanzas'],
+                // [
+                // 'text' => 'Finanzas',
+                // 'icon' => 'fas fa-hand-holding-usd',
+                // 'route'  => 'administrar.finanzas',
+                // 'can' => 'administrar.roles.finanzas'],
                 [
                     'text' => 'Crecimiento',
                     'icon' => 'fab fa-fw fa-buffer',
@@ -319,22 +319,22 @@ return [
 
 
                 ],
-                [
-                    'text' => 'Finanzas',
-                    'icon' => 'fas fa-hand-holding-usd',
-                    'submenu' => [
-                        [
-                            'text' => 'Personales',
-                            'icon' => 'fab fa-fw fa-buffer',
-                            'route' => 'admin.secretary.finance.user.index',
-                        ],
-                        [
-                            'text' => 'Por Celulas',
-                            'icon' => 'fab fa-fw fa-buffer',
-                            'route'  => 'por_celula',
-                        ],
-                    ],
-                ],
+                // [
+                //     'text' => 'Finanzas',
+                //     'icon' => 'fas fa-hand-holding-usd',
+                //     'submenu' => [
+                //         [
+                //             'text' => 'Personales',
+                //             'icon' => 'fab fa-fw fa-buffer',
+                //             'route' => 'admin.secretary.finance.user.index',
+                //         ],
+                //         [
+                //             'text' => 'Por Celulas',
+                //             'icon' => 'fab fa-fw fa-buffer',
+                //             'route'  => 'por_celula',
+                //         ],
+                //     ],
+                // ],
                 // [
                 //     'text' => 'Repositorio',
                 //     'icon' => 'fab fa-fw fa-buffer',
