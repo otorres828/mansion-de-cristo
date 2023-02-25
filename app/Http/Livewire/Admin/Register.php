@@ -11,7 +11,7 @@ use Livewire\Component;
 class Register extends Component
 {
     public $correo,$nombre,$codigo,$iglesia,$jerarquia,$jerarquias,$genero;
-    public $user,$redes,$red;
+    public $user,$redes,$red,$variable=0;
 
     public function render()
     {
@@ -39,7 +39,7 @@ class Register extends Component
                         if($jerarquia->nivel<=$cobertura->jerarquia->nivel){
                             session()->flash('error','Ups, algo salio mal. El nivel de su jerarquia no puede ser superior o igual al de su cobertura.');
                         }else{
-                            if($cobertura->red_id==$this->red){
+                            if($cobertura->red_id==$this->red || $this->variable>0){
                                 User::create([
                                     'name' => $this->nombre,
                                     'email' => $this->correo,
@@ -71,14 +71,13 @@ class Register extends Component
 
     public function verificar_rol(){
         $roles = $this->user->getRoleNames();
-        $variable = 0;
         foreach ($roles as $rol) {
             if ( $rol == 'Master') {
-                $variable++;
+                $this->variable++;
                 $this->redes=Red::where('temple_id',$this->user->temple_id)->get();
             }
         }
-        if($variable==0){
+        if($this->variable==0){
             $this->redes=Red::where('id',$this->user->temple_id)->get();
         }
     }
