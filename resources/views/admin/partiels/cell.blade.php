@@ -22,17 +22,16 @@
 <div class="form-group">
     {!! Form::label('telefono', 'INTRODUZCA LA EL NUMERO DE TELEFONO (opcional)') !!}
     {!! Form::text('telefono', $celula->telefono ?? null,
-    ['class'=>'form-control','placeholder'=>'Ingrese el numero de telefono','required']) !!}
+    ['class'=>'form-control','placeholder'=>'Ingrese el numero de telefono']) !!}
     @error('direccion')
     <span class="text-danger">{{ $message }}</span>
     @enderror
 </div>
 
 
-
 <div class="form-group">
     {!! Form::label('dia', 'SELECCIONE EL DIA') !!}
-    <select name="dia" class="form-control" value="1">
+    <select name="dia" class="form-control">
         <div class="overflow-y-scroll">
             <option value="1">Lunes</option>
             <option value="2">Martes</option>

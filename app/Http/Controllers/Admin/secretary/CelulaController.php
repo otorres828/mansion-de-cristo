@@ -21,11 +21,6 @@ class CelulaController extends Controller
     }
 
 
-    public function create()
-    {
-        //
-    }
-
 
     public function store(Request $request)
     {
@@ -37,7 +32,7 @@ class CelulaController extends Controller
         ]);
 
         Celula::create($request->all());
-        return redirect()->route('celulas.index')->with('success', 'Celula creada con exito con exitosamente');
+        return redirect()->back()->with('info', 'Celula creada con exito con exitosamente');
     }
 
     public function show($id)
@@ -45,12 +40,6 @@ class CelulaController extends Controller
         $celula = Celula::find($id);
         $celula_miembros = Celulas_usuario::where('celula_id', '=', $id)->get();
         return view('admin.secretary.celulas.detalles_celula', compact('celula', 'celula_miembros'));
-    }
-
-
-    public function edit($id)
-    {
-        //
     }
 
 

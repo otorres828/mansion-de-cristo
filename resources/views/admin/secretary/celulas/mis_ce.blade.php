@@ -19,8 +19,8 @@
             </ul>
         </div>
     @endif
-        <x-celulas.banner :ce="$ce" :cv="$cv" :pv="$pv" />
-        <x-celulas.evangelisticas.agregar :ce="$ce"/>
+    <x-celulas.banner :ce="$ce" :cv="$cv" :pv="$pv" />
+    <x-celulas.evangelisticas.agregar  />
 
     @if ($ce->count() > 0)
         <h1 class="ml-1 pb-2 text-lg font-semibold text-gray-600">hay
@@ -101,31 +101,7 @@
 @stop
 
 @section('js')
-<script>
-    $('.destroy').submit(function(e){
-        e.preventDefault();
-        Swal.fire({
-        title: '¿Estas Seguro?',
-        text: "que quieres eliminar la categoria!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Confirmar',
-        cancelButtonText: 'Cancelar'
-
-        }).then((result) => {
-        if (result.isConfirmed) {
-            // Swal.fire(
-            // 'Eliminado!',
-            // 'La red se ha eliminado con exito',
-            // 'success'
-            // )
-            this.submit();
-        }
-    })
-    });
-</script>
+    <x-delete-celula />
     <x-scrip-table-blog />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 

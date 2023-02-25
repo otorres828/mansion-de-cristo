@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Lista de Usuarios')
+@section('title', 'Detalles de Celula')
 
 @section('content_header')
     <h1>Celulas de: {{ $user->name }} </h1>

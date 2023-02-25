@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Lista de Usuarios')
+@section('title', 'Detalles de Celula')
 
 @section('content_header')
 <a href="{{  url()->previous() }}" class="btn btn-sm btn-secondary">Volver</a>

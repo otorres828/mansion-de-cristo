@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Lista de Usuarios')
+@section('title', 'Crecimiento de '.$user->name)
 
 @section('content_header')
-    <h1>Crecimiento de: {{$user->name}}</h1>
+    <h2><span>Crecimiento de:</span> {{$user->name}}</h2>
 @stop
 
 @section('content')

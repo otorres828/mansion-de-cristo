@@ -16,7 +16,7 @@
                         autocomplete="off">
                         @csrf
                         @method('put')
-                        @include('admin.partiels.cell')
+                        @livewire('admin.edit-celula', ['celula' => $celula,'descendientes'=>$descendientes])
 
                         <div class="d-flex justify-content-end align-items-baseline">
                             {!! Form::submit('Actualizar', ['class' => 'btn btn-success']) !!}

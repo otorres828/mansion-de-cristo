@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Lista de Usuarios')
+@section('title', 'Administrador de correos')
 
 @section('content_header')
     <h1 class="font-extralight">Administracion de correos envio de correos electronicos</h1>
