@@ -226,10 +226,10 @@ return [
 
     'menu' => [
         // // Sidebar items:
-        // [
-        //     'type' => 'sidebar-menu-search',
-        //     'text' => 'Buscar',
-        // ],
+        [
+            'type' => 'sidebar-menu-search',
+            'text' => 'Buscar',
+        ],
         // Sidebar items:
         // Sidebar items:
         [
@@ -290,7 +290,7 @@ return [
                 ],
                 [
                     'text' => 'Celulas',
-                    'icon' => 'fas fa-users fa-fw',
+                    'icon' => 'far fa-fw fa-plus-square',
                     'submenu' => [
                         [
                             'text' => 'Mis Celulas',

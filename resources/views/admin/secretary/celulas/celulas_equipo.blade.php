@@ -24,7 +24,7 @@
 
     <div class="pb-4 px-3">
         <p class="h5">
-            Su equipo tiene {{ $celulas_equipo->count() }} celulas contando sus celulas
+            Su equipo tiene {{ $celulas_equipo->count() }} celulas 
         </p>
         <div class="table-responsive">
             <table class="table table-flush" id="example">

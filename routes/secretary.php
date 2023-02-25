@@ -24,7 +24,7 @@ Route::get('redes/equipo/{id}',  [RedController::class, 'red'])->name('red.team'
 
 //-----------------------Celulas
 Route::resource('mis-celulas', CelulaController::class)->names('celulas');
-Route::get('celulas/equipo', [CelulaController::class, 'mi_equipo'])->name('celulas_equipo');
+Route::get('celulas/equipo', [CelulaController::class, 'celulas_mi_equipo'])->name('celulas_equipo');
 Route::get('celulas/equipo/{id}', [CelulaController::class, 'miembro'])->name('celula_miembro');
 Route::get('celulas-evangelisticas', [CE::class,'index'])->name('celulas_evangelisticas.index');
 Route::post('celulas-evangelisticas', [CE::class,'store'])->name('celulas_evangelisticas.store');

@@ -66,12 +66,12 @@ class CelulaController extends Controller
     }
 
 
-    public function mi_equipo()
+    public function celulas_mi_equipo()
     {
         $celulas_equipo = User::find(auth()->user()->id)->recursiveCelulas;
-        $celulas_equipo->filter(function ($celula, $index) {
-            return $celula->user_id != auth()->user()->id;
-        });
+        // $celulas_equipo =$celulas_equipo->filter(function ($celula, $index) {
+        //     return $celula->user_id != auth()->user()->id;
+        // });
         $descendientes = User::find(auth()->user()->id)
             ->descendants
             ->pluck('name', 'id');

@@ -28,6 +28,7 @@ class User extends Authenticatable implements MustVerifyEmail
     //RELACION PARA TRAER LAS CELULAS DE LOS HIJOS
     public function recursiveCelulas()
     {
+        return $this->hasManyOfDescendants(Celula::class);
         return $this->hasManyOfDescendantsAndSelf(Celula::class);
     }
 
@@ -85,10 +86,26 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Testimony::class);
     }
 
+    //relacion uno a muchos// 1 usuario puede terner varios anuncios
+    public function note(){        
+        return $this->hasMany(Note::class);
+    }
+    
+    //relacion uno a muchos// 1 usuario puede terner varios CELULAS
+    public function celula(){
+        return $this->hasMany(Celula::class);
+    }
+    
+    public function celulas_evangelisticas(){
+        return $this->hasMany(CelulasEvangelistica::class);
+    }
+    
+    public function visitaspendientes(){
+        return $this->hasMany(VisitaPendiente::class);
+    }
 
     //relacion uno a muchos// 1 usuario puede terner varios anuncios
-    public function user()
-    {
+    public function user(){
         return $this->hasMany(User::class);
     }
 
@@ -139,26 +156,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function conyugue(){
         return $this->hasOne(User::class,'conyugue');
-    }
-
-    //relacion uno a muchos// 1 usuario puede terner varios anuncios
-    public function note()
-    {
-        return $this->hasMany(Note::class);
-    }
-
-    //relacion uno a muchos// 1 usuario puede terner varios CELULAS
-    public function celula()
-    {
-        return $this->hasMany(Celula::class);
-    }
-
-    public function celulas_evangelisticas(){
-        return $this->hasMany(CelulasEvangelistica::class);
-    }
-
-    public function visitaspendientes(){
-        return $this->hasMany(VisitaPendiente::class);
     }
 
 
