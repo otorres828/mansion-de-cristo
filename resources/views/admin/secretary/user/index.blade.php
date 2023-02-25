@@ -10,6 +10,7 @@
     <x-aminblog.alert />
 
     <x-equipo.agregar />
+    <p>Mi codigo es: {{auth()->user()->codigo}}</p>
     
     <div class="pb-4 px-3">
         <div class="table-responsive">

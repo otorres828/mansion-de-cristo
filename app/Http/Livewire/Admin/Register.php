@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Jerarquia;
+use App\Models\Red;
 use App\Models\Temple;
 use App\Models\User;
 use Livewire\Component;
@@ -10,13 +11,16 @@ use Livewire\Component;
 class Register extends Component
 {
     public $correo,$nombre,$codigo,$iglesia,$jerarquia,$jerarquias,$genero;
+    public $user,$redes,$red;
 
     public function render()
     {
-        $user = User:: find(auth()->user()->id);  
-        $temple = Temple::find($user->temple_id);
-        $this->jerarquias = Jerarquia::where('temple_id',$user->temple_id)
-                                ->where('nivel','>',$user->jerarquia->nivel)
+        $this->user = User:: find(auth()->user()->id);  
+        $temple = Temple::find($this->user->temple_id);
+        $this->verificar_rol();
+
+        $this->jerarquias = Jerarquia::where('temple_id',$this->user->temple_id)
+                                ->where('nivel','>',$this->user->jerarquia->nivel)
                                 ->get();
                                 
         return view('livewire.admin.register',compact('temple'));
@@ -35,18 +39,23 @@ class Register extends Component
                         if($jerarquia->nivel<=$cobertura->jerarquia->nivel){
                             session()->flash('error','Ups, algo salio mal. El nivel de su jerarquia no puede ser superior o igual al de su cobertura.');
                         }else{
-                            User::create([
-                                'name' => $this->nombre,
-                                'email' => $this->correo,
-                                'temple_id' => $cobertura->temple_id,
-                                'red_id' => $cobertura->red_id,
-                                'jerarquia_id' => $this->jerarquia,
-                                'password' => bcrypt('clave'),
-                                'codigo' => strtoupper(bin2hex(random_bytes(3))),
-                                'parent_id'=>$cobertura->id,
-                                'genero'=>$this->genero,
-                            ]);
-                           return redirect()->route('admin.secretary.user.index')->with('info',"Registrado con exito");
+                            if($cobertura->red_id==$this->red){
+                                User::create([
+                                    'name' => $this->nombre,
+                                    'email' => $this->correo,
+                                    'temple_id' => $cobertura->temple_id,
+                                    'red_id' => $this->red,
+                                    'jerarquia_id' => $this->jerarquia,
+                                    'password' => bcrypt('clave'),
+                                    'codigo' => strtoupper(bin2hex(random_bytes(3))),
+                                    'parent_id'=>$cobertura->id,
+                                    'genero'=>$this->genero,
+                                ]);
+                               return redirect()->route('admin.secretary.user.index')->with('info',"Registrado con exito");
+
+                            }else{
+                                session()->flash('error','Ups, algo salio mal. El codigo de la cobertura no pertenece a la red seleccionada');
+                            }
                         }
                     }else{
                         session()->flash('error','Ups, algo salio mal. El codigo de la cobertura no existe');
@@ -57,6 +66,20 @@ class Register extends Component
             }else{
                 session()->flash('error','Ups, algo salio mal. El codigo de la cobertura no puede quedar vacio');
             }
+        }
+    }
+
+    public function verificar_rol(){
+        $roles = $this->user->getRoleNames();
+        $variable = 0;
+        foreach ($roles as $rol) {
+            if ( $rol == 'Master') {
+                $variable++;
+                $this->redes=Red::where('temple_id',$this->user->temple_id)->get();
+            }
+        }
+        if($variable==0){
+            $this->redes=Red::where('id',$this->user->temple_id)->get();
         }
     }
 }

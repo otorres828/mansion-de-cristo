@@ -41,6 +41,15 @@
         </div>
 
         <div class="form-group">
+            {!! Form::label(null, 'Seleccione su Red') !!}
+            <select wire:model="red" class="form-control" name="jerarquia_id">
+                @foreach ($redes as $red)
+                    <option value="{{ $red->id }}">{{ $red->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
             {!! Form::label(null, 'Seleccione su Jerarquia') !!}
             <select wire:model="jerarquia" class="form-control" name="jerarquia_id">
                 <option value="">Seleccione la jerarquia</option>
