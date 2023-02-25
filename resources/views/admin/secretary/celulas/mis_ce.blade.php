@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Celulas Evangelisticas')
+@section('title', 'Mis Puertas Abiertas')
 
 @section('content_header')
-    <h1>Mis Celulas Evangelisticas</h1>
+    <h1>Mis Puertas Abiertas</h1>
 @stop
 
 @section('content')

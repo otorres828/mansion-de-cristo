@@ -306,7 +306,7 @@ return [
                             'header' => 'PUERTAS ABIERTAS',
                         ],
                         [
-                            'text' => 'Celulas Evangelisticas',
+                            'text' => 'Mis Puertas Abiertas',
                             'icon' => 'fab fa-fw fa-buffer',
                             'route'  => 'celulas_evangelisticas.index',
                         ],
