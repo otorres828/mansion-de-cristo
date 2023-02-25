@@ -8,11 +8,7 @@ use Illuminate\Database\Seeder;
 
 class TestimonySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+  
     public function run()
     {
         $testimonies=Testimony::factory(10)->create();

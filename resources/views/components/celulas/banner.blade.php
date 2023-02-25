@@ -26,7 +26,7 @@
         <div class="icon">
           <i class="ion ion-pie-graph"></i>
         </div>
-        <a href="{{route('visitas_todas')}}" class="small-box-footer">Mas informacion <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{{route('celulas_visitadas')}}" class="small-box-footer">Mas informacion <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <div class="col-lg-4 col-md-6 col-12">

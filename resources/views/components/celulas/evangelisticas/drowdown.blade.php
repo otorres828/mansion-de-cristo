@@ -13,7 +13,7 @@
             <button class="dropdown-item text-danger">Eliminar</button>
 
         </form>
-        <a class="dropdown-item" style="cursor: pointer;">Finalizar</a>
-        <a class="dropdown-item" style="cursor: pointer;">Convertir</a>
+        <a class="dropdown-item text-success" href="{{route('celulas_evangelisticas.visitas',$celula->id)}}" style="cursor: pointer;">Ver Visitas</a>
+        <a class="dropdown-item text-success" style="cursor: pointer;">Convertir</a>
     </div>
 </div>

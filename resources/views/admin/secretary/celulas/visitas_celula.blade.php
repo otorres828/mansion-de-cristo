@@ -3,7 +3,8 @@
 @section('title', 'Celulas Visitadas')
 
 @section('content_header')
-    <h1>Celulas Evangelisticas Visitadas</h1>
+    <h2>Anfitrion: {{ $celula->anfitrion }}</h2>
+    <h5>Ubicacion: {{ $celula->ubicacion }}</h5>
 @stop
 
 @section('content')
@@ -20,20 +21,15 @@
         </div>
     @endif
     <x-celulas.banner :ce="$ce" :cv="$cv" :pv="$pv" />
+    <p class="h5 text-primary py-3">Usted ha hecho {{$visitas->count()}} visitas a esta celula evangelistica</p>
     @if ($visitas->count() > 0)
-
+        
         <div class="table-responsive pb-5">
             <table class="table table-flush" id="example">
                 <thead>
                     <tr>
                         <th>
                             <div class="text-center">FECHA DE VISITA</div>
-                        </th>
-                        <th>
-                            <div class="text-left">ANFITRION</div>
-                        </th>
-                        <th>
-                            <div class="text-left">UBICACION</div>
                         </th>
                         <th>
                             <div class="text-left">OBSERVACIONES</div>
@@ -43,16 +39,9 @@
                 <tbody class="">
                     @foreach ($visitas as $celula)
                         <tr>
-                            
                             <td class="text-center">
                                 {{ Carbon\Carbon::parse($celula->fecha)->format('d-M') }}<br>
                                 {{ Carbon\Carbon::parse($celula->fecha)->isoFormat('h:mm a') }}
-                            </td>
-                            <td>
-                                {{ $celula->anfitrion }}
-                            </td>
-                            <td>
-                                {{ $celula->celula->ubicacion }}
                             </td>
                             <td>
                                 {{ $celula->observaciones }}

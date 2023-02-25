@@ -8,11 +8,7 @@ use Illuminate\Database\Seeder;
 
 class AnnounceSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         $announces=Announce::factory(10)->create();
