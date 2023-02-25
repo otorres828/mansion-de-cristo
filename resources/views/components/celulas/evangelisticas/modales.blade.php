@@ -39,6 +39,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <p>Anfitrion: {{$celula->anfitrion}}</p>
+                    <p>Ubicacion: {{$celula->ubicacion}}</p>
                     <form action="{{route('ce.convertir',$celula)}}" method="POST">
                         @csrf
                         <div class="form-group">
