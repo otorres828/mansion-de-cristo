@@ -21,7 +21,7 @@ class Register extends Component
         if($correo)
             session()->flash('error','Ups, algo salio mal. El correo ya ha sido registrado');
         else if($this->clave==$this->confirmarclave){
-            if($this->codigo!=''){
+            if($this->cobertura!=''){
                 $jerarquia=Jerarquia::find($this->jerarquia);
                 if($jerarquia){
                     $cobertura=User::where('codigo',$this->cobertura)->first();

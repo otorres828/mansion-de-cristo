@@ -32,8 +32,16 @@
             </select>
         </div>
         <div class="mt-4">
-            <x-jet-label value="Ingrese el codigo de su jerarquia" />
-            <x-jet-input wire:model="jerarquia" class="block mt-1 w-full uppercase" type="text" required />
+            <x-jet-label value="Seleccione su jerarquia" />
+            <select wire:model="jerarquia" class="w-full p-2 shadow rounded" name="jerarquia_id"required>
+                <option value="">Seleccione la jerarquia</option>
+                @foreach (App\Models\Jerarquia::all() as $jerarquia)
+                    @if ($jerarquia->name != 'MASTER')
+                        <option value="{{ $jerarquia->id }}">{{ $jerarquia->name }}</option>
+                    @endif
+                @endforeach
+            </select>
+            {{-- <x-jet-input wire:model="jerarquia" class="block mt-1 w-full uppercase" type="text" required /> --}}
         </div>
 
         <div class="mt-4">
