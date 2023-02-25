@@ -60,9 +60,9 @@
                                             @method('DELETE')
                                             <button class="dropdown-item text-danger">Eliminar</button>
                                         </form>
-                                        <a class="dropdown-item" href="{{ route('celulas.show', $celula->id) }}">Ver
+                                        {{-- <a class="dropdown-item" href="{{ route('celulas.show', $celula->id) }}">Ver
                                             detalles
-                                        </a>
+                                        </a> --}}
 
                                     </div>
                                 </div>
