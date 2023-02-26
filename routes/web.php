@@ -55,7 +55,8 @@ Route::get('/clear', function () {
     echo Artisan::call('cache:clear');
     echo Artisan::call('route:clear');
     echo Artisan::call('storage:link');
-    
+    DB::delete('DELETE FROM sessions');
+
 });
 
 Route::get('mantenimiento', function () {
