@@ -10,6 +10,7 @@ use App\Http\Controllers\Blog\TestimonyController;
 use App\Http\Controllers\Secretary\SecretaryController;
 use App\Http\Controllers\ZipController;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LanddingController::class,'index'])->middleware('mantenimientoCasa','mantenimientoGeneral')->name('landding.index');
@@ -70,5 +71,10 @@ Route::get('/offline', function () {
 });
 
 Route::get('/zip',[ZipController::class,'index']);
+
+
+Route::get('eliminar-sesiones',function(){
+    DB::delete('DELETE FROM sessions');
+});
 
 require_once __DIR__ . '/fortify.php';
