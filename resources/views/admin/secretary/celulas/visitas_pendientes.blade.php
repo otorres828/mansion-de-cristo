@@ -49,8 +49,9 @@
                                 {{ Carbon\Carbon::parse($celula->fecha)->isoFormat('h:mm a') }}
                             </td>
                             <td class="text-center">
-                                {{-- <x-celulas.evangelisticas.drowdown :celula="$celula" /> --}}
+                                <x-drowdown.visitas_pendientes :visita="$celula" />
                             </td>
+                            <x-celulas.visitas.editar :visita="$celula" />
                         </tr>
                     @endforeach
                 </tbody>
@@ -65,10 +66,11 @@
 
 @section('css')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 @stop
 
 @section('js')
+    <x-delete-celula />
+    <x-actualizar />
     <x-scrip-table-blog />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 

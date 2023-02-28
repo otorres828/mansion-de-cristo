@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\secretary\CE;
+use App\Http\Controllers\Admin\secretary\CEController;
 use App\Http\Controllers\Admin\secretary\CelulaController;
 use App\Http\Controllers\Admin\secretary\CrecimientoController;
 use App\Http\Controllers\Admin\secretary\FinanceUserController;
@@ -9,9 +9,10 @@ use App\Http\Controllers\Admin\secretary\HelperController;
 use App\Http\Controllers\Admin\secretary\JerarquiaController;
 use App\Http\Controllers\Admin\secretary\TempleController;
 use App\Http\Controllers\Admin\secretary\UserController;
+use App\Http\Controllers\Admin\secretary\VisitasPendientesController;
 use Illuminate\Support\Facades\Route;
 
-Route::resource('usuarios', UserController::class)->except('show', 'create', 'edit')->names('admin.secretary.user');
+Route::resource('usuarios', UserController::class)->except('show', 'create', 'edit')->names('admin.secretary.equipo');
 Route::post('eliminar-usuario', [UserController::class, 'eliminar_usuario'])->name('eliminar.usuario');
 Route::post('cambiar-cobertura', [UserController::class, 'cambiar_cobertura'])->name('cambiar.cobertura');
 Route::resource('jerarquias', JerarquiaController::class)->except('show', 'create', 'edit')->middleware('can:admin.secretary.admin')->names('admin.secretary.jerarquia');
@@ -26,16 +27,18 @@ Route::get('redes/equipo/{id}',  [RedController::class, 'red'])->name('red.team'
 Route::resource('mis-celulas', CelulaController::class)->names('celulas');
 Route::get('celulas/equipo', [CelulaController::class, 'celulas_mi_equipo'])->name('celulas_equipo');
 Route::get('celulas/equipo/{id}', [CelulaController::class, 'miembro'])->name('celula_miembro');
-Route::get('celulas-evangelisticas', [CE::class,'index'])->name('celulas_evangelisticas.index');
-Route::post('celulas-evangelisticas', [CE::class,'store'])->name('celulas_evangelisticas.store');
-Route::put('celulas-evangelisticas/{celula}', [CE::class,'update'])->name('celulas_evangelisticas.update');
-Route::delete('celulas-evangelisticas/{celula}', [CE::class,'destroy'])->name('celulas_evangelisticas.destroy');
-Route::post('celulas/oficiales/convertir/{celula}', [CE::class,'convertir'])->name('ce.convertir');
 
+Route::get('celulas-evangelisticas', [CEController::class,'index'])->name('celulas_evangelisticas.index');
+Route::post('celulas-evangelisticas', [CEController::class,'store'])->name('celulas_evangelisticas.store');
+Route::put('celulas-evangelisticas/{celula}', [CEController::class,'update'])->name('celulas_evangelisticas.update');
+Route::delete('celulas-evangelisticas/{celula}', [CEController::class,'destroy'])->name('celulas_evangelisticas.destroy');
+Route::post('celulas/oficiales/convertir/{celula}', [CEController::class,'convertir'])->name('ce.convertir');
+Route::get('celulas-evangelisticas/todas-las-visitas',[CEController::class,'celulas_visitadas'])->name('celulas_visitadas');
+Route::get('celulas-evangelisticas/{celula}',[CEController::class,'visitas_celula'])->name('celulas_evangelisticas.visitas');
 
-Route::get('celulas-evangelisticas/todas-las-visitas',[CE::class,'celulas_visitadas'])->name('celulas_visitadas');
-Route::get('celulas-evangelisticas/{celula}',[CE::class,'visitas_celula'])->name('celulas_evangelisticas.visitas');
-Route::get('visitas-pendientes',[CE::class,'visitas_pendientes'])->name('visitas_pendientes');
+Route::get('visitas-pendientes',[VisitasPendientesController::class,'index'])->name('visitas_pendientes.index');
+Route::put('visitas-pendientes/{visita}',[VisitasPendientesController::class,'update'])->name('visitas_pendientes.update');
+Route::delete('visitas-pendientes/{visita}',[VisitasPendientesController::class,'destroy'])->name('visitas_pendientes.destroy');
 
 //-----------------------Finanzas
 Route::resource('finanzas', FinanceUserController::class)->except('show', 'create','edit')->names('admin.secretary.finance.user');

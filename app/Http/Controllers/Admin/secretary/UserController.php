@@ -26,7 +26,7 @@ class UserController extends Controller
             $users = User::find(auth()->user()->id)->descendants;
         }
  
-        return view('admin.secretary.user.index', compact('users'));
+        return view('admin.secretary.equipo.index', compact('users'));
     }
 
     public function store(Request $request)
@@ -51,7 +51,7 @@ class UserController extends Controller
         // if ($request['temple_id'] == 1 && $request['jerarquia_id'] < $nivel)
         //     $user->assignRole('Enseñanzas');
 
-        return redirect()->route('admin.secretary.user.index')->with('info', 'Usuario Registrado con exito');
+        return redirect()->route('admin.secretary.equipo.index')->with('info', 'Usuario Registrado con exito');
     }
 
     public function destroy($user)

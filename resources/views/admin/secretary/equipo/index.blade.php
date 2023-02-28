@@ -50,7 +50,7 @@
                                     <td>{{ $user->red->name }}</td>
                                 @endif
                                 <td>
-                                    @include('admin.partiels.drowdown')
+                                    @include('components.drowdown.equipo')
                                 </td>
                                 @include('admin.partiels.modales_usuarios')
                             </tr>

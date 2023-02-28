@@ -285,7 +285,7 @@ return [
                 ['header' => 'OPCIONES DE PANEL'],
                 [
                     'text' => 'Equipo',
-                    'route'  => 'admin.secretary.user.index',
+                    'route'  => 'admin.secretary.equipo.index',
                     'icon' => 'fas fa-users fa-fw',
                 ],
                 [
@@ -313,7 +313,7 @@ return [
                         [
                             'text' => 'Visitas Pendientes',
                             'icon' => 'fab fa-fw fa-buffer',
-                            'route'  => 'visitas_pendientes',
+                            'route'  => 'visitas_pendientes.index',
                         ],
                     ],
 

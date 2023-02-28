@@ -51,7 +51,7 @@ class EditRegister extends Component
                                 'parent_id'=>$cobertura->id,
                                 'genero'=>$this->genero,
                             ]);
-                           return redirect()->route('admin.secretary.user.index')->with('info',"Actualizado con exito");
+                           return redirect()->route('admin.secretary.equipo.index')->with('info',"Actualizado con exito");
                         }
                     }else{
                         session()->flash('error','Ups, algo salio mal. El codigo de la cobertura no existe');

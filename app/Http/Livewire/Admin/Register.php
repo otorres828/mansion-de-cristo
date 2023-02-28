@@ -51,7 +51,7 @@ class Register extends Component
                                     'parent_id'=>$cobertura->id,
                                     'genero'=>$this->genero,
                                 ]);
-                               return redirect()->route('admin.secretary.user.index')->with('info',"Registrado con exito");
+                               return redirect()->route('admin.secretary.equipo.index')->with('info',"Registrado con exito");
 
                             }else{
                                 session()->flash('error','Ups, algo salio mal. El codigo de la cobertura no pertenece a la red seleccionada');

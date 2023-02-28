@@ -31,7 +31,7 @@
                                 <td>{{ $user->jerarquia->name }}</td>
                                 <td>{{ $user->parent->name }}</td>
                                 <td>
-                                    @include('admin.partiels.drowdown')
+                                    @include('components.drowdown.equipo')
                                 </td>
                                 @include('admin.partiels.modales_usuarios')
                             </tr>

@@ -20,8 +20,6 @@ class CelulaController extends Controller
         return view('admin.secretary.celulas.mis_celulas', compact('celulas', 'descendientes'));
     }
 
-
-
     public function store(Request $request)
     {
         $request->validate([
@@ -42,7 +40,6 @@ class CelulaController extends Controller
         return view('admin.secretary.celulas.detalles_celula', compact('celula', 'celula_miembros'));
     }
 
-
     public function update(Request $request, $id)
     {
         $celula = Celula::find($id);
@@ -57,14 +54,12 @@ class CelulaController extends Controller
         return redirect()->back()->with('info', 'Celula actualizada con exito');
     }
 
-
     public function destroy($celula)
     {
         $celula = Celula::find($celula);
         $celula->delete();
         return redirect()->back()->with('delete', 'La celula se elimino con exito');
     }
-
 
     public function celulas_mi_equipo()
     {

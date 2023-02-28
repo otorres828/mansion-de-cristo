@@ -8,7 +8,7 @@ use App\Models\CelulasEvangelistica;
 use App\Models\VisitaPendiente;
 use Illuminate\Http\Request;
 
-class CE extends Controller
+class CEController extends Controller
 {
     public function index(){
         $ce= CelulasEvangelistica::where('user_id',auth()->user()->id)->get();
@@ -45,9 +45,7 @@ class CE extends Controller
         ]);
         $celula->update($request->all());
         return redirect()->route('celulas_evangelisticas.index')->with('info','Se actualizo la celula con exito');
-
     }
-
 
     public function destroy(CelulasEvangelistica $celula)
     {
@@ -56,6 +54,7 @@ class CE extends Controller
 
     }
     
+    
     public function celulas_por_visitar(){
         $celulas= CelulasEvangelistica::where('user_id',auth()->user()->id)->get();
         $contador=0;
@@ -63,16 +62,6 @@ class CE extends Controller
             if($celula->estatus)
                 $contador=$contador+1;
         return $contador;
-    }
-
-    public function visitas_pendientes(){
-        $ce= CelulasEvangelistica::where('user_id',auth()->user()->id)->get();
-
-        $cv=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',2)->count();
-        $pv=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',1)->count();
-        $celulas=VisitaPendiente::where('estatus',1)->where('user_id',auth()->user()->id)->orderBy('fecha','asc')->get();
-        return view('admin.secretary.celulas.visitas_pendientes',compact('ce','cv','pv','celulas'));
-
     }
 
     public function celulas_visitadas(){

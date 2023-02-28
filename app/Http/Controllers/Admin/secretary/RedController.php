@@ -59,6 +59,6 @@ class RedController extends Controller
     public function red($id){
         $users = User::where('red_id',$id)->get();
         $red = Red::find($id);
-        return view('admin.secretary.user.red',compact('users','red'));
+        return view('admin.secretary.equipo.red',compact('users','red'));
     }
 }

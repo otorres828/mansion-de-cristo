@@ -17,16 +17,7 @@
 @stop
 
 @section('js')
-<script>
-    let actualizar = document.querySelector('.actualizar');
-    actualizar.addEventListener('click',  (e)=> {
-        e.preventDefault();
-        actualizar.disabled = true;
-        actualizar.innerHTML = 'Actualizando...';
-        actualizar.form.submit();
-
-    });
-</script>
+   <x-actualizar />
     <script >
         $(document).ready(function() {
             $('.select2').select2();

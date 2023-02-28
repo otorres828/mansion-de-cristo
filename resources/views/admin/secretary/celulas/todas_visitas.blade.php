@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Celulas Visitadas')
+@section('title', 'Puerta Abiertas Visitadas')
 
 @section('content_header')
     <h1>Puertas Abiertas Visitadas</h1>

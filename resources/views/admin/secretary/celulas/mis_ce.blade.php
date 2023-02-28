@@ -71,7 +71,6 @@
                                     <div class="bg-success rounded-lg">
                                         {{ Carbon\Carbon::parse($celula->estatus)->format('d-M') }}<br>
                                         {{ Carbon\Carbon::parse($celula->estatus)->isoFormat('h:mm a') }}
-
                                     </div>
                                 @else
                                     <div class="bg-danger text-white rounded-lg">
@@ -80,7 +79,7 @@
                                 @endif
                             </td>
                             <td>
-                                <x-celulas.evangelisticas.drowdown :celula="$celula" />
+                                <x-drowdown.mis_ce :celula="$celula" />
                             </td>
                             <x-celulas.evangelisticas.modales :celula="$celula" />
                         </tr>

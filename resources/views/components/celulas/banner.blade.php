@@ -21,7 +21,7 @@
         <div class="inner">
           <h3>{{$cv}}</h3>
 
-          <p>Celulas Visitadas</p>
+          <p>Puertas Abiertas Visitadas</p>
         </div>
         <div class="icon">
           <i class="ion ion-pie-graph"></i>
@@ -35,12 +35,12 @@
         <div class="inner">
           <h3>{{$pv}}<sup style="font-size: 20px"></sup></h3>
 
-          <p>Celulas Por Visitar</p>
+          <p>Puertas Abiertas Por Visitar</p>
         </div>
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
         </div>
-        <a href="{{route('visitas_pendientes')}}" class="small-box-footer">Mas informacion <i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{{route('visitas_pendientes.index')}}" class="small-box-footer">Mas informacion <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
   </div>
