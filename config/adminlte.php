@@ -303,10 +303,10 @@ return [
                             'route'  => 'celulas_equipo',
                         ],
                         [
-                            'header' => 'PUERTAS ABIERTAS',
+                            'header' => 'Celulas Evangelisticas',
                         ],
                         [
-                            'text' => 'Mis Puertas Abiertas',
+                            'text' => 'Mis Celulas Evangelisticas',
                             'icon' => 'fab fa-fw fa-buffer',
                             'route'  => 'celulas_evangelisticas.index',
                         ],

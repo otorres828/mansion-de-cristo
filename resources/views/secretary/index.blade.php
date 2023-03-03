@@ -59,7 +59,7 @@
             <div class="inner">
               <h3>65</h3>
 
-              <p>Puertas Abiertas</p>
+              <p>Celulas Evangelisticas</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>

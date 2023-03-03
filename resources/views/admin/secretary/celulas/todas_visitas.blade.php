@@ -3,7 +3,7 @@
 @section('title', 'Puerta Abiertas Visitadas')
 
 @section('content_header')
-    <h1>Puertas Abiertas Visitadas</h1>
+    <h1>Celulas Evangelisticas Visitadas</h1>
 @stop
 
 @section('content')

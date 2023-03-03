@@ -6,7 +6,7 @@
         <div class="inner">
           <h3>{{$ce->count()}}</h3>
 
-          <p>Puertas Abiertas</p>
+          <p>Celulas Evangelisticas</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>
@@ -21,7 +21,7 @@
         <div class="inner">
           <h3>{{$cv}}</h3>
 
-          <p>Puertas Abiertas Visitadas</p>
+          <p>Celulas Evangelisticas Visitadas</p>
         </div>
         <div class="icon">
           <i class="ion ion-pie-graph"></i>
@@ -35,7 +35,7 @@
         <div class="inner">
           <h3>{{$pv}}<sup style="font-size: 20px"></sup></h3>
 
-          <p>Puertas Abiertas Por Visitar</p>
+          <p>Celulas Evangelisticas Por Visitar</p>
         </div>
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
