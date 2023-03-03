@@ -18,7 +18,7 @@
             <div>
                 <x-jet-label for="email" value="{{ __('Correo') }}" />
                 <x-jet-input id="email" type="email" class="w-full" name="email" :value="old('email')" required
-                    autofocus />
+                    autofocus autocomplete="email" />
             </div>
             <div>
                 <x-jet-label for="password" value="{{ __('Clave') }}" />
