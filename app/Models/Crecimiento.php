@@ -21,6 +21,10 @@ class Crecimiento extends Model
 
     public function getCompletadoAttribute(){
         return $this->users->contains(auth()->user()->id);
+    }
+    
+    public function getCantidadAttribute(){
+        return $this->users->count();
     } 
     
     public function completadouser($id){

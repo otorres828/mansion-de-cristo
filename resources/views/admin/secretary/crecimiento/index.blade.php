@@ -61,7 +61,8 @@
                         <th scope="col" class="text-center">ID</th>
                         <th scope="col">Nombre</th>
                         <th scope="col" class="text-center">Estatus</th>
-                        <th scope="col">Acciones</th>
+                        <th scope="col" class="text-center">Acciones</th>
+                        <th scope="col" class="text-center">Cantidad</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,6 +70,9 @@
                         <tr>
                             <td class="text-center">{{ $crecimiento->id }}</td>
                             <td>{{ $crecimiento->name }}</td>
+                            </td>
+                            {{ $crecimiento->cantidad }}
+                            </td>
                             <td class="text-center">
                                 @if ($crecimiento->status == 'inactivo')
                                     <button class="btn btn-danger" title="{{ $crecimiento->status }}">
@@ -77,7 +81,7 @@
                                     <button class="btn btn-success" title="{{ $crecimiento->status }}">
                                         <i class="fa fa-check-circle"></i></button>
                                 @endif
-                            </td>
+                            <td class="text-center">
                             <td class="d-flex">
                                 {{-- <a class=" btn btn-warning  mr-1" data-bs-toggle="modal"
                             data-bs-target="#ver{{$crecimiento->id}}">
@@ -122,7 +126,7 @@
                                                 {!! Form::text('name', $crecimiento->name ?? null, [
                                                     'class' => 'form-control ',
                                                     'placeholder' => 'Ingrese el nombre del
-                                                                                        crecimiento',
+                                                                                                                                        crecimiento',
                                                     'required',
                                                 ]) !!}
                                                 @error('name')
@@ -139,7 +143,7 @@
                                                     null,
                                                     [
                                                         'class' => 'form-control
-                                                                                        ',
+                                                                                                                                        ',
                                                         'selected' => true,
                                                     ],
                                                 ) !!}
