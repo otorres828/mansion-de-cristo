@@ -45,7 +45,7 @@
                         <tr>
                             
                             <td class="text-center">
-                                {{ Carbon\Carbon::parse($celula->fecha)->format('d-M') }}<br>
+                                {{ Carbon\Carbon::parse($celula->fecha)->format('M-d') }}<br>
                                 {{ Carbon\Carbon::parse($celula->fecha)->isoFormat('h:mm a') }}
                             </td>
                             <td>

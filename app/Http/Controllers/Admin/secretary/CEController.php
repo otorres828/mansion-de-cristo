@@ -65,7 +65,7 @@ class CEController extends Controller
     }
 
     public function celulas_visitadas(){
-         $ce= CelulasEvangelistica::where('user_id',auth()->user()->id)->get();
+        $ce= CelulasEvangelistica::where('user_id',auth()->user()->id)->get();
 
         $cv=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',2)->count();
         $pv=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',1)->count();

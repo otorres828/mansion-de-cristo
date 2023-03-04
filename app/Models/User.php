@@ -154,8 +154,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Encargado::class);
     }
 
-    public function conyugue(){
-        return $this->hasOne(User::class,'conyugue');
+    public function mi_conyugue(){
+        return $this->belongsTo(User::class,'conyugue');
     }
 
 

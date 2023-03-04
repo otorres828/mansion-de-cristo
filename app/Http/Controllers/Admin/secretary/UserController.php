@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin\Secretary;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
 use App\Models\Jerarquia;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -23,9 +22,8 @@ class UserController extends Controller
             else
                 $users = User::find(auth()->user()->id)->descendants;
         }else{
-            $users = User::find(auth()->user()->id)->descendants;
+             $users = User::find(auth()->user()->id)->descendants;
         }
- 
         return view('admin.secretary.equipo.index', compact('users'));
     }
 

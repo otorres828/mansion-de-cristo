@@ -289,6 +289,11 @@ return [
                     'icon' => 'fas fa-users fa-fw',
                 ],
                 [
+                    'text' => 'Mi Crecimiento',
+                    'icon' => 'fab fa-fw fa-buffer',
+                    'route'  => 'mi_crecimiento',
+                ],
+                [
                     'text' => 'Celulas',
                     'icon' => 'far fa-fw fa-plus-square',
                     'submenu' => [
@@ -298,7 +303,7 @@ return [
                             'route'  => 'celulas.index',
                         ],
                         [
-                            'text' => 'Celulas de mi Equipo',
+                            'text' => 'Mi Equipo',
                             'icon' => 'fab fa-fw fa-buffer',
                             'route'  => 'celulas_equipo',
                         ],
@@ -306,7 +311,7 @@ return [
                             'header' => 'Celulas Evangelisticas',
                         ],
                         [
-                            'text' => 'Mis Celulas Evangelisticas',
+                            'text' => 'Mis CE',
                             'icon' => 'fab fa-fw fa-buffer',
                             'route'  => 'celulas_evangelisticas.index',
                         ],
@@ -340,11 +345,6 @@ return [
                 //     'icon' => 'fab fa-fw fa-buffer',
                 //     'url'  => 'admin.blog.category.index',
                 // ],
-                [
-                    'text' => 'Mi Crecimiento',
-                    'icon' => 'fab fa-fw fa-buffer',
-                    'route'  => 'mi_crecimiento',
-                ],
             ],
 
         ],

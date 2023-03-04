@@ -39,6 +39,7 @@ Route::get('celulas-evangelisticas/{celula}',[CEController::class,'visitas_celul
 Route::get('visitas-pendientes',[VisitasPendientesController::class,'index'])->name('visitas_pendientes.index');
 Route::put('visitas-pendientes/{visita}',[VisitasPendientesController::class,'update'])->name('visitas_pendientes.update');
 Route::delete('visitas-pendientes/{visita}',[VisitasPendientesController::class,'destroy'])->name('visitas_pendientes.destroy');
+Route::put('visitas-pendientes/finalizar/{visita}',[VisitasPendientesController::class,'finalizar'])->name('visitas_pendientes.finalizar');
 
 //-----------------------Finanzas
 Route::resource('finanzas', FinanceUserController::class)->except('show', 'create','edit')->names('admin.secretary.finance.user');

@@ -51,7 +51,7 @@
                             <td class="text-center">
                                 <x-drowdown.visitas_pendientes :visita="$celula" />
                             </td>
-                            <x-celulas.visitas.editar :visita="$celula" />
+                            <x-celulas.visitas.modal :visita="$celula" />
                         </tr>
                     @endforeach
                 </tbody>
