@@ -9,6 +9,7 @@ use App\Http\Controllers\Blog\MinisteryController;
 use App\Http\Controllers\Blog\TestimonyController;
 use App\Http\Controllers\Secretary\SecretaryController;
 use App\Http\Controllers\ZipController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -76,6 +77,25 @@ Route::get('/zip',[ZipController::class,'index']);
 
 Route::get('eliminar-sesiones',function(){
     DB::delete('DELETE FROM sessions');
+});
+
+Route::get('pago-binance',function(Request $request){
+
+        header("Content-Type: application/json");
+                
+        $webhookResponse = $request->all();
+     
+        $returnCode = $webhookResponse['returnCode'];
+        $returnMessage = $webhookResponse['returnMessage'];
+                
+        if($returnCode == "SUCCESS"){
+        
+            header('Location: https://mansiondecristo.com');
+            exit;
+        
+        }
+  
+    
 });
 
 require_once __DIR__ . '/fortify.php';
