@@ -79,7 +79,7 @@ Route::get('eliminar-sesiones',function(){
     DB::delete('DELETE FROM sessions');
 });
 
-Route::post('pago-binance',function(Request $request){
+Route::any('pago-binance',function(Request $request){
 
 
         
