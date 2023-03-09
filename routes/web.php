@@ -81,19 +81,11 @@ Route::get('eliminar-sesiones',function(){
 
 Route::post('pago-binance',function(Request $request){
 
-        header("Content-Type: application/json");
-                
-        $webhookResponse = $request->all();
-     
-        $returnCode = $webhookResponse['returnCode'];
-        $returnMessage = $webhookResponse['returnMessage'];
-                
-        if($returnCode == "SUCCESS"){
+
         
             header('Location: https://mansiondecristo.com');
             exit;
-        
-        }
+     
   
     
 });
