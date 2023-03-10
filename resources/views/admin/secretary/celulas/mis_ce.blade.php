@@ -3,7 +3,7 @@
 @section('title', 'Mis Celulas Evangelisticas')
 
 @section('content_header')
-    <h1>Mis Celulas Evangelisticas</h1>
+    <h1 class="d-flex">Mis Celulas Evangelisticas ⛪</h1>
 @stop
 
 @section('content')

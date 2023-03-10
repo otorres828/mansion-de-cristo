@@ -3,9 +3,8 @@
 @section('title', 'Mis Celulas')
 
 @section('content_header')
-    <h1>Mis celulas</h1>
-    <p class="h5">
-        Usted Tiene {{ $celulas->count() }} celulas
+    <p class="h5 d-flex">
+    Usted Tiene {{ $celulas->count() }} celulas ⛪
     </p>
 @stop
 

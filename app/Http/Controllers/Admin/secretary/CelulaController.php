@@ -76,7 +76,7 @@ class CelulaController extends Controller
     public function miembro($id)
     {
         $user = User::find($id);
-        $celulas_miembro = $user->recursiveCelulas;
+        $celulas_miembro = $user->recursiveCelulasTodas;
         return view('admin.secretary.celulas.miembro', compact('celulas_miembro', 'user'));
     }
 }

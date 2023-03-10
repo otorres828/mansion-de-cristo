@@ -3,7 +3,7 @@
 @section('title', 'Detalles de Celula')
 
 @section('content_header')
-    <h1>Celulas de: {{ $user->name }} </h1>
+    <h1>⛪ Celulas de: {{ $user->name }} </h1>
     <h1>Red: {{ $user->red->name }} </h1>
     <p>tiene: {{count($user->recursiveCelulasTodas)}} celulas</p>
 @stop

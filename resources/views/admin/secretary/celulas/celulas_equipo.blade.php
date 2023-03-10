@@ -3,7 +3,7 @@
 @section('title', 'Celulas de Equipo')
 
 @section('content_header')
-    <h1>Lista de celulas de mi equipo</h1>
+    <h1>Lista de celulas de mi equipo ⛪</h1>
     <p class="h5">
         Su equipo tiene {{ $celulas_equipo->count() }} celulas 
     </p>
