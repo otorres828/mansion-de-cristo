@@ -17,20 +17,23 @@
                 <thead>
                     <tr>
                         <th scope="col" class="text-center">ID</th>
-                        <th scope="col">Nombre</th>
+                        <th scope="col">Dia</th>
+                        <th scope="col">Lider</th>
+                        <th scope="col">Anfitrion</th>
                         <th scope="col">Direccion</th>
-                        <th scope="col">Fecha-hora</th>
-                        <th scope="col">Dueño</th>
+                        <th scope="col">Telefono</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($celulas_miembro as $celula)
                         <tr>
                             <td class="text-center">{{ $celula->id }}</td>
-                            <td>{{ $celula->nombre }}</td>
-                            <td>{{ $celula->direccion }}</td>
-                            <td>{{ $celula->fecha_hora }}</td>
+                            <td>{{ $celula->dia }}</td>
                             <td>{{ $celula->user->name }}</td>
+                            <td class="text-center">{{ $celula->anfitrion }}</td>
+                            <td>{{ $celula->ubicacion }}</td>
+                            <td>{{ $celula->telefono }}</td>
                         </tr>
                     @endforeach
 

@@ -17,7 +17,7 @@
         <div class="form-group">
             {!! Form::label('correo', 'Correo electronico') !!}
             <x-jet-input wire:model="correo" class="form-control" type="email" name="correo" :value="old('correo')"
-                required autofocus placeholder="Ingrese el correo electronico" />
+                required autofocus placeholder="Ingrese el correo electronico" autocomplete="email" />
             @error('correo')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -40,14 +40,16 @@
             </select>
         </div>
 
-        <div class="form-group">
-            {!! Form::label(null, 'Seleccione su Red') !!}
-            <select wire:model="red" class="form-control" name="jerarquia_id">
-                @foreach ($redes as $red)
-                    <option value="{{ $red->id }}">{{ $red->name }}</option>
-                @endforeach
-            </select>
-        </div>
+        @if ($redes->count()>1)
+            <div class="form-group">
+                {!! Form::label(null, 'Seleccione su Red') !!}
+                <select wire:model="red" class="form-control" name="red">
+                    @foreach ($redes as $red)
+                        <option value="{{ $red->id }}">{{ $red->name }}</option>
+                    @endforeach
+                </select>
+            </div>      
+        @endif
 
         <div class="form-group">
             {!! Form::label(null, 'Seleccione su Jerarquia') !!}

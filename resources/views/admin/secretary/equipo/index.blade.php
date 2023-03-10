@@ -4,13 +4,13 @@
 
 @section('content_header')
     <h1>Mi Equipo</h1>
+    <p>Mi codigo es: <span>{{auth()->user()->codigo}}</span> / Mi red es: <span>{{auth()->user()->red->name}}</span></p>
 @stop
 
 @section('content')
     <x-aminblog.alert />
 
     <x-equipo.agregar />
-    <p>Mi codigo es: {{auth()->user()->codigo}}</p>
     
     <div class="pb-4 px-3">
         <div class="table-responsive">
@@ -24,8 +24,10 @@
                         <th scope="col">Jerarquia</th>
                         <th scope="col">Cobertura</th>
                         @if (auth()->user()->hasRole('Master'))
-                            <th scope="col">Red</th>
+                        <th scope="col">Red</th>
                         @endif
+                        <th scope="col">Celulas</th>
+                        <th scope="col">Equipo</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -36,9 +38,7 @@
                                 <td class="text-center"> {{ $user->id }}</td>
                                 <td>{{ $user->codigo }}</td>
                                 <td>
-                                 
                                     {{ $user->name }}
-                                    
                                 </td>
                                 <td class="text-center">
                                 @if ($user->genero=='H' )
@@ -51,8 +51,10 @@
                                 <td>{{ $user->jerarquia->name }}</td>
                                 <td>{{ $user->parent->name }}</td>
                                 @if (auth()->user()->hasRole('Master'))
-                                    <td>{{ $user->red->name }}</td>
+                                <td>{{ $user->red->name }}</td>
                                 @endif
+                                <td>{{ count($user->recursiveCelulasTodas) }}</td>
+                                <td>{{ count($user->descendants) }}</td>
                                 <td>
                                     @include('components.drowdown.equipo')
                                 </td>

@@ -11,7 +11,7 @@ use Livewire\Component;
 class Register extends Component
 {
     public $correo,$nombre,$codigo,$iglesia,$jerarquia,$jerarquias,$genero;
-    public $user,$redes,$red,$variable=0;
+    public $user,$redes,$red,$verificar_master=0;
 
     public function render()
     {
@@ -36,10 +36,10 @@ class Register extends Component
                 if($jerarquia){
                     $cobertura=User::where('codigo',$this->codigo)->first();
                     if($cobertura){
-                        if($jerarquia->nivel<=$cobertura->jerarquia->nivel){
+                        if($jerarquia->nivel<$cobertura->jerarquia->nivel){
                             session()->flash('error','Ups, algo salio mal. El nivel de su jerarquia no puede ser superior o igual al de su cobertura.');
                         }else{
-                            if($cobertura->red_id==$this->red || $this->variable>0){
+                            if($cobertura->red_id==$this->red || $this->verificar_master>0){
                                 User::create([
                                     'name' => $this->nombre,
                                     'email' => $this->correo,
@@ -54,7 +54,7 @@ class Register extends Component
                                return redirect()->route('admin.secretary.equipo.index')->with('info',"Registrado con exito");
 
                             }else{
-                                session()->flash('error','Ups, algo salio mal. El codigo de la cobertura no pertenece a la red seleccionada');
+                                session()->flash('error','Ups, algo salio mal. El codigo de la cobertura no pertenece a la red: '.$this->red);
                             }
                         }
                     }else{
@@ -73,12 +73,14 @@ class Register extends Component
         $roles = $this->user->getRoleNames();
         foreach ($roles as $rol) {
             if ( $rol == 'Master') {
-                $this->variable++;
+                $this->verificar_master++;
                 $this->redes=Red::where('temple_id',$this->user->temple_id)->get();
+                $this->red=Red::where('temple_id',$this->user->temple_id)->first()->id;
             }
         }
-        if($this->variable==0){
-            $this->redes=Red::where('id',$this->user->temple_id)->get();
+        if($this->verificar_master==0){
+            $this->redes=Red::where('id',auth()->user()->red_id)->get();
+            $this->red=Red::where('id',auth()->user()->red_id)->first()->id;
         }
     }
 }

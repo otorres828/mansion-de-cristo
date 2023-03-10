@@ -37,7 +37,7 @@ class HelperController extends Controller
         $users = User:: find($user)->descendants;             
 
         if($count==1){
-            return redirect()->route('admin.secretary.equipo.index')->with('delete','el usuario no tiene equipo');
+            return redirect()->back()->with('delete','el usuario no tiene equipo');
         }
         $us = User:: find($user);
         return view('admin.secretary.equipo.team',compact('users','us'));

@@ -39,13 +39,13 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RoleSeeder::class);
         $this->call(TempleSeeder::class);
-        Red::factory(8)->create();
+        Red::factory(3)->create();
         $this->call(EncargadoSeeder::class);
 
         $this->call(JerarquiaSeeder::class);
 
         $this->call(UserSeeder::class);
-        User::factory(1)->create();
+        User::factory(6)->create();
 
         // Contact::factory(15)->create();
         Category::factory(8)->create();
@@ -55,9 +55,9 @@ class DatabaseSeeder extends Seeder
         // $this->call(TeachingSeeder::class);
         // $this->call(MinistrySeeder::class);
         // $this->call(TestimonySeeder::class);
-        Celula::factory(50)->create();
-        Crecimiento::factory(50)->create();
-        CelulasEvangelistica::factory(15)->create();
-        VisitaPendiente::factory(100)->create();
+        Celula::factory(100)->create();
+        Crecimiento::factory(5)->create();
+        CelulasEvangelistica::factory(1105)->create();
+        VisitaPendiente::factory(1000)->create();
     }
 }

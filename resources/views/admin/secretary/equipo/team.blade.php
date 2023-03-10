@@ -3,22 +3,24 @@
 @section('title', 'Equipo')
 
 @section('content_header')
+    <h1>Equipo de: {{ $us->name }}</h1>
     <h1>Red: {{ $us->red->name }} </h1>
+    <h1>Total discipulos: {{ count($us->descendants) }} </h1>
+
 @stop
 
 @section('content')
     <x-aminblog.alert />
-    <div class="text-center">
-        <h1>Equipo de: {{ $us->name }}</h1>
-    </div>
+
     <div class="pb-4 px-3">
-        <table class="table table-striped " id="example">
+        <table class="table" id="example">
             <thead>
                 <tr>
                     <th scope="col" class="text-center">#id</th>
+                    <th scope="col">Codigo</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Jerarquia</th>
-                    <th scope="col">Cobertura</th>
+                    <th scope="col">Discipulos</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -28,9 +30,10 @@
                         <tr>
 
                             <td class="text-center">{{ $user->id }} </td>
+                            <td >{{ $user->codigo }} </td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->jerarquia->name }}</td>
-                            <td>{{ $user->parent->name }}</td>
+                            <td>{{ count($user->descendants) }}</td>
                             <td>
                                 @include('components.drowdown.equipo')
                             </td>
