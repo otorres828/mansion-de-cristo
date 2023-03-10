@@ -21,7 +21,6 @@
                         <th scope="col" class="text-sm">Titulo de la Informacion</th>
                         <th scope="col" class="text-right">Estado</th>
                         <th scope="col" class="">Acciones</th>
-
                     </tr>
                 </thead>
                 <tbody>

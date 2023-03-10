@@ -4,6 +4,9 @@
 
 @section('content_header')
     <h1>Lista de celulas de mi equipo</h1>
+    <p class="h5">
+        Su equipo tiene {{ $celulas_equipo->count() }} celulas 
+    </p>
 @stop
 
 @section('content')
@@ -23,9 +26,6 @@
 
 
     <div class="pb-4 px-3">
-        <p class="h5">
-            Su equipo tiene {{ $celulas_equipo->count() }} celulas 
-        </p>
         <div class="table-responsive">
             <table class="table table-flush" id="example">
                 <thead>

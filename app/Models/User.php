@@ -34,6 +34,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function  recursiveCelulasTodas(){
         return $this->hasManyOfDescendantsAndSelf(Celula::class);
     }
+
+    public function  recursiveEvangelisticasTodas(){
+        return $this->hasManyOfDescendantsAndSelf(CelulasEvangelistica::class);
+    }
+
     protected $fillable = [
         'name',
         'email',

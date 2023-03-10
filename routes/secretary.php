@@ -10,7 +10,11 @@ use App\Http\Controllers\Admin\secretary\JerarquiaController;
 use App\Http\Controllers\Admin\secretary\TempleController;
 use App\Http\Controllers\Admin\secretary\UserController;
 use App\Http\Controllers\Admin\secretary\VisitasPendientesController;
+use App\Http\Controllers\Secretary\SecretaryController;
 use Illuminate\Support\Facades\Route;
+
+//CONTROLADORES SECRETARIA
+Route::get('/', [SecretaryController::class,'index'])->name('secretary.index')->middleware('auth');
 
 Route::resource('usuarios', UserController::class)->except('show', 'create', 'edit')->names('admin.secretary.equipo');
 Route::post('eliminar-usuario', [UserController::class, 'eliminar_usuario'])->name('eliminar.usuario');

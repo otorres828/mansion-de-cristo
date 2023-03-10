@@ -3,7 +3,7 @@
 @section('title', 'Mi Equipo')
 
 @section('content_header')
-    <h1>Mi Equipo</h1>
+    <h1>Mi Equipo: <span >{{count(auth()->user()->descendants)}}</span> miembros</h1>
     <p>Mi codigo es: <span>{{auth()->user()->codigo}}</span> / Mi red es: <span>{{auth()->user()->red->name}}</span></p>
 @stop
 

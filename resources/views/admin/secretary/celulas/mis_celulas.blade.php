@@ -4,6 +4,9 @@
 
 @section('content_header')
     <h1>Mis celulas</h1>
+    <p class="h5">
+        Usted Tiene {{ $celulas->count() }} celulas
+    </p>
 @stop
 
 @section('content')
@@ -23,9 +26,6 @@
     <x-celulas.agregar-celula-oficial :descendientes="$descendientes" />
 
     <div class="pb-4 px-3">
-        <p class="h5">
-            Usted Tiene {{ $celulas->count() }} celulas
-        </p>
         <div class="table-responsive">
             <table class="table table-flush" id="example">
                 <thead>
@@ -50,7 +50,6 @@
                         </tr>
 
                         <x-celulas.editar-celula-oficial :celula="$celula" :descendientes="$descendientes" />
-
                     @endforeach
 
             </table>

@@ -7,7 +7,6 @@ use App\Http\Controllers\Blog\ContactController;
 use App\Http\Controllers\Blog\LanddingController;
 use App\Http\Controllers\Blog\MinisteryController;
 use App\Http\Controllers\Blog\TestimonyController;
-use App\Http\Controllers\Secretary\SecretaryController;
 use App\Http\Controllers\ZipController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
@@ -40,10 +39,6 @@ Route::get('privacidad',  function(){
 Route::get('terminos',  function(){
     return view('blog.legal.terminos');
 });
-
-
-//CONTROLADORES SECRETARIA
-Route::get('/secretaria', [SecretaryController::class,'index'])->name('secretary.index')->middleware('auth');
 
 Route::post('images/upload', [ImageController::class,'upload'])->name('images.upload');
 
