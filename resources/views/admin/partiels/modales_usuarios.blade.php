@@ -81,7 +81,7 @@
     </div>
 </div>
 {{-- CAMBIAR COBERTURA --}}
-<div class="modal fade" id="cambiar{{ $user->id }}" tabindex="-1" aria-labelledby="edit{{ $user->id }}"
+{{-- <div class="modal fade" id="cambiar{{ $user->id }}" tabindex="-1" aria-labelledby="edit{{ $user->id }}"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -125,4 +125,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}

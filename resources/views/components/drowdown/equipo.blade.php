@@ -14,9 +14,9 @@
         <a class="dropdown-item" data-bs-toggle="modal"  style="cursor: pointer;"
             data-bs-target="#bloquear{{ $user->id }}" data-bs-whatever="@mdo">Editar
             Acceso</a>
-          
+{{--           
         <a class="dropdown-item" data-bs-toggle="modal" style="cursor: pointer;"
-        data-bs-target="#cambiar{{ $user->id }}" data-bs-whatever="@mdo">Cambiar Cobertura</a>
+        data-bs-target="#cambiar{{ $user->id }}" data-bs-whatever="@mdo">Cambiar Cobertura</a> --}}
         <a class="dropdown-item" data-bs-toggle="modal" style="cursor: pointer;"
         data-bs-target="#eliminar{{ $user->id }}" data-bs-whatever="@mdo">Eliminar
         Registro</a>
