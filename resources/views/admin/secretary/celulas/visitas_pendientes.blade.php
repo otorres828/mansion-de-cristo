@@ -20,7 +20,7 @@
         </div>
     @endif
     <x-celulas.banner :ce="$ce" :cv="$cv" :pv="$pv" />
-    @if ($celulas->count() > 0)
+    @if ($visitas->count() > 0)
 
         <div class="table-responsive pb-5">
             <table class="table table-flush" id="example">
@@ -28,6 +28,9 @@
                     <tr>
                         <th>
                             <div class="text-left">ANFITRION</div>
+                        </th>
+                        <th>
+                            <div class="text-left">UBICACION</div>
                         </th>
                         <th>
                             <div class="text-center">FECHA DE VISITA</div>
@@ -38,11 +41,14 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody class="">
-                    @foreach ($celulas as $celula)
+                <tbody>
+                    @foreach ($visitas as $celula)
                         <tr>
                             <td>
                                 {{ $celula->anfitrion }}
+                            </td>
+                            <td>
+                                {{ $celula->celula->ubicacion }}
                             </td>
                             <td class="text-center">
                                 {{ Carbon\Carbon::parse($celula->fecha)->format('d-M') }}<br>
