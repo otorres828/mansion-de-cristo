@@ -13,23 +13,56 @@ class CelulaController extends Controller
 
     public function index()
     {
-        $celulas = Celula::where('user_id', '=', auth()->user()->id)->get();
-        $descendientes = User::find(auth()->user()->id)
-            ->descendantsAndSelf
-            ->pluck('name', 'id');
+        $user=auth()->user();
+        if ($user->mi_conyugue) {
+            $conyugue=User::find($user->conyugue);
+            if($conyugue->genero=='H'){
+                $celulas = Celula::where('user_id', '=', $conyugue->id)->get();
+
+                $descendientes = User::find($conyugue->id)
+                ->descendantsAndSelf
+                ->pluck('name', 'id');
+            }
+            else{
+                 $celulas = Celula::where('user_id', '=', auth()->user()->id)->get();
+                $descendientes = User::find(auth()->user()->id)
+                ->descendantsAndSelf
+                ->pluck('name', 'id');
+            }
+
+        }else{
+            $celulas = Celula::where('user_id', '=', auth()->user()->id)->get();
+            $descendientes = User::find(auth()->user()->id)
+                ->descendantsAndSelf
+                ->pluck('name', 'id');
+        }
         return view('admin.secretary.celulas.mis_celulas', compact('celulas', 'descendientes'));
     }
 
     public function store(Request $request)
     {
+        $user=auth()->user();
+        $celula= new Celula();
         $request->validate([
             'anfitrion' => 'required',
             'ubicacion' => 'required',
             'dia' => 'required',
             'user_id' => 'required',
         ]);
+        $celula->anfitrion= $request->anfitrion;
+        $celula->ubicacion= $request->ubicacion;
+        $celula->dia= $request->dia;
 
-        Celula::create($request->all());
+        if ($user->mi_conyugue){
+            if($user->mi_conyugue->id==$request->user_id || $user->id==$request->user_id){
+                if($user->genero=='M')
+                    $celula->user_id=$user->mi_conyugue->id;
+                else
+                    $celula->user_id=$user->id;
+            }
+            $celula->save();
+        }else
+            Celula::create($request->all());
         return redirect()->back()->with('info', 'Celula creada con exito con exitosamente');
     }
 
