@@ -3,15 +3,29 @@
 @section('title', 'Mi Equipo')
 
 @section('content_header')
-    <h1>Mi Equipo: <span >{{count(auth()->user()->descendants)}}</span> miembros</h1>
-    <p>Mi codigo es: <span>{{auth()->user()->codigo}}</span> / Mi red es: <span>{{auth()->user()->red->name}}</span></p>
+    <h1>Mi Equipo: <span>{{ $users->count() }}</span> miembros</h1>
+    <p>Mi codigo es:
+        <span>
+            @if ($conyugue)
+                @if ($conyugue->genero == 'H')
+                    {{ $conyugue->codigo }}
+                @else
+                    {{ auth()->user()->codigo }}
+                @endif
+            @else
+                {{ auth()->user()->codigo }}
+
+            @endif
+        </span>
+        / Mi red es: <span>{{ auth()->user()->red->name }}</span>
+    </p>
 @stop
 
 @section('content')
     <x-aminblog.alert />
 
     <x-equipo.agregar />
-    
+
     <div class="pb-4 px-3">
         <div class="table-responsive">
             <table class="table table-flush" id="example">
@@ -24,7 +38,7 @@
                         <th scope="col">Jerarquia</th>
                         <th scope="col">Cobertura</th>
                         @if (auth()->user()->hasRole('Master'))
-                        <th scope="col">Red</th>
+                            <th scope="col">Red</th>
                         @endif
                         <th scope="col">Celulas</th>
                         <th scope="col">Equipo</th>
@@ -33,7 +47,7 @@
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
-                        @if (auth()->user()->id != $user->id && auth()->user()->id  != $user->conyugue)
+                        @if (auth()->user()->id != $user->id && auth()->user()->id != $user->conyugue)
                             <tr>
                                 <td class="text-center"> {{ $user->id }}</td>
                                 <td>{{ $user->codigo }}</td>
@@ -41,17 +55,16 @@
                                     {{ $user->name }}
                                 </td>
                                 <td class="text-center">
-                                @if ($user->genero=='H' )
-                                    <p class="rounded-lg text-white bg-primary">Hombre</p>
-                                @else
-                                <p class="rounded-lg text-white bg-info">Mujer</p>
-
-                                @endif    
+                                    @if ($user->genero == 'H')
+                                        <p class="rounded-lg text-white bg-primary">Hombre</p>
+                                    @else
+                                        <p class="rounded-lg text-white bg-info">Mujer</p>
+                                    @endif
                                 </td>
                                 <td>{{ $user->jerarquia->name }}</td>
                                 <td>{{ $user->parent->name }}</td>
                                 @if (auth()->user()->hasRole('Master'))
-                                <td>{{ $user->red->name }}</td>
+                                    <td>{{ $user->red->name }}</td>
                                 @endif
                                 <td>{{ count($user->recursiveCelulasTodas) }}</td>
                                 <td>{{ count($user->descendants) }}</td>

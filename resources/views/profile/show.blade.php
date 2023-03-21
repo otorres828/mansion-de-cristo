@@ -1,19 +1,15 @@
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <a href="{{ route('secretary.index') }}" data-turbolinks="false">
-                {{ __('Panel de Control') }}
-            </a>
-        </h2>
-    </x-slot> --}}
-
-    <div>
+    <div class="px-5 sm:px-0">
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())
                 @livewire('profile.update-profile-information-form')
 
                 <x-jet-section-border />
             @endif
+
+            @livewire('admin.conyugue')
+
+            <x-jet-section-border />
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
                 <div class="mt-10 sm:mt-0">

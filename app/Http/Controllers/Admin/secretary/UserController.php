@@ -15,16 +15,17 @@ class UserController extends Controller
     public function index()
     {
         $user=auth()->user();
+        $conyugue=null;
         if($user->conyugue){
             $conyugue=User::find($user->conyugue);
             if($conyugue->genero=='H')
                 $users = User::find($user->conyugue)->descendants;
             else
-                $users = User::find(auth()->user()->id)->descendants;
+                $users =  $user->descendants;
         }else{
-             $users = User::find(auth()->user()->id)->descendants;
+            $users = $user->descendants;
         }
-        return view('admin.secretary.equipo.index', compact('users'));
+        return view('admin.secretary.equipo.index', compact('users','conyugue'));
     }
 
     public function store(Request $request)
