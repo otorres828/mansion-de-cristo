@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class CEController extends Controller
 {
-    
+
     public function index(){
         $user=auth()->user();
         if($user->mi_conyugue && $user->mi_conyugue->genero=='H'){
@@ -79,12 +79,19 @@ class CEController extends Controller
     }
 
     public function celulas_visitadas(){
-        $ce= CelulasEvangelistica::where('user_id',auth()->user()->id)->get();
+        $user=auth()->user();
+        if($user->mi_conyugue && $user->mi_conyugue->genero=='H'){
+            $ce= CelulasEvangelistica::where('user_id',$user->mi_conyugue->id)->get();
+            $cv=VisitaPendiente::where('user_id',$user->mi_conyugue->id)->where('estatus',2)->count();
+            $pv=VisitaPendiente::where('user_id',$user->mi_conyugue->id)->where('estatus',1)->count();
+            $visitas=VisitaPendiente::where('user_id',$user->mi_conyugue->id)->where('estatus',2)->get();;
+        }else{
+            $ce= CelulasEvangelistica::where('user_id',$user->id)->get();
+            $cv=VisitaPendiente::where('user_id',$user->id)->where('estatus',2)->count();
+            $pv=VisitaPendiente::where('user_id',$user->id)->where('estatus',1)->count();
+            $visitas=VisitaPendiente::where('user_id',$user->id)->where('estatus',2)->get();;
+        }
 
-        $cv=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',2)->count();
-        $pv=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',1)->count();
-        
-        $visitas=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',2)->get();;
         return view('admin.secretary.celulas.todas_visitas',compact('ce','cv','pv','visitas'));
 
     }
