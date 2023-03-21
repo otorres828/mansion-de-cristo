@@ -10,15 +10,24 @@ use Illuminate\Http\Request;
 
 class CEController extends Controller
 {
+    
     public function index(){
-        $ce= CelulasEvangelistica::where('user_id',auth()->user()->id)->get();
-
-        $cv=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',2)->count();
-        $pv=VisitaPendiente::where('user_id',auth()->user()->id)->where('estatus',1)->count();
+        $user=auth()->user();
+        if($user->mi_conyugue && $user->mi_conyugue->genero=='H'){
+            $ce= CelulasEvangelistica::where('user_id',$user->mi_conyugue->id)->get();
+            $cv=VisitaPendiente::where('user_id',$user->mi_conyugue->id)->where('estatus',2)->count();
+            $pv=VisitaPendiente::where('user_id',$user->mi_conyugue->id)->where('estatus',1)->count();
+            
+            $cantidad_total= CelulasEvangelistica::where('user_id',$user->mi_conyugue->id)->count();
+        }else{
+            $ce= CelulasEvangelistica::where('user_id',$user->id)->get();
+            $cv=VisitaPendiente::where('user_id',$user->id)->where('estatus',2)->count();
+            $pv=VisitaPendiente::where('user_id',$user->id)->where('estatus',1)->count();
+            
+            $cantidad_total= CelulasEvangelistica::where('user_id',auth()->user()->id)->count();
+        }
         
-        $cantidad_total= CelulasEvangelistica::where('user_id',auth()->user()->id)->count();
         $cantidad_visitar= $this->celulas_por_visitar();
-        
         return view('admin.secretary.celulas.mis_ce',compact('ce','cv','pv','cantidad_total','cantidad_visitar'));
     }
 
@@ -56,7 +65,12 @@ class CEController extends Controller
     
     
     public function celulas_por_visitar(){
-        $celulas= CelulasEvangelistica::where('user_id',auth()->user()->id)->get();
+        $user=auth()->user();
+        if($user->mi_conyugue && $user->mi_conyugue->genero=='H')
+            $celulas= CelulasEvangelistica::where('user_id',$user->mi_conyugue->id)->get();
+        else
+            $celulas= CelulasEvangelistica::where('user_id',$user->id)->get();
+
         $contador=0;
         foreach($celulas as $celula)
             if($celula->estatus)

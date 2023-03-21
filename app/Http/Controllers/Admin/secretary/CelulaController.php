@@ -14,22 +14,9 @@ class CelulaController extends Controller
     public function index()
     {
         $user=auth()->user();
-        if ($user->mi_conyugue) {
-            $conyugue=User::find($user->conyugue);
-            if($conyugue->genero=='H'){
-                $celulas = Celula::where('user_id', '=', $conyugue->id)->get();
-
-                $descendientes = User::find($conyugue->id)
-                ->descendantsAndSelf
-                ->pluck('name', 'id');
-            }
-            else{
-                 $celulas = Celula::where('user_id', '=', auth()->user()->id)->get();
-                $descendientes = User::find(auth()->user()->id)
-                ->descendantsAndSelf
-                ->pluck('name', 'id');
-            }
-
+        if ($user->mi_conyugue && $user->mi_conyugue->genero=='H') {
+                $celulas = Celula::where('user_id', '=', $user->mi_conyugue->id)->get();
+                $descendientes = User::find($user->mi_conyugue->id)->descendantsAndSelf->pluck('name', 'id');
         }else{
             $celulas = Celula::where('user_id', '=', auth()->user()->id)->get();
             $descendientes = User::find(auth()->user()->id)
@@ -97,9 +84,7 @@ class CelulaController extends Controller
     public function celulas_mi_equipo()
     {
         $celulas_equipo = User::find(auth()->user()->id)->recursiveCelulas;
-        // $celulas_equipo =$celulas_equipo->filter(function ($celula, $index) {
-        //     return $celula->user_id != auth()->user()->id;
-        // });
+  
         $descendientes = User::find(auth()->user()->id)
             ->descendants
             ->pluck('name', 'id');
