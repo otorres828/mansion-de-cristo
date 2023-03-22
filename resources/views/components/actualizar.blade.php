@@ -13,6 +13,5 @@
         finalizar.disabled = true;
         finalizar.innerHTML = 'Finalizando...';
         finalizar.form.submit();
-
     });
 </script>

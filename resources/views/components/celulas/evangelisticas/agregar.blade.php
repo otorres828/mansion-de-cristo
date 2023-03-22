@@ -2,7 +2,7 @@
 <div>
     <div class="mb-3">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#register"> Agregar
-            Celula</a>
+            Celula Evangelistica</a>
     </div>
     
     <div class="modal fade" id="register" tabindex="-1" aria-labelledby="register" aria-hidden="true">

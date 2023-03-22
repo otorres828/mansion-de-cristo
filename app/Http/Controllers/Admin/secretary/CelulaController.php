@@ -34,22 +34,17 @@ class CelulaController extends Controller
             'anfitrion' => 'required',
             'ubicacion' => 'required',
             'dia' => 'required',
-            'user_id' => 'required',
         ]);
         $celula->anfitrion= $request->anfitrion;
         $celula->ubicacion= $request->ubicacion;
         $celula->dia= $request->dia;
 
-        if ($user->mi_conyugue){
-            if($user->mi_conyugue->id==$request->user_id || $user->id==$request->user_id){
-                if($user->genero=='M')
-                    $celula->user_id=$user->mi_conyugue->id;
-                else
-                    $celula->user_id=$user->id;
-            }
-            $celula->save();
-        }else
-            Celula::create($request->all());
+        if ($user->mi_conyugue && $user->genero=='M')
+            $celula->user_id=$user->mi_conyugue->id;
+        else
+            $celula->user_id=$user->id;    
+        $celula->save();
+
         return redirect()->back()->with('info', 'Celula creada con exito con exitosamente');
     }
 
@@ -68,7 +63,6 @@ class CelulaController extends Controller
             'anfitrion' => 'required',
             'ubicacion' => 'required',
             'dia' => 'required',
-            'user_id' => 'required',
         ]);
         $celula->update($request->all());
         return redirect()->back()->with('info', 'Celula actualizada con exito');
@@ -83,11 +77,14 @@ class CelulaController extends Controller
 
     public function celulas_mi_equipo()
     {
-        $celulas_equipo = User::find(auth()->user()->id)->recursiveCelulas;
-  
-        $descendientes = User::find(auth()->user()->id)
-            ->descendants
-            ->pluck('name', 'id');
+        $user=auth()->user();
+        if ($user->mi_conyugue && $user->mi_conyugue->genero=='H') {
+            $celulas_equipo = User::find($user->mi_conyugue->id)->recursiveCelulas;
+            $descendientes = User::find($user->mi_conyugue->id)->descendants->pluck('name', 'id');
+        }else{
+            $celulas_equipo = User::find($user->id)->recursiveCelulas;
+            $descendientes = User::find($user->id)->descendants->pluck('name', 'id');
+        }
         return view('admin.secretary.celulas.celulas_equipo', compact('celulas_equipo', 'descendientes'));
     }
 
@@ -96,5 +93,34 @@ class CelulaController extends Controller
         $user = User::find($id);
         $celulas_miembro = $user->recursiveCelulasTodas;
         return view('admin.secretary.celulas.miembro', compact('celulas_miembro', 'user'));
+    }
+
+    public function equipo_store_celula(Request $request)
+    {
+        $user=auth()->user();
+        $celula= new Celula();
+        $request->validate([
+            'anfitrion' => 'required',
+            'ubicacion' => 'required',
+            'dia' => 'required',
+            'user_id'=>'required'
+        ]);
+        $celula->anfitrion= $request->anfitrion;
+        $celula->ubicacion= $request->ubicacion;
+        $celula->dia= $request->dia;
+
+        if ($user->mi_conyugue){  
+            if($request->user_id == $user->id)                  //SI EL ID DEL REQUEST COINCIDE CON EL MIO , SOY MUJER
+                $celula->user_id=$user->mi_conyugue->id;        //ASIGNO EL ID DE MI CONYUGUE HOMBRE
+            else if ($request->user_id==$user->mi_conyugue->id) //SI EL ID DEL REQUEST COINCIDE CON EL DE MI CONYUGUE, SOY HOMBRE
+                $celula->user_id=$user->id;
+            else
+                $celula->user_id=$request->user_id;     
+        }
+        else
+            $celula->user_id=$request->user_id;    
+        $celula->save();
+
+        return redirect()->back()->with('info', 'Celula creada con exito con exitosamente');
     }
 }

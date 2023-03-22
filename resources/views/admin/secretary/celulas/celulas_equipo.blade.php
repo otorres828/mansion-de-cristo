@@ -24,7 +24,6 @@
 
     <x-celulas.agregar-celula-oficial :descendientes="$descendientes" />
 
-
     <div class="pb-4 px-3">
         <div class="table-responsive">
             <table class="table table-flush" id="example">
@@ -92,6 +91,7 @@
 @stop
 
 @section('js')
+    <x-actualizar />
     <x-scrip-table-blog />
     <x-delete-celula />
 @stop

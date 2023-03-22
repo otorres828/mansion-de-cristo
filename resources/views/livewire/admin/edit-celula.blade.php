@@ -1,9 +1,5 @@
 <div>
-    <div class="form-group">
-        {!! Form::label('lider_cedula', 'SELECCIONE EL LIDER DE CELULA') !!}
-        {!! Form::select('user_id', $descendientes, null, ['class' => 'form-control w-full select2']) !!}
-    </div>
-    
+
     <div class="form-group">
         {!! Form::label('Anfitrion', 'INGRESE EL NOMBRE DEL ANFITRION') !!}
         {!! Form::text('anfitrion', $celula->anfitrion ?? null,

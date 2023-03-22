@@ -9,23 +9,21 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Registrar una nueva Celula</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Registrar Una Nueva Celula Oficial</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-    
-                    {!! Form::open(['route' => 'celulas.store', 'autocomplete' => 'off', 'method' => 'post']) !!}
-                    @include('admin.partiels.cell')
-    
-                    <div class="mb-0">
-                        <div class="d-flex justify-content-end align-items-baseline">
-                            <button type="submit" class="btn btn-primary">Registrar</button>
-    
-                            <button type="button" class="ml-1 btn btn-danger " data-dismiss="modal">Cerrar</button>
+                    {!! Form::open(['route' => request()->routeIs('celulas_equipo') ? 'celulas.equipo.store' : 'celulas.store', 'autocomplete' => 'off', 'method' => 'post']) !!}
+                        @include('admin.partiels.cell')
+                        <div class="mb-0">
+                            <div class="d-flex justify-content-end align-items-baseline">
+                                <button type="submit" class="btn btn-primary actualizar">Registrar</button>
+        
+                                <button type="button" class="ml-1 btn btn-danger " data-dismiss="modal">Cerrar</button>
+                            </div>
                         </div>
-                    </div>
                     {!! Form::close() !!}
                 </div>
             </div>

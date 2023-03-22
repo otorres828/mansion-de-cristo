@@ -36,12 +36,22 @@ class CEController extends Controller
             'anfitrion'=>'required',
             'ubicacion'=>'required',
         ]);
-        CelulasEvangelistica::create([
-            'anfitrion'=>$request->anfitrion,
-            'ubicacion'=>$request->ubicacion,
-            'telefono'=>$request->telefono,
-            'user_id'=>auth()->user()->id
-        ]);
+        $user=auth()->user();
+        if($user->mi_conyugue && $user->mi_conyugue->genero=='H'){
+            CelulasEvangelistica::create([
+                'anfitrion'=>$request->anfitrion,
+                'ubicacion'=>$request->ubicacion,
+                'telefono'=>$request->telefono,
+                'user_id'=>$user->mi_conyugue->id
+            ]);
+        }else{
+            CelulasEvangelistica::create([
+                'anfitrion'=>$request->anfitrion,
+                'ubicacion'=>$request->ubicacion,
+                'telefono'=>$request->telefono,
+                'user_id'=>auth()->user()->id
+            ]);  
+        }
 
         return redirect()->route('celulas_evangelisticas.index')->with('info','Se añadio la celula con exito');
 
@@ -60,7 +70,6 @@ class CEController extends Controller
     {
         $celula->delete(); 
         return redirect()->route('celulas_evangelisticas.index')->with('info','Se elimino la celula con exito');
-
     }
     
     

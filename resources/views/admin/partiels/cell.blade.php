@@ -1,7 +1,9 @@
-<div class="form-group">
-    {!! Form::label('lider_cedula', 'SELECCIONE EL LIDER DE CELULA') !!}
-    {!! Form::select('user_id', $descendientes, null, ['class' => 'form-control w-full select2']) !!}
-</div>
+@if (request()->routeIs('celulas_equipo'))
+    <div class="form-group">
+        {!! Form::label('lider_cedula', 'SELECCIONE EL LIDER DE CELULA') !!}
+        {!! Form::select('user_id', $descendientes, null, ['class' => 'form-control w-full select2']) !!}
+    </div>
+@endif
 
 <div class="form-group">
     {!! Form::label('Anfitrion', 'INGRESE EL NOMBRE DEL ANFITRION') !!}

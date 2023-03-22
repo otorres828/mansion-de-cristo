@@ -24,7 +24,7 @@
     @if ($ce->count() > 0)
         <h1 class="ml-1 pb-2 text-lg font-semibold text-gray-600">hay
             {{ $cantidad_total - $cantidad_visitar }} celulas sin fecha para visitar</h1>
-        <div class="table-responsive">
+        <div class="table-responsive mb-5">
             <table class="table table-flush" id="example">
                 <thead>
                     <tr>
@@ -48,7 +48,7 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody class="">
+                <tbody >
                     @foreach ($ce as $celula)
                         <tr>
                             <td>
