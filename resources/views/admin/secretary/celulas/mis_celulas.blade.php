@@ -24,7 +24,7 @@
 
     <x-celulas.agregar-celula-oficial :descendientes="$descendientes" />
 
-    <div class="pb-4 px-3">
+    <div class="mb-4 px-3">
         <div class="table-responsive">
             <table class="table table-flush" id="example">
                 <thead>

@@ -58,7 +58,6 @@ class CelulaController extends Controller
     public function update(Request $request, $id)
     {
         $celula = Celula::find($id);
-
         $request->validate([
             'anfitrion' => 'required',
             'ubicacion' => 'required',
@@ -123,4 +122,34 @@ class CelulaController extends Controller
 
         return redirect()->back()->with('info', 'Celula creada con exito con exitosamente');
     }
+
+    public function equipo_update_celula(Request $request, $id)
+    {
+        $user=auth()->user();
+        $celula = Celula::find($id);
+        $request->validate([
+            'anfitrion' => 'required',
+            'ubicacion' => 'required',
+            'dia' => 'required',
+            'user_id'=>'required'
+        ]);
+        $celula->anfitrion= $request->anfitrion;
+        $celula->ubicacion= $request->ubicacion;
+        $celula->dia= $request->dia;
+
+        if ($user->mi_conyugue){  
+            if($request->user_id == $user->id)                  //SI EL ID DEL REQUEST COINCIDE CON EL MIO , SOY MUJER
+                $celula->user_id=$user->mi_conyugue->id;        //ASIGNO EL ID DE MI CONYUGUE HOMBRE
+            else if ($request->user_id==$user->mi_conyugue->id) //SI EL ID DEL REQUEST COINCIDE CON EL DE MI CONYUGUE, SOY HOMBRE
+                $celula->user_id=$user->id;
+            else
+                $celula->user_id=$request->user_id;     
+        }
+        else
+            $celula->user_id=$request->user_id;    
+        $celula->save();
+
+        return redirect()->back()->with('info', 'Celula del equipo actualizada con exito');
+    }
+    
 }

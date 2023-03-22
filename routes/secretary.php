@@ -30,6 +30,7 @@ Route::get('redes/equipo/{id}',  [RedController::class, 'red'])->name('red.team'
 //-----------------------Celulas
 Route::resource('mis-celulas', CelulaController::class)->names('celulas');
 Route::post('celulas-equipo', [CelulaController::class,'equipo_store_celula'])->name('celulas.equipo.store');
+Route::put('celulas-equipo/{celula}', [CelulaController::class,'equipo_update_celula'])->name('celulas.equipo.update');
 Route::get('celulas/equipo', [CelulaController::class, 'celulas_mi_equipo'])->name('celulas_equipo');
 Route::get('celulas/equipo/{id}', [CelulaController::class, 'miembro'])->name('celula_miembro');
 

@@ -19,7 +19,7 @@
                         @livewire('admin.edit-celula', ['celula' => $celula,'descendientes'=>$descendientes])
 
                         <div class="d-flex justify-content-end align-items-baseline">
-                            {!! Form::submit('Actualizar', ['class' => 'btn btn-success']) !!}
+                            {!! Form::submit('Actualizar', ['class' => 'btn btn-success actualizar']) !!}
                             <button type="button" class="ml-1 btn btn-danger "
                                 data-dismiss="modal">Cerrar</button>
                         </div>
