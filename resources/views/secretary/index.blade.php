@@ -21,7 +21,7 @@
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Mas informacion <i
+                        <a href="{{route('celulas.index')}}" class="small-box-footer">Mas informacion <i
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Mas informacion <i
+                        <a href="{{route('admin.secretary.equipo.index')}}" class="small-box-footer">Mas informacion <i
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="{{ route('admin.secretary.equipo.index') }}" class="small-box-footer">Mas informacion <i
+                        <a href="{{ route('celulas_evangelisticas.index') }}" class="small-box-footer">Mas informacion <i
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
