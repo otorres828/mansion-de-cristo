@@ -36,18 +36,17 @@
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-4">
                                 Usted ha enviado una solicitud de conyugue a:
-                               
-                                    <p><span class="font-bold">Nombre:</span> {{ $solicitud->recibe_user->name }}</p>
-                                    <p><span class="font-bold">Correo:</span> {{ $solicitud->recibe_user->email }}</p>
-                                    <p><span class="font-bold">Genero:</span>
-                                        {{ $solicitud->recibe_user->genero == 'M' ? 'MUJER' : 'HOMBRE' }}</p>
-                                    <p><span class="font-bold">Equipo:</span>
-                                        {{ count($solicitud->recibe_user->descendants) }}
-                                        personas</p>
-                                    <p><span class="font-bold">Celulas Oficiales:</span>
-                                        {{ count($solicitud->recibe_user->recursiveCelulasTodas) }}</p>
-                                    <p><span class="font-bold">Celulas Evangelisticas:</span>
-                                        {{ count($solicitud->recibe_user->recursiveEvangelisticasTodas) }} </p>
+                                <p><span class="font-bold">Nombre:</span> {{ $solicitud->recibe_user->name }}</p>
+                                <p><span class="font-bold">Correo:</span> {{ $solicitud->recibe_user->email }}</p>
+                                <p><span class="font-bold">Genero:</span>
+                                    {{ $solicitud->recibe_user->genero == 'M' ? 'MUJER' : 'HOMBRE' }}</p>
+                                <p><span class="font-bold">Equipo:</span>
+                                    {{ count($solicitud->recibe_user->descendants) }}
+                                    personas</p>
+                                <p><span class="font-bold">Celulas Oficiales:</span>
+                                    {{ count($solicitud->recibe_user->recursiveCelulasTodas) }}</p>
+                                <p><span class="font-bold">Celulas Evangelisticas:</span>
+                                    {{ count($solicitud->recibe_user->recursiveEvangelisticasTodas) }} </p>
                             </div>
                         </div>
                     </div>
@@ -61,20 +60,40 @@
             </div>
         @else
             <div class="mt-5 md:mt-0 md:col-span-2">
-                <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded-tl-md sm:rounded-tr-md">
-                    <div class="grid grid-cols-6 gap-6">
-                        <div class="col-span-6 sm:col-span-4">
-                            <x-jet-secondary-button wire:click="$set('showModal', false)" wire:loading.attr="disabled">
-                                {{ __('RECHAZAR') }}
-                            </x-jet-secondary-button>
-
-                            <x-jet-button class="ml-2" wire:click="save" wire:loading.attr="disabled">
-                                {{ __('ACEPTAR') }}
-                            </x-jet-button>
+                <div>
+                    <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded-tl-md sm:rounded-tr-md">
+                        <div class="grid grid-cols-6 gap-6">
+                            <div class="col-span-6 sm:col-span-4">
+                                Usted ha recibido una solicitud de conyugue de:
+                                <p><span class="font-bold">Nombre:</span> {{ $solicitud->manda_user->name }}</p>
+                                <p><span class="font-bold">Correo:</span> {{ $solicitud->manda_user->email }}</p>
+                                <p><span class="font-bold">Genero:</span>
+                                    {{ $solicitud->manda_user->genero == 'M' ? 'MUJER' : 'HOMBRE' }}</p>
+                                <p><span class="font-bold">Equipo:</span>
+                                    {{ count($solicitud->manda_user->descendants) }}
+                                    personas</p>
+                                <p><span class="font-bold">Celulas Oficiales:</span>
+                                    {{ count($solicitud->manda_user->recursiveCelulasTodas) }}</p>
+                                <p><span class="font-bold">Celulas Evangelisticas:</span>
+                                    {{ count($solicitud->manda_user->recursiveEvangelisticasTodas) }} </p>
+                            </div>
                         </div>
+                        <x-jet-label class="mt-4"
+                        value="Tenga presente que al aceptar su conyugue, todos los discipulos y celulas oficiales y evangelisticas pasaran a ser directamente del conyugue con el genero 'Hombre'. Estos cambios son irreversibles." />
+               
                     </div>
-                </div>
+                    <div
+                        class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
+                        <x-jet-secondary-button wire:click="$set('showModal', false)" wire:loading.attr="disabled"
+                            wire:click="cancelar">
+                            Rechazar
+                        </x-jet-secondary-button>
+                        <x-jet-button wire:loading.attr="disabled" class="ml-2" wire:click="aceptar">
+                            Aceptar
+                        </x-jet-button>
+                    </div>
 
+                </div>
             </div>
         @endif
     @else
@@ -113,7 +132,7 @@
                             </div>
                         @endif
 
-                        <x-jet-button wire:click="enviar" wire:loading.attr="disabled">
+                        <x-jet-button wire:click="verificar" wire:loading.attr="disabled">
                             Enviar Solicitud
                         </x-jet-button>
 
@@ -152,7 +171,7 @@
                                     {{ __('Close') }}
                                 </x-jet-secondary-button>
 
-                                <x-jet-button class="ml-2" wire:click="save" wire:loading.attr="disabled">
+                                <x-jet-button class="ml-2" wire:click="enviar" wire:loading.attr="disabled">
                                     {{ __('Enviar Solicitud') }}
                                 </x-jet-button>
                             </x-slot>

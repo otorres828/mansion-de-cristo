@@ -9,23 +9,26 @@ use Livewire\Component;
 
 class Conyugue extends Component
 {
+    protected $listeners = ['render' => 'render'];
+
     public $conyugue=null,$user=null;
     public $codigo,$visitas_pendientes,$ce_visitadas;
     public $yo;
     public $showModal=false;
+    public $solicitud=null;
 
     public function render()
     {
         $this->yo=auth()->user();
         $user=auth()->user();
-        $solicitud = SolicitudesConyugue::where('manda',$this->yo->id)->orWhere('recibe',$this->yo->id)->first();
+        $this->solicitud = SolicitudesConyugue::where('manda',$this->yo->id)->orWhere('recibe',$this->yo->id)->first();
         if ($user->conyugue) {
             $this->conyugue=User::find($user->conyugue);
         }
-        return view('livewire.admin.conyugue',compact('solicitud'));
+        return view('livewire.admin.conyugue');
     }
 
-    public function enviar(){
+    public function verificar(){
         $this->user=User::where('codigo',$this->codigo)->first();
         if(!$this->user || $this->codigo=='')
             session()->flash('status',"Usuario no existe");
@@ -42,14 +45,28 @@ class Conyugue extends Component
         }
     }
 
-    public function save(){
+    public function enviar(){
         $this->codigo='';
         $this->showModal=false;
         SolicitudesConyugue::create(['manda'=>$this->yo->id,'recibe'=>$this->user->id]);
     }
 
     public function cancelar(){
-        $solicitud = SolicitudesConyugue::where('manda',$this->yo->id)->orWhere('recibe',$this->yo->id)->first();
-        $solicitud->delete();
+        $this->solicitud->delete();
     }
+
+    public function aceptar(){
+            if($this->solicitud->manda==$this->yo->id){                  //SI EL USUARIO AUTENTICADO COINCIDE CON EL QUE MANDA
+                $this->yo->update(['conyugue'=>$this->solicitud->recibe]);             // SE LE ASIGNA AL USUARIO EL CODIGO DEL QUE RECIBE
+                $pareja = User::find($this->solicitud->recibe);
+                $pareja->update(['conyugue'=>$this->solicitud->manda]);
+            }else{
+                $this->yo->update(['conyugue'=>$this->solicitud->manda]);             // SE LE ASIGNA AL USUARIO EL CODIGO DEL QUE RECIBE
+                $pareja = User::find($this->solicitud->manda);
+                $pareja->update(['conyugue'=>$this->solicitud->recibe]);
+            }
+            $this->cancelar();
+            $this->emit('render');
+    }
+
 }

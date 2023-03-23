@@ -18,4 +18,6 @@ class SolicitudesConyugue extends Model
     public function recibe_user(){
         return $this->belongsTo(User::class,'recibe');
     }
+
+    
 }
