@@ -39,7 +39,7 @@
                 <option value={{ $temple->id }}>{{ $temple->name }}</option>
             </select>
         </div>
-
+       
         @if ($redes->count()>1)
             <div class="form-group">
                 {!! Form::label(null, 'Seleccione su Red') !!}

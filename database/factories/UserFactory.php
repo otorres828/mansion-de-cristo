@@ -27,7 +27,7 @@ class UserFactory extends Factory
             'red_id'=>Red::all()->random()->id, 
             'jerarquia_id'=>$this->faker->randomElement([2,3]),
             'parent_id'=>User::all()->random()->id,
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => '$2y$10$hb13RD9OGqCPx8TlrT16buC55Fu1tKqqH1MpW1Kl3NmnjHPI2uslG', // 26269828
             'remember_token' => Str::random(10),
             'codigo' => strtoupper(bin2hex(random_bytes(3))),
         ];

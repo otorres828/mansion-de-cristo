@@ -39,9 +39,13 @@ class Conyugue extends Component
             if($this->user->genero==$this->yo->genero)
                 session()->flash('status',"El usuario que selecciono tiene el mismo genero que usted");
             else{
-                $this->visitas_pendientes=VisitaPendiente::where('user_id',$this->user->id)->where('estatus',1)->count();
-                $this->ce_visitadas=VisitaPendiente::where('user_id',$this->user->id)->where('estatus',2)->count();
-                $this->showModal=true;
+                if($this->yo->red_id==$this->user->red_id){
+                    $this->visitas_pendientes=VisitaPendiente::where('user_id',$this->user->id)->where('estatus',1)->count();
+                    $this->ce_visitadas=VisitaPendiente::where('user_id',$this->user->id)->where('estatus',2)->count();
+                    $this->showModal=true;
+                }else{
+                    session()->flash('status',"El usuario que selecciono pertenece a otra red.");    
+                }
             }
         }
     }
@@ -54,6 +58,7 @@ class Conyugue extends Component
 
     public function cancelar(){
         $this->solicitud->delete();
+        $this->solicitud=null;
     }
 
     public function aceptar(){
@@ -77,7 +82,7 @@ class Conyugue extends Component
 
             DB::update('update celulas set user_id = ? where user_id = ?', [$hombre,$mujer]);                   //TODAS LAS CELULAS DEL A MUJER PASAN A SER DEL HOMBRE
             DB::update('update celulas_evangelisticas set user_id = ? where user_id = ?', [$hombre,$mujer]);    //TODAS LAS CELULAS EVANGELISTICAS DEL A MUJER PASAN A SER DEL HOMBRE
-            DB::update('update visitas_pendientes set user_id = ? where user_id = ?', [$hombre,$mujer]);        //TODAS LAS VISITAS PENDIENTES EVANGELISTICAS DEL A MUJER PASAN A SER DEL HOMBRE
+            DB::update('update visita_pendientes set user_id = ? where user_id = ?', [$hombre,$mujer]);        //TODAS LAS VISITAS PENDIENTES EVANGELISTICAS DEL A MUJER PASAN A SER DEL HOMBRE
             DB::update('update users set parent_id = ? where parent_id = ?', [$hombre,$mujer]);                 //TODAS LOS DISCIPULOS DEL A MUJER PASAN A SER DEL HOMBRE
            
             $this->cancelar();

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 //CONTROLADORES SECRETARIA
 Route::get('/', [SecretaryController::class,'index'])->name('secretary.index')->middleware('auth');
 
-Route::resource('usuarios', UserController::class)->except('show', 'create', 'edit')->names('admin.secretary.equipo');
+Route::resource('equipo', UserController::class)->except('show', 'create', 'edit')->names('admin.secretary.equipo');
 Route::post('eliminar-usuario', [UserController::class, 'eliminar_usuario'])->name('eliminar.usuario');
 Route::post('cambiar-cobertura', [UserController::class, 'cambiar_cobertura'])->name('cambiar.cobertura');
 Route::resource('jerarquias', JerarquiaController::class)->except('show', 'create', 'edit')->middleware('can:admin.secretary.admin')->names('admin.secretary.jerarquia');

@@ -15,7 +15,7 @@ class Register extends Component
 
     public function render()
     {
-        $this->user = User:: find(auth()->user()->id);  
+        $this->user = User:: find(auth()->user()->id);
         $temple = Temple::find($this->user->temple_id);
         $this->verificar_rol();
 
@@ -79,8 +79,8 @@ class Register extends Component
             }
         }
         if($this->verificar_master==0){
-            $this->redes=Red::where('id',auth()->user()->red_id)->get();
-            $this->red=Red::where('id',auth()->user()->red_id)->first()->id;
+            $this->redes=Red::where('temple_id', $this->user->temple_id)->get();
+            $this->red=$this->user->red_id;
         }
     }
 }
