@@ -11,9 +11,17 @@ use Illuminate\Support\Facades\DB;
 class SecretaryController extends Controller
 {
     public function index(){
-        $discipulos_totales = User::find(auth()->user()->id)->descendantsAndSelf()->count()-1;
-        $celulas_oficiales = count(auth()->user()->recursiveCelulasTodas);
-        $celulas_evangelisticas = count(auth()->user()->recursiveEvangelisticasTodas);
+        $user=auth()->user();
+        if ($user->mi_conyugue && $user->mi_conyugue->genero=='H') {
+            $celulas_oficiales = count($user->mi_conyugue->recursiveCelulasTodas);
+            $discipulos_totales = User::find($user->mi_conyugue->id)->descendantsAndSelf()->count()-1;
+            $celulas_evangelisticas = count($user->mi_conyugue->recursiveEvangelisticasTodas);
+        }else{
+            $discipulos_totales = User::find($user->id)->descendantsAndSelf()->count()-1;
+            $celulas_oficiales = count($user->recursiveCelulasTodas);
+            $celulas_evangelisticas = count($user->recursiveEvangelisticasTodas);
+
+        }
         return view('secretary.index',compact('discipulos_totales','celulas_oficiales','celulas_evangelisticas'));
     }
 }

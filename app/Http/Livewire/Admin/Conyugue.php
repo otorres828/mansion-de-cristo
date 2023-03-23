@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use App\Models\SolicitudesConyugue;
 use App\Models\User;
 use App\Models\VisitaPendiente;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Conyugue extends Component
@@ -65,6 +66,20 @@ class Conyugue extends Component
                 $pareja = User::find($this->solicitud->manda);
                 $pareja->update(['conyugue'=>$this->solicitud->recibe]);
             }
+
+            if($this->yo->genero=='H'){
+                $hombre=$this->yo->id;
+                $mujer=$this->yo->conyugue;
+            }else{
+                $hombre=$this->yo->conyugue;
+                $mujer = $this->yo->id;
+            }
+
+            DB::update('update celulas set user_id = ? where user_id = ?', [$hombre,$mujer]);                   //TODAS LAS CELULAS DEL A MUJER PASAN A SER DEL HOMBRE
+            DB::update('update celulas_evangelisticas set user_id = ? where user_id = ?', [$hombre,$mujer]);    //TODAS LAS CELULAS EVANGELISTICAS DEL A MUJER PASAN A SER DEL HOMBRE
+            DB::update('update visitas_pendientes set user_id = ? where user_id = ?', [$hombre,$mujer]);        //TODAS LAS VISITAS PENDIENTES EVANGELISTICAS DEL A MUJER PASAN A SER DEL HOMBRE
+            DB::update('update users set parent_id = ? where parent_id = ?', [$hombre,$mujer]);                 //TODAS LOS DISCIPULOS DEL A MUJER PASAN A SER DEL HOMBRE
+           
             $this->cancelar();
             $this->emit('render');
     }
