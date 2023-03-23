@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\SolicitudesConyugue;
 use App\Models\User;
 use App\Models\VisitaPendiente;
 use Livewire\Component;
@@ -17,10 +18,11 @@ class Conyugue extends Component
     {
         $this->yo=auth()->user();
         $user=auth()->user();
+        $solicitud = SolicitudesConyugue::where('manda',$this->yo->id)->orWhere('recibe',$this->yo->id)->first();
         if ($user->conyugue) {
             $this->conyugue=User::find($user->conyugue);
         }
-        return view('livewire.admin.conyugue');
+        return view('livewire.admin.conyugue',compact('solicitud'));
     }
 
     public function enviar(){
@@ -41,6 +43,13 @@ class Conyugue extends Component
     }
 
     public function save(){
-        
+        $this->codigo='';
+        $this->showModal=false;
+        SolicitudesConyugue::create(['manda'=>$this->yo->id,'recibe'=>$this->user->id]);
+    }
+
+    public function cancelar(){
+        $solicitud = SolicitudesConyugue::where('manda',$this->yo->id)->orWhere('recibe',$this->yo->id)->first();
+        $solicitud->delete();
     }
 }

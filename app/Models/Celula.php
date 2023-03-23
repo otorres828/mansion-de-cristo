@@ -9,7 +9,6 @@ class Celula extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $guarded = ['id'];
     protected $fillable = [
         'anfitrion',
         'ubicacion',
