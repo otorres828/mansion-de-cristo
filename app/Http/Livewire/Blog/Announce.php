@@ -18,10 +18,12 @@ class Announce extends Component
     {
         $token= env('APP_INSTAGRAM');
         $respuesta= json_decode(Http::get('https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,timestamp&access_token='.$token));
-        if($respuesta){
-          $instagrams = new Paginator($respuesta->data, 9, 1);   
-        }
-        else $instagrams=[];
+        // if($respuesta){
+        //   $instagrams = new Paginator($respuesta->data, 9, 1);
+        // }
+        // else 
+        $instagrams=[];
+
         $announces = ModelsAnnounce::where('status',2)->orderBy('id','desc')->paginate(8);
         $similares = Testimony::where('status',2)->orderBy('id','desc')->paginate(2);
 
