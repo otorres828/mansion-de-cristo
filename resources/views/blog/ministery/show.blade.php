@@ -96,9 +96,9 @@
                     <div class="max-w-md md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 ">
                         <p class="py-3  font-bold break-normal text-2xl md:text-4xl">Otros</p>
                         <ul class="flex flex-wrap justify-between flex-col">
-                            @foreach ($similares as $ministerio)
+                            @foreach ($similares as $min)
                                 <li class="hover:border-b">
-                                    <a href="{{ route('blog.show_ministery', $ministerio) }}">{{ $ministerio->name }}</a>
+                                    <a href="{{ route('blog.show_ministery', ['ministerio'=>$min]) }}">{{ $min->name }}</a>
                                 </li>
                             @endforeach
                         </ul>

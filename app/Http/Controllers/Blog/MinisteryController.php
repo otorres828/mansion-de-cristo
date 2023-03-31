@@ -26,11 +26,11 @@ class MinisteryController extends Controller
                             ->latest('id')
                             ->get();
 
-        $fecha = date("Y-m-d");
-        $ip = $_SERVER["REMOTE_ADDR"] ?? "";
-        $url=route('blog.show_ministery',$ministerio);
-        DB::select("INSERT INTO visitas(fecha, ip, pagina, url) 
-                   VALUES('$fecha', '$ip', '$ministerio->name', '$url')");
+        // $fecha = date("Y-m-d");
+        // $ip = $_SERVER["REMOTE_ADDR"] ?? "";
+        // $url=route('blog.show_ministery',$ministerio);
+        // DB::select("INSERT INTO visitas(fecha, ip, pagina, url) 
+        //            VALUES('$fecha', '$ip', '$ministerio->name', '$url')");
                    
         return view('blog.ministery.show',compact('ministerio','similares','testimonios'));
     }
