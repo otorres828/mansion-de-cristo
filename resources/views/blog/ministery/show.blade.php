@@ -14,7 +14,7 @@
 @endsection
 
 @section('seo_redes_sociales')
-    <meta property="og:description" content="{{ $ministery->name }}" />
+    <meta property="og:description" content="{{ $ministerio->name }}" />
 @endsection
 
 @section('main')
@@ -32,7 +32,7 @@
                         <p class="hidden sm:block mr-3 text-center h-14 p-4 text-xs"><span class="pr-2">Comparte
                                 esto</span> 👉</p>
                         <a class="inline-block text-white no-underline hover:text-white hover:text-underline text-center h-10 w-10 p-2 md:h-auto md:w-16 md:p-4"
-                            href="https://api.whatsapp.com/send/?text={{ route('blog.show_ministery', $ministery->slug) }}"
+                            href="https://api.whatsapp.com/send/?text={{ route('blog.show_ministery', $ministerio->slug) }}"
                             style="background-color:#25da76;">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20px" height="20px"
                                 fill-rule="evenodd" clip-rule="evenodd">
@@ -50,7 +50,7 @@
                             </svg>
                         </a>
                         <a class="inline-block text-white no-underline hover:text-white hover:text-underline text-center h-10 w-10 p-2 md:h-auto md:w-16 md:p-4"
-                            href="https://twitter.com/intent/tweet?url={{ route('blog.show_ministery', $ministery->slug) }}"
+                            href="https://twitter.com/intent/tweet?url={{ route('blog.show_ministery', $ministerio->slug) }}"
                             style="background-color:#33b1ff;">
                             <svg class="fill-current text-white h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                                 <path
@@ -59,7 +59,7 @@
                             </svg>
                         </a>
                         <a class="inline-block text-white no-underline hover:text-white hover:text-underline text-center h-10 w-10 p-2 md:h-auto md:w-16 md:p-4"
-                            href="https://www.facebook.com/sharer/sharer.php?u={{ route('blog.show_ministery', $ministery->slug) }}"
+                            href="https://www.facebook.com/sharer/sharer.php?u={{ route('blog.show_ministery', $ministerio->slug) }}"
                             style="background-color:#005e99">
                             <svg class="fill-current text-white h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                                 <path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z">
@@ -79,8 +79,8 @@
         <div class="w-full sm:px-6 antialiased bg-white">
             <div class="mx-auto max-w-8xl">
                 <div class="mx-auto sm:px-6 xl:max-w-5xl xl:px-0 mt-10">
-                    @isset($ministery->image)
-                        <img id="picture " src="{{ imagenes_storage($ministery->image->url) }}" alt=""
+                    @isset($ministerio->image)
+                        <img id="picture " src="{{ imagenes_storage($ministerio->image->url) }}" alt=""
                             class="mx-auto w-4/5 mt-6 rounded-md drop-shadow-sm">
                     @else
                         <img src="https://images.unsplash.com/photo-1648737966614-55e58b5e3caf?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1472&amp;q=80"
@@ -108,8 +108,8 @@
                 </div>
                 <div class="w-full md:w-3/4 order-1 md:order-2">
                     <div class=" leading-loose tracking-tight">
-                        <h1 class="py-3 font-bold break-normal text-3xl md:text-5xl">{{ $ministery->name }}</h1>
-                        @if ($ministery->type == 1)
+                        <h1 class="py-3 font-bold break-normal text-3xl md:text-5xl">{{ $ministerio->name }}</h1>
+                        @if ($ministerio->type == 1)
                             <div
                                 class="mb-1 mt-2  w-auto rounded prose md:prose-lg text-center  shadow-lg  uppercase font-serif text-white bg-cyan-500">
                                 <div class="text-center text-1xl ">Ministerio</div>
@@ -121,10 +121,10 @@
                             </div>
                         @endif
                         <p class="mb-5 prose md:prose-lg lg:prose-xl text-justify">
-                            {!! $ministery->extract !!}
+                            {!! $ministerio->extract !!}
                         </p>
                         <div class="prose md:prose-lg lg:prose-xl text-justify">
-                            {!! $ministery->body !!}
+                            {!! $ministerio->body !!}
                         </div>
                     </div>
                 </div>

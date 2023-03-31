@@ -10,14 +10,14 @@
 
     @if($search!=null && $search!=' ' && $ministeries->count())
         <div class="shadow-2xl w-full rounded px-3 py-3 pb-0 absolute z-20" style="background-color: white">
-            @foreach($ministeries as $ministery)
+            @foreach($ministeries as $ministerio)
                 <ul 
                 class="bottom-auto text-sm pb-2 overflow-y-scroll h-{{$h}}">
                 <li>
-                        <a href="{{route('blog.show_ministery',$ministery->slug)}}" 
+                        <a href="{{route('blog.show_ministery',$ministerio->slug)}}" 
                             class="block font-sans font-semibold px-2 py-1 text-gray-600 hover:bg-primary 
                                 hover:text-purple-800 leading-5">
-                            {{ $ministery->name }}</a>
+                            {{ $ministerio->name }}</a>
                     </li>   
                 </ul>
             @endforeach
