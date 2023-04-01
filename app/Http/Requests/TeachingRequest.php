@@ -19,7 +19,8 @@ class TeachingRequest extends FormRequest
                 'name' =>'required',
                 'slug' =>'required', //|unique:teachings
                 'status'=>'required|in:1,2',
-                'file' => 'image|max:15000|dimensions:max_width=4000,max_height=3000'
+                'file' => 'image|max:15000|dimensions:max_width=4000,max_height=3000',
+                'body'=>'required'
         ];
         // if($teaching){
         //     $rules['slug']='required|unique:teachings,slug,'.$teaching->id;
@@ -27,7 +28,6 @@ class TeachingRequest extends FormRequest
         if($this->status ==2){
             $rules = array_merge($rules,[
                             'extract'=>'required',
-                            'body'=>'required'
              ] );
         }
         return $rules;

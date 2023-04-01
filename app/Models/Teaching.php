@@ -44,9 +44,11 @@ class Teaching extends Model
         return $this->morphOne(Image::class,'imageable');
     }
 
+    // public function ckeditor_images(){
+    //     return $this->hasMany(ImageCkeditor::class);
+    // }
+
     public function ckeditor_images(){
-        return $this->hasMany(ImageCkeditor::class);
+        return $this->morphOne(ImageCkeditor::class,'imageable');
     }
-
-
 }

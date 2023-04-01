@@ -7,8 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class ImageCkeditor extends Model
 {
-    use HasFactory;
     protected $table = 'image_ckeditor';
-    protected $guarded=['id'];
+
+    use HasFactory;
+    protected $fillable = ['img_url'];
     public $timestamps = false;
+
+    //relacion polimorfica
+    public function ckeditor_images(){
+        return $this->morphTo();
+    }
 }
