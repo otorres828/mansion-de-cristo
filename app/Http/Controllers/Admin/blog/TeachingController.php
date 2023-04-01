@@ -179,12 +179,18 @@ class TeachingController extends Controller
 
     public function modificar($request,$teaching){
         $data = $request->validated();
-        $imagenes_antiguas=$teaching->ckeditor_images
-                                        ->pluck('img_url')
-                                        ->toArray();
         $re_extractImages = '/src=["\']([^ ^"^\']*)["\']/ims';
         preg_match_all($re_extractImages,$data['body'],$matches);
         $imagenes_nuevas= $matches[1];
+        
+        if($teaching->ckeditor_images){
+            $imagenes_antiguas=$teaching->ckeditor_images
+                                            ->pluck('img_url')
+                                            ->toArray();
+
+        }else{
+            $imagenes_antiguas=[]; 
+        }
                                     
         foreach($imagenes_nuevas as $image){
             $image_url=pathinfo($image,PATHINFO_BASENAME);
