@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('image_ckeditor', function (Blueprint $table) {
             $table->id();
             $table->string('img_url');
-            
+            $table->unsignedBigInteger('teaching_id');
+            $table->foreign('teaching_id')->references('id')->on('teachings')->onDelete('CASCADE');
+
         });
     }
 

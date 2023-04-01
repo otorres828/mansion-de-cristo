@@ -11,13 +11,7 @@ use Illuminate\Support\Str;
 class ImageController extends Controller
 {
     public function upload(Request $request){
-        // $nombre = Str::random(20) .$request->file('upload')->getClientOriginalName();
-        // $ruta =storage_path() . '/app/public/ckeditor/' . $nombre;
-        // Image::make($request->file('upload'))->save($ruta);    
-        $nombre=Storage::put('ckeditor',$request->file('upload'));   
-        return response()->json([
-            // 'fileName' => $nombre,'uploaded'=>1,'url'=>Storage::url($nombre)
-            'url'=>Storage::url($nombre)
-        ]);
+        $path = Storage::disk('ckeditor')->put('/', $request->file('upload'));
+        return response()->json(['url' => asset('ckeditor/'.$path)]);
     }
 }
