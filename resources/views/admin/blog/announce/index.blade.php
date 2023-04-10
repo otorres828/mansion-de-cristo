@@ -65,9 +65,17 @@
             </table>
         </div>
     </div>
+    {{-- @livewire('admin.noticia') --}}
 @stop
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('vendor/toastr/toastr.min.css') }}?v={{ env('VERSION_STYLE') }}">
+@endsection
+
 @section('js')
+    {{-- <script src="{{ asset('js/show_alerts.js') }}"></script>
+    <script src="{{ asset('vendor/toastr/toastr.js') }}"></script> --}}
+
     <script>
         $('.destroy').submit(function(e) {
             e.preventDefault();

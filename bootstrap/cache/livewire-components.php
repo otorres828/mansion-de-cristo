@@ -1,6 +1,5 @@
 <?php return array (
   'admin.banned' => 'App\\Http\\Livewire\\Admin\\Banned',
-  'admin.blog.enseñanza' => 'App\\Http\\Livewire\\Admin\\Blog\\Enseñanza',
   'admin.conyugue' => 'App\\Http\\Livewire\\Admin\\Conyugue',
   'admin.crecimiento' => 'App\\Http\\Livewire\\Admin\\Crecimiento',
   'admin.edit-celula' => 'App\\Http\\Livewire\\Admin\\EditCelula',
@@ -9,6 +8,7 @@
   'admin.encargado' => 'App\\Http\\Livewire\\Admin\\Encargado',
   'admin.finanzas' => 'App\\Http\\Livewire\\Admin\\Finanzas',
   'admin.mantenimiento' => 'App\\Http\\Livewire\\Admin\\Mantenimiento',
+  'admin.noticia' => 'App\\Http\\Livewire\\Admin\\Noticia',
   'admin.register' => 'App\\Http\\Livewire\\Admin\\Register',
   'blog.announce' => 'App\\Http\\Livewire\\Blog\\Announce',
   'blog.eliminarimagen' => 'App\\Http\\Livewire\\Blog\\Eliminarimagen',

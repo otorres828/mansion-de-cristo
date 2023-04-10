@@ -76,10 +76,14 @@
         <span class="text-danger">{{ $message }}</span>
     @enderror
 </div>
-
+<style>
+    .editable {
+        min-height: 150px !important;
+    }
+</style>
 <div class="form-group">
     {!! Form::label('body', 'Cuerpo del Contenido') !!}
-    {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('body', null, ['class' => 'form-control editable']) !!}
     @error('body')
         <span class="text-danger">{{ $message }}</span>
     @enderror
