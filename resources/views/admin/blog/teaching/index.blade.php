@@ -19,7 +19,8 @@
                     <tr>
                         <th scope="col" class="text-center">#id</th>
                         <th scope="col">Titulo de la Enseñanza</th>
-                        <th scope="col" class="text-center">Autor</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col" >Categoria</th>
                         <th scope="col" class="text-center">Estado</th>
                         <th colspan="col">Acciones</th>
                     </tr>
@@ -30,6 +31,13 @@
                             <td class="text-center">{{ $teaching->id }}</td>
                             <td>{{ $teaching->name }}</td>
                             <td>{{ $teaching->user->name }}</td>
+                            <td>
+                                @if ($teaching->category)
+                                    {{ $teaching->category->name }}
+                                @else
+                                    SIN CATEGORIA
+                                @endif
+                            </td>
 
                             <td class="text-center">
                                 @if ($teaching->status == 1)
@@ -46,12 +54,12 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item " data-turbolinks="false"
-                                            href="{{ route('blog.show_teaching', [$teaching->slug,$teaching->id]) }}">Ver</a>
+                                            href="{{ route('blog.show_teaching', [$teaching->slug, $teaching->id]) }}">Ver</a>
                                         <a class="dropdown-item"
                                             href="{{ route('admin.blog.teaching.edit', $teaching) }}">Editar</a>
                                         @can('eliminarpublicaciones')
-                                            <form class="destroy"
-                                                action="{{ route('admin.blog.teaching.destroy', $teaching) }}" method="POST">
+                                            <form class="destroy" action="{{ route('admin.blog.teaching.destroy', $teaching) }}"
+                                                method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="dropdown-item">Eliminar</button>
