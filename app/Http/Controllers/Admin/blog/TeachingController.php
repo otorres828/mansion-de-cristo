@@ -66,15 +66,7 @@ class TeachingController extends Controller
         $teaching->name=ucwords($request->name);
         $teaching->save();      
         if ($request->file('file')) {
-            $name = 'enseñanzas/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
-            $ruta =storage_path() . '/app/public/' . $name;
-            Image::make($request->file('file'))->resize(1200,800)->save($ruta);
-         
-            $nombre=Storage::putFileAs('imagenes', asset('storage/'.$name),$name,'public'); 
-            Storage::disk('public')->delete($name);
-            $teaching->image()->create([
-                'url' =>$nombre
-            ]);
+          $this->cargar_imagen_insertar($request->file('file'),$teaching,'enseñanzas');
         }
         if($request->get('status')==2){
             $modulo1 = EmailSend::find(1);
@@ -113,6 +105,7 @@ class TeachingController extends Controller
 
     public function update(TeachingRequest $request, Teaching $teaching)
     {
+        
         $this->authorize('autor', $teaching);
 
         $urlvieja=route('blog.show_teaching',[$teaching->slug,$teaching->id]);

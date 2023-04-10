@@ -13,11 +13,11 @@ class Announce extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'tailwind';
-
+    public $token;
     public function render()
     {
-        $token= env('APP_INSTAGRAM');
-        $respuesta= json_decode(Http::get('https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,timestamp&access_token='.$token));
+        $this->token= env('APP_INSTAGRAM');
+        $respuesta= json_decode(Http::get('https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,timestamp&access_token='.$this->token));
         // if($respuesta){
         //   $instagrams = new Paginator($respuesta->data, 9, 1);
         // }
