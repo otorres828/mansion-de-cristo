@@ -6,3 +6,9 @@
 .seleccionador{
     @apply w-full p-2 rounded shadow;
 }
+
+
+.ck-editor__editable {
+    min-height: 150px !important;
+}
+  

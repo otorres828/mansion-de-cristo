@@ -1,5 +1,43 @@
 @php
     $active = request()->routeIs('blog.show_teaching') + request()->routeIs('blog.show_ministery') + request()->routeIs('blog.show_announces');
+    $navlinks = [
+        [
+            'name' => 'Noticias',
+            'route' => route('blog.announces'),
+            'estatus' => $manNoticia,
+            'active' => request()->routeIs('blog.announces'),
+        ],
+        [
+            'name' => 'Enseñanzas',
+            'route' => route('blog.teaching'),
+            'estatus' => $manEnseñanza,
+            'active' => request()->routeIs('blog.teaching'),
+        ],
+        [
+            'name' => 'Ministerios',
+            'route' => route('blog.ministery'),
+            'estatus' => $manMinisterio,
+            'active' => request()->routeIs('blog.ministery'),
+        ],
+        [
+            'name' => 'Testimonios',
+            'route' => route('blog.testimony'),
+            'estatus' => $manTestimonio,
+            'active' => request()->routeIs('blog.testimony'),
+        ],
+        [
+            'name' => 'Acerca de',
+            'route' => route('blog.acercade'),
+            'estatus' => $manAcercade,
+            'active' => request()->routeIs('blog.acercade'),
+        ],
+        [
+            'name' => 'Contactanos',
+            'route' => route('blog.contact'),
+            'estatus' => $manContactanos,
+            'active' => request()->routeIs('blog.contact'),
+        ],
+    ];
 @endphp
 
 <nav x-data="{ open: false }"
@@ -45,21 +83,12 @@
                         <a href="{{ route('landding.index') }}"
                             class="text-gray-800 hover:bg-gray-200 px-3 py-2 rounded-md text-sm leading-5 font-medium"
                             aria-current="page" data-turbolinks="false">Casa</a>
-                        <a href="{{ route('blog.announces') }}"
-                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Noticias</a>
-                        <a href="{{ route('blog.teaching') }}"
-                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Enseñanzas</a>
-                        <a href="{{ route('blog.ministery') }}"
-                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Ministerios</a>
-                        {{-- <a href="{{ route('blog.testimony') }}"
-                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Testimonios</a>
-                        --}}
-                        {{-- <a href="{{ route('blog.acercade') }}"
-                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Acerca
-                            de</a> --}}
-                        <a href="{{ route('blog.contact') }}"
-                            class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">Contactanos</a>
-
+                        @foreach ($navlinks as $item)
+                            @if ($item['estatus'] == 2)
+                                <a href="{{ $item['route'] }}"
+                                    class="text-gray-800 hover:bg-gray-200  px-3 py-2 rounded-md text-sm leading-5 font-medium">{{ $item['name'] }}</a>
+                            @endif
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -121,20 +150,13 @@
             <a href="{{ route('landding.index') }}"
                 class="text-gray-800 hover:bg-gray-200 block px-3 py-2 rounded-md text-base font-medium"
                 aria-current="page" data-turbolinks="false">Casa</a>
-            <a href="{{ route('blog.announces') }}"
-                class="text-gray-800 hover:bg-gray-200  block px-3 py-2 rounded-md text-base font-medium">Noticias</a>
-            <a href="{{ route('blog.teaching') }}"
-                class="text-gray-800 hover:bg-gray-200  block px-3 py-2 rounded-md text-base font-medium">Enseñanzas</a>
-            <a href="{{ route('blog.ministery') }}"
-                class="text-gray-800 hover:bg-gray-200  block px-3 py-2 rounded-md text-base font-medium">Ministerios</a>
-            {{-- <a href="{{ route('blog.testimony') }}"
-                class="text-gray-800 hover:bg-gray-200  block px-3 py-2 rounded-md text-base font-medium">Testimonios</a>
-             --}}
-            {{-- <a href="{{ route('blog.acercade') }}"
-                class="text-gray-800 hover:bg-gray-200  block px-3 py-2 rounded-md text-base font-medium">Acerca de</a>
-            --}}
-            <a href="{{ route('blog.contact') }}"
-                class="text-gray-800 hover:bg-gray-200  block px-3 py-2 rounded-md text-base font-medium">Contactanos</a>
+            @foreach ($navlinks as $item)
+                @if ($item['estatus'] == 2)
+                    <a href="{{ $item['route'] }}"
+                        class="text-gray-800 hover:bg-gray-200  block px-3 py-2 rounded-md text-base font-medium">{{ $item['name'] }}</a>
+                @endif
+            @endforeach
+
             @auth
                 <a class="text-blue-600 hover:bg-blue-600 hover:text-gray-50 px-3 block py-2 rounded-md text-base font-medium"
                     href="{{ route('admin.blog.panel') }}" data-turbolinks="false">

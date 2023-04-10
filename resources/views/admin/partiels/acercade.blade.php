@@ -35,7 +35,7 @@
     <div class="col-3">
         <div class="image-wraper">
             @isset($acercade->image)
-                <img id="picture " src="{{ imagenes_storage($acercade->image->url)}}" alt="">
+                <img id="picture " src="{{ imagenes_storage($acercade->image->url) }}" alt="">
                 {{-- <img id="picture " src="{{ asset('storage/' . $acercade->image->url) }}" alt=""> --}}
             @else
                 <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg" alt="">
@@ -53,14 +53,17 @@
             </div>
         </div>
     </div>
+
+
+
     <style>
-        .editable {
+        .ck-editor__editable {
             min-height: 150px !important;
         }
     </style>
     <div class="form-group">
         {!! Form::label('body', 'Cuerpo del Contenido') !!}
-        {!! Form::textarea('body', null, ['class' => 'form-control editable']) !!}
+        {!! Form::textarea('body', null, ['class' => 'form-control ck-editor__editable']) !!}
         @error('body')
             <span class="text-danger">{{ $message }}</span>
         @enderror

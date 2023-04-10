@@ -1,3 +1,43 @@
+@php
+    $navlinks = [
+        [
+            'name' => 'Noticias',
+            'route' => route('blog.announces'),
+            'estatus' => $manNoticia,
+            'active' => request()->routeIs('blog.announces'),
+        ],
+        [
+            'name' => 'Enseñanzas',
+            'route' => route('blog.teaching'),
+            'estatus' => $manEnseñanza,
+            'active' => request()->routeIs('blog.teaching'),
+        ],
+        [
+            'name' => 'Ministerios',
+            'route' => route('blog.ministery'),
+            'estatus' => $manMinisterio,
+            'active' => request()->routeIs('blog.ministery'),
+        ],
+        [
+            'name' => 'Testimonios',
+            'route' => route('blog.testimony'),
+            'estatus' => $manTestimonio,
+            'active' => request()->routeIs('blog.testimony'),
+        ],
+        [
+            'name' => 'Acerca de',
+            'route' => route('blog.acercade'),
+            'estatus' => $manAcercade,
+            'active' => request()->routeIs('blog.acercade'),
+        ],
+        [
+            'name' => 'Contactanos',
+            'route' => route('blog.contact'),
+            'estatus' => $manContactanos,
+            'active' => request()->routeIs('blog.contact'),
+        ],
+    ];
+@endphp
 <nav x-data="{ open: false }" class="fixed min-w-full bg-white border-b border-gray-100  top-0 z-[20]">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,33 +53,19 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 md:flex">
                     <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-700 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
-                        href="{{ route('landding.index') }}" >
+                        href="{{ route('landding.index') }}">
                         Casa
                     </a>
-                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
-                        href="{{ route('blog.announces') }}" >
-                        Noticias
-                    </a>
-                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
-                        href="{{ route('blog.teaching') }}" >
-                        Enseñanzas
-                    </a>
-                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
-                        href="{{ route('blog.ministery') }}" >
-                        Ministerios
-                    </a>
-                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
-                        href="{{ route('blog.testimony') }}" >
-                        Testimonios
-                    </a>
-                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
-                        href="{{ route('blog.acercade') }}" >
-                        Acerca De
-                    </a>
-                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
-                        href="{{ route('blog.contact') }}" >
-                        Contactanos
-                    </a>
+
+                    @foreach ($navlinks as $item)
+                        @if ($item['estatus'] == 2)
+                            <a class="inline-flex rounded-md items-center px-1 pt-1 border-b-2  text-sm font-medium leading-5 text-gray-700 hover:bg-gray-200 rounded-md text-black @if ($item['active']==true) bg-gray-200 @endif"
+                                href="{{ $item['route'] }}">
+                                {{ $item['name'] }}
+                            </a>
+                        @endif
+                    @endforeach
+
                 </div>
             </div>
 
@@ -112,30 +138,15 @@
                 href="{{ route('landding.index') }}" data-turbolinks="false">
                 Casa
             </a>
-            <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition"
-                href="{{ route('blog.announces') }}">
-                Noticias
-            </a>
-            <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition"
-                href="{{ route('blog.teaching') }}">
-                Enseñanzas
-            </a>
-            <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition"
-                href="{{ route('blog.ministery') }}">
-                Ministerios
-            </a>
-            <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition"
-                href="{{ route('blog.testimony') }}">
-                Testimonios
-            </a>
-            <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition"
-                href="{{ route('blog.acercade') }}">
-                Acerca De
-            </a>
-            <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition"
-                href="{{ route('blog.contact') }}">
-                Contactanos
-            </a>
+            @foreach ($navlinks as $item)
+                @if ($item['estatus'] == 2)
+                    <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition"
+                        href="{{ $item['route'] }}">
+                        {{ $item['name'] }}
+                    </a>
+                @endif
+            @endforeach
+
             @auth
                 <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition"
                     href="{{ route('admin.blog.panel') }}" data-turbolinks="false">Panel de Control</a>

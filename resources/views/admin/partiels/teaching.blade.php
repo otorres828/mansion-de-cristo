@@ -91,13 +91,13 @@
     @enderror
 </div>
 <style>
-    .editable {
+    .ck-editor__editable {
         min-height: 150px !important;
     }
 </style>
 <div class="form-group">
     {!! Form::label('body', 'Cuerpo de la Enseñanza') !!}
-    {!! Form::textarea('body', null, ['class' => 'form-control editable']) !!}
+    {!! Form::textarea('body', null, ['class' => 'form-control ck-editor__editable']) !!}
     @error('body')
         <span class="text-danger">{{ $message }}</span>
     @enderror
