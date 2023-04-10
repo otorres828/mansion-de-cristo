@@ -8,13 +8,16 @@ use App\Http\Requests\TestimonyRequest;
 use App\Models\Testimony;
 use App\Models\User;
 use App\Notifications\EmailNotification;
+use App\Traits\TraitFile;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
+
 class TestimonyController extends Controller
 {
+    use TraitFile;
    
     public function index()
     {
@@ -82,24 +85,8 @@ class TestimonyController extends Controller
         $paginanueva=$testimony->name;
 
         if($request->file('file')){
-            $name = 'testimonios/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
-            $ruta =storage_path() . '/app/public/' . $name;
-            Image::make($request->file('file'))->resize(1200,800)->save($ruta);
-         
-            $nombre=Storage::putFileAs('imagenes', asset('storage/'.$name),$name,'public'); 
-            Storage::disk('public')->delete($name);
-            if($testimony->image){
-                Storage::disk('do_spaces')->delete($testimony->image->url);
-                // Storage::delete($testimony->image->url);
-    
-                $testimony->image->update([
-                    'url'=>$nombre
-                ]);
-            }else{
-                $testimony->image()->create([
-                    'url'=>$nombre
-                ]);  
-            }
+            $this->cargar_imagen_actualizar($request->file('file'),$testimony,'testimonios');
+
         }
         if($request->get('status')==2){
             $modulo3 = EmailSend::find(2);

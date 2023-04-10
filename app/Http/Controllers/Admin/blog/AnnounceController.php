@@ -8,6 +8,7 @@ use App\Http\Requests\AnnounceRequest;
 use App\Models\EmailSend;
 use App\Models\User;
 use App\Notifications\EmailNotification;
+use App\Traits\TraitFile;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Notification;
@@ -16,7 +17,9 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
 
 class AnnounceController extends Controller
-{    
+{  
+    use TraitFile;
+  
     public function index()
     {
         $user = User:: find(auth()->user()->id);  
@@ -82,23 +85,7 @@ class AnnounceController extends Controller
         $paginanueva=$anuncio->name; 
         
         if($request->file('file')){ 
-            $name = 'noticias/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
-            $ruta =storage_path() . '/app/public/' . $name;
-            Image::make($request->file('file'))->resize(1200,800)->save($ruta);
-         
-            $nombre=Storage::putFileAs('imagenes', asset('storage/'.$name),$name,'public'); 
-            Storage::disk('public')->delete($name);
-            if($anuncio->image){
-                Storage::delete($anuncio->image->url);
-                // Storage::delete($anuncio->image->url);
-                $anuncio->image->update([
-                    'url'=> $nombre
-                ]);
-            }else{
-                $anuncio->image()->create([
-                    'url'=> $nombre
-                ]);  
-            }
+            $this->cargar_imagen_actualizar($request->file('file'),$anuncio,'noticias');
         }
       
         if($request->get('status')==2){

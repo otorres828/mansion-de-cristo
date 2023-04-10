@@ -10,6 +10,7 @@ use App\Models\ImageCkeditor;
 use App\Models\Teaching;
 use App\Models\User;
 use App\Notifications\EmailNotification;
+use App\Traits\TraitFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
@@ -18,6 +19,8 @@ use Illuminate\Support\Str;
 
 class TeachingController extends Controller
 {
+    use TraitFile;
+
     public function index()
     {
         $user = User::find(auth()->user()->id);
@@ -120,23 +123,7 @@ class TeachingController extends Controller
         $paginanueva=$teaching->name;
         
         if ($request->file('file')) {
-            $name = 'enseñanzas/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
-            $ruta =storage_path() . '/app/public/' . $name;
-            Image::make($request->file('file'))->resize(1200,800)->save($ruta);
-         
-            $nombre=Storage::putFileAs('imagenes', asset('storage/'.$name),$name,'public'); 
-            Storage::disk('public')->delete($name);
-            if ($teaching->image) {
-                Storage::disk('do_spaces')->delete($teaching->image->url);
-                // Storage::delete($teaching->image->url);
-                $teaching->image->update([
-                    'url' =>$nombre
-                ]);
-            } else {
-                $teaching->image()->create([
-                    'url' =>$nombre
-                ]);
-            }
+            $this->cargar_imagen_actualizar($request->file('file'),$teaching,'enseñanzas');
         }   
         if($request->get('status')==2){ 
            

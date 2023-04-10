@@ -7,6 +7,7 @@ use App\Http\Requests\MinistryRequest;
 use App\Models\Ministry;
 use App\Models\User;
 use App\Notifications\EmailNotification;
+use App\Traits\TraitFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
@@ -14,7 +15,7 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
 class MinistryController extends Controller
 {
-    
+    use TraitFile;
     public function index()
     {
         $user = User:: find(auth()->user()->id);  
@@ -73,24 +74,9 @@ class MinistryController extends Controller
         $paginanueva=$ministry->name;
 
         if($request->file('file')){
-            $name = 'ministerios/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
-            $ruta =storage_path() . '/app/public/' . $name;
-            Image::make($request->file('file'))->resize(1200,800)->save($ruta);
-         
-            $nombre=Storage::putFileAs('imagenes', asset('storage/'.$name),$name,'public'); 
-            Storage::disk('public')->delete($name);
-            if($ministry->image){
-                // Storage::delete($ministry->image->url);
-                Storage::disk('do_spaces')->delete($ministry->image->url);
-                $ministry->image->update([
-                    'url'=> $nombre
-                ]);
-            }else{
-                $ministry->image()->create([
-                    'url'=> $nombre
-                ]);  
-            }
+            $this->cargar_imagen_actualizar($request->file('file'),$ministry,'ministerios');
         }
+        
         DB::update("UPDATE visitas set url='$urlnueva',pagina='$paginanueva' WHERE url='$urlvieja'");                           
         return redirect()->route('admin.blog.ministry.index')->with('info','Se actualizo la informacion del Ministerio o Departamento');
     }
