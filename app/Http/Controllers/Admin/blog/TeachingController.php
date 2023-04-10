@@ -59,7 +59,9 @@ class TeachingController extends Controller
 
     public function store(TeachingRequest $request)
     {      
-        $teaching = Teaching::create($request->all());      
+        $teaching = Teaching::create($request->all());
+        $teaching->name=ucwords($request->name);
+        $teaching->save();      
         if ($request->file('file')) {
             $name = 'enseñanzas/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
             $ruta =storage_path() . '/app/public/' . $name;
