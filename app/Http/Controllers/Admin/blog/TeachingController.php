@@ -114,6 +114,8 @@ class TeachingController extends Controller
 
         $urlvieja=route('blog.show_teaching',[$teaching->slug,$teaching->id]);
         $teaching->update($request->all());
+        $teaching->name=ucwords($request->name);
+        $teaching->save();  
         $urlnueva=route('blog.show_teaching',[$teaching->slug,$teaching->id]);
         $paginanueva=$teaching->name;
         
