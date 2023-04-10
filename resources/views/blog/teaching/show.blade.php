@@ -166,11 +166,14 @@
                                     <a
                                         href="{{ route('blog.show_teaching',[ $teaching->slug,$teaching->id]) }}">{{ $teaching->name }}</a>
                                 </h4>
+                                @if ($teaching->category)
                                 <div wire:click="filtro({{ $teaching->category_id }})"
                                     class="mt-2 p-1 w-auto rounded text-xs   shadow-lg  uppercase font-serif text-white bg-green-800">
                                     <button type="button"
                                         class="text-1xl p-1">{{ $teaching->category->name }}</button>
                                 </div>
+                                    
+                                @endif
                             </div>
 
                             <div class="py-2 px-6 ">
