@@ -11,7 +11,10 @@
     <div class="col-md">
         <div class="form-group">
             {!! Form::label('autor', 'Autor del Testimonio') !!}
-            {!! Form::text('autor', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del Autor del Testimonio']) !!}
+            {!! Form::text('autor', null, [
+                'class' => 'form-control',
+                'placeholder' => 'Ingrese el nombre del Autor del Testimonio',
+            ]) !!}
             @error('autor')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -47,8 +50,11 @@
     <div class="col-3">
         <div class="image-wraper">
             @isset($testimony->image)
-                {{-- <img id="picture " src="{{ asset('storage/' . $testimony->image->url) }}" alt=""> --}}
-                <img id="picture " src="{{imagenes_storage($testimony->image->url)}}" alt="">
+                @if (env('APP_ENV') == 'local')
+                    <img id="picture " src="{{ asset('storage/' . $testimony->image->url) }}" alt="">
+                @else
+                    <img id="picture " src="{{ imagenes_storage($testimony->image->url) }}" alt="">
+                @endif
             @else
                 <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg" alt="">
             @endisset

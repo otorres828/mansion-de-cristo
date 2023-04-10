@@ -43,23 +43,16 @@ class MinistryController extends Controller
     public function store(MinistryRequest $request)
     {
         $ministry= Ministry::create($request->all());
+        $ministry->name=ucwords($request->name);
+        $ministry->save();    
         if($request->file('file')){
-            $name = 'ministerios/'.Str::random(30).'.' .$request->file('file')->getClientOriginalExtension();
-            $ruta =storage_path() . '/app/public/' . $name;
-            Image::make($request->file('file'))->resize(1200,800)->save($ruta);
-         
-            $nombre=Storage::putFileAs('imagenes', asset('storage/'.$name),$name,'public'); 
-            Storage::disk('public')->delete($name);
-            $ministry->image()->create([
-                'url'=> $nombre
-            ]);            
+            $this->cargar_imagen_insertar($request->file('file'),$ministry,'ministerios'); 
         }
         return redirect()->route('admin.blog.ministry.index')->with('info','El anuncio se creo con exito');    
     }
 
     public function edit(Ministry $ministry)
     {
-
         $this->authorize('autor',$ministry);
         return view('admin.blog.ministry.edit',compact('ministry'));
     }
@@ -70,6 +63,8 @@ class MinistryController extends Controller
 
         $urlvieja=route('blog.show_ministery',$ministry);
         $ministry->update($request->all());
+        $ministry->name=ucwords($request->name);
+        $ministry->save(); 
         $urlnueva=route('blog.show_ministery',$ministry);
         $paginanueva=$ministry->name;
 

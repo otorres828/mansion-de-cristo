@@ -23,7 +23,7 @@
     <div class="col-md">
         <div class="form-group">
             {!! Form::label('type', 'Seleccione si es Ministerio o Departamento') !!}
-            {!! Form::select('type', ['1'=>'Ministerio','2'=>'Departamento'], null, ['class' => 'form-control']) !!}
+            {!! Form::select('type', ['1' => 'Ministerio', '2' => 'Departamento'], null, ['class' => 'form-control']) !!}
 
             {{-- <select name="type" class="form-control">
                 <option value="1">Ministerio</option>
@@ -59,8 +59,11 @@
                 <img id="picture " src="{{ imagenes_storage($anuncio->image->url) }}" alt="">
             @else
                 @isset($ministry->image)
-                    <img id="picture " src="{{imagenes_storage($ministry->image->url)}}" alt="">
-                    {{-- <img id="picture " src="{{ asset('storage/' . $ministry->image->url) }}" alt=""> --}}
+                    @if (env('APP_ENV') == 'local')
+                        <img id="picture " src="{{ asset('storage/' . $ministry->image->url) }}" alt="">
+                    @else
+                        <img id="picture " src="{{ imagenes_storage($ministry->image->url) }}" alt="">
+                    @endif
                 @else
                     <img src="https://pbs.twimg.com/profile_images/740993726189834240/WbUqIPMS.jpg" alt="">
                 @endisset

@@ -35,17 +35,10 @@ class AcercadeController extends Controller
         
         
         $acercade= Acercade::create($request->all());
+        $acercade->name=ucwords($request->name);
+        $acercade->save(); 
         if($request->file('file')){
-            $name = 'acercade/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/' . $name;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
-         
-            $nombre=Storage::putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
-            Storage::disk('public')->delete($name);
-            $acercade->image()->create([
-                'url'=> $nombre
-
-            ]);            
+            $this->cargar_imagen_insertar($request->file('file'),$acercade,'acercade'); 
         }
         
         return redirect()->route('admin.blog.acercade.index')->with('info','La informacion se creo con exito');
@@ -65,23 +58,10 @@ class AcercadeController extends Controller
             'body'=>'required',
         ]);
         $acercade->update($request->all());
+        $acercade->name=ucwords($request->name);
+        $acercade->save();
         if($request->file('file')){ 
-            $name = 'acercade/'.Str::random(20) .$request->file('file')->getClientOriginalName();
-            $ruta =storage_path() . '/app/public/' . $name;
-            Image::make($request->file('file'))->resize(600,400)->save($ruta);
-         
-            $nombre=Storage::putFileAs('imagenes/', asset('storage/'.$name),$name,'public'); 
-            Storage::disk('public')->delete($name);
-            if($acercade->image){
-                Storage::delete($acercade->image->url);
-                $acercade->image->update([
-                    'url'=> $nombre
-                ]);
-            }else{
-                $acercade->image()->create([
-                    'url'=> $nombre
-                ]);  
-            }
+            $this->cargar_imagen_actualizar($request->file('file'),$acercade,'acercade');
         }
       
         return redirect()->route('admin.blog.acercade.index')->with('info','Se actualizo la informacion');

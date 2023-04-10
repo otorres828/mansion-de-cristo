@@ -95,6 +95,7 @@ class TeachingController extends Controller
                 $autores=User::orderBy('name','asc')->pluck('name', 'id');
             }
         }
+
         $categorias = Category::orderBy('name','asc')->pluck('name', 'id');
         if ($variable == 0) {
             return view('admin.blog.teaching.edit', compact('teaching', 'categorias'));
