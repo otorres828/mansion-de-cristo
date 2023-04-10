@@ -177,7 +177,6 @@
             Swal.fire({
                 title: '¿Estas Seguro?',
                 text: "¿Que quieres eliminar el usuario?. Solo podra ser eliminado si este no ha confirmado su correo, de lo contrario debe de contactarse con olivertorres1997@gmail.com para eliminar",
-                icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',

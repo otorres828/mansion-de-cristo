@@ -57,7 +57,6 @@
             Swal.fire({
             title: '¿Estas Seguro?',
             text: "que quieres eliminar esta Iglesia! Se borrar todos los registros de sus miembros permanentemente",
-            icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',

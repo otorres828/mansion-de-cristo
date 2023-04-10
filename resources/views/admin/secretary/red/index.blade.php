@@ -149,7 +149,6 @@
             Swal.fire({
                 title: '¿Estas Seguro?',
                 text: "que quieres eliminar esta Red!",
-                icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',

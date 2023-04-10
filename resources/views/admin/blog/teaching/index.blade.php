@@ -84,7 +84,6 @@
             Swal.fire({
                 title: '¿Estas Seguro?',
                 text: "que quieres eliminar la enseñanza!",
-                icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
