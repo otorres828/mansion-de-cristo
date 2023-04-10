@@ -47,4 +47,11 @@ trait TraitFile {
         ]);
     }
 
+    public function eliminar_imagen(Object $objeto){
+        if(env('APP_ENV')!='local')
+            Storage::disk('do_spaces')->delete($objeto->image->url);  
+        else
+            Storage::disk('public')->delete($objeto->image->url);
+    }
+
 }

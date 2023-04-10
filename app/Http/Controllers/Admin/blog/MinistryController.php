@@ -82,9 +82,9 @@ class MinistryController extends Controller
         DB::delete("DELETE FROM visitas where pagina='$ministry->name'");
 
         if($ministry->image){
-            Storage::disk('do_spaces')->delete($ministry->image->url); 
-            // Storage::delete($ministry->image->url);
+            $this->eliminar_imagen($ministry);
         }
+        
         $ministry->delete();
         return redirect()->route('admin.blog.ministry.index')->with('delete','El ministerio o departamento se elimino con exito');;
     }

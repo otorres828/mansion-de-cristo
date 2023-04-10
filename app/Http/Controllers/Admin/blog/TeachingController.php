@@ -141,8 +141,7 @@ class TeachingController extends Controller
         $this->authorize('autor', $teaching);
         DB::delete("DELETE FROM visitas where pagina='$teaching->name'");
         if($teaching->image){
-            // Storage::delete($teaching->image->url);
-            Storage::disk('do_spaces')->delete($teaching->image->url);        
+            $this->eliminar_imagen($teaching);
         }
         $teaching->delete();
         return redirect()->route('admin.blog.teaching.index')->with('delete', 'La enseñanza se elimino con exito');;

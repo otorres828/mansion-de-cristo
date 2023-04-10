@@ -102,8 +102,7 @@ class TestimonyController extends Controller
         $this->authorize('autor',$testimony);
         DB::delete("DELETE FROM visitas where pagina='$testimony->name'");
         if($testimony->image){
-            Storage::disk('do_spaces')->delete($testimony->image->url);        
-            // Storage::delete($testimony->image->url);
+            $this->eliminar_imagen($testimony);
         }
         $testimony->delete();
         return redirect()->route('admin.blog.testimony.index')->with('delete','El testimonio se elimino con exito');;

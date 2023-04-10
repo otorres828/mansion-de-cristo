@@ -106,8 +106,7 @@ class AnnounceController extends Controller
         DB::delete("DELETE FROM visitas where pagina='$anuncio->name'");
         //ELIMINAR IMAGEN ASOCIADA AL ANUNCIO
         if($anuncio->image){
-            // Storage::delete($anuncio->image->url);
-            Storage::disk('do_spaces')->delete($anuncio->image->url);
+            $this->eliminar_imagen($anuncio);
         }
 
         $anuncio->delete();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\blog;
 
 use App\Http\Controllers\Controller;
 use App\Models\Acercade;
+use App\Traits\TraitFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -11,6 +12,7 @@ use Illuminate\Support\Str;
 
 class AcercadeController extends Controller
 {
+    use TraitFile;
 
     public function index()
     {
@@ -71,8 +73,7 @@ class AcercadeController extends Controller
     {
         //ELIMINAR IMAGEN ASOCIADA A LA INFORMACION
         if($acercade->image){
-            // Storage::delete($acercade->image->url);
-            Storage::disk('do_spaces')->delete($acercade->image->url);        
+            $this->eliminar_imagen($acercade);      
         }
         $acercade->delete();
         return redirect()->route('admin.blog.acercade.index')->with('delete','La informacion se elimino con exito');
